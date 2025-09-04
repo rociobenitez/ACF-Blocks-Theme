@@ -4,7 +4,70 @@
 	"settings": {
 		"appearanceTools": true,
 		"border": {},
-		"color": {},
+		"color": {
+			"background": true,
+			"custom": true,
+			"customDuotone": false,
+			"customGradient": true,
+			"defaultDuotone": false,
+			"defaultPalette": true,
+			"gradients": [
+				{
+					"name": "Black to White",
+					"slug": "black-to-white",
+					"gradient": "linear-gradient(135deg, #000000 0%, #ffffff 100%)"
+				},
+				{
+					"name": "Dark Gray to Light Gray",
+					"slug": "dark-gray-to-light-gray",
+					"gradient": "linear-gradient(135deg, #666666 0%, #eeeeee 100%)"
+				}
+			],
+			"link": true,
+			"palette": [
+				{
+					"name": "Black",
+					"slug": "black",
+					"color": "#000000"
+				},
+				{
+					"name": "White",
+					"slug": "white",
+					"color": "#ffffff"
+				},
+				{
+					"name": "Gray",
+					"slug": "gray",
+					"color": "#6b7280"
+				},
+				{
+					"name": "Primary",
+					"slug": "primary",
+					"color": "#3b82f6"
+				},
+				{
+					"name": "Secondary",
+					"slug": "secondary",
+					"color": "#10b981"
+				},
+				{
+					"name": "Accent",
+					"slug": "accent",
+					"color": "#f59e0b"
+				},
+				{
+					"name": "Base",
+					"slug": "base",
+					"color": "#111827"
+				},
+				{
+					"name": "Background",
+					"slug": "bg",
+					"color": "#f5f7fa"
+				}
+			],
+			"text": true
+		},
 		"custom": {},
 		"dimensions": {},
 		"layout": {
@@ -14,14 +77,128 @@
 		"position": {},
 		"shadow": {},
 		"spacing": {
+			"blockGap": null,
+			"customSpacingSize": true,
+			"margin": false,
+			"padding": false,
+			"spacingScale": {
+				"operator": "*",
+				"increment": 1.5,
+				"steps": 7,
+				"mediumStep": 1.5,
+				"unit": "rem"
+			},
+			"spacingSizes": [],
 			"units": [ "%", "px", "em", "rem", "vh", "vw" ]
 		},
 		"typography": {
+			"customFontSize": true,
+			"dropCap": true,
+			"fontStyle": true,
+			"fontWeight": true,
+			"letterSpacing": true,
+			"lineHeight": false,
+			"textColumns": false,
+			"textDecoration": true,
+			"textTransform": true,
+			"writingMode": true,
+			"defaultFontSizes": false,
+			"fluid": true,
+			"fontSizes": [
+				{
+					"fluid": false,
+					"name": "Small",
+					"size": "0.875rem",
+					"slug": "small"
+				},
+				{
+					"fluid": {
+						"max": "1.125rem",
+						"min": "1rem"
+					},
+					"name": "Medium",
+					"size": "1rem",
+					"slug": "medium"
+				},
+				{
+					"fluid": {
+						"max": "1.375rem",
+						"min": "1.125rem"
+					},
+					"name": "Large",
+					"size": "1.38rem",
+					"slug": "large"
+				},
+				{
+					"fluid": {
+						"max": "2rem",
+						"min": "1.75rem"
+					},
+					"name": "Extra Large",
+					"size": "1.75rem",
+					"slug": "x-large"
+				},
+				{
+					"fluid": {
+						"max": "3rem",
+						"min": "2.15rem"
+					},
+					"name": "Extra Extra Large",
+					"size": "2.15rem",
+					"slug": "xx-large"
+				}
+			],
 			"fontFamilies": [
 				{
-					"fontFamily": "-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen-Sans, Ubuntu, Cantarell, 'Helvetica Neue', sans-serif",
+					"name": "Primary",
+					"slug": "primary",
+					"fontFamily": "Manrope, sans-serif",
+					"fontFace": [
+						{
+							"src": [
+								"file:./assets/fonts/manrope/Manrope-VariableFont_wght.woff2"
+							],
+							"fontWeight": "200 800",
+							"fontStyle": "normal",
+							"fontFamily": "Manrope"
+						}
+					]
+				},
+				{
+					"name": "Secondary",
+					"slug": "secondary",
+					"fontFamily": "Inter, sans-serif",
+					"fontFace": [
+						{
+							"src": [
+								"file:./assets/fonts/inter/Inter-VariableFont_wght.woff2"
+							],
+							"fontWeight": "300 700",
+							"fontStyle": "normal",
+							"fontFamily": "Inter"
+						}
+					]
+
+				},
+				{
+					"name": "Monospace",
+					"slug": "monospace",
+					"fontFamily": "\"Fira Code\", monospace",
+					"fontFace": [
+						{
+							"src": [
+								"file:./assets/fonts/fira-code/FiraCode-VariableFont_wght.woff2"
+							],
+							"fontWeight": "300 700",
+							"fontStyle": "normal",
+							"fontFamily": "\"Fira Code\""
+						}
+					]
+				},
+				{
 					"name": "System Font",
-					"slug": "system-font"
+					"slug": "system-font",
+					"fontFamily": "-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen-Sans, Ubuntu, Cantarell, 'Helvetica Neue', sans-serif"
 				}
 			]
 		},
