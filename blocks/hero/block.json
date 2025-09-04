@@ -1,0 +1,36 @@
+{
+  "name": "acf/hero",
+  "title": "Hero",
+  "description": "Flexible hero with text, media (image/video), layout and CTA options.",
+  "style": [ "file:./style.css" ],
+  "category": "starter-blocks",
+  "icon": "cover",
+  "keywords": ["hero", "banner", "cover"],
+  "acf": {
+    "mode": "preview",
+    "renderTemplate": "render.php"
+  },
+  "supports": {
+    "anchor": true,
+    "align": ["wide", "full"]
+  },
+  "example": {
+    "attributes": {
+      "mode": "preview",
+      "data": {
+        "tagline": "Category",
+        "title": "Build faster with MKT Blocks",
+        "subtitle": "Reusable ACF blocks",
+        "text": "This is a minimal hero ready for multiple projects.",
+        "layout": "contained",
+        "vertical_alignment": "center",
+        "image_position": "right",
+        "background_preset": "default",
+        "padding_y": "md",
+        "cta_1_label": "Get Started",
+        "cta_1_url": "#",
+        "cta_1_style": "primary"
+      }
+    }
+  }
+}

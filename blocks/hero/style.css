@@ -1,0 +1,142 @@
+.hero {
+	position: relative;
+	color: var(--color-gray-900);
+	background-color: var(--color-bg-default);
+	padding-block: var(--space-5);
+	overflow: hidden;
+}
+
+.hero--py-sm {
+	padding-block: var(--space-4);
+}
+.hero--py-md {
+	padding-block: var(--space-5);
+}
+.hero--py-lg {
+	padding-block: var(--space-6);
+}
+
+.hero--bg-default {
+	background-color: var(--color-bg-default);
+	color: var(--color-gray-900);
+}
+.hero--bg-primary {
+	background-color: var(--color-primary);
+	color: var(--color-white);
+}
+.hero--bg-secondary {
+	background-color: var(--color-secondary);
+	color: var(--color-gray-900);
+}
+
+.hero__overlay {
+	position: absolute;
+	inset: 0;
+	background: #000;
+	pointer-events: none;
+}
+
+.hero--with-bg {
+	background-size: cover;
+	background-position: center;
+}
+
+.hero__inner {
+	width: 100%;
+}
+
+.hero__grid {
+	display: grid;
+	grid-template-columns: 1fr;
+	gap: var(--space-4);
+	align-items: center;
+}
+
+.hero--with-media .hero__grid {
+	grid-template-columns: 1fr;
+}
+
+@media (min-width: 900px) {
+	.hero--with-media .hero__grid {
+		grid-template-columns: 1fr 1fr;
+	}
+	.hero--media-left .hero__content {
+		order: 2;
+	}
+	.hero--media-left .hero__media {
+		order: 1;
+	}
+}
+
+.hero--valign-top .hero__grid {
+	align-items: start;
+}
+.hero--valign-center .hero__grid {
+	align-items: center;
+}
+.hero--valign-bottom .hero__grid {
+	align-items: end;
+}
+
+.hero__tagline {
+	margin: 0 0 var(--space-2);
+	opacity: 0.85;
+	font-weight: 600;
+	letter-spacing: 0.02em;
+}
+
+.hero__title {
+	margin: 0 0 var(--space-2);
+	font-size: clamp(2rem, 4vw, 3rem);
+	line-height: 1.1;
+}
+
+.hero__subtitle {
+	margin: 0 0 var(--space-3);
+	font-size: clamp(1.125rem, 2vw, 1.25rem);
+	opacity: 0.9;
+}
+
+.hero__text {
+	margin-bottom: var(--space-4);
+}
+
+.hero__actions {
+	display: flex;
+	gap: var(--space-2);
+	flex-wrap: wrap;
+}
+
+.btn {
+	display: inline-block;
+	border-radius: var(--radius-md);
+	padding: 0.75rem 1rem;
+	text-decoration: none;
+	border: 1px solid transparent;
+}
+
+.btn--default {
+	background: var(--color-gray-900);
+	color: var(--color-white);
+	border-color: currentColor;
+}
+.btn--primary {
+	background: var(--color-primary);
+	color: var(--color-white);
+}
+.btn--secondary {
+	background: var(--color-secondary);
+	color: var(--color-gray-900);
+}
+.btn--transparent {
+	background: transparent;
+	color: currentColor;
+	border-color: currentColor;
+}
+
+.hero__img,
+.hero__video {
+	width: 100%;
+	height: auto;
+	display: block;
+}

@@ -1,0 +1,43 @@
+# macOS / OS
+.DS_Store
+.AppleDouble
+.LSOverride
+Icon?
+Thumbs.db
+
+# Node
+node_modules/
+npm-debug.log*
+yarn.lock
+.pnpm-store/
+.parcel-cache/
+.vscode/
+.idea/
+
+# Composer
+/vendor/
+composer.phar
+
+# Logs / temp
+*.log
+*.tmp
+*.swp
+*.swo
+
+# Build / artifacts
+dist/
+build/
+assets/build/
+*.map
+
+# Env / secrets
+.env
+.env.*
+*.local
+
+# Local tools
+.sass-cache/
+*.cache
+
+# WordPress
+wp-content/uploads/

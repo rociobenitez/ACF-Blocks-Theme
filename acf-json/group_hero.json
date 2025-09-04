@@ -1,0 +1,273 @@
+{
+  "key": "group_hero",
+  "title": "Hero",
+  "fields": [
+    {
+      "key": "field_hero_tagline",
+      "label": "Tagline",
+      "name": "tagline",
+      "type": "text",
+      "instructions": "Texto pequeño encima del título",
+      "required": 0,
+      "wrapper": { "width": "100" },
+      "default_value": ""
+    },
+    {
+      "key": "field_hero_title",
+      "label": "Título",
+      "name": "title",
+      "type": "text",
+      "instructions": "Texto principal de la cabecera de la página de inicio",
+      "required": 0,
+      "wrapper": { "width": "100" },
+      "default_value": ""
+    },
+    {
+      "key": "field_hero_title_tag",
+      "label": "Etiqueta del título",
+      "name": "title_tag",
+      "type": "radio",
+      "instructions": "Selecciona el nivel de encabezado para el título",
+      "choices": { "h1": "H1", "h2": "H2", "h3": "H3", "p": "P" },
+      "default_value": "h1",
+      "layout": "horizontal",
+      "wrapper": { "width": "100" }
+    },
+    {
+      "key": "field_hero_subtitle",
+      "label": "Subtítulo",
+      "name": "subtitle",
+      "type": "text",
+      "instructions": "Ubicado debajo del título principal",
+      "required": 0,
+      "wrapper": { "width": "100" },
+      "default_value": ""
+    },
+    {
+      "key": "field_hero_subtitle_tag",
+      "label": "Etiqueta del subtítulo",
+      "name": "subtitle_tag",
+      "type": "radio",
+      "instructions": "Selecciona el nivel de encabezado para el subtítulo",
+      "choices": { "h2": "H2", "h3": "H3", "p": "P" },
+      "default_value": "p",
+      "layout": "horizontal",
+      "wrapper": { "width": "100" }
+    },
+    {
+      "key": "field_hero_text_alignment",
+      "label": "Alineación del texto",
+      "name": "text_alignment",
+      "type": "select",
+      "choices": { "center": "Centro", "left": "Izquierda", "right": "Derecha" },
+      "default_value": "center",
+      "ui": 0,
+      "wrapper": { "width": "100" }
+    },
+    {
+      "key": "field_hero_text",
+      "label": "Texto",
+      "name": "text",
+      "type": "wysiwyg",
+      "tabs": "all",
+      "toolbar": "full",
+      "media_upload": 1,
+      "wrapper": { "width": "100" }
+    },
+
+    {
+      "key": "field_hero_layout",
+      "label": "Ancho del diseño",
+      "name": "layout",
+      "type": "select",
+      "instructions": "Selecciona el ancho del diseño",
+      "choices": { "contained": "Contenido", "full": "Completo" },
+      "default_value": "contained",
+      "wrapper": { "width": "100" }
+    },
+    {
+      "key": "field_hero_vertical_alignment",
+      "label": "Alineación vertical",
+      "name": "vertical_alignment",
+      "type": "select",
+      "choices": { "top": "Arriba", "center": "Centro", "bottom": "Abajo" },
+      "default_value": "center",
+      "wrapper": { "width": "100" }
+    },
+    {
+      "key": "field_hero_background_preset",
+      "label": "Fondo preestablecido",
+      "name": "background_preset",
+      "type": "select",
+      "choices": { "default": "Predeterminado", "primary": "Primario", "secondary": "Secundario", "accent": "Acento" },
+      "default_value": "default",
+      "wrapper": { "width": "100" }
+    },
+    {
+      "key": "field_hero_padding_y",
+      "label": "Padding vertical",
+      "name": "padding_y",
+      "type": "select",
+      "instructions": "Selecciona el espaciado vertical",
+      "choices": { "sm": "Pequeño", "md": "Mediano", "lg": "Grande" },
+      "default_value": "md",
+      "wrapper": { "width": "100" }
+    },
+
+    {
+      "key": "field_hero_image_mode",
+      "label": "Modo de imagen",
+      "name": "image_mode",
+      "type": "select",
+      "instructions": "Ninguno / Fondo / Medios junto al texto",
+      "choices": { "none": "Ninguno", "background": "Imagen de fondo", "media": "Medios (imagen/video)" },
+      "default_value": "none",
+      "wrapper": { "width": "100" }
+    },
+    {
+      "key": "field_hero_overlay_enabled",
+      "label": "Overlay",
+      "name": "overlay_enabled",
+      "type": "true_false",
+      "instructions": "Habilitar overlay (sólo para imagen de fondo)",
+      "ui": 1,
+      "default_value": 0,
+      "conditional_logic": [
+        [
+          { "field": "field_hero_image_mode", "operator": "==", "value": "background" }
+        ]
+      ],
+      "wrapper": { "width": "100" }
+    },
+    {
+      "key": "field_hero_overlay_opacity",
+      "label": "Opacidad del overlay (0–1)",
+      "name": "overlay_opacity",
+      "type": "number",
+      "step": 0.05,
+      "min": 0,
+      "max": 1,
+      "default_value": 0.35,
+      "conditional_logic": [
+        [
+          { "field": "field_hero_image_mode", "operator": "==", "value": "background" },
+          { "field": "field_hero_overlay_enabled", "operator": "==", "value": "1" }
+        ]
+      ],
+      "wrapper": { "width": "100" }
+    },
+    {
+      "key": "field_hero_media_type",
+      "label": "Tipo de medio",
+      "name": "media_type",
+      "type": "select",
+      "choices": { "image": "Imagen", "video": "Video" },
+      "default_value": "image",
+      "conditional_logic": [
+        [
+          { "field": "field_hero_image_mode", "operator": "==", "value": "media" }
+        ]
+      ],
+      "wrapper": { "width": "100" }
+    },
+    {
+      "key": "field_hero_image_position",
+      "label": "Posición de la imagen",
+      "name": "image_position",
+      "type": "radio",
+      "choices": { "left": "Izquierda", "right": "Derecha" },
+      "default_value": "right",
+      "layout": "horizontal",
+      "conditional_logic": [
+        [
+          { "field": "field_hero_image_mode", "operator": "==", "value": "media" }
+        ]
+      ],
+      "wrapper": { "width": "100" }
+    },
+    {
+      "key": "field_hero_image",
+      "label": "Imagen",
+      "name": "image",
+      "type": "image",
+      "instructions": "Selecciona la imagen de fondo o la imagen junto al texto",
+      "return_format": "id",
+      "preview_size": "medium",
+      "conditional_logic": [
+        [
+          { "field": "field_hero_image_mode", "operator": "==", "value": "background" }
+        ],
+        [
+          { "field": "field_hero_image_mode", "operator": "==", "value": "media" },
+          { "field": "field_hero_media_type", "operator": "==", "value": "image" }
+        ]
+      ],
+      "wrapper": { "width": "100" }
+    },
+    {
+      "key": "field_hero_video_url",
+      "label": "Video URL (oEmbed)",
+      "name": "video_url",
+      "type": "url",
+      "instructions": "Pega la URL del video (YouTube, Vimeo, Medios, etc.)",
+      "conditional_logic": [
+        [
+          { "field": "field_hero_image_mode", "operator": "==", "value": "media" },
+          { "field": "field_hero_media_type", "operator": "==", "value": "video" }
+        ]
+      ],
+      "wrapper": { "width": "100" }
+    },
+
+    {
+      "key": "field_hero_cta_1_btn",
+      "label": "Botón CTA principal",
+      "name": "cta_1_btn",
+      "type": "link",
+      "return_format": "array",
+      "wrapper": { "width": "100" }
+    },
+    {
+      "key": "field_hero_cta_1_style",
+      "label": "Estilo del botón principal CTA",
+      "name": "cta_1_style",
+      "type": "radio",
+      "choices": { "default": "Default", "primary": "Primary", "secondary": "Secondary", "transparent": "Transparent" },
+      "default_value": "primary",
+      "layout": "horizontal",
+      "wrapper": { "width": "100" }
+    },
+    {
+      "key": "field_hero_cta_2_btn",
+      "label": "Botón CTA secundario",
+      "name": "cta_2_btn",
+      "type": "link",
+      "return_format": "array",
+      "wrapper": { "width": "100" }
+    },
+    {
+      "key": "field_hero_cta_2_style",
+      "label": "Estilo del botón CTA secundario",
+      "name": "cta_2_style",
+      "type": "radio",
+      "choices": { "default": "Default", "primary": "Primary", "secondary": "Secondary", "transparent": "Transparent" },
+      "default_value": "secondary",
+      "layout": "horizontal",
+      "wrapper": { "width": "100" }
+    }
+  ],
+  "location": [
+    [
+      { "param": "block", "operator": "==", "value": "hero" }
+    ]
+  ],
+  "menu_order": 0,
+  "position": "normal",
+  "style": "default",
+  "label_placement": "top",
+  "instruction_placement": "label",
+  "hide_on_screen": "",
+  "active": true,
+  "description": "Hero block",
+  "show_in_rest": 0
+}

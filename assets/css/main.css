@@ -1,0 +1,207 @@
+/* Design tokens */
+:root {
+	/* Fonts */
+	--font-primary: "Inter", system-ui, -apple-system, "Segoe UI", Roboto,
+		"Helvetica Neue", Arial, "Noto Sans", sans-serif;
+	--font-secondary: "Space Grotesk", "Inter", system-ui, sans-serif;
+	--font-mono: "JetBrains Mono", "SFMono-Regular", Menlo, Consolas, monospace;
+
+	--font-body: var(--font-primary);
+	--font-heading: var(--font-secondary);
+	--font-tagline: var(--font-primary);
+
+	/* Font Sizes - Body */
+	--fs-10: 0.625rem;
+	--fs-12: 0.75rem;
+	--fs-14: 0.875rem;
+	--fs-16: 1rem;
+	--fs-18: 1.125rem;
+	--fs-20: 1.25rem;
+	--fs-24: 1.5rem;
+	--fs-30: 1.875rem;
+	--fs-36: 2.25rem;
+	--fs-40: 2.5rem;
+	--fs-48: 3rem;
+	--fs-base: var(--fs-16);
+
+	/* Font Sizes - Headings */
+	--fs-h1: clamp(2rem, 5vw, 3.5rem);
+	--fs-h2: clamp(1.75rem, 4vw, 2.5rem);
+	--fs-h3: clamp(1.5rem, 3vw, 2rem);
+	--fs-h4: clamp(1.25rem, 2.5vw, 1.75rem);
+	--fs-h5: clamp(1.125rem, 2vw, 1.5rem);
+	--fs-h6: clamp(1rem, 1.5vw, 1.25rem);
+
+	/* Font Weights */
+	--fw-light: 300;
+	--fw-regular: 400;
+	--fw-medium: 500;
+	--fw-semibold: 600;
+	--fw-bold: 700;
+
+	/* Line height */
+	--lh-tight: 1.2;
+	--lh-base: 1.6;
+	--lh-relaxed: 1.8;
+
+	/* Letter spacing */
+	--ls-tight: -0.02em;
+	--ls-base: 0;
+	--ls-wide: 0.05em;
+
+	/* Base neutrals */
+	--color-black: #0a0a0a;
+	--color-dark: #111827;
+	--color-gray: #6b7280;
+	--color-light: #f5f7fa;
+	--color-white: #ffffff;
+
+	/* Primary Color */
+	--color-primary-50: #eff6ff;
+	--color-primary-100: #dbeafe;
+	--color-primary-200: #bfdbfe;
+	--color-primary-300: #93c5fd;
+	--color-primary-400: #60a5fa;
+	--color-primary-500: #3b82f6; /* primary default */
+	--color-primary-600: #2563eb; /* hover/active */
+	--color-primary-700: #1d4ed8;
+	--color-primary-800: #1e40af;
+	--color-primary-900: #1e3a8a;
+	--color-primary: var(--color-primary-500);
+	--color-primary-hover: var(--color-primary-600);
+
+	/* Secondary */
+	--color-secondary-50: #f0fdfa;
+	--color-secondary-100: #ccfbf1;
+	--color-secondary-200: #99f6e4;
+	--color-secondary-300: #5eead4;
+	--color-secondary-400: #2dd4bf;
+	--color-secondary-500: #14b8a6; /* secondary default */
+	--color-secondary-600: #0d9488; /* hover/active */
+	--color-secondary-700: #0f766e;
+	--color-secondary-800: #115e59;
+	--color-secondary-900: #134e4a;
+	--color-secondary: var(--color-secondary-500);
+	--color-secondary-hover: var(--color-secondary-600);
+
+	/* Gray scale */
+	--color-gray-50: #fafafa;
+	--color-gray-100: #f5f5f5;
+	--color-gray-200: #e5e5e5;
+	--color-gray-300: #d4d4d4;
+	--color-gray-400: #a3a3a3;
+	--color-gray-500: #737373;
+	--color-gray-600: #525252;
+	--color-gray-700: #404040;
+	--color-gray-800: #262626;
+	--color-gray-900: #171717;
+
+	/* Semantic palette */
+	--color-success: #16a34a;
+	--color-success-light: #86efac;
+	--color-success-dark: #15803d;
+
+	--color-warning: #d97706;
+	--color-warning-light: #fde68a;
+	--color-warning-dark: #b45309;
+
+	--color-error: #dc2626;
+	--color-error-light: #fca5a5;
+	--color-error-dark: #b91c1c;
+
+	--color-info: #0ea5e9;
+	--color-info-light: #7dd3fc;
+	--color-info-dark: #0284c7;
+
+	/* Text Colors */
+	--color-text-base: var(--color-gray-700);
+	--color-text-heading: var(--color-gray-900);
+	--color-text-tagline: var(--color-gray-900);
+	--color-text-muted: var(--color-gray-500);
+	--color-text-white: var(--color-white);
+	--color-text-link: var(--color-primary-500);
+	--color-text-link-hover: var(--color-primary-600);
+
+	/* Background Colors */
+	--color-bg-default: var(--color-light);
+
+	/* Border Colors */
+	--color-border: var(--color-gray-200);
+	--color-border-hover: var(--color-gray-300);
+
+	/* Spacing scale (px-based rems) */
+	--space-0: 0;
+	--space-2: 0.125rem;
+	--space-4: 0.25rem;
+	--space-8: 0.5rem;
+	--space-12: 0.75rem;
+	--space-16: 1rem;
+	--space-24: 1.5rem;
+	--space-32: 2rem;
+	--space-40: 2.5rem;
+	--space-48: 3rem;
+	--space-64: 4rem;
+
+	/* Layout paddings */
+	--padding-top-body: 120px;
+	--padding-top-body-mobile: 64px;
+
+	/* Motion */
+	--duration-fast: 120ms;
+	--duration-base: 200ms;
+	--duration-slow: 320ms;
+	--easing-standard: cubic-bezier(0.2, 0, 0.2, 1);
+
+	/* Transitions */
+	--transition-btn: background-color var(--duration-base)
+			var(--easing-standard),
+		color var(--duration-base) var(--easing-standard),
+		border-color var(--duration-base) var(--easing-standard),
+		transform var(--duration-fast) var(--easing-standard);
+
+	/* Shadows */
+	--shadow-100: 0 1px 2px rgb(0 0 0 / 0.08);
+	--shadow-200: 0 2px 8px rgb(0 0 0 / 0.12);
+	--box-shadow-menu: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+	--box-shadow-input: 0 0 0 2px rgba(0, 201, 183, 0.3);
+	--text-shadow: 0px 2px 4px rgba(0, 0, 0, 0.4);
+
+	/* Radius */
+	--radius-2: 0.125rem;
+	--radius-4: 0.25rem;
+	--radius-8: 0.5rem;
+	--radius-pill: 999px;
+
+	/* Component radius aliases */
+	--border-radius-input-form: var(--radius-4);
+	--border-radius-button-sm: var(--radius-pill);
+	--border-radius-button-md: var(--radius-pill);
+	--border-radius-button-lg: var(--radius-pill);
+
+	/* Z-index */
+	--z-below: -1;
+	--z-base: 0;
+	--z-dropdown: 1000;
+	--z-sticky: 1100;
+	--z-overlay: 1200;
+	--z-modal: 1300;
+	--z-popover: 1400;
+	--z-tooltip: 1500;
+}
+
+/* Optional: dark theme via attribute */
+:root[data-theme="dark"] {
+	--color-bg-white: #0f172a;
+	--color-text-base: #e5e7eb;
+	--color-text-heading: #f1f5f9;
+	--color-text-link: var(--color-primary-300);
+	--color-text-link-hover: var(--color-primary-200);
+	--color-border: #1f2937;
+	--color-bg-gray: #111827;
+	--color-bg-primary: color-mix(in oklch, var(--color-primary-600), white 8%);
+	--color-bg-secondary: color-mix(
+		in oklch,
+		var(--color-secondary-600),
+		white 8%
+	);
+}
