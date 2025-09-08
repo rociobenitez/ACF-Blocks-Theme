@@ -1,0 +1,20 @@
+{
+  "apiVersion": 2,
+  "name": "acf/footer-credits",
+  "title": "Footer · Créditos",
+  "description": "Línea de copyright con constante del tema.",
+  "category": "theme",
+  "icon": "admin-users",
+  "textdomain": "st-starter",
+  "supports": {
+    "align": [ "wide", "full" ],
+    "anchor": true,
+    "color": false,
+    "typography": false,
+    "spacing": { "margin": [ "top", "bottom" ] }
+  },
+  "acf": {
+    "mode": "preview",
+    "renderTemplate": "render.php"
+  }
+}

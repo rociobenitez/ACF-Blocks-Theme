@@ -1,0 +1,21 @@
+{
+  "apiVersion": 2,
+  "name": "acf/footer-contact",
+  "title": "Footer · Contacto (Opciones)",
+  "description": "Muestra los datos de contacto configurados en la página de Opciones.",
+  "category": "theme",
+  "icon": "phone",
+  "textdomain": "st-starter",
+  "style": [ "file:./style.css" ],
+  "supports": {
+    "align": [ "wide", "full" ],
+    "anchor": true,
+    "color": false,
+    "typography": false,
+    "spacing": { "margin": [ "top", "bottom" ] }
+  },
+  "acf": {
+    "mode": "preview",
+    "renderTemplate": "render.php"
+  }
+}

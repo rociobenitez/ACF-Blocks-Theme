@@ -1,0 +1,17 @@
+.footer-contact__item {
+	margin: var(--space-8) 0;
+}
+.footer-contact__address a {
+	text-decoration: none;
+}
+.footer-contact__address a:hover {
+	text-decoration: underline;
+}
+.footer-contact__hours {
+	padding-top: var(--space-8);
+	font-size: var(--fs-14);
+	line-height: 1.4;
+}
+.footer-contact__placeholder {
+	color: var(--color-gray-500);
+}
