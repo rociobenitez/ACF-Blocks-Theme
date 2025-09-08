@@ -1,0 +1,31 @@
+{
+  "apiVersion": 2,
+  "name": "acf/topbar",
+  "title": "Topbar",
+  "description": "Barra superior del sitio basada en Opciones ACF.",
+  "category": "theme",
+  "icon": "menu",
+  "keywords": ["header", "topbar", "logo", "contacto", "redes"],
+  "textdomain": "acf-starter",
+  "style": [ "file:./style.css" ],
+
+  "supports": {
+    "anchor": true,
+    "align": [ "full" ],
+    "spacing": {
+      "padding": true,
+      "margin": [ "top", "bottom" ]
+    },
+    "color": {
+        "background": false,
+        "text": false
+    },
+    "typography": false,
+    "border": false
+  },
+
+  "acf": {
+    "mode": "preview",
+    "renderTemplate": "render.php"
+  }
+}

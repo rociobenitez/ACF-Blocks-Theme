@@ -16,6 +16,7 @@ class Starter_Theme {
         
         add_action( 'after_setup_theme', [ __CLASS__, 'theme_setup' ] );
         add_action( 'wp_enqueue_scripts', [ __CLASS__, 'enqueue_assets' ] );
+        add_filter( 'upload_mimes', [ __CLASS__, 'allow_svg_upload' ] );
 
         // Initialize ACF JSON and ACF Blocks if ACF is active
         if ( class_exists( __NAMESPACE__ . '\\Starter_ACF_JSON' ) ) {
@@ -38,10 +39,13 @@ class Starter_Theme {
             define( 'ST_THEME_NAME', $theme->get( 'Name' ) ? $theme->get( 'Name' ) : 'Starter Theme' );
         }
         if ( ! defined( 'ST_TEXT_DOMAIN' ) ) {
-            define( 'ST_TEXT_DOMAIN', 'mkt-starter' );
+            define( 'ST_TEXT_DOMAIN', 'st-starter' );
         }
         if ( ! defined( 'ST_COMPANY_NAME' ) ) {
             define( 'ST_COMPANY_NAME', 'Nombre de la empresa' );
+        }
+        if ( ! defined( 'ST_API_GOOGLE_MAPS' ) ) {
+            define( 'ST_API_GOOGLE_MAPS', 'YOUR_API_KEY' );
         }
     }
 
@@ -80,7 +84,9 @@ class Starter_Theme {
 
         // Add support for editor styles
         add_theme_support( 'editor-styles' );
-        add_editor_style( 'assets/css/main.css' );
+        add_editor_style([
+            'assets/css/editor.css'
+        ]);
 
         // Add support for block styles
         add_theme_support( 'wp-block-styles' );
@@ -96,18 +102,51 @@ class Starter_Theme {
      * Enqueue theme assets
      */
     public static function enqueue_assets() {
-        // Enqueue styles
-        wp_enqueue_style( 'mkt-starter-style', get_stylesheet_uri(), [], ST_THEME_VERSION );
-        wp_enqueue_style( 'mkt-starter-fonts', get_template_directory_uri() . '/assets/css/fonts.css', [], ST_THEME_VERSION );
+        // Bootstrap CSS from CDN
+        wp_enqueue_style( 
+            'bootstrap',
+            'https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css',
+            [],
+            '5.3.3'
+        );
 
-        /* NOTE: If you want to use Bootstrap, uncomment the following lines and remove the previous one */
-        // // Bootstrap
-        // wp_enqueue_style( 'mkt-starter-bootstrap-css', 'https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css', [], null );
-        // wp_enqueue_style( 'mkt-starter-bootstrap-icons', 'https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css', [], null );
-        // wp_enqueue_style( 'mkt-starter-style', get_stylesheet_uri(), array( 'bootstrap' ), ST_THEME_VERSION );
+        // Enqueue fonts and main styles
+        wp_enqueue_style(
+            'st-starter-fonts',
+            get_theme_file_uri('/assets/css/fonts.css'),
+            ['bootstrap'],
+            ST_THEME_VERSION
+        );
+
+        wp_enqueue_style(
+            'st-starter-main',
+            get_theme_file_uri('/assets/css/main.css'),
+            ['bootstrap','st-starter-fonts','global-styles'],
+            ST_THEME_VERSION
+        );
 
         // Enqueue scripts
-        wp_enqueue_script( 'mkt-starter-script', get_template_directory_uri() . '/assets/js/main.js', array( ), ST_THEME_VERSION, true );
-        wp_enqueue_script( 'mkt-starter-editor-script', get_template_directory_uri() . '/assets/js/editor.js', array( ), ST_THEME_VERSION, true );
+        wp_enqueue_script(
+            'st-starter-script',
+            get_template_directory_uri() . '/assets/js/main.js',
+            [],
+            ST_THEME_VERSION,
+            true
+        );
+        wp_enqueue_script(
+            'st-starter-editor-script',
+            get_template_directory_uri() . '/assets/js/editor.js',
+            ['wp-blocks','wp-dom-ready','wp-edit-post'],
+            ST_THEME_VERSION,
+            true
+        );
+    }
+
+    /**
+     * Allow SVG file uploads
+     */
+    public static function allow_svg_upload( $mimes ) {
+        $mimes['svg'] = 'image/svg+xml';
+        return $mimes;
     }
 }

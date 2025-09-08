@@ -28,7 +28,12 @@
 				{
 					"name": "Black",
 					"slug": "black",
-					"color": "#000000"
+					"color": "#0a0a0a"
+				},
+				{
+					"name": "Dark",
+					"slug": "dark",
+					"color": "#111827"
 				},
 				{
 					"name": "White",
@@ -39,6 +44,41 @@
 					"name": "Gray",
 					"slug": "gray",
 					"color": "#6b7280"
+				},
+				{
+					"name": "Light",
+					"slug": "light",
+					"color": "#f5f7fa"
+				},
+				{
+					"name": "Dark",
+					"slug": "dark",
+					"color": "#111827"
+				},
+				{
+					"name": "Muted",
+					"slug": "muted",
+					"color": "#9ca3af"
+				},
+				{
+					"name": "Success",
+					"slug": "success",
+					"color": "#10b981"
+				},
+				{
+					"name": "Info",
+					"slug": "info",
+					"color": "#3b82f6"
+				},
+				{
+					"name": "Warning",
+					"slug": "warning",
+					"color": "#f59e0b"
+				},
+				{
+					"name": "Danger",
+					"slug": "danger",
+					"color": "#ef4444"
 				},
 				{
 					"name": "Primary",

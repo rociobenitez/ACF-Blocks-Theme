@@ -123,7 +123,7 @@
 	--color-text-link-hover: var(--color-primary-600);
 
 	/* Background Colors */
-	--color-bg-default: var(--color-light);
+	--color-bg-default: var(--color-white);
 
 	/* Border Colors */
 	--color-border: var(--color-gray-200);
@@ -134,8 +134,10 @@
 	--space-2: 0.125rem;
 	--space-4: 0.25rem;
 	--space-8: 0.5rem;
+	--space-10: 0.625rem;
 	--space-12: 0.75rem;
 	--space-16: 1rem;
+	--space-20: 1.25rem;
 	--space-24: 1.5rem;
 	--space-32: 2rem;
 	--space-40: 2.5rem;
@@ -204,4 +206,202 @@
 		var(--color-secondary-600),
 		white 8%
 	);
+}
+
+/* ------------------------------------------ 
+>>> Table of Contents:
+---------------------------------------------
+- Global styles
+- Typography (headings, paragraphs, lists)
+- Links
+- Buttons
+- Images & Media
+- Header
+- Footer
+- Forms (inputs, textareas, selects)
+---------------------------------------------
+*/
+
+/* Global styles */
+body {
+	font-family: var(--font-body);
+	font-size: var(--fs-base);
+	line-height: var(--lh-base);
+	color: var(--color-text-base);
+	background-color: var(--color-bg-default);
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+}
+
+.wp-site-blocks {
+	min-height: 100vh;
+	display: flex;
+	flex-direction: column;
+}
+
+.wp-site-blocks > main {
+	flex: 1 0 auto;
+}
+
+/* Typography */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	font-family: var(--font-heading);
+	color: var(--color-text-heading);
+	line-height: var(--lh-tight);
+	margin-top: 0;
+	margin-bottom: var(--space-24);
+}
+h1 {
+	font-size: var(--fs-h1);
+}
+h2 {
+	font-size: var(--fs-h2);
+}
+h3 {
+	font-size: var(--fs-h3);
+}
+h4 {
+	font-size: var(--fs-h4);
+}
+h5 {
+	font-size: var(--fs-h5);
+}
+h6 {
+	font-size: var(--fs-h6);
+}
+p {
+	margin-top: 0;
+	margin-bottom: 1em;
+}
+
+ul,
+ol {
+	margin-top: 0;
+	margin-bottom: var(--space-8);
+	padding-left: var(--space-12);
+}
+li {
+	margin-bottom: var(--space-4);
+}
+li:last-child {
+	margin-bottom: 0;
+}
+
+/* Links */
+a {
+	color: var(--color-text-link);
+	text-decoration: none;
+	transition: color var(--duration-base) var(--easing-standard);
+}
+a:hover,
+a:focus {
+	color: var(--color-text-link-hover);
+	text-decoration: underline;
+}
+a:focus {
+	outline: 2px solid var(--color-primary-500);
+	outline-offset: 2px;
+}
+
+/* Images & Media */
+img {
+	max-width: 100%;
+	height: auto;
+}
+figure {
+	margin: 0;
+}
+figcaption {
+	font-size: 0.875rem;
+	color: var(--color-text-muted);
+	margin-top: var(--space-4);
+	text-align: center;
+}
+video,
+iframe,
+embed,
+object {
+	max-width: 100%;
+	height: auto;
+}
+
+/* Header */
+.wp-block-site-logo a,
+.wp-block-site-logo img {
+	max-height: 40px;
+	height: auto;
+	width: auto;
+}
+.wp-block-navigation__container {
+	gap: var(--space-16);
+}
+.wp-block-navigation .wp-block-navigation-item {
+	margin-bottom: var(--space-0);
+}
+.wp-block-navigation .wp-block-navigation-item__label {
+	font-size: var(--fs-16);
+}
+.wp-block-navigation .wp-block-navigation-item:last-child {
+	display: flex;
+	align-items: center;
+	padding: var(--space-8) var(--space-16);
+	background-color: var(--color-primary);
+	color: var(--color-white);
+	font-weight: var(--fw-medium);
+	font-size: var(--fs-14);
+	border-radius: var(--radius-pill);
+}
+
+/* Footer */
+footer {
+	flex-shrink: 0;
+	background-color: var(--color-light);
+	padding: var(--space-48) 0 var(--space-32);
+}
+footer a {
+	color: var(--color-primary-400);
+}
+footer a:hover,
+footer a:focus {
+	color: var(--color-primary-300);
+	text-decoration: underline;
+}
+footer a:focus {
+	outline: 2px solid var(--color-primary-500);
+	outline-offset: 2px;
+}
+footer .footer-top {
+	margin-bottom: var(--space-32);
+}
+footer .footer-top .wp-block-column p.footer-title {
+	color: var(--color-black);
+	font-size: var(--fs-15);
+	text-transform: uppercase;
+}
+footer .footer-bottom {
+	border-top: 1px solid var(--color-gray-700);
+	margin-top: var(--space-32);
+	padding-top: var(--space-16);
+	font-size: var(--fs-14);
+	margin-bottom: var(--space-0);
+}
+footer .footer-copy {
+	font-size: var(--fs-12);
+	margin-bottom: var(--space-0);
+}
+footer .footer-copy a {
+	text-decoration: underline;
+}
+footer .footer-copy a:hover,
+footer .footer-copy a:focus {
+	color: var(--color-primary-300);
+}
+footer .footer-copy a:focus {
+	outline: 2px solid var(--color-primary-500);
+	outline-offset: 2px;
 }

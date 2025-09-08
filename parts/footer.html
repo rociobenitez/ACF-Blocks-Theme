@@ -1,11 +1,63 @@
-<!-- wp:group {"layout":{"inherit":true}} -->
+<!-- wp:group {"layout":{"inherit":true,"type":"constrained","contentSize":"100%"}} -->
 <div class="wp-block-group">
-	<!-- wp:group {"style":{"spacing":{"padding":{"top":"80px","bottom":"30px"}}}} -->
-	<div class="wp-block-group" style="padding-top:80px;padding-bottom:30px">
-		<!-- wp:paragraph {"align":"center"} -->
-		<p class="has-text-align-center">Proudly Powered by <a href="https://wordpress.org" rel="nofollow">WordPress</a></p>
-		<!-- /wp:paragraph -->
+	<!-- wp:columns {"className":"footer-top container mx-auto"} -->
+	<div class="wp-block-columns footer-top container mx-auto">
+		<!-- wp:column -->
+		<div class="wp-block-column"><!-- wp:site-logo /--></div>
+		<!-- /wp:column -->
+
+		<!-- wp:column -->
+		<div class="wp-block-column">
+			<!-- wp:paragraph {"className":"footer-title"} -->
+			<p class="footer-title">Acceso rápido</p>
+			<!-- /wp:paragraph -->
+
+			<!-- wp:navigation {"ref":274,"overlayMenu":"never","layout":{"type":"flex","orientation":"vertical"}} /-->
+		</div>
+		<!-- /wp:column -->
+
+		<!-- wp:column -->
+		<div class="wp-block-column">
+			<!-- wp:paragraph {"className":"footer-title"} -->
+			<p class="footer-title">Servicios</p>
+			<!-- /wp:paragraph -->
+
+			<!-- wp:navigation {"ref":251,"layout":{"type":"flex","orientation":"vertical"}} /-->
+		</div>
+		<!-- /wp:column -->
+
+		<!-- wp:column -->
+		<div class="wp-block-column">
+			<!-- wp:paragraph {"className":"footer-title"} -->
+			<p class="footer-title">Contacto</p>
+			<!-- /wp:paragraph -->
+
+			<!-- wp:paragraph -->
+			<p>Datos de contacto</p>
+			<!-- /wp:paragraph -->
+		</div>
+		<!-- /wp:column -->
 	</div>
-	<!-- /wp:group -->
+	<!-- /wp:columns -->
+
+	<!-- wp:columns {"className":"footer-bottom container mx-auto"} -->
+	<div class="wp-block-columns footer-bottom container mx-auto">
+		<!-- wp:column -->
+		<div class="wp-block-column">
+			<!-- wp:paragraph {"className":"footer-copy"} -->
+			<p class="footer-copy">
+				Copyright © 2025 Rocío Benítez. All rights reserved.
+			</p>
+			<!-- /wp:paragraph -->
+		</div>
+		<!-- /wp:column -->
+
+		<!-- wp:column {"className":"d-flex justify-content-end"} -->
+		<div class="wp-block-column d-flex justify-content-end">
+			<!-- wp:navigation {"ref":251} /-->
+		</div>
+		<!-- /wp:column -->
+	</div>
+	<!-- /wp:columns -->
 </div>
 <!-- /wp:group -->

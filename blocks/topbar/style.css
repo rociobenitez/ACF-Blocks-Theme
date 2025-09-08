@@ -1,0 +1,73 @@
+/* Topbar (ACF Block)
+   Estilos mínimos. Se apoya en Bootstrap y en tokens de theme.json.
+*/
+
+.topbar {
+	font-size: var(--wp--preset--font-size--sm, 0.9375rem);
+	line-height: 1.4;
+}
+
+.topbar a {
+	text-decoration: none;
+}
+
+.topbar a:hover,
+.topbar a:focus {
+	text-decoration: underline;
+	text-underline-offset: 0.125em;
+}
+
+.topbar-contact a,
+.topbar-social a {
+	display: inline-flex;
+	align-items: center;
+}
+
+.topbar .bi {
+	font-size: 1em;
+}
+
+/* Estilos según estilo seleccionado */
+.wp-block-acf-topbar.is-style-topbar-light {
+	background: var(--wp--preset--color--light);
+	color: var(--wp--preset--color--dark);
+}
+.wp-block-acf-topbar.is-style-topbar-dark {
+	background: var(--wp--preset--color--dark);
+	color: var(--wp--preset--color--white);
+}
+.wp-block-acf-topbar.is-style-topbar-primary {
+	background: var(--wp--preset--color--primary);
+	color: var(--wp--preset--color--white);
+}
+.wp-block-acf-topbar.is-style-topbar-transparent {
+	background: transparent;
+}
+.wp-block-acf-topbar.is-style-topbar-divider {
+	border-bottom: 1px solid rgba(0, 0, 0, 0.12);
+}
+.wp-block-acf-topbar.is-style-topbar-deactivated {
+	display: none;
+}
+
+/* Dark backgrounds: mejora contraste de links si el tema no lo ajusta */
+.wp-block-acf-topbar.is-style-topbar-dark a,
+.wp-block-acf-topbar.is-style-topbar-primary a {
+	color: rgba(255, 255, 255, 0.9);
+}
+.wp-block-acf-topbar.is-style-topbar-dark a:hover,
+.wp-block-acf-topbar.is-style-topbar-primary a:hover {
+	color: var(--wp--preset--color-white);
+}
+
+/* Editor */
+.topbar-notice {
+	padding: 0.25rem 0.5rem;
+	background: var(--wp--preset--color-light);
+	border: 1px dashed var(--color-gray-300);
+	border-radius: 0.25rem;
+	color: var(--color-gray-700);
+	font-family: "Helvetica", "Arial", sans-serif;
+	font-style: italic;
+	text-align: center;
+}

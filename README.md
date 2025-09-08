@@ -26,20 +26,26 @@ acf-starter-theme/
 ├─ style.css
 ├─ functions.php
 ├─ theme.json
-├─ acf-json/                 # ACF Local JSON (commit to repo)
+├─ acf-json/                # ACF Local JSON (commit to repo)
 ├─ assets/
-│  ├─ css/                   # main.css (tokens) + optional extras
-│  └─ js/                    # minimal editor/front helpers
-├─ blocks/                   # each block = folder with block.json + render.php + style.css
+│  ├─ css/                  # main.css (tokens) + optional extras
+│  └─ js/                   # minimal editor/front helpers
+├─ blocks/                  # each block = folder with block.json + render.php + style.css
 │  └─ hero/
 │     ├─ block.json
 │     ├─ render.php
 │     └─ style.css
+├─ parts/
+│  ├─ header.html
+│  └─ footer.html
+├─ styles
+│  └─ typograpy/
 ├─ inc/
-│  ├─ class-theme.php        # main bootstrap (hooks)
-│  ├─ class-acf-json.php     # ACF Local JSON + options page
-│  └─ class-acf-blocks.php   # category + auto-register blocks from /blocks
-└─ languages/                # translations (.pot/.po/.mo)
+│  ├─ class-theme.php       # main bootstrap (hooks)
+│  ├─ class-acf-json.php    # ACF Local JSON + options page
+│  └─ class-acf-blocks.php  # category + auto-register blocks from /blocks
+├─ templates/
+└─ languages/               # translations (.pot/.po/.mo)
 ```
 
 ## Installation
