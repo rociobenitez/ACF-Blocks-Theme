@@ -1,36 +1,29 @@
 {
   "name": "acf/hero",
   "title": "Hero",
-  "description": "Flexible hero with text, media (image/video), layout and CTA options.",
-  "style": [ "file:./style.css" ],
-  "category": "starter-blocks",
-  "icon": "cover",
-  "keywords": ["hero", "banner", "cover"],
+  "description": "Sección hero flexible con varios estilos",
+  "category": "theme",
+  "icon": "cover-image",
+  "keywords": ["hero", "banner", "jumbotron"],
+  "supports": {
+    "align": ["wide", "full"],
+    "anchor": true,
+    "className": true,
+    "spacing": { "margin": false, "padding": false },
+    "color": { "background": false, "text": false, "gradients": false },
+    "typography": { "fontSize": false, "lineHeight": false },
+    "shadow": false
+  },
+  "styles": [
+    { "name": "centered", "label": "Centrado", "isDefault": true },
+    { "name": "split",    "label": "Texto + Imagen" },
+    { "name": "overlay",  "label": "Cover + Overlay" }
+  ],
   "acf": {
     "mode": "preview",
-    "renderTemplate": "render.php"
+    "renderTemplate": "render.php",
+    "validate": false
   },
-  "supports": {
-    "anchor": true,
-    "align": ["wide", "full"]
-  },
-  "example": {
-    "attributes": {
-      "mode": "preview",
-      "data": {
-        "tagline": "Category",
-        "title": "Build faster with MKT Blocks",
-        "subtitle": "Reusable ACF blocks",
-        "text": "This is a minimal hero ready for multiple projects.",
-        "layout": "contained",
-        "vertical_alignment": "center",
-        "image_position": "right",
-        "background_preset": "default",
-        "padding_y": "md",
-        "cta_1_label": "Get Started",
-        "cta_1_url": "#",
-        "cta_1_style": "primary"
-      }
-    }
-  }
+  "editorStyle": "file:./editor.css",
+  "style": "file:./style.css"
 }

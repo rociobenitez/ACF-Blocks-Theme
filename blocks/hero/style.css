@@ -1,19 +1,28 @@
+/* --- Solo en editor --- */
+.hero__editor-help {
+	margin-bottom: 0.75rem;
+	padding: 0.5rem 0.75rem;
+	background: #f6f7f7;
+	border: 1px solid #dcdcde;
+	border-radius: 6px;
+	font-size: 12px;
+}
+
+/* --- Hero Block --- */
 .hero {
 	position: relative;
-	color: var(--color-gray-900);
-	background-color: var(--color-bg-default);
-	padding-block: var(--space-5);
 	overflow: hidden;
+	max-width: 100% !important;
 }
 
 .hero--py-sm {
-	padding-block: var(--space-4);
+	padding-block: var(--space-32);
 }
 .hero--py-md {
-	padding-block: var(--space-5);
+	padding-block: var(--space-48);
 }
 .hero--py-lg {
-	padding-block: var(--space-6);
+	padding-block: var(--space-64);
 }
 
 .hero--bg-default {
@@ -27,6 +36,15 @@
 .hero--bg-secondary {
 	background-color: var(--color-secondary);
 	color: var(--color-gray-900);
+}
+
+.is-style-centered .hero__grid {
+	text-align: center;
+	justify-items: center;
+	text-align: center;
+}
+.is-style-centered .hero__actions {
+	justify-content: center;
 }
 
 .hero__overlay {
@@ -48,24 +66,8 @@
 .hero__grid {
 	display: grid;
 	grid-template-columns: 1fr;
-	gap: var(--space-4);
+	gap: var(--space-24);
 	align-items: center;
-}
-
-.hero--with-media .hero__grid {
-	grid-template-columns: 1fr;
-}
-
-@media (min-width: 900px) {
-	.hero--with-media .hero__grid {
-		grid-template-columns: 1fr 1fr;
-	}
-	.hero--media-left .hero__content {
-		order: 2;
-	}
-	.hero--media-left .hero__media {
-		order: 1;
-	}
 }
 
 .hero--valign-top .hero__grid {
@@ -103,7 +105,7 @@
 
 .hero__actions {
 	display: flex;
-	gap: var(--space-2);
+	gap: var(--space-8);
 	flex-wrap: wrap;
 }
 
@@ -134,9 +136,47 @@
 	border-color: currentColor;
 }
 
+.hero--bg-image {
+	background-size: cover;
+}
+
 .hero__img,
 .hero__video {
 	width: 100%;
 	height: auto;
 	display: block;
+}
+
+/* --- Responsive Media Queries --- */
+
+/* min-width: 640px (mobile) */
+@media (width >= 40rem) {
+}
+
+/* min-width: 768px (tablet) */
+@media (width >= 48rem) {
+	.is-style-split .hero__grid .hero__content {
+		max-width: 66.666%;
+	}
+}
+
+/* min-width: 1024px (laptop) */
+@media (width >= 64rem) {
+	.is-style-split .hero__grid {
+		grid-template-columns: 1fr 1fr;
+	}
+	.is-style-split .hero__grid .hero__content {
+		max-width: 100%;
+	}
+	.is-style-split.hero--img-left .hero__grid .hero__content {
+		order: 2;
+	}
+}
+
+/* min-width: 1280px (desktop) */
+@media (width >= 80rem) {
+}
+
+/* min-width: 1536px (large desktop) */
+@media (width >= 96rem) {
 }
