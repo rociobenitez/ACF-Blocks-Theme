@@ -1,0 +1,48 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "acf/alternated-content",
+  "version": "0.1.0",
+  "title": "Contenido Alternado",
+  "category": "theme",
+  "icon": "align-pull-left",
+  "description": "Sección de contenido con imagen y texto alternado, permite cambiar la posición de la imagen",
+  "keywords": ["contenido", "imagen", "texto", "alternado", "layout"],
+  "supports": {
+    "align": ["wide", "full"],
+    "anchor": true,
+    "className": true,
+    "spacing": { "margin": false, "padding": false },
+    "color": { "background": false, "text": false, "gradients": false },
+    "typography": { "fontSize": false, "lineHeight": false },
+    "shadow": false
+  },
+  "styles": [
+    { "name": "default", "label": "Por defecto", "isDefault": true },
+    { "name": "rounded", "label": "Imagen redondeada" },
+    { "name": "shadow", "label": "Con sombra" }
+  ],
+  "acf": {
+    "mode": "preview",
+    "renderTemplate": "render.php",
+    "validate": false
+  },
+  "example": {
+    "attributes": {
+      "tagline": "Sobre nosotros",
+      "title": "Creamos experiencias digitales únicas",
+      "content": "Somos una empresa especializada en desarrollo web y marketing digital. Trabajamos con las últimas tecnologías para crear soluciones innovadoras que impulsen el crecimiento de tu negocio.",
+      "image_position": "right",
+      "primary_button": {
+        "title": "Conocer más",
+        "url": "#"
+      },
+      "secondary_button": {
+        "title": "Contactar",
+        "url": "#"
+      }
+    }
+  },
+  "editorStyle": "file:./editor.css",
+  "style": "file:./style.css"
+}

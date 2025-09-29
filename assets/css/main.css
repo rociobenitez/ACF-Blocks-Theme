@@ -48,79 +48,78 @@
 	--ls-tight: -0.02em;
 	--ls-base: 0;
 	--ls-wide: 0.05em;
-
 	/* Base neutrals */
-	--color-black: #0a0a0a;
-	--color-dark: #111827;
+	--color-black: #181a1b;
+	--color-dark: #23272b;
 	--color-gray: #6b7280;
-	--color-light: #f5f7fa;
+	--color-light: #f6f8fa;
 	--color-white: #ffffff;
 
-	/* Primary Color */
-	--color-primary-50: #eff6ff;
-	--color-primary-100: #dbeafe;
-	--color-primary-200: #bfdbfe;
-	--color-primary-300: #93c5fd;
-	--color-primary-400: #60a5fa;
-	--color-primary-500: #3b82f6; /* primary default */
-	--color-primary-600: #2563eb; /* hover/active */
-	--color-primary-700: #1d4ed8;
-	--color-primary-800: #1e40af;
-	--color-primary-900: #1e3a8a;
+	/* Primary Color (Corporate Deep Blue) */
+	--color-primary-50: #f3f6fa;
+	--color-primary-100: #e0e7ef;
+	--color-primary-200: #b9c7db;
+	--color-primary-300: #7d9ac2;
+	--color-primary-400: #3b6ca8;
+	--color-primary-500: #17407a; /* primary default */
+	--color-primary-600: #123366; /* hover/active */
+	--color-primary-700: #0e274f;
+	--color-primary-800: #0a1b38;
+	--color-primary-900: #061024;
 	--color-primary: var(--color-primary-500);
 	--color-primary-hover: var(--color-primary-600);
 
-	/* Secondary */
-	--color-secondary-50: #f0fdfa;
-	--color-secondary-100: #ccfbf1;
-	--color-secondary-200: #99f6e4;
-	--color-secondary-300: #5eead4;
-	--color-secondary-400: #2dd4bf;
-	--color-secondary-500: #14b8a6; /* secondary default */
-	--color-secondary-600: #0d9488; /* hover/active */
-	--color-secondary-700: #0f766e;
-	--color-secondary-800: #115e59;
-	--color-secondary-900: #134e4a;
+	/* Secondary (Modern Teal) */
+	--color-secondary-50: #f2fbfa;
+	--color-secondary-100: #d6f5f0;
+	--color-secondary-200: #a8e6de;
+	--color-secondary-300: #6fd3c7;
+	--color-secondary-400: #2bb7a5;
+	--color-secondary-500: #17998c; /* secondary default */
+	--color-secondary-600: #127a6f; /* hover/active */
+	--color-secondary-700: #0d5b53;
+	--color-secondary-800: #093d37;
+	--color-secondary-900: #05211d;
 	--color-secondary: var(--color-secondary-500);
 	--color-secondary-hover: var(--color-secondary-600);
 
 	/* Gray scale */
-	--color-gray-50: #fafafa;
-	--color-gray-100: #f5f5f5;
-	--color-gray-200: #e5e5e5;
-	--color-gray-300: #d4d4d4;
-	--color-gray-400: #a3a3a3;
-	--color-gray-500: #737373;
-	--color-gray-600: #525252;
-	--color-gray-700: #404040;
-	--color-gray-800: #262626;
-	--color-gray-900: #171717;
+	--color-gray-50: #f8fafb;
+	--color-gray-100: #f1f3f5;
+	--color-gray-200: #e2e6ea;
+	--color-gray-300: #cfd4da;
+	--color-gray-400: #b0b7be;
+	--color-gray-500: #8a929a;
+	--color-gray-600: #5e6770;
+	--color-gray-700: #434a53;
+	--color-gray-800: #23272b;
+	--color-gray-900: #181a1b;
 
 	/* Semantic palette */
-	--color-success: #16a34a;
-	--color-success-light: #86efac;
+	--color-success: #22c55e;
+	--color-success-light: #bbf7d0;
 	--color-success-dark: #15803d;
 
-	--color-warning: #d97706;
-	--color-warning-light: #fde68a;
+	--color-warning: #f59e42;
+	--color-warning-light: #fef9c3;
 	--color-warning-dark: #b45309;
 
-	--color-error: #dc2626;
-	--color-error-light: #fca5a5;
+	--color-error: #ef4444;
+	--color-error-light: #fecaca;
 	--color-error-dark: #b91c1c;
 
 	--color-info: #0ea5e9;
-	--color-info-light: #7dd3fc;
-	--color-info-dark: #0284c7;
+	--color-info-light: #bae6fd;
+	--color-info-dark: #0369a1;
 
 	/* Text Colors */
-	--color-text-base: var(--color-gray-700);
+	--color-text-base: var(--color-gray-800);
 	--color-text-heading: var(--color-gray-900);
-	--color-text-tagline: var(--color-gray-900);
+	--color-text-tagline: var(--color-gray-700);
 	--color-text-muted: var(--color-gray-500);
 	--color-text-white: var(--color-white);
-	--color-text-link: var(--color-primary-500);
-	--color-text-link-hover: var(--color-primary-600);
+	--color-text-link: var(--color-primary-600);
+	--color-text-link-hover: var(--color-primary-500);
 
 	/* Background Colors */
 	--color-bg-default: var(--color-white);
@@ -211,6 +210,7 @@
 /* ------------------------------------------ 
 >>> Table of Contents:
 ---------------------------------------------
+- WordPress Core
 - Global styles
 - Typography (headings, paragraphs, lists)
 - Links
@@ -222,7 +222,116 @@
 ---------------------------------------------
 */
 
-/* Global styles */
+/* || WordPress Core */
+.alignnone {
+  margin: 5px 20px 20px 0;
+}
+
+.aligncenter,
+div.aligncenter {
+  display: block;
+  margin: 5px auto 5px auto;
+}
+
+.alignright {
+  float:right;
+  margin: 5px 0 20px 20px;
+}
+
+.alignleft {
+  float: left;
+  margin: 5px 20px 20px 0;
+}
+
+a img.alignright {
+  float: right;
+  margin: 5px 0 20px 20px;
+}
+
+a img.alignnone {
+  margin: 5px 20px 20px 0;
+}
+
+a img.alignleft {
+  float: left;
+  margin: 5px 20px 20px 0;
+}
+
+a img.aligncenter {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.wp-caption {
+  background: #fff;
+  border: 1px solid #f0f0f0;
+  max-width: 96%; /* Image does not overflow the content area */
+  padding: 5px 3px 10px;
+  text-align: center;
+}
+
+.wp-caption.alignnone {
+  margin: 5px 20px 20px 0;
+}
+
+.wp-caption.alignleft {
+  margin: 5px 20px 20px 0;
+}
+
+.wp-caption.alignright {
+  margin: 5px 0 20px 20px;
+}
+
+.wp-caption img {
+  border: 0 none;
+  height: auto;
+  margin: 0;
+  max-width: 98.5%;
+  padding: 0;
+  width: auto;
+}
+
+.wp-caption p.wp-caption-text {
+  font-size: 11px;
+  line-height: 17px;
+  margin: 0;
+  padding: 0 4px 5px;
+}
+
+/* Text meant only for screen readers. */
+.screen-reader-text {
+  border: 0;
+  clip: rect(1px, 1px, 1px, 1px);
+  clip-path: inset(50%);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute !important;
+  width: 1px;
+  word-wrap: normal !important; /* Many screen reader and browser combinations announce broken words as they would appear visually. */
+}
+
+.screen-reader-text:focus {
+  background-color: #eee;
+  clip: auto !important;
+  clip-path: none;
+  color: #444;
+  display: block;
+  font-size: 1em;
+  height: auto;
+  left: 5px;
+  line-height: normal;
+  padding: 15px 23px 14px;
+  text-decoration: none;
+  top: 5px;
+  width: auto;
+  z-index: 100000;
+  /* Above WP toolbar. */
+}
+
+/* || Global styles */
 body {
 	font-family: var(--font-body);
 	font-size: var(--fs-base);
@@ -243,7 +352,7 @@ body {
 	flex: 1 0 auto;
 }
 
-/* Typography */
+/* || Typography */
 h1,
 h2,
 h3,
@@ -292,7 +401,7 @@ li:last-child {
 	margin-bottom: 0;
 }
 
-/* Links */
+/* || Links */
 a {
 	color: var(--color-text-link);
 	text-decoration: none;
@@ -308,7 +417,141 @@ a:focus {
 	outline-offset: 2px;
 }
 
-/* Images & Media */
+/* || Buttons */
+
+/* Base button styles */
+.btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.75rem 1.5rem;
+    font-weight: 500;
+    font-size: 1rem;
+    line-height: 1.4;
+    text-decoration: none;
+    border: 2px solid transparent;
+    border-radius: 0.375rem;
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+    white-space: nowrap;
+    user-select: none;
+}
+
+.btn:focus {
+    outline: 2px solid transparent;
+    box-shadow: 0 0 0 2px rgba(59, 130, 246, 0.5);
+}
+
+/* Button sizes */
+.btn--sm {
+    padding: 0.5rem 1rem;
+    font-size: 0.875rem;
+}
+
+.btn--md {
+	padding: 0.75rem 1.5rem;
+	font-size: 1rem;
+}
+
+.btn--lg {
+    padding: 1rem 2rem;
+    font-size: 1.125rem;
+}
+
+/* Primary button */
+.btn-primary {
+    background-color: var(--wp--preset--color--primary, var(--color-primary-400));
+    color: var(--wp--preset--color--white, #ffffff);
+    border-color: var(--wp--preset--color--primary, var(--color-primary-400));
+}
+
+.btn-primary:hover,
+.btn-primary:focus {
+    background-color: var(--wp--preset--color--primary-dark, var(--color-primary-500));
+    border-color: var(--wp--preset--color--primary-dark, var(--color-primary-500));
+    color: var(--wp--preset--color--white, #ffffff);
+    transform: translateY(-1px);
+    box-shadow: 0 4px 8px rgba(0, 124, 186, 0.3);
+}
+
+/* Secondary button */
+.btn-secondary {
+    background-color: var(--wp--preset--color--secondary, var(--color-secondary-400));
+    color: var(--wp--preset--color--white, #ffffff);
+    border-color: var(--wp--preset--color--secondary, var(--color-secondary-400));
+}
+
+.btn-secondary:hover,
+.btn-secondary:focus {
+    background-color: var(--wp--preset--color--secondary-dark, var(--color-secondary-500));
+    border-color: var(--wp--preset--color--secondary-dark, var(--color-secondary-500));
+    color: var(--wp--preset--color--white, #ffffff);
+    transform: translateY(-1px);
+}
+
+/* Outline buttons */
+.btn-outline-primary {
+    background-color: transparent;
+    color: var(--wp--preset--color--primary, var(--color-primary-400));
+    border-color: var(--wp--preset--color--primary, var(--color-primary-400));
+}
+
+.btn-outline-primary:hover,
+.btn-outline-primary:focus {
+    background-color: var(--wp--preset--color--primary, var(--color-primary-400));
+    color: var(--wp--preset--color--white, #ffffff);
+    transform: translateY(-1px);
+}
+
+.btn-outline-secondary {
+    background-color: transparent;
+    color: var(--wp--preset--color--secondary, var(--color-secondary-400));
+    border-color: var(--wp--preset--color--secondary, var(--color-secondary-400));
+}
+
+.btn-outline-secondary:hover,
+.btn-outline-secondary:focus {
+    background-color: var(--wp--preset--color--secondary, var(--color-secondary-500));
+    color: var(--wp--preset--color--white, #ffffff);
+    transform: translateY(-1px);
+}
+
+/* Ghost/text button */
+.btn-ghost {
+    background-color: transparent;
+    color: var(--wp--preset--color--primary, var(--color-primary-400));
+    border-color: transparent;
+    padding-left: 0;
+    padding-right: 0;
+}
+
+.btn-ghost:hover,
+.btn-ghost:focus {
+    color: var(--wp--preset--color--primary-dark, var(--color-primary-500));
+    text-decoration: underline;
+}
+
+/* Disabled state */
+.btn:disabled,
+.btn--disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+    transform: none !important;
+    box-shadow: none !important;
+}
+
+/* Mobile optimizations */
+@media (max-width: 767px) {
+    .btn--mobile-full {
+        width: 100%;
+    }
+    
+    .btn {
+        padding: 0.875rem 1.5rem;
+    }
+}
+
+/* || Images & Media */
 img {
 	max-width: 100%;
 	height: auto;
@@ -330,7 +573,7 @@ object {
 	height: auto;
 }
 
-/* Header */
+/* || Header */
 .wp-block-site-logo.is-default-size img,
 header .wp-block-site-logo a,
 header .wp-block-site-logo img {
@@ -358,7 +601,7 @@ header .wp-block-navigation .wp-block-navigation-item:last-child {
 	border-radius: var(--radius-pill);
 }
 
-/* Footer */
+/* || Footer */
 footer {
 	flex-shrink: 0;
 	background-color: var(--color-light);

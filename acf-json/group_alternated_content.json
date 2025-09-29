@@ -1,0 +1,278 @@
+{
+    "key": "group_alternated_content",
+    "title": "Contenido Alternado",
+    "fields": [
+        {
+            "key": "field_alternated_content_tagline",
+            "label": "Tagline",
+            "name": "tagline",
+            "aria-label": "",
+            "type": "text",
+            "instructions": "Texto breve que aparece encima del título (opcional).",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "100",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "maxlength": "",
+            "placeholder": "Ej: Sobre nosotros",
+            "prepend": "",
+            "append": ""
+        },
+        {
+            "key": "field_alternated_content_title",
+            "label": "Título",
+            "name": "title",
+            "aria-label": "",
+            "type": "text",
+            "instructions": "Título principal de la sección.",
+            "required": 1,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "100",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "maxlength": "",
+            "placeholder": "Ej: Creamos experiencias digitales únicas",
+            "prepend": "",
+            "append": ""
+        },
+        {
+            "key": "field_alternated_content_text",
+            "label": "Contenido",
+            "name": "content",
+            "aria-label": "",
+            "type": "wysiwyg",
+            "instructions": "Contenido principal de la sección. Puedes usar párrafos, listas, etc.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "100",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "tabs": "all",
+            "toolbar": "full",
+            "media_upload": 1,
+            "delay": 0
+        },
+        {
+            "key": "field_alternated_content_image",
+            "label": "Imagen",
+            "name": "image",
+            "aria-label": "",
+            "type": "image",
+            "instructions": "Imagen que acompaña al contenido. Debe ser horizontal y de buena calidad.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "100",
+                "class": "",
+                "id": ""
+            },
+            "return_format": "id",
+            "library": "all",
+            "min_width": "",
+            "min_height": "",
+            "min_size": "",
+            "max_width": "",
+            "max_height": "",
+            "max_size": "",
+            "mime_types": "",
+            "preview_size": "medium"
+        },
+        {
+            "key": "field_alternated_content_image_position",
+            "label": "Posición de la imagen",
+            "name": "image_position",
+            "aria-label": "",
+            "type": "radio",
+            "instructions": "Elige en qué lado aparece la imagen respecto al contenido.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "100",
+                "class": "",
+                "id": ""
+            },
+            "choices": {
+                "left": "Izquierda",
+                "right": "Derecha"
+            },
+            "default_value": "right",
+            "return_format": "value",
+            "allow_null": 0,
+            "other_choice": 0,
+            "layout": "horizontal",
+            "save_other_choice": 0
+        },
+        {
+            "key": "field_alternated_content_padding_y",
+            "label": "Padding vertical",
+            "name": "padding_y",
+            "aria-label": "",
+            "type": "select",
+            "instructions": "Espaciado vertical de la sección.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "50",
+                "class": "",
+                "id": ""
+            },
+            "choices": {
+                "sm": "Pequeño",
+                "md": "Mediano",
+                "lg": "Grande",
+                "xl": "Extra Grande"
+            },
+            "default_value": "lg",
+            "return_format": "value",
+            "multiple": 0,
+            "allow_null": 0,
+            "ui": 0,
+            "ajax": 0,
+            "placeholder": ""
+        },
+        {
+            "key": "field_alternated_content_vertical_align",
+            "label": "Alineación vertical",
+            "name": "vertical_align",
+            "aria-label": "",
+            "type": "select",
+            "instructions": "Alineación vertical entre el contenido y la imagen.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "50",
+                "class": "",
+                "id": ""
+            },
+            "choices": {
+                "top": "Superior",
+                "center": "Centro",
+                "bottom": "Inferior"
+            },
+            "default_value": "center",
+            "return_format": "value",
+            "multiple": 0,
+            "allow_null": 0,
+            "ui": 0,
+            "ajax": 0,
+            "placeholder": ""
+        },
+        {
+            "key": "field_alternated_content_primary_button",
+            "label": "Botón Principal",
+            "name": "primary_button",
+            "aria-label": "",
+            "type": "link",
+            "instructions": "Botón de acción principal (opcional).",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "50",
+                "class": "",
+                "id": ""
+            },
+            "return_format": "array"
+        },
+        {
+            "key": "field_alternated_content_primary_button_style",
+            "label": "Estilo del botón principal",
+            "name": "primary_button_style",
+            "aria-label": "",
+            "type": "select",
+            "instructions": "Estilo visual del botón principal.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "50",
+                "class": "",
+                "id": ""
+            },
+            "choices": {
+                "primary": "Primary",
+                "secondary": "Secondary",
+                "outline-primary": "Outline Primary",
+                "outline-secondary": "Outline Secondary"
+            },
+            "default_value": "primary",
+            "return_format": "value",
+            "multiple": 0,
+            "allow_null": 0,
+            "ui": 0,
+            "ajax": 0,
+            "placeholder": ""
+        },
+        {
+            "key": "field_alternated_content_secondary_button",
+            "label": "Botón Secundario",
+            "name": "secondary_button",
+            "aria-label": "",
+            "type": "link",
+            "instructions": "Botón de acción secundario (opcional).",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "50",
+                "class": "",
+                "id": ""
+            },
+            "return_format": "array"
+        },
+        {
+            "key": "field_alternated_content_secondary_button_style",
+            "label": "Estilo del botón secundario",
+            "name": "secondary_button_style",
+            "aria-label": "",
+            "type": "select",
+            "instructions": "Estilo visual del botón secundario.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "50",
+                "class": "",
+                "id": ""
+            },
+            "choices": {
+                "primary": "Primary",
+                "secondary": "Secondary",
+                "outline-primary": "Outline Primary",
+                "outline-secondary": "Outline Secondary"
+            },
+            "default_value": "outline-primary",
+            "return_format": "value",
+            "multiple": 0,
+            "allow_null": 0,
+            "ui": 0,
+            "ajax": 0,
+            "placeholder": ""
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "block",
+                "operator": "==",
+                "value": "acf\/alternated-content"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": true,
+    "description": "Bloque de contenido alternado con imagen y texto",
+    "show_in_rest": 0,
+    "modified": 1727347200
+}

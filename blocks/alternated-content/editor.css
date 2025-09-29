@@ -1,0 +1,76 @@
+/**
+ * Alternated Content Block Editor Styles
+ * Estilos específicos para el editor de bloques
+ */
+
+/* Editor-specific styles */
+.wp-block-acf-alternated-content {
+    margin: 2rem 0;
+}
+
+/* Editor help message styling */
+.alternated-content__editor-help {
+    background: #e3f2fd;
+    border-left: 4px solid #2196f3;
+    padding: 1rem;
+    margin-bottom: 1.5rem;
+    border-radius: 4px;
+    font-size: 0.875rem;
+    color: #1565c0;
+}
+
+.alternated-content__editor-help strong {
+    color: #0d47a1;
+}
+
+/* Placeholder styling in editor */
+.alternated-content__media--placeholder {
+    border: 2px dashed #cbd5e0;
+    background: #f7fafc;
+    transition: all 0.2s ease;
+}
+
+.alternated-content__media--placeholder:hover {
+    border-color: #a0aec0;
+    background: #edf2f7;
+}
+
+/* Grid preview in editor */
+.wp-block.wp-block-acf-alternated-content .alternated-content__grid {
+    border: 1px solid #e2e8f0;
+    border-radius: 8px;
+    padding: 1rem;
+    background: rgba(255, 255, 255, 0.5);
+}
+
+/* Image preview styling */
+.wp-block-acf-alternated-content .alternated-content__image {
+    border: 1px solid #e2e8f0;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+/* Button preview in editor */
+.wp-block-acf-alternated-content .alternated-content__actions .btn {
+    pointer-events: none; /* Prevenir clics en el editor */
+    opacity: 0.8;
+}
+
+/* Style variation previews */
+.wp-block-acf-alternated-content.is-style-rounded .alternated-content__image {
+    border-radius: 1rem;
+}
+
+.wp-block-acf-alternated-content.is-style-shadow {
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+}
+
+/* Responsive preview adjustments */
+@media (max-width: 768px) {
+    .wp-block-acf-alternated-content .alternated-content__grid {
+        padding: 0.75rem;
+    }
+    
+    .wp-block-acf-alternated-content .alternated-content__content {
+        padding: 0.75rem;
+    }
+}

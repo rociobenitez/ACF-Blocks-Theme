@@ -1,9 +1,12 @@
 {
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
   "name": "acf/hero",
+	"version": "0.1.0",
   "title": "Hero",
-  "description": "Sección hero flexible con varios estilos",
   "category": "theme",
   "icon": "cover-image",
+  "description": "Sección hero flexible con varios estilos",
   "keywords": ["hero", "banner", "jumbotron"],
   "supports": {
     "align": ["wide", "full"],
@@ -23,6 +26,16 @@
     "mode": "preview",
     "renderTemplate": "render.php",
     "validate": false
+  },
+  "example": {
+    "attributes": {
+      "heading": "Creamos soluciones digitales a medida",
+      "subheading": "Empresa de desarrollo web y marketing digital",
+      "background_image": 123,
+      "button_text": "Saber más",
+      "button_url": "#",
+      "style_variant": "centered"
+    }
   },
   "editorStyle": "file:./editor.css",
   "style": "file:./style.css"

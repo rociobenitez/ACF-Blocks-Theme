@@ -1,0 +1,358 @@
+/**
+ * Alternated Content Block Styles
+ * Mobile-first approach using BEM methodology
+ */
+
+/* ==========================================================================
+   Base Mobile Styles (>= 320px)
+   ========================================================================== */
+
+/* Block Container */
+.alternated-content {
+    position: relative;
+    overflow: hidden;
+}
+
+/* Vertical padding variations - Mobile */
+.alternated-content--py-sm {
+    padding: 1.5rem 0;
+}
+
+.alternated-content--py-md {
+    padding: 2rem 0;
+}
+
+.alternated-content--py-lg {
+    padding: 3rem 0;
+}
+
+.alternated-content--py-xl {
+    padding: 4rem 0;
+}
+
+/* Grid Layout - Mobile (single column) */
+.alternated-content__grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+    align-items: center;
+}
+
+/* Vertical alignment variations */
+.alternated-content--valign-top .alternated-content__grid {
+    align-items: flex-start;
+}
+
+.alternated-content--valign-center .alternated-content__grid {
+    align-items: center;
+}
+
+.alternated-content--valign-bottom .alternated-content__grid {
+    align-items: flex-end;
+}
+
+/* Content Column - Mobile */
+.alternated-content__content {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    order: 2; /* Content after image on mobile */
+}
+
+/* Tagline - Mobile */
+.alternated-content__tagline {
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--wp--preset--color--primary);
+    margin: 0 0 0.5rem 0;
+}
+
+/* Title - Mobile */
+.alternated-content__title {
+    font-size: 1.5rem;
+    font-weight: 700;
+    line-height: 1.2;
+    margin: 0 0 1rem 0;
+    color: var(--wp--preset--color--foreground, #1a1a1a);
+}
+
+/* Text Content - Mobile */
+.alternated-content__text {
+    font-size: 0.9rem;
+    line-height: 1.6;
+    color: var(--wp--preset--color--foreground, #4a4a4a);
+    margin-bottom: 1.5rem;
+
+    & p {
+        margin-bottom: 1rem;
+
+        &:last-child {
+            margin-bottom: 0;
+        }
+    }
+}
+
+/* Actions (Buttons) - Mobile */
+.alternated-content__actions {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    margin-top: 0.5rem;
+
+    & .btn {
+        width: 100%;
+        text-align: center;
+    }
+}
+
+/* Media Column - Mobile */
+.alternated-content__media {
+    position: relative;
+    overflow: hidden;
+    order: 1; /* Image first on mobile */
+}
+
+.alternated-content__image {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    display: block;
+    border-radius: 0.5rem;
+    transition: transform 0.3s ease;
+}
+
+/* Image placeholder for editor */
+.alternated-content__media--placeholder {
+    min-height: 250px;
+    background-color: #f8f9fa;
+    border: 2px dashed #dee2e6;
+    border-radius: 0.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.alternated-content__placeholder {
+    text-align: center;
+    color: #6c757d;
+
+    & svg {
+        margin-bottom: 1rem;
+    }
+
+    & p {
+        margin: 0;
+        font-size: 0.875rem;
+    }
+}
+
+/* Editor help message */
+.alternated-content__editor-help {
+    background-color: #e7f3ff;
+    border: 1px solid #b3d9ff;
+    border-radius: 4px;
+    padding: 0.75rem 1rem;
+    margin-bottom: 1rem;
+    font-size: 0.875rem;
+    color: #0066cc;
+
+    & p {
+        margin: 0;
+    }
+}
+
+/* Block Style Variations */
+.alternated-content.is-style-rounded .alternated-content__image {
+    border-radius: 1rem;
+}
+
+.alternated-content.is-style-shadow .alternated-content__image {
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+}
+
+/* ==========================================================================
+   Small Devices (>= 576px)
+   ========================================================================== */
+
+@media (min-width: 576px) {
+    /* Title */
+    .alternated-content__title {
+        font-size: 1.75rem;
+    }
+
+    /* Tagline */
+    .alternated-content__tagline {
+        font-size: 0.875rem;
+    }
+
+    /* Text */
+    .alternated-content__text {
+        font-size: 1rem;
+    }
+
+    /* Actions - Allow horizontal on small screens */
+    .alternated-content__actions {
+        flex-direction: row;
+        flex-wrap: wrap;
+
+        & .btn {
+            width: auto;
+            flex: 1;
+            min-width: 150px;
+        }
+    }
+
+    /* Grid gap */
+    .alternated-content__grid {
+        gap: 2rem;
+    }
+
+    /* Placeholder */
+    .alternated-content__media--placeholder {
+        min-height: 300px;
+    }
+}
+
+/* ==========================================================================
+   Medium Devices (>= 768px) - Tablets
+   ========================================================================== */
+
+@media (min-width: 768px) {
+    /* Padding adjustments */
+    .alternated-content--py-sm {
+        padding: 2rem 0;
+    }
+
+    .alternated-content--py-md {
+        padding: 3rem 0;
+    }
+
+    .alternated-content--py-lg {
+        padding: 5rem 0;
+    }
+
+    .alternated-content--py-xl {
+        padding: 7rem 0;
+    }
+
+    /* Grid - Two columns */
+    .alternated-content__grid {
+        grid-template-columns: 1fr 1fr;
+        gap: 3rem;
+    }
+
+    /* Content */
+    .alternated-content__content {
+        order: unset; /* Reset mobile order */
+        margin: 3rem 0;
+    }
+
+    /* Media */
+    .alternated-content__media {
+        order: unset; /* Reset mobile order */
+        height: 100%;
+
+        & .alternated-content__image {
+            height: 100%;
+        }
+    }
+
+    /* Image position variations */
+    .alternated-content--img-left .alternated-content__content {
+        order: 2;
+    }
+
+    .alternated-content--img-left .alternated-content__media {
+        order: 1;
+    }
+
+    .alternated-content--img-right .alternated-content__content {
+        order: 1;
+    }
+
+    .alternated-content--img-right .alternated-content__media {
+        order: 2;
+    }
+
+    /* Title */
+    .alternated-content__title {
+        font-size: clamp(2rem, 4vw, 2.5rem);
+    }
+
+    /* Actions */
+    .alternated-content__actions {
+        gap: 1rem;
+
+        & .btn {
+            flex: unset;
+            width: auto;
+        }
+    }
+}
+
+/* ==========================================================================
+   Large Devices (>= 992px) - Desktops
+   ========================================================================== */
+
+@media (min-width: 992px) {
+    /* Grid gap */
+    .alternated-content__grid {
+        gap: 4rem;
+    }
+
+    /* Title */
+    .alternated-content__title {
+        font-size: clamp(2.25rem, 4vw, 3rem);
+        margin-bottom: 1.25rem;
+    }
+
+    /* Text */
+    .alternated-content__text {
+        margin-bottom: 2rem;
+    }
+
+    /* Actions */
+    .alternated-content__actions {
+        gap: 1.25rem;
+        margin-top: 1rem;
+    }
+}
+
+/* ==========================================================================
+   Extra Large Devices (>= 1200px) - Large Desktops
+   ========================================================================== */
+
+@media (min-width: 1200px) {
+    /* Grid gap */
+    .alternated-content__grid {
+        gap: 5rem;
+    }
+
+    /* Title */
+    .alternated-content__title {
+        font-size: clamp(2.5rem, 4vw, 3.5rem);
+    }
+
+    /* Actions */
+    .alternated-content__actions {
+        gap: 1.5rem;
+    }
+}
+
+/* ==========================================================================
+   Extra Extra Large Devices (>= 1400px) - Very Large Screens
+   ========================================================================== */
+
+@media (min-width: 1400px) {
+    /* Grid gap */
+    .alternated-content__grid {
+        gap: 6rem;
+    }
+
+    /* Maximum content width for readability */
+    .alternated-content__content {
+        max-width: 90%;
+    }
+}

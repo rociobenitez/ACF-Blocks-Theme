@@ -19,24 +19,6 @@ class Starter_ACF_Blocks {
         add_action( 'init', [ __CLASS__, 'register_block_styles' ] );
     }
 
-    public static function register_categories( $categories ) {
-        $slug = 'starter-blocks';
-        // Check if the category already exists
-        foreach ( $categories as $cat ) {
-            if ( isset( $cat['slug'] ) && $cat['slug'] === $slug ) {
-                return $categories;
-            }
-        }
-
-        $categories[] = [
-            'slug'  => $slug,
-            'title' => __( 'Starter Blocks', ST_TEXT_DOMAIN ),
-            'icon'  => 'admin-comments',
-        ];
-
-        return $categories;
-    }
-
     /**
      * Auto-register ACF blocks
      *

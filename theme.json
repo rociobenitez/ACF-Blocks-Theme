@@ -83,12 +83,12 @@
 				{
 					"name": "Primary",
 					"slug": "primary",
-					"color": "#3b82f6"
+					"color": "#3b6ca8"
 				},
 				{
 					"name": "Secondary",
 					"slug": "secondary",
-					"color": "#10b981"
+					"color": "#2bb7a5"
 				},
 				{
 					"name": "Accent",

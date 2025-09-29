@@ -10,6 +10,7 @@ if ( ! defined( 'ABSPATH' ) ) {
     exit;
 }
 
+// Block ID and classes
 $id  = $block['anchor'] ?? ('hero-' . $block['id']);
 $cls = 'hero' . (!empty($block['className']) ? ' ' . $block['className'] : '');
 
