@@ -2,7 +2,7 @@ import postcssPresetEnv from 'postcss-preset-env';
 import postcssNested from 'postcss-nested';
 import postcssImport from 'postcss-import';
 import cssnano from 'cssnano';
-import purgecss from '@fullhuman/postcss-purgecss';
+import { purgeCSSPlugin } from '@fullhuman/postcss-purgecss';
 
 const isProd = process.env.NODE_ENV === 'production';
 
@@ -18,20 +18,23 @@ export default {
         'nesting-rules': true
       }
     }),
+
     // PurgeCSS solo en producción
     isProd &&
-      purgecss({
+      purgeCSSPlugin({
         content: [
           './**/*.php',
           './**/*.html',
           './assets/js/**/*.js',
           './blocks/**/*.php',
-          './blocks/**/*.js'
+          './blocks/**/*.js',
+          './templates/**/*.php'
         ],
         defaultExtractor: content => content.match(/[\w-/:]+(?<!:)/g) || [],
         safelist: {
           standard: [/^is-/, /^has-/, /^wp-/], // añade patrones que quieres preservar
-          deep: [/^modal-/, /^slick-/]
+          deep: [/^modal-/, /^slick-/],
+          greedy: [/^acf-/, /^wp-block-/]
         }
       }),
     // Minify only in production

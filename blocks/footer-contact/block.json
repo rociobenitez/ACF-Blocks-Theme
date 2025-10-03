@@ -6,7 +6,6 @@
   "category": "theme",
   "icon": "phone",
   "textdomain": "st-starter",
-  "style": [ "file:./style.css" ],
   "supports": {
     "align": [ "wide", "full" ],
     "anchor": true,
