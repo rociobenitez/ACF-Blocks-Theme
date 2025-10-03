@@ -7,7 +7,6 @@
   "icon": "menu",
   "keywords": ["header", "topbar", "logo", "contacto", "redes"],
   "textdomain": "acf-starter",
-  "style": [ "file:./style.css" ],
 
   "supports": {
     "anchor": true,

@@ -37,7 +37,5 @@
 		}
 	},
 	"textdomain": "cta-dynamic-block",
-	"editorStyle": "file:./editor.css",
-	"render": "file:./render.php",
-    "style": "file:./style.css"
+	"render": "file:./render.php"
 }
