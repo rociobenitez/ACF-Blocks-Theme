@@ -140,6 +140,34 @@ class Starter_Theme {
             ST_THEME_VERSION,
             true
         );
+
+        if ( theme_vite_is_dev_server() ) {
+            $dev_url = 'http://localhost:5173';
+            // If dev server is running, enqueue Vite dev script
+            // termina el codigo
+        } else {
+            // Enqueue production assets
+            // termina el codigo
+        }
+    }
+
+    /**
+     * Detect if dev server is running and use dev version of assets
+     * If not, use the production version
+     */
+    public static function is_dev_server( $port = 5173) {
+        $dev_server_url = 'http://localhost:' . intval( $port );
+        $args = [
+            'timeout'   => 1,
+            'redirection' => 0,
+            'httpversion' => '1.1',
+        ];
+        $response = wp_remote_head( $dev_server_url, $args );
+        if ( is_wp_error( $response ) ) {
+            return false;
+        }
+        $code = wp_remote_retrieve_response_code( $response );
+        return (int) $code === 200;
     }
 
     /**

@@ -22,13 +22,19 @@ No build step (plain CSS/JS), token-based styling (CSS Custom Properties), and c
 ## Project Structure
 
 ```
-acf-starter-theme/
+acf-blocks-theme/
 ├─ style.css
 ├─ functions.php
 ├─ theme.json
+├─ composer.json
 ├─ acf-json/                # ACF Local JSON (commit to repo)
 ├─ assets/
-│  ├─ css/                  # main.css (tokens) + optional extras
+│  ├─ fonts/                # font files
+│  ├─ images/               # image files
+│  ├─ css/
+│  │  ├─ fonts.css          # font imports
+│  │  ├─ editor.css         # editor styles (optional)
+│  │  └─ main.css           # core styles
 │  └─ js/                   # minimal editor/front helpers
 ├─ blocks/                  # each block = folder with block.json + render.php + style.css
 │  └─ hero/
@@ -44,7 +50,7 @@ acf-starter-theme/
 │  ├─ class-theme.php       # main bootstrap (hooks)
 │  ├─ class-acf-json.php    # ACF Local JSON + options page
 │  └─ class-acf-blocks.php  # category + auto-register blocks from /blocks
-├─ templates/
+├─ templates/               # html templates (e.g. single.php)
 └─ languages/               # translations (.pot/.po/.mo)
 ```
 
