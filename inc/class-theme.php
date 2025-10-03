@@ -15,14 +15,16 @@ class Starter_Theme {
         self::includes();
         
         add_action( 'after_setup_theme', [ __CLASS__, 'theme_setup' ] );
-        add_action( 'wp_enqueue_scripts', [ __CLASS__, 'enqueue_assets' ] );
+        add_action( 'wp_enqueue_scripts', [ __CLASS__, 'enqueue_assets' ], 20 );
+        add_action( 'enqueue_block_editor_assets', [ __CLASS__, 'enqueue_editor_assets' ], 20 );
+        
         add_filter( 'upload_mimes', [ __CLASS__, 'allow_svg_upload' ] );
 
-        // Initialize ACF JSON and ACF Blocks if ACF is active
-        if ( class_exists( __NAMESPACE__ . '\\Starter_ACF_JSON' ) ) {
+        // Initialize ACF helpers if included
+        if ( class_exists( __NAMESPACE__ . '\\Starter_ACF_JSON' ) && method_exists( __NAMESPACE__ . '\\Starter_ACF_JSON', 'init' ) ) {
             \Starter\Theme\Starter_ACF_JSON::init();
         }
-        if ( class_exists( __NAMESPACE__ . '\\Starter_ACF_Blocks' ) ) {
+        if ( class_exists( __NAMESPACE__ . '\\Starter_ACF_Blocks' ) && method_exists( __NAMESPACE__ . '\\Starter_ACF_Blocks', 'init' ) ) {
             \Starter\Theme\Starter_ACF_Blocks::init();
         }
     }
@@ -47,6 +49,13 @@ class Starter_Theme {
         if ( ! defined( 'ST_API_GOOGLE_MAPS' ) ) {
             define( 'ST_API_GOOGLE_MAPS', 'YOUR_API_KEY' );
         }
+        if ( ! defined( 'VITE_DEV_SERVER_PORT' ) ) {
+            define( 'VITE_DEV_SERVER_PORT', '5173' ); // Change to your Vite dev server port if needed
+        }
+        if ( ! defined( 'VITE_DEV_SERVER_URL') ) {
+            define( 'VITE_DEV_SERVER_URL', 'http://localhost:' . VITE_DEV_SERVER_PORT );
+        }
+
     }
 
     /**
@@ -73,7 +82,7 @@ class Starter_Theme {
         // Make theme available for translation
         load_theme_textdomain( ST_TEXT_DOMAIN, get_template_directory() . '/languages' );
 
-        // Add default posts and comments RSS feed links to head
+        // Basic theme supports
         add_theme_support( 'automatic-feed-links' );
         add_theme_support( 'title-tag' );
         add_theme_support( 'post-thumbnails' );
@@ -82,19 +91,19 @@ class Starter_Theme {
         add_theme_support( 'custom-logo' );
         add_theme_support( 'custom-background' );
 
-        // Add support for editor styles
+        // Editor styles
         add_theme_support( 'editor-styles' );
         add_editor_style([
             'assets/css/editor.css'
         ]);
 
-        // Add support for block styles
+        // Block and widget supports
         add_theme_support( 'wp-block-styles' );
         add_theme_support( 'widgets-block-editor' );
         add_theme_support( 'align-wide' );
         add_theme_support( 'responsive-embeds' );
 
-        // WooCommerce support
+        // WooCommerce
         add_theme_support( 'woocommerce' );
     }
 
@@ -110,59 +119,171 @@ class Starter_Theme {
             '5.3.3'
         );
 
-        // Enqueue fonts and main styles
+        // If Vite dev server is running, enqueue the module served by Vite.
+        if ( self::is_dev_server() ) {
+            // Vite serves module at /assets/js/main.js according to your config
+            $dev_url = self::get_vite_dev_url();
+            $dev_entry = rtrim( $dev_url, '/' ) . '/assets/js/main.js';
+            self::enqueue_module_script( 'st-vite-dev-main', $dev_entry, [], null, true );
+
+            // Vite injects CSS in dev automatically, so do not enqueue main.css here.
+            return;
+        }
+
+        // Production: try manifest
+        $manifest = self::get_manifest();
+        error_log( 'VITE MANIFEST: ' . ( $manifest ? json_encode( array_keys( $manifest ) ) : 'no manifest' ) );
+        if ( $manifest ) {
+            // The manifest key is the input path used in rollup (e.g. "assets/js/main.js")
+            $entry_key = 'assets/js/main.js';
+            if ( isset( $manifest[ $entry_key ] ) ) {
+                $entry = $manifest[ $entry_key ];
+
+                // Enqueue JS module (use helper to set type=module)
+                if ( ! empty( $entry['file'] ) ) {
+                    $js_url = get_stylesheet_directory_uri() . '/dist/' . ltrim( $entry['file'], '/' );
+                    $ver = file_exists( get_stylesheet_directory() . '/dist/' . $entry['file'] ) ? filemtime( get_stylesheet_directory() . '/dist/' . $entry['file'] ) : ST_THEME_VERSION;
+                    self::enqueue_module_script( 'st-main', $js_url, [], $ver, true );
+                }
+
+                // Enqueue any CSS emitted by the build for this entry
+                if ( ! empty( $entry['css'] ) && is_array( $entry['css'] ) ) {
+                    foreach ( $entry['css'] as $index => $css_file ) {
+                        // Usar la ruta exacta del manifest sin asumir subcarpeta
+                        $css_url = get_stylesheet_directory_uri() . '/dist/' . ltrim( $css_file, '/' );
+                        $css_path = get_stylesheet_directory() . '/dist/' . ltrim( $css_file, '/' );
+                        $css_ver = file_exists( $css_path ) ? filemtime( $css_path ) : ST_THEME_VERSION;
+                        
+                        wp_enqueue_style( 
+                            'st-main-css-' . $index, 
+                            $css_url, 
+                            [ 'bootstrap' ], // Cambiar dependencia
+                            $css_ver 
+                        );
+                    }
+                }
+
+                return; // we've enqueued production assets
+            }
+        }
+
+        // Fallback: enqueue compiled assets directly from theme (non-hashed)
         wp_enqueue_style(
             'st-starter-fonts',
-            get_theme_file_uri('/assets/css/fonts.css'),
-            ['bootstrap'],
+            get_stylesheet_directory_uri() . '/assets/css/fonts.css',
+            [ 'bootstrap' ],
             ST_THEME_VERSION
         );
 
         wp_enqueue_style(
             'st-starter-main',
-            get_theme_file_uri('/assets/css/main.css'),
-            ['bootstrap','st-starter-fonts','global-styles'],
+            get_stylesheet_directory_uri() . '/assets/css/main.css',
+            [ 'st-starter-fonts' ],
             ST_THEME_VERSION
         );
 
-        // Enqueue scripts
         wp_enqueue_script(
             'st-starter-script',
-            get_template_directory_uri() . '/assets/js/main.js',
+            get_stylesheet_directory_uri() . '/assets/js/main.js',
             [],
             ST_THEME_VERSION,
             true
         );
-        wp_enqueue_script(
-            'st-starter-editor-script',
-            get_template_directory_uri() . '/assets/js/editor.js',
-            ['wp-blocks','wp-dom-ready','wp-edit-post'],
-            ST_THEME_VERSION,
-            true
-        );
-
-        if ( theme_vite_is_dev_server() ) {
-            $dev_url = 'http://localhost:5173';
-            // If dev server is running, enqueue Vite dev script
-            // termina el codigo
-        } else {
-            // Enqueue production assets
-            // termina el codigo
-        }
     }
 
     /**
-     * Detect if dev server is running and use dev version of assets
-     * If not, use the production version
+     * Enqueue a script as type=module (for browsers that support it)
+     * Fallbacks to normal script enqueue if module support is not available (pre WP 6.5)
      */
-    public static function is_dev_server( $port = 5173) {
-        $dev_server_url = 'http://localhost:' . intval( $port );
+    protected static function enqueue_module_script( string $handle, string $src, array $deps = [], $ver = null, $in_footer = true ) {
+        // Usa las APIs modernas si existen (WordPress 6.5+)
+        if ( function_exists( 'wp_register_script_module' ) && function_exists( 'wp_enqueue_script_module' ) ) {
+            // Si aún no está registrado, registramos
+            if ( ! wp_script_is( $handle, 'registered' ) ) {
+                wp_register_script_module( $handle, $src, $deps, $ver );
+            }
+            wp_enqueue_script_module( $handle );
+            return;
+        }
+
+        // Fallback para versiones antiguas: registramos con wp_register_script y marcamos type=module
+        if ( ! wp_script_is( $handle, 'registered' ) ) {
+            wp_register_script( $handle, $src, $deps, $ver, $in_footer );
+        }
+        // marcamos el tag como tipo module para que el navegador pueda ejecutar import/export
+        wp_script_add_data( $handle, 'type', 'module' );
+        wp_enqueue_script( $handle );
+    }
+
+    /**
+     * Enqueue editor (Gutenberg) assets (dev or prod)
+     */
+    public static function enqueue_editor_assets() {
+        // If dev server is running, use Vite editor entry
+        if ( self::is_dev_server() ) {
+            $dev_url = self::get_vite_dev_url();
+            $dev_entry = rtrim( $dev_url, '/' ) . '/assets/js/editor.js';
+            self::enqueue_module_script( 'st-vite-dev-editor', $dev_entry, [], null, true );
+
+            // Vite injects editor CSS in dev
+            return;
+        }
+
+        // Production: manifest entry for editor
+        $manifest = self::get_manifest();
+        if ( $manifest && isset( $manifest['assets/js/editor.js'] ) ) {
+            $entry = $manifest['assets/js/editor.js'];
+
+            if ( ! empty( $entry['file'] ) ) {
+                $js_url = get_stylesheet_directory_uri() . '/dist/' . ltrim( $entry['file'], '/' );
+                $ver = file_exists( get_stylesheet_directory() . '/dist/' . $entry['file'] ) ? filemtime( get_stylesheet_directory() . '/dist/' . $entry['file'] ) : ST_THEME_VERSION;
+                self::enqueue_module_script( 'st-editor', $js_url, [ 'wp-blocks', 'wp-dom-ready', 'wp-edit-post' ], $ver, true );
+            }
+
+            if ( ! empty( $entry['css'] ) && is_array( $entry['css'] ) ) {
+                foreach ( $entry['css'] as $css_file ) {
+                    $css_url = get_stylesheet_directory_uri() . '/dist/' . ltrim( $css_file, '/' );
+                    $css_ver = file_exists( get_stylesheet_directory() . '/dist/' . $css_file ) ? filemtime( get_stylesheet_directory() . '/dist/' . $css_file ) : ST_THEME_VERSION;
+                    wp_enqueue_style( 'st-editor-' . sanitize_title( $css_file ), $css_url, [], $css_ver );
+                }
+            }
+
+            return;
+        }
+
+        // Fallback editor CSS/JS (non-hashed)
+        wp_enqueue_style( 'st-starter-editor', get_stylesheet_directory_uri() . '/assets/css/editor.css', [], ST_THEME_VERSION );
+        wp_enqueue_script( 'st-starter-editor-script', get_stylesheet_directory_uri() . '/assets/js/editor.js', [ 'wp-blocks', 'wp-dom-ready', 'wp-edit-post' ], ST_THEME_VERSION, true );
+    }
+
+    /**
+     * Get Vite dev server URL (read from constant or fallback)
+     *
+     * @return string
+     */
+    protected static function get_vite_dev_url(): string {
+        if ( defined( 'VITE_DEV_SERVER_URL' ) && filter_var( VITE_DEV_SERVER_URL, FILTER_VALIDATE_URL ) ) {
+            return rtrim( VITE_DEV_SERVER_URL, '/' );
+        }
+
+        $port = defined( 'VITE_DEV_SERVER_PORT' ) ? intval( VITE_DEV_SERVER_PORT ) : 5173;
+        return 'http://localhost:' . $port;
+    }
+
+    /**
+     * Check if Vite dev server is running (quick HEAD request)
+     *
+     * @param int $port
+     * @return bool
+     */
+    public static function is_dev_server( $timeout = 1.0 ): bool {
+        $url = self::get_vite_dev_url() . '/assets/js/main.js';
         $args = [
-            'timeout'   => 1,
+            'timeout'     => $timeout,
             'redirection' => 0,
             'httpversion' => '1.1',
         ];
-        $response = wp_remote_head( $dev_server_url, $args );
+        $response = wp_remote_head( $url, $args );
         if ( is_wp_error( $response ) ) {
             return false;
         }
@@ -171,7 +292,39 @@ class Starter_Theme {
     }
 
     /**
-     * Allow SVG file uploads
+     * Read and parse Vite manifest.json (cached statically during the request)
+     *
+     * @return array|null
+     */
+    protected static function get_manifest(): ?array {
+        static $manifest = null;
+        if ( $manifest !== null ) {
+            return $manifest;
+        }
+
+        $paths = [
+            get_stylesheet_directory() . '/dist/manifest.json',
+            get_stylesheet_directory() . '/dist/.vite/manifest.json',
+        ];
+
+        foreach ( $paths as $p ) {
+            if ( file_exists( $p ) ) {
+                $data = json_decode( file_get_contents( $p ), true );
+                // desenvuelve array->obj si Vite creó wrapper
+                if ( is_array( $data ) && array_keys( $data ) === range(0, count($data)-1) && isset($data[0]) && is_array($data[0]) ) {
+                    $data = $data[0];
+                }
+                $manifest = is_array( $data ) ? $data : null;
+                return $manifest;
+            }
+        }
+        $manifest = null;
+        return null;
+    }
+
+
+    /**
+     * Allow SVG file uploads (simple, no sanitization)
      */
     public static function allow_svg_upload( $mimes ) {
         $mimes['svg'] = 'image/svg+xml';
