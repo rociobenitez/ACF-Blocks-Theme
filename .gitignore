@@ -14,6 +14,9 @@ yarn.lock
 .vscode/
 .idea/
 
+# Vite
+.vite/
+
 # Composer
 /vendor/
 composer.phar
