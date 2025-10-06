@@ -140,15 +140,6 @@ class Starter_Theme {
             ST_THEME_VERSION,
             true
         );
-
-        if ( theme_vite_is_dev_server() ) {
-            $dev_url = 'http://localhost:5173';
-            // If dev server is running, enqueue Vite dev script
-            // termina el codigo
-        } else {
-            // Enqueue production assets
-            // termina el codigo
-        }
     }
 
     /**

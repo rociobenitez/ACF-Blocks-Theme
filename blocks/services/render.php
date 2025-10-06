@@ -68,13 +68,13 @@ $render_service_card = function($service_post) {
     $excerpt = get_the_excerpt($post_id);
     $permalink = get_permalink($post_id);
     $thumbnail = get_the_post_thumbnail($post_id, 'medium', [
-        'class' => 'services-showcase__card-image',
+        'class' => 'services__card-image',
         'loading' => 'lazy'
     ]);
     
     // Fallback image if no thumbnail
     if (!$thumbnail) {
-        $thumbnail = '<div class="services-showcase__card-image services-showcase__card-image--placeholder">
+        $thumbnail = '<div class="services__card-image services__card-image--placeholder">
             <svg width="80" height="80" viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <rect width="80" height="80" fill="#f0f0f0"/>
                 <path d="M20 30L40 15L60 30M20 50L40 35L60 50" stroke="#ccc" stroke-width="2" fill="none"/>
@@ -83,29 +83,29 @@ $render_service_card = function($service_post) {
     }
     
     return sprintf(
-        '<article class="services-showcase__card">
-            <div class="services-showcase__card-media">
-                %s
-            </div>
-            <div class="services-showcase__card-content">
-                <h3 class="services-showcase__card-title">
-                    <a href="%s" class="services-showcase__card-link">%s</a>
-                </h3>
-                %s
-                <div class="services-showcase__card-actions">
-                    <a href="%s" class="btn btn-outline-primary btn--sm services-showcase__card-btn">
-                        Ver más
-                        <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor">
-                            <path d="M8 0L6.6 1.4L12.2 7H0v2h12.2l-5.6 5.6L8 16l8-8z"/>
-                        </svg>
-                    </a>
+        '<article class="services__card">
+            <a href="%s" class="services__card-link">
+                <div class="services__card-media">
+                    %s
                 </div>
-            </div>
+                <div class="services__card-content">
+                    <h3 class="services__card-title">%s</h3>
+                    %s
+                    <div class="services__card-actions">
+                        <a href="%s" class="btn btn-outline-primary btn--sm services__card-btn">
+                            Ver más
+                            <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor">
+                                <path d="M8 0L6.6 1.4L12.2 7H0v2h12.2l-5.6 5.6L8 16l8-8z"/>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+            </a>
         </article>',
-        $thumbnail,
         esc_url($permalink),
+        $thumbnail,
         esc_html($title),
-        $excerpt ? '<p class="services-showcase__card-excerpt">' . esc_html($excerpt) . '</p>' : '',
+        $excerpt ? '<p class="services__card-excerpt">' . esc_html($excerpt) . '</p>' : '',
         esc_url($permalink)
     );
 };
@@ -114,7 +114,7 @@ $render_service_card = function($service_post) {
 <section <?php echo $wrapper_attrs; ?>>
     
     <?php if ($is_block_editor && (!$services || $services_count === 0)): ?>
-        <div class="services-showcase__editor-help">
+        <div class="services__editor-help">
             <p><strong>🎯 Showcase de Servicios:</strong> Selecciona servicios para mostrar en este bloque.</p>
             <p>💡 <em>Si seleccionas más de <?php echo $items_per_row; ?> servicios, se activará el carrousel automáticamente.</em></p>
         </div>
@@ -123,40 +123,40 @@ $render_service_card = function($service_post) {
     <div class="container">
         <!-- Header Section -->
         <?php if ($tagline || $title || $description || $is_block_editor): ?>
-            <header class="services-showcase__header">
+            <header class="services__header">
                 <?php if ($tagline): ?>
-                    <p class="services-showcase__tagline"><?php echo esc_html($tagline); ?></p>
+                    <p class="services__tagline"><?php echo esc_html($tagline); ?></p>
                 <?php elseif ($is_block_editor): ?>
-                    <p class="services-showcase__tagline services-showcase__placeholder-text">Agrega un tagline...</p>
+                    <p class="services__tagline services__placeholder-text">Agrega un tagline...</p>
                 <?php endif; ?>
 
                 <?php if ($title): ?>
-                    <h2 class="services-showcase__title"><?php echo esc_html($title); ?></h2>
+                    <h2 class="services__title"><?php echo esc_html($title); ?></h2>
                 <?php elseif ($is_block_editor): ?>
-                    <h2 class="services-showcase__title services-showcase__placeholder-text">Título de la sección</h2>
+                    <h2 class="services__title services__placeholder-text">Título de la sección</h2>
                 <?php endif; ?>
 
                 <?php if ($description): ?>
-                    <p class="services-showcase__description"><?php echo esc_html($description); ?></p>
+                    <p class="services__description"><?php echo esc_html($description); ?></p>
                 <?php elseif ($is_block_editor): ?>
-                    <p class="services-showcase__description services-showcase__placeholder-text">Descripción de los servicios...</p>
+                    <p class="services__description services__placeholder-text">Descripción de los servicios...</p>
                 <?php endif; ?>
             </header>
         <?php endif; ?>
 
         <!-- Services Grid/Carousel -->
         <?php if ($services && $services_count > 0): ?>
-            <div class="services-showcase__container">
+            <div class="services__container">
                 
                 <!-- Carousel Controls -->
                 <?php if ($show_carousel_controls && $is_carousel): ?>
-                    <div class="services-showcase__controls">
-                        <button type="button" class="services-showcase__control services-showcase__control--prev" aria-label="Servicio anterior">
+                    <div class="services__controls">
+                        <button type="button" class="services__control services__control--prev" aria-label="Servicio anterior">
                             <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
                                 <path d="M15.41 16.59L10.83 12l4.58-4.59L14 6l-6 6 6 6 1.41-1.41z"/>
                             </svg>
                         </button>
-                        <button type="button" class="services-showcase__control services-showcase__control--next" aria-label="Siguiente servicio">
+                        <button type="button" class="services__control services__control--next" aria-label="Siguiente servicio">
                             <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
                                 <path d="M8.59 16.59L13.17 12L8.59 7.41L10 6l6 6-6 6-1.41-1.41z"/>
                             </svg>
@@ -165,8 +165,8 @@ $render_service_card = function($service_post) {
                 <?php endif; ?>
 
                 <!-- Services List -->
-                <div class="services-showcase__wrapper">
-                    <div class="services-showcase__grid" role="region" aria-label="Lista de servicios">
+                <div class="services__wrapper">
+                    <div class="services__grid" role="region" aria-label="Lista de servicios">
                         <?php foreach ($services as $service): ?>
                             <?php echo $render_service_card($service); ?>
                         <?php endforeach; ?>
@@ -175,14 +175,14 @@ $render_service_card = function($service_post) {
 
                 <!-- Carousel Indicators -->
                 <?php if ($is_carousel): ?>
-                    <div class="services-showcase__indicators" role="tablist" aria-label="Indicadores del carrousel">
+                    <div class="services__indicators" role="tablist" aria-label="Indicadores del carrousel">
                         <?php 
                         $total_slides = ceil($services_count / $items_per_row);
                         for ($i = 0; $i < $total_slides; $i++): 
                         ?>
                             <button 
                                 type="button" 
-                                class="services-showcase__indicator <?php echo $i === 0 ? 'services-showcase__indicator--active' : ''; ?>"
+                                class="services__indicator <?php echo $i === 0 ? 'services__indicator--active' : ''; ?>"
                                 role="tab"
                                 aria-selected="<?php echo $i === 0 ? 'true' : 'false'; ?>"
                                 aria-label="Ir a la página <?php echo $i + 1; ?>"
@@ -194,8 +194,8 @@ $render_service_card = function($service_post) {
 
             </div>
         <?php elseif ($is_block_editor): ?>
-            <div class="services-showcase__empty">
-                <div class="services-showcase__empty-content">
+            <div class="services__empty">
+                <div class="services__empty-content">
                     <svg width="100" height="100" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <rect x="10" y="20" width="25" height="35" fill="#f0f0f0" stroke="#ddd" rx="4"/>
                         <rect x="37.5" y="20" width="25" height="35" fill="#f0f0f0" stroke="#ddd" rx="4"/>
