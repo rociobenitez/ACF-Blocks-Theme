@@ -1,0 +1,79 @@
+/* Scope del editor */
+.wp-block-acf-related {
+	margin: 2rem 0;
+}
+
+/* Placeholder / ayudas solo editor */
+.wp-block-acf-related .related__editor-help {
+	background: #e3f2fd;
+	border: 1px solid #1976d2;
+	border-radius: 4px;
+	padding: 1rem;
+	margin-bottom: 1.5rem;
+	font-size: 0.9rem;
+	color: #1565c0;
+}
+.wp-block-acf-related .related__placeholder-text {
+	opacity: 0.6;
+	font-style: italic;
+}
+
+/* Previews en editor (no animaciones ni hovers fuertes) */
+.wp-block-acf-related .related__grid {
+	border: 1px solid #e2e8f0;
+	border-radius: 8px;
+	padding: 1rem;
+	background: rgba(255, 255, 255, 0.8);
+	transform: none !important;
+	transition: none !important;
+}
+.wp-block-acf-related .related__card {
+	border: 1px solid #e2e8f0;
+	box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+.wp-block-acf-related .related__card:hover {
+	transform: none;
+	box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+.wp-block-acf-related .related__card-content {
+	background: rgba(255, 255, 255, 0.9);
+	border-top: 1px solid #e2e8f0;
+}
+.wp-block-acf-related .related__card-btn,
+.wp-block-acf-related .related__control,
+.wp-block-acf-related .related__indicator {
+	pointer-events: none;
+	opacity: 0.7;
+}
+
+/* Empty state */
+.wp-block-acf-related .related__empty {
+	background: #f8f9fa;
+	border: 2px dashed #dee2e6;
+	border-radius: 1rem;
+	min-height: 200px;
+}
+.wp-block-acf-related .related__empty-content {
+	padding: 2rem;
+}
+
+/* Variations preview */
+.wp-block-acf-related.is-style-cards .related__card {
+	box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+.wp-block-acf-related.is-style-minimal .related__card {
+	border: none;
+	background: transparent;
+	box-shadow: none;
+}
+
+/* Responsivo en el canvas del editor */
+@media (max-width: 768px) {
+	.wp-block-acf-related .related__grid {
+		padding: 0.75rem;
+		grid-template-columns: 1fr !important;
+	}
+	.wp-block-acf-related .related__header {
+		padding: 1rem;
+	}
+}

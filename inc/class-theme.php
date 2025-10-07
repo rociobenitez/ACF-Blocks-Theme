@@ -146,7 +146,7 @@ class Starter_Theme {
      * Detect if dev server is running and use dev version of assets
      * If not, use the production version
      */
-    public static function is_dev_server( $port = 5173) {
+    public static function is_dev_server( int $port = 5173): bool {
         $dev_server_url = 'http://localhost:' . intval( $port );
         $args = [
             'timeout'   => 1,
@@ -164,7 +164,7 @@ class Starter_Theme {
     /**
      * Allow SVG file uploads
      */
-    public static function allow_svg_upload( $mimes ) {
+    public static function allow_svg_upload( array $mimes ) : array {
         $mimes['svg'] = 'image/svg+xml';
         return $mimes;
     }
