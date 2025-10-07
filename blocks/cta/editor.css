@@ -1,11 +1,9 @@
 /**
- * The following styles get applied inside the editor only.
- *
- * Replace them with your own styles or remove the file completely.
+ * CTA Block Editor Styles
+ * Importa los estilos del frontend y añade específicos del editor
  */
 
-
-/* Adjust media placeholder element in editor */
+@import url("./style.css");
 
 .cta-image-container {
 	display: flex;
@@ -13,11 +11,9 @@
 	padding: 20px;
 
 	.block-editor-media-placeholder {
-		width: 60% ;
+		width: 60%;
 	}
 }
-
-/* add styles for image removal button */
 
 .button-remove {
 	z-index: 2;
@@ -31,10 +27,7 @@
 	border-radius: 4px;
 }
 
-/* handle layout variant in editor */
-
 .variant-text-left {
-
 	.cta-image-container {
 		justify-content: flex-end;
 	}
@@ -43,5 +36,4 @@
 		left: unset;
 		right: 20px;
 	}
-	
 }

@@ -1,96 +1,302 @@
 /**
- * The following styles get applied both on the front of your site
- * and in the editor.
- *
- * Replace them with your own styles or remove the file completely.
+ * CTA Banner Block Styles
+ * Aplicados tanto en el frontend como en el editor
  */
 
- .wp-block-create-block-cta-dynamic-block {
+.wp-block-acf-cta {
+	margin: 2rem 0;
+}
+
+/* ===== BANNER CON IMAGEN DE FONDO ===== */
+.image-position-background .cta-banner-bg {
+	position: relative;
+	min-height: 500px;
+	background-size: cover;
+	background-position: center;
+	background-repeat: no-repeat;
+	border-radius: 12px;
+	overflow: hidden;
 	display: flex;
-	width: 100%;
-	justify-content: center;
 	align-items: center;
+	justify-content: center;
+}
 
+.image-position-background .cta-overlay {
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	background: linear-gradient(
+		135deg,
+		rgba(0, 0, 0, 0.7) 0%,
+		rgba(0, 0, 0, 0.4) 50%,
+		rgba(0, 0, 0, 0.6) 100%
+	);
+}
 
+.image-position-background .cta-container {
+	position: relative;
+	z-index: 2;
+	text-align: center;
+	padding: 3rem 2rem;
+	max-width: 800px;
+	margin: 0 auto;
+}
 
-	/* Style our image container */
+.image-position-background .cta-content {
+	color: #ffffff;
+	max-width: 100%;
+}
+
+.image-position-background .cta-tagline {
+	color: rgba(255, 255, 255, 0.9);
+	background: rgba(255, 255, 255, 0.1);
+	padding: 0.25rem 0.75rem;
+	border-radius: 20px;
+	backdrop-filter: blur(10px);
+}
+
+.image-position-background .cta-title {
+	color: #ffffff;
+	font-size: clamp(2rem, 5vw, 3.5rem);
+	text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+}
+
+.image-position-background .cta-description p {
+	color: rgba(255, 255, 255, 0.95);
+	font-size: 1.25rem;
+	text-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+}
+
+/* ===== BANNER CON IMAGEN A LOS LADOS ===== */
+.image-position-left .cta-container,
+.image-position-right .cta-container {
+	min-height: 400px;
+	padding: 2rem;
+	background: #ffffff;
+	border-radius: 12px;
+	box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+}
+.image-position-left .cta-container .container,
+.image-position-right .cta-container .container {
+	display: flex;
+	align-items: center;
+	gap: 3rem;
+}
+
+/* Contenido del CTA */
+.cta-content {
+	flex: 1;
+	max-width: 600px;
+}
+
+.cta-tagline {
+	display: inline-block;
+	font-size: 0.875rem;
+	font-weight: 600;
+	text-transform: uppercase;
+	letter-spacing: 0.05em;
+	color: var(--wp--preset--color--primary, #007cba);
+	margin-bottom: 0.5rem;
+	padding: 0.25rem 0.75rem;
+	background: var(--wp--preset--color--primary-light, rgba(0, 124, 186, 0.1));
+	border-radius: 20px;
+}
+
+.cta-title {
+	font-size: clamp(1.75rem, 4vw, 2.8rem);
+	font-weight: 700;
+	line-height: 1.2;
+	margin: 0 0 1rem 0;
+	color: var(--wp--preset--color--foreground, #1a1a1a);
+}
+
+.cta-description {
+	margin-bottom: 2rem;
+}
+
+.cta-description p {
+	font-size: 1.125rem;
+	line-height: 1.6;
+	color: var(--wp--preset--color--foreground, #4a4a4a);
+	margin: 0;
+}
+
+/* ===== BOTONES ===== */
+.cta-buttons {
+	display: flex;
+	gap: 1rem;
+	flex-wrap: wrap;
+}
+
+.image-position-background .cta-buttons {
+	justify-content: center;
+}
+
+.cta-button {
+	display: inline-flex;
+	align-items: center;
+	border-radius: 8px;
+	font-weight: 600;
+	text-decoration: none;
+	transition: all 0.3s ease;
+	border: 2px solid transparent;
+	white-space: nowrap;
+	cursor: pointer;
+}
+
+.cta-button--primary {
+	background-color: var(--wp--preset--color--primary, #007cba);
+	color: #ffffff;
+	box-shadow: 0 4px 15px rgba(0, 124, 186, 0.3);
+}
+
+.cta-button--primary:hover {
+	background-color: var(--wp--preset--color--primary-dark, #005a87);
+	transform: translateY(-2px);
+	box-shadow: 0 6px 20px rgba(0, 124, 186, 0.4);
+	color: #ffffff;
+}
+
+.cta-button--secondary {
+	background-color: transparent;
+	color: var(--wp--preset--color--primary, #007cba);
+	border-color: var(--wp--preset--color--primary, #007cba);
+}
+
+.cta-button--secondary:hover {
+	background-color: var(--wp--preset--color--primary, #007cba);
+	color: #ffffff;
+	transform: translateY(-2px);
+}
+
+/* Botones para imagen de fondo (versión blanca) */
+.image-position-background .cta-button--primary {
+	background-color: #ffffff;
+	color: var(--wp--preset--color--primary, #007cba);
+	box-shadow: 0 4px 15px rgba(255, 255, 255, 0.2);
+}
+
+.image-position-background .cta-button--primary:hover {
+	background-color: #f8f9fa;
+	color: var(--wp--preset--color--primary-dark, #005a87);
+}
+
+.image-position-background .cta-button--secondary {
+	background-color: transparent;
+	color: #ffffff;
+	border-color: rgba(255, 255, 255, 0.8);
+}
+
+.image-position-background .cta-button--secondary:hover {
+	background-color: rgba(255, 255, 255, 0.1);
+	border-color: #ffffff;
+	color: #ffffff;
+}
+
+/* ===== IMAGEN ===== */
+.cta-image-container {
+	flex: 1;
+	max-width: 500px;
+	min-width: 300px;
+}
+
+.cta-image {
+	width: 100%;
+	height: auto;
+	border-radius: 8px;
+	object-fit: cover;
+	box-shadow: 0 8px 25px rgba(0, 0, 0, 0.12);
+}
+
+/* ===== VARIANTES DE POSICIÓN ===== */
+.image-position-left .cta-container .container {
+	flex-direction: row;
+}
+
+/* ===== ESTILOS DE VARIANTE ===== */
+.is-style-rounded .cta-image {
+	border-radius: 50%;
+	aspect-ratio: 1;
+	object-fit: cover;
+}
+
+.is-style-elevated {
+	box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
+}
+
+.is-style-elevated .cta-container {
+	box-shadow: none;
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 768px) {
+	.image-position-left .cta-container .container,
+	.image-position-right .cta-container .container {
+		flex-direction: column !important;
+		text-align: center;
+		gap: 2rem;
+		min-height: auto;
+		padding: 2rem 1rem;
+	}
+
+	.cta-content {
+		max-width: 100%;
+	}
 
 	.cta-image-container {
-		width: 70%;
-		align-self: stretch;
-		position: relative;
-		/* background as placeholder when no image present */
-		background: #e5e5e5;
-
-
-		img {
-			position: absolute;
-			height: 100%;
-			width: 100%;
-			object-fit: cover;
-			top: 0;
-			left: 0;
-		}
+		max-width: 100%;
+		order: -1;
+		min-width: auto;
 	}
 
-	/* Style our text and button container */
-	.cta-text-container {
-		box-sizing: border-box;
-		width: 50%;
-		margin-left: -20%;
-		margin-top: 50px;
-		margin-bottom: 50px;
-		z-index: 2;
-		background: white;
-		box-shadow: 4px 0px 20px rgb(0,0,0,0.15);
-		border-radius: 16px;
-		padding: 50px 32px;
-
-		h2 {
-			margin-top: 0;
-		}
-
-	}
-	
-	.wp-element-button {
-		display: inline-block;
+	.cta-buttons {
+		justify-content: center;
 	}
 
-
-	/* Add styles for a text left variant based on classname */
-
-	&.variant-text-left {
-		flex-direction: row-reverse;
-
-		.cta-image-container {
-			justify-content: flex-end;
-		}
-
-		.cta-text-container {
-			margin-left: 0%;
-			margin-right: -20%;
-	
-		}
+	.cta-button {
+		flex: 1;
+		min-width: 150px;
+		justify-content: center;
 	}
 
-
-
-	/* Add responsive styles to stack on mobile for both layout variants */
-	@media (max-width: 768px){
-
-		&.variant-text-left, &.variant-text-right {
-			flex-direction: column;
-
-			.cta-image-container {
-				width: 100%;
-				aspect-ratio: 1.25;
-			}
-	
-			.cta-text-container {
-				width: 90%;
-				margin-left: 0;
-				margin-top: -50px;
-			}
-		}
+	/* Banner de fondo responsive */
+	.image-position-background .cta-banner-bg {
+		min-height: 400px;
 	}
+
+	.image-position-background .cta-container {
+		padding: 2rem 1rem;
+	}
+}
+
+@media (max-width: 480px) {
+	.cta-buttons {
+		flex-direction: column;
+	}
+
+	.cta-button {
+		width: 100%;
+		text-align: center;
+	}
+
+	.image-position-background .cta-banner-bg {
+		min-height: 350px;
+	}
+
+	.cta-title {
+		font-size: 1.75rem !important;
+	}
+}
+
+/* ===== ESTADOS SIN IMAGEN ===== */
+.wp-block-acf-cta:not(.has-image) .cta-container .container {
+	justify-content: center;
+	text-align: center;
+	min-height: 300px;
+}
+
+.wp-block-acf-cta:not(.has-image) .cta-content .container {
+	max-width: 700px;
 }

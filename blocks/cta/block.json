@@ -1,43 +1,44 @@
 {
-	"$schema": "https://schemas.wp.org/trunk/block.json",
-	"apiVersion": 3,
-	"name": "starter-block/cta",
-	"version": "0.1.0",
-	"title": "Cta",
-	"category": "theme",
-	"icon": "megaphone",
-	"description": "Bloque CTA con imagen, texto y botón",
-	"supports": {
-		"html": false,
-		"align": ["wide"]
-	},
-	"attributes": {
-		"layout_variant": {
-            "type": "string",
-			"enum": ["text-left", "text-right"],
-			"default": "text-right"
-		},
-		"image_id": {
-			"type": "number"
-		},
-		"image_url": {
-			"type": "string"
-		},
-		"heading": {
-			"type": "string"
-		},
-		"body": {
-			"type": "string"
-		},
-		"link": {
-			"type": "object",
-			"default": {
-				"title": "Learn More"
-			}
-		}
-	},
-	"textdomain": "cta-dynamic-block",
-	"editorStyle": "file:./editor.css",
-	"render": "file:./render.php",
-    "style": "file:./style.css"
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "acf/cta",
+  "version": "0.1.0",
+  "title": "CTA",
+  "category": "theme",
+  "icon": "megaphone",
+  "description": "Bloque de llamada a la acción con imagen, texto y botón configurable",
+  "keywords": ["cta", "llamada", "accion", "boton", "imagen"],
+  "supports": {
+    "align": ["wide", "full"],
+    "anchor": true,
+    "className": true,
+    "spacing": { "margin": false, "padding": false },
+    "color": { "background": false, "text": false, "gradients": false },
+    "typography": { "fontSize": false, "lineHeight": false },
+    "shadow": false
+  },
+  "styles": [
+    { "name": "default", "label": "Por defecto", "isDefault": true },
+    { "name": "rounded", "label": "Imagen redondeada" },
+    { "name": "elevated", "label": "Con elevación" }
+  ],
+  "acf": {
+    "mode": "preview",
+    "renderTemplate": "render.php",
+    "validate": false
+  },
+  "example": {
+    "attributes": {
+      "tagline": "¿Listo para empezar?",
+      "title": "Impulsa tu negocio al siguiente nivel",
+      "content": "Descubre cómo nuestras soluciones pueden transformar tu empresa y generar resultados extraordinarios.",
+      "image_position": "right",
+      "primary_button": {
+        "title": "Comenzar ahora",
+        "url": "#"
+      }
+    }
+  },
+  "editorStyle": "file:./editor.css",
+  "style": "file:./style.css"
 }

@@ -1,0 +1,169 @@
+{
+    "key": "group_cta",
+    "title": "CTA",
+    "fields": [
+        {
+            "key": "field_cta_tagline",
+            "label": "Tagline",
+            "name": "tagline",
+            "aria-label": "",
+            "type": "text",
+            "instructions": "Texto breve que aparece encima del título (opcional).",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "100",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "maxlength": "",
+            "placeholder": "¿Listo para empezar?",
+            "prepend": "",
+            "append": ""
+        },
+        {
+            "key": "field_cta_title",
+            "label": "Título",
+            "name": "title",
+            "aria-label": "",
+            "type": "text",
+            "instructions": "Título principal del CTA.",
+            "required": 1,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "100",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "maxlength": "",
+            "placeholder": "Impulsa tu negocio al siguiente nivel",
+            "prepend": "",
+            "append": ""
+        },
+        {
+            "key": "field_cta_content",
+            "label": "Contenido",
+            "name": "content",
+            "aria-label": "",
+            "type": "textarea",
+            "instructions": "Descripción del CTA.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "100",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "maxlength": "",
+            "rows": 3,
+            "placeholder": "Describe los beneficios o la acción que quieres que realicen...",
+            "new_lines": ""
+        },
+        {
+            "key": "field_cta_image",
+            "label": "Imagen",
+            "name": "image",
+            "aria-label": "",
+            "type": "image",
+            "instructions": "Imagen del CTA. Recomendado: 800x600px o superior.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "50",
+                "class": "",
+                "id": ""
+            },
+            "return_format": "array",
+            "library": "all",
+            "min_width": "",
+            "min_height": "",
+            "min_size": "",
+            "max_width": "",
+            "max_height": "",
+            "max_size": "",
+            "mime_types": "",
+            "preview_size": "medium"
+        },
+        {
+            "key": "field_cta_image_position",
+            "label": "Posición de la imagen",
+            "name": "image_position",
+            "aria-label": "",
+            "type": "select",
+            "instructions": "Selecciona la posición de la imagen: a los lados del texto o como fondo con overlay.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "50",
+                "class": "",
+                "id": ""
+            },
+            "choices": {
+                "left": "Izquierda",
+                "right": "Derecha",
+                "background": "Fondo con overlay"
+            },
+            "default_value": "right",
+            "return_format": "value",
+            "multiple": 0,
+            "allow_null": 0,
+            "ui": 0,
+            "ajax": 0,
+            "placeholder": ""
+        },
+        {
+            "key": "field_cta_primary_button",
+            "label": "Botón principal",
+            "name": "primary_button",
+            "aria-label": "",
+            "type": "link",
+            "instructions": "Botón principal del CTA.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "50",
+                "class": "",
+                "id": ""
+            },
+            "return_format": "array"
+        },
+        {
+            "key": "field_cta_secondary_button",
+            "label": "Botón secundario",
+            "name": "secondary_button",
+            "aria-label": "",
+            "type": "link",
+            "instructions": "Botón secundario opcional del CTA.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "50",
+                "class": "",
+                "id": ""
+            },
+            "return_format": "array"
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "block",
+                "operator": "==",
+                "value": "acf\/cta"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": true,
+    "description": "Campos para el bloque CTA",
+    "show_in_rest": 0,
+    "modified": 1696089600
+}
