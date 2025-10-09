@@ -1,0 +1,39 @@
+{
+  "$schema": "https://advancedcustomfields.com/schemas/json/main/block.json",
+  "apiVersion": 2,
+  "name": "acf/faqs",
+  "title": "FAQs",
+  "description": "Bloque de preguntas frecuentes con acordeón.",
+  "category": "theme",
+  "icon": "list-view",
+  "keywords": ["faq", "preguntas", "acordeón", "ayuda"],
+  "textdomain": "acf-starter",
+  "style": [ "file:./style.css" ],
+
+  "supports": {
+    "anchor": true,
+    "align": [ "wide", "full" ],
+    "spacing": {
+      "padding": true,
+      "margin": [ "top", "bottom" ]
+    },
+    "color": {
+      "background": false,
+      "text": false
+    },
+    "typography": false,
+    "border": false
+  },
+
+  "styles": [
+    { "name": "faqs-simple", "label": "Simple", "isDefault": true },
+    { "name": "faqs-media-left", "label": "Imagen Izquierda" },
+    { "name": "faqs-media-right", "label": "Imagen Derecha" }
+  ],
+
+  "acf": {
+    "mode": "preview",
+    "renderTemplate": "render.php",
+    "blockVersion": 3
+  }
+}

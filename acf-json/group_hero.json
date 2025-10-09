@@ -160,7 +160,9 @@
             "allow_null": 0,
             "ui": 0,
             "ajax": 0,
-            "placeholder": ""
+            "placeholder": "",
+            "create_options": 0,
+            "save_options": 0
         },
         {
             "key": "field_hero_padding_y",
@@ -187,7 +189,9 @@
             "allow_null": 0,
             "ui": 0,
             "ajax": 0,
-            "placeholder": ""
+            "placeholder": "",
+            "create_options": 0,
+            "save_options": 0
         },
         {
             "key": "field_hero_background_preset",
@@ -214,7 +218,9 @@
             "allow_null": 0,
             "ui": 0,
             "ajax": 0,
-            "placeholder": ""
+            "placeholder": "",
+            "create_options": 0,
+            "save_options": 0
         },
         {
             "key": "field_hero_video_url",
@@ -408,7 +414,9 @@
             "allow_null": 0,
             "ui": 1,
             "ajax": 0,
-            "placeholder": ""
+            "placeholder": "",
+            "create_options": 0,
+            "save_options": 0
         },
         {
             "key": "field_hero_cta_1_btn",
@@ -515,5 +523,6 @@
     "active": true,
     "description": "Hero block",
     "show_in_rest": 0,
-    "modified": 1757501115
+    "display_title": "Hero",
+    "modified": 1759998785
 }

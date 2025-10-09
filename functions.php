@@ -1,6 +1,6 @@
 <?php
 /**
- * MKT Starter Theme functions and definitions
+ * Theme functions and definitions
  *
  * @package Starter\Theme
  */
@@ -9,6 +9,7 @@ defined( 'ABSPATH' ) || exit;
 
 // Include necessary files
 require_once get_template_directory() . '/inc/class-theme.php';
+require_once get_template_directory() . '/inc/class-helpers.php';
 
 // Initialize the theme
 if ( class_exists( 'Starter\Theme\\Starter_Theme' ) ) {

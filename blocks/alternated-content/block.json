@@ -25,7 +25,8 @@
   "acf": {
     "mode": "preview",
     "renderTemplate": "render.php",
-    "validate": false
+    "validate": false,
+    "blockVersion": 3
   },
   "example": {
     "attributes": {

@@ -1,0 +1,354 @@
+/* ====== Block ====== */
+.related {
+	position: relative;
+	overflow: hidden;
+
+	/* Modificadores de padding */
+	&.related--py-sm {
+		padding: 1.5rem 0;
+	}
+	&.related--py-md {
+		padding: 2.5rem 0;
+	}
+	&.related--py-lg {
+		padding: 4rem 0;
+	}
+	&.related--py-xl {
+		padding: 5rem 0;
+	}
+
+	/* Container / grid */
+	.related__container {
+		position: relative;
+	}
+	.related__wrapper {
+		overflow: hidden;
+		border-radius: 0.5rem;
+	}
+	.related__grid {
+		display: grid;
+		grid-template-columns: 1fr;
+		gap: 1.5rem;
+		transition: transform 0.3s ease;
+	}
+
+	/* Card */
+	.card {
+		background: var(--wp--preset--color--background, #fff);
+		border-radius: 0.75rem;
+		overflow: hidden;
+		border: 1px solid var(--wp--preset--color--border, #e2e8f0);
+		transition: transform 0.2s ease, box-shadow 0.2s ease;
+	}
+
+	.card-link {
+		display: block;
+		color: inherit;
+		text-decoration: none;
+		transition: color 0.2s ease;
+		:hover {
+			color: var(--wp--preset--color--primary, #007cba);
+			text-decoration: none;
+		}
+		:focus {
+			outline: none;
+			outline-offset: 0;
+		}
+	}
+
+	.card-media {
+		position: relative;
+		aspect-ratio: 16 / 10;
+		overflow: hidden;
+	}
+	.card-image {
+		width: 100%;
+		height: 100%;
+		object-fit: cover;
+		transition: transform 0.3s ease;
+	}
+	.card-image--placeholder {
+		display: grid;
+		place-items: center;
+		background: #f8f9fa;
+		color: #6c757d;
+	}
+
+	/* Efecto hover imagen cuando se hoverea la card completa */
+	.card:hover .card-image {
+		transform: scale(1.05);
+	}
+
+	.card-content {
+		display: flex;
+		flex-direction: column;
+		padding: 1rem;
+	}
+	.card-title {
+		font-size: 1.1rem;
+		font-weight: 600;
+		margin: 0 0 0.5rem;
+		line-height: 1.3;
+	}
+	.card-excerpt {
+		font-size: 0.875rem;
+		line-height: 1.5;
+		color: var(--wp--preset--color--foreground, #4a4a4a);
+		margin: 0 0 1rem;
+		display: -webkit-box;
+		-webkit-line-clamp: 3;
+		-webkit-box-orient: vertical;
+		overflow: hidden;
+	}
+	.card-actions {
+		margin-top: auto;
+	}
+	.card-btn {
+		display: inline-flex;
+		align-items: center;
+		gap: 0.5rem;
+		font-size: var(--fs-15);
+		margin-top: var(--space-8);
+	}
+	.card-btn svg {
+		transition: transform 0.2s ease;
+	}
+	.card-btn:hover svg {
+		transform: translateX(2px);
+	}
+
+	/* Variaciones de estilo (block styles) */
+	&.is-style-cards .card {
+		box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+	}
+	&.is-style-cards .card:hover {
+		box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+	}
+	&.is-style-minimal .card {
+		border: 0;
+		background: transparent;
+	}
+	&.is-style-minimal .card-content {
+		padding: 1.5rem 0;
+	}
+}
+
+/* ====== Controles (elemento independiente) ====== */
+.related__controls {
+	display: none;
+	position: relative;
+}
+.related__control {
+	position: absolute;
+	top: 50%;
+	transform: translateY(-50%);
+	background: var(--wp--preset--color--background, #fff);
+	border: 1px solid var(--wp--preset--color--border, #e2e8f0);
+	border-radius: 50%;
+	width: 40px;
+	height: 40px;
+	display: grid;
+	place-items: center;
+	color: var(--wp--preset--color--foreground, #1a1a1a);
+	cursor: pointer;
+	transition: all 0.2s ease;
+	z-index: 2;
+	box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+
+	&:hover {
+		background: var(--wp--preset--color--primary, #007cba);
+		color: #fff;
+		border-color: var(--wp--preset--color--primary, #007cba);
+	}
+}
+.related__control--prev {
+	left: -20px;
+}
+.related__control--next {
+	right: -20px;
+}
+
+/* ====== Indicadores ====== */
+.related__indicators {
+	display: flex;
+	justify-content: center;
+	gap: 0.5rem;
+	margin-top: 1.5rem;
+}
+.related__indicator {
+	width: 8px;
+	height: 8px;
+	border-radius: 50%;
+	border: 0;
+	background: var(--wp--preset--color--border, #e2e8f0);
+	cursor: pointer;
+	transition: background-color 0.2s ease, transform 0.2s ease;
+}
+.related__indicator--active,
+.related__indicator:hover {
+	background: var(--wp--preset--color--primary, #007cba);
+	transform: scale(1.2);
+}
+
+/* ====== Breakpoints ====== */
+@media (min-width: 576px) {
+	.related .related__grid {
+		grid-template-columns: repeat(2, 1fr);
+	}
+	.related .related__title {
+		font-size: 2rem;
+	}
+	.related .related__tagline {
+		font-size: 0.875rem;
+	}
+	.related .related__description {
+		font-size: 1rem;
+		max-width: 85%;
+	}
+	.related .card-content {
+		padding: 1.25rem;
+	}
+	.related .card-title {
+		font-size: 1.125rem;
+	}
+}
+
+/* Tablet */
+@media (min-width: 768px) {
+	/* Padding modifiers más amplios */
+	.related.related--py-sm {
+		padding: 2rem 0;
+	}
+	.related.related--py-md {
+		padding: 3.5rem 0;
+	}
+	.related.related--py-lg {
+		padding: 5rem 0;
+	}
+	.related.related--py-xl {
+		padding: 7rem 0;
+	}
+
+	.related .related__header {
+		margin-bottom: 3rem;
+	}
+	.related .related__title {
+		font-size: 2.25rem;
+	}
+	.related .related__description {
+		max-width: 70%;
+		font-size: 1.125rem;
+	}
+
+	/* Grid por columnas */
+	.related .related__grid {
+		grid-template-columns: repeat(3, 1fr);
+	}
+	.related.related--cols-2 .related__grid {
+		grid-template-columns: repeat(2, 1fr);
+	}
+	.related.related--cols-4 .related__grid {
+		grid-template-columns: repeat(4, 1fr);
+	}
+
+	/* Mostrar controles cuando el bloque lo indica */
+	.related.related--with-controls .related__controls {
+		display: block;
+		position: absolute;
+		width: 100%;
+		top: 50%;
+		left: 0;
+	}
+
+	/* Carrusel: convierto la grid en carrusel solo cuando aplica */
+	.related.related--carousel .related__wrapper {
+		margin: 0 2rem;
+	}
+	.related.related--carousel .related__grid {
+		display: flex;
+		flex-wrap: nowrap;
+		width: max-content;
+		scroll-snap-type: x mandatory;
+		scroll-behavior: smooth;
+		overflow-x: auto;
+		transition: transform 0.3s ease;
+	}
+	.related.related--carousel .card {
+		flex: 0 0 calc((100vw - 8rem) / 3);
+		max-width: 350px;
+		scroll-snap-align: center;
+	}
+	.related.related--carousel.related--cols-2 .card {
+		flex-basis: calc((100vw - 8rem) / 2);
+	}
+	.related.related--carousel.related--cols-4 .card {
+		flex-basis: calc((100vw - 8rem) / 4);
+	}
+}
+
+/* Desktop */
+@media (min-width: 992px) {
+	.related .related__header {
+		margin-bottom: 4rem;
+	}
+	.related .related__title {
+		font-size: 2.5rem;
+	}
+	.related .related__description {
+		max-width: 60%;
+	}
+	.related .card-content {
+		padding: 2rem;
+	}
+	.related .card-title {
+		font-size: 1.25rem;
+	}
+
+	.related__control {
+		width: 48px;
+		height: 48px;
+	}
+	.related__control--prev {
+		left: -24px;
+	}
+	.related__control--next {
+		right: -24px;
+	}
+
+	.related.related--carousel .card {
+		flex-basis: calc((1200px - 8rem) / 3);
+	}
+	.related.related--carousel.related--cols-2 .card {
+		flex-basis: calc((1200px - 8rem) / 2);
+	}
+	.related.related--carousel.related--cols-4 .card {
+		flex-basis: calc((1200px - 8rem) / 4);
+	}
+}
+
+/* XL */
+@media (min-width: 1200px) {
+	.related .related__title {
+		font-size: 3rem;
+	}
+	.related .related__description {
+		max-width: 50%;
+	}
+	.related.related--carousel .card {
+		flex-basis: 350px;
+	}
+	.related.related--carousel.related--cols-2 .card {
+		flex-basis: 500px;
+	}
+	.related.related--carousel.related--cols-4 .card {
+		flex-basis: 280px;
+	}
+}
+
+/* XXL */
+@media (min-width: 1400px) {
+	.related .related__header {
+		max-width: 90%;
+		margin-inline: auto;
+	}
+}

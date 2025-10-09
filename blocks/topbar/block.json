@@ -23,7 +23,14 @@
     "typography": false,
     "border": false
   },
-
+  "styles": [
+    { "name": "topbar-light", "label": "Light", "isDefault": true },
+    { "name": "topbar-dark", "label": "Dark" },
+    { "name": "topbar-primary", "label": "Primary" },
+    { "name": "topbar-transparent", "label": "Transparent" },
+    { "name": "topbar-divider", "label": "Divider" },
+    { "name": "topbar-deactivated", "label": "Deactivated" }
+  ],
   "acf": {
     "mode": "preview",
     "renderTemplate": "render.php"

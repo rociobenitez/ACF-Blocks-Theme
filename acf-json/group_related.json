@@ -1,0 +1,358 @@
+{
+    "key": "group_related_content",
+    "title": "Contenido Relacionado",
+    "fields": [
+        {
+            "key": "field_related_content_tagline",
+            "label": "Tagline",
+            "name": "tagline",
+            "aria-label": "",
+            "type": "text",
+            "instructions": "Texto breve que aparece encima del título (opcional).",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "100",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "maxlength": "",
+            "placeholder": "Ej: Nuestros Servicios",
+            "prepend": "",
+            "append": ""
+        },
+        {
+            "key": "field_related_content_title",
+            "label": "Título",
+            "name": "title",
+            "aria-label": "",
+            "type": "text",
+            "instructions": "Título principal de la sección.",
+            "required": 1,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "100",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "maxlength": "",
+            "placeholder": "Ej: Soluciones digitales completas",
+            "prepend": "",
+            "append": ""
+        },
+        {
+            "key": "field_related_content_tag_title",
+            "label": "Etiqueta del título",
+            "name": "tag_title",
+            "aria-label": "",
+            "type": "select",
+            "instructions": "Selecciona la etiqueta HTML para el título.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "100",
+                "class": "",
+                "id": ""
+            },
+            "choices": {
+                "h2": "H2",
+                "h3": "H3",
+                "p": "P"
+            },
+            "default_value": "h2",
+            "layout": "horizontal",
+            "allow_multiple": 0,
+            "allow_null": 0,
+            "return_format": "value"
+        },
+        {
+            "key": "field_related_content_description",
+            "label": "Texto",
+            "name": "text",
+            "aria-label": "",
+            "type": "textarea",
+            "instructions": "Descripción breve de los servicios que se mostrarán.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "100",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "maxlength": "",
+            "rows": 3,
+            "placeholder": "Descripción de los servicios..."
+        },
+        {
+            "key": "field_related_content_posts",
+            "label": "Contenido Relacionado",
+            "name": "related",
+            "aria-label": "",
+            "type": "relationship",
+            "instructions": "Selecciona el contenido que quieres mostrar en esta sección.",
+            "required": 1,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "100",
+                "class": "",
+                "id": ""
+            },
+            "post_type": [
+                "post",
+                "service"
+            ],
+            "taxonomy": [],
+            "filters": [
+                "search",
+                "taxonomy"
+            ],
+            "elements": [
+                "featured_image"
+            ],
+            "min": 1,
+            "max": "",
+            "return_format": "object"
+        },
+        {
+            "key": "field_related_content_source_mode",
+            "label": "Modo de fuente",
+            "name": "source_mode",
+            "aria-label": "",
+            "type": "select",
+            "instructions": "Selecciona cómo se elige el contenido a mostrar.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "100",
+                "class": "",
+                "id": ""
+            },
+            "choices": {
+                "manual": "Selección manual (por defecto)",
+                "query": "Dinámico (muestra todos los posts del CPT)"
+            },
+            "default_value": "manual",
+            "return_format": "value",
+            "multiple": 0,
+            "allow_null": 0,
+            "ui": 0,
+            "ajax": 0,
+            "placeholder": ""
+        },
+        {
+            "key": "field_related_content_see_all",
+            "label": "Enlace 'Ver todos'",
+            "name": "see_all_cta",
+            "aria-label": "",
+            "type": "link",
+            "instructions": "Enlace para ver todo el contenido del tipo seleccionado (opcional).",
+            "required": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_related_content_source_mode",
+                        "operator": "==",
+                        "value": "manual"
+                    }
+                ]
+            ],
+            "wrapper": {
+                "width": "100",
+                "class": "",
+                "id": ""
+            },
+            "return_format": "array",
+            "default_value": "",
+            "placeholder": ""
+        },
+        {
+            "key": "field_related_content_items_per_row",
+            "label": "Elementos por fila",
+            "name": "items_per_row",
+            "aria-label": "",
+            "type": "select",
+            "instructions": "Número de servicios que se muestran por fila en pantallas grandes.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "100",
+                "class": "",
+                "id": ""
+            },
+            "choices": {
+                "2": "2 por fila",
+                "3": "3 por fila",
+                "4": "4 por fila"
+            },
+            "default_value": "3",
+            "return_format": "value",
+            "multiple": 0,
+            "allow_null": 0,
+            "ui": 0,
+            "ajax": 0,
+            "placeholder": ""
+        },
+              {
+            "key": "field_related_content_padding_y",
+            "label": "Espaciado vertical",
+            "name": "padding_y",
+            "aria-label": "",
+            "type": "select",
+            "instructions": "Espaciado vertical de la sección.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "100",
+                "class": "",
+                "id": ""
+            },
+            "choices": {
+                "sm": "Pequeño",
+                "md": "Mediano",
+                "lg": "Grande",
+                "xl": "Extra Grande"
+            },
+            "default_value": "lg",
+            "return_format": "value",
+            "multiple": 0,
+            "allow_null": 0,
+            "ui": 0,
+            "ajax": 0,
+            "placeholder": ""
+        },
+        {
+            "key": "field_related_content_layout_mode",
+            "label": "Modo de diseño",
+            "name": "layout_mode",
+            "aria-label": "",
+            "type": "select",
+            "instructions": "Selecciona el modo de diseño para mostrar los servicios.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "100",
+                "class": "",
+                "id": ""
+            },
+            "choices": {
+                "grid": "Cuadrícula (no carrusel)",
+                "carousel": "Carrusel horizontal"
+            },
+            "default_value": "grid",
+            "return_format": "value",
+            "multiple": 0,
+            "allow_null": 0,
+            "ui": 0,
+            "ajax": 0,
+            "placeholder": ""
+        },
+        {
+            "key": "field_related_content_show_carousel_controls",
+            "label": "Mostrar controles de carrousel",
+            "name": "show_carousel_controls",
+            "aria-label": "",
+            "type": "true_false",
+            "instructions": "Muestra las flechas de navegación cuando hay más servicios que los que caben por fila.",
+            "required": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_related_content_layout_mode",
+                        "operator": "==",
+                        "value": "carousel"
+                    }
+                ]
+            ],
+            "wrapper": {
+                "width": "100",
+                "class": "",
+                "id": ""
+            },
+            "message": "",
+            "default_value": 1,
+            "ui_on_text": "",
+            "ui_off_text": "",
+            "ui": 1
+        },
+        {
+            "key": "field_related_content_enable_autoplay",
+            "label": "Reproducción automática",
+            "name": "enable_autoplay",
+            "aria-label": "",
+            "type": "true_false",
+            "instructions": "Activa el desplazamiento automático del carrousel.",
+            "required": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_related_content_layout_mode",
+                        "operator": "==",
+                        "value": "carousel"
+                    }
+                ]
+            ],
+            "wrapper": {
+                "width": "100",
+                "class": "",
+                "id": ""
+            },
+            "message": "",
+            "default_value": 0,
+            "ui_on_text": "",
+            "ui_off_text": "",
+            "ui": 1
+        },
+        {
+            "key": "field_related_content_autoplay_delay",
+            "label": "Tiempo entre diapositivas (ms)",
+            "name": "autoplay_delay",
+            "aria-label": "",
+            "type": "number",
+            "instructions": "Tiempo en milisegundos entre cada cambio automático de diapositiva.",
+            "required": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_related_content_enable_autoplay",
+                        "operator": "==",
+                        "value": "1"
+                    }
+                ]
+            ],
+            "wrapper": {
+                "width": "100",
+                "class": "",
+                "id": ""
+            },
+            "default_value": 5000,
+            "min": 1000,
+            "max": 10000,
+            "step": 500,
+            "placeholder": "",
+            "prepend": "",
+            "append": "ms"
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "block",
+                "operator": "==",
+                "value": "acf\/related"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": true,
+    "description": "Bloque para mostrar una colección de contenido relacionado con encabezado centrado y diseño en cuadrícula o carrusel.",
+    "show_in_rest": 0,
+    "modified": 1727347800
+}

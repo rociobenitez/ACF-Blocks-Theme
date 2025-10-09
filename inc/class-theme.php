@@ -2,21 +2,20 @@
 namespace Starter\Theme;
 
 if ( ! defined( 'ABSPATH' ) ) {
-    exit; // Exit if accessed directly.
+    exit;
 }
 
 class Starter_Theme {
 
     /**
-     * Initialize the theme
+     * Init
      */
-    public static function init() {
+    public static function init() : void {
         self::define_constants();
         self::includes();
         
         add_action( 'after_setup_theme', [ __CLASS__, 'theme_setup' ] );
-        add_action( 'wp_enqueue_scripts', [ __CLASS__, 'enqueue_assets' ] );
-        add_filter( 'upload_mimes', [ __CLASS__, 'allow_svg_upload' ] );
+		add_action( 'wp_enqueue_scripts', [ __CLASS__, 'enqueue_front_assets' ] );
 
         // Initialize ACF JSON and ACF Blocks if ACF is active
         if ( class_exists( __NAMESPACE__ . '\\Starter_ACF_JSON' ) ) {
@@ -28,9 +27,9 @@ class Starter_Theme {
     }
 
     /**
-     * Define theme constants
+     * Constants
      */
-    public static function define_constants() {
+    public static function define_constants() : void {
         if ( ! defined( 'ST_THEME_VERSION' ) ) {
             define( 'ST_THEME_VERSION', '0.1.0' );
         }
@@ -41,25 +40,25 @@ class Starter_Theme {
         if ( ! defined( 'ST_TEXT_DOMAIN' ) ) {
             define( 'ST_TEXT_DOMAIN', 'st-starter' );
         }
-        if ( ! defined( 'ST_COMPANY_NAME' ) ) {
-            define( 'ST_COMPANY_NAME', 'Nombre de la empresa' );
+        if ( ! defined( 'ST_THEME_DIR' ) ) {
+            define( 'ST_THEME_DIR', get_template_directory() );
         }
-        if ( ! defined( 'ST_API_GOOGLE_MAPS' ) ) {
-            define( 'ST_API_GOOGLE_MAPS', 'YOUR_API_KEY' );
+        if ( ! defined( 'ST_THEME_URI' ) ) {
+            define( 'ST_THEME_URI', get_template_directory_uri() );
         }
     }
 
     /**
-     * Include necessary files
+     * Includes
      */
-    public static function includes() {
+    public static function includes() : void {
         $files = [
-            'inc/class-assets.php',
             'inc/class-acf-json.php',
             'inc/class-acf-blocks.php',
+            'inc/class-helpers.php',
         ];
         foreach ( $files as $file ) {
-            $path = get_template_directory() . '/' . $file;
+            $path = ST_THEME_DIR . '/' . $file;
             if ( file_exists( $path ) ) {
                 require_once $path;
             }
@@ -69,30 +68,25 @@ class Starter_Theme {
     /**
      * Setup theme features
      */
-    public static function theme_setup() {
+    public static function theme_setup() : void {
         // Make theme available for translation
-        load_theme_textdomain( ST_TEXT_DOMAIN, get_template_directory() . '/languages' );
+        load_theme_textdomain( ST_TEXT_DOMAIN, ST_THEME_DIR . '/languages' );
 
-        // Add default posts and comments RSS feed links to head
-        add_theme_support( 'automatic-feed-links' );
         add_theme_support( 'title-tag' );
         add_theme_support( 'post-thumbnails' );
-        add_theme_support( 'html5', array( 'search-form', 'gallery', 'caption', 'comment-form' ) );
-        add_theme_support( 'post-formats', array( 'aside', 'image', 'video', 'quote', 'link', 'audio', 'gallery', 'status' ) );
-        add_theme_support( 'custom-logo' );
-        add_theme_support( 'custom-background' );
+        add_theme_support( 'html5', [ 'search-form', 'gallery', 'caption', 'comment-form', 'style', 'script' ] );
 
-        // Add support for editor styles
-        add_theme_support( 'editor-styles' );
+        // Block Editor Support
+		add_theme_support( 'wp-block-styles' );   // block styles
+		add_theme_support( 'align-wide' );
+		add_theme_support( 'responsive-embeds' );
+		add_theme_support( 'editor-styles' );     // editor styles
+
+        // Add more styles if needed
         add_editor_style([
+            'assets/css/main.css',
             'assets/css/editor.css'
         ]);
-
-        // Add support for block styles
-        add_theme_support( 'wp-block-styles' );
-        add_theme_support( 'widgets-block-editor' );
-        add_theme_support( 'align-wide' );
-        add_theme_support( 'responsive-embeds' );
 
         // WooCommerce support
         add_theme_support( 'woocommerce' );
@@ -101,71 +95,27 @@ class Starter_Theme {
     /**
      * Enqueue theme assets
      */
-    public static function enqueue_assets() {
-        // Bootstrap CSS from CDN
-        wp_enqueue_style( 
-            'bootstrap',
-            'https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css',
-            [],
-            '5.3.3'
-        );
+    public static function enqueue_front_assets() {
 
-        // Enqueue fonts and main styles
-        wp_enqueue_style(
-            'st-starter-fonts',
-            get_theme_file_uri('/assets/css/fonts.css'),
-            ['bootstrap'],
-            ST_THEME_VERSION
-        );
-
-        wp_enqueue_style(
-            'st-starter-main',
-            get_theme_file_uri('/assets/css/main.css'),
-            ['bootstrap','st-starter-fonts','global-styles'],
-            ST_THEME_VERSION
-        );
-
-        // Enqueue scripts
-        wp_enqueue_script(
-            'st-starter-script',
-            get_template_directory_uri() . '/assets/js/main.js',
-            [],
-            ST_THEME_VERSION,
-            true
-        );
-        wp_enqueue_script(
-            'st-starter-editor-script',
-            get_template_directory_uri() . '/assets/js/editor.js',
-            ['wp-blocks','wp-dom-ready','wp-edit-post'],
-            ST_THEME_VERSION,
-            true
-        );
-    }
-
-    /**
-     * Detect if dev server is running and use dev version of assets
-     * If not, use the production version
-     */
-    public static function is_dev_server( $port = 5173) {
-        $dev_server_url = 'http://localhost:' . intval( $port );
-        $args = [
-            'timeout'   => 1,
-            'redirection' => 0,
-            'httpversion' => '1.1',
-        ];
-        $response = wp_remote_head( $dev_server_url, $args );
-        if ( is_wp_error( $response ) ) {
-            return false;
+        $front_css = ST_THEME_DIR . '/assets/css/main.css';
+        if ( file_exists( $front_css ) ) {
+            wp_enqueue_style(
+                'st-starter-main',
+                ST_THEME_URI . '/assets/css/main.css',
+                [],
+                ST_THEME_VERSION
+            );
         }
-        $code = wp_remote_retrieve_response_code( $response );
-        return (int) $code === 200;
-    }
 
-    /**
-     * Allow SVG file uploads
-     */
-    public static function allow_svg_upload( $mimes ) {
-        $mimes['svg'] = 'image/svg+xml';
-        return $mimes;
+        $front_js = ST_THEME_DIR . '/assets/js/main.js';
+		if ( file_exists( $front_js ) ) {
+			wp_enqueue_script(
+				'starter-theme-frontend',
+				ST_THEME_URI . '/assets/js/main.js',
+				[],
+				ST_THEME_VERSION,
+				true
+			);
+		}
     }
 }

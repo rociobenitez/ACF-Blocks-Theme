@@ -7,7 +7,7 @@ No build step (plain CSS/JS), token-based styling (CSS Custom Properties), and c
 >
 > -   WordPress **6.8+**
 > -   PHP **8.0+**
-> -   **ACF PRO 6.5+** (not bundled; required for ACF Blocks)
+> -   **ACF PRO 6.6+**
 
 ## Features
 

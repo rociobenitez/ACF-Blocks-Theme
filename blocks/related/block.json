@@ -1,13 +1,13 @@
 {
   "$schema": "https://schemas.wp.org/trunk/block.json",
   "apiVersion": 3,
-  "name": "acf/services",
+  "name": "acf/related",
   "version": "0.1.0",
-  "title": "Servicios",
+  "title": "Contenido Relacionado",
   "category": "theme",
   "icon": "grid-view",
-  "description": "Muestra una colección de servicios con encabezado centrado y carrousel horizontal",
-  "keywords": ["servicios", "cards", "carrousel", "showcase", "grid"],
+  "description": "Muestra una colección de contenido relacionado con encabezado centrado y diseño en cuadrícula o carrusel.",
+  "keywords": ["contenido relacionado", "cards", "carrousel", "showcase", "grid"],
   "supports": {
     "align": ["wide", "full"],
     "anchor": true,
@@ -20,7 +20,8 @@
   "acf": {
     "mode": "preview",
     "renderTemplate": "render.php",
-    "validate": false
+    "validate": false,
+    "blockVersion": 3
   },
   "styles": [
     { "name": "default", "label": "Por defecto", "isDefault": true },
@@ -36,7 +37,7 @@
       "items_per_row": 3
     }
   },
-  "editorStyle": "file:./editor.css",
-  "style": "file:./style.css",
-  "script": "file:./script.js"
+  "script": "file:./script.js",
+  "editorStyle": "file:./editor-style.css",
+  "style": "file:./style.css"
 }

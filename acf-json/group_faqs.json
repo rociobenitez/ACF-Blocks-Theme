@@ -1,0 +1,121 @@
+{
+  "key": "group_faqs_block",
+  "title": "Preguntas Frecuentes (FAQs)",
+  "fields": [
+    {
+      "key": "field_faqs_media",
+      "label": "Imagen",
+      "name": "media",
+      "type": "image",
+      "return_format": "id",
+      "preview_size": "medium",
+      "library": "all",
+      "conditional_logic": [
+        [
+          {
+            "field": "field_faqs_style",
+            "operator": "!=",
+            "value": "simple"
+          }
+        ]
+      ]
+    },
+    {
+      "key": "field_faqs_tagline",
+      "label": "Tagline",
+      "name": "tagline",
+      "type": "text"
+    },
+    {
+      "key": "field_faqs_title",
+      "label": "Título",
+      "name": "title",
+      "type": "text",
+      "required": 0
+    },
+    {
+      "key": "field_faqs_tag_title",
+      "label": "Etiqueta del título",
+      "name": "tag_title",
+      "type": "select",
+      "choices": {
+        "h1": "H1",
+        "h2": "H2",
+        "h3": "H3",
+        "p": "P"
+      },
+      "default_value": "h2",
+      "ui": 1,
+      "return_format": "value"
+    },
+    {
+      "key": "field_faqs_description",
+      "label": "Descripción",
+      "name": "description",
+      "type": "textarea",
+      "new_lines": "br",
+      "rows": 3
+    },
+    {
+      "key": "field_faqs_tag_faq",
+      "label": "Etiqueta de las preguntas",
+      "name": "tag_faq",
+      "type": "select",
+      "choices": {
+        "h1": "H1",
+        "h2": "H2",
+        "h3": "H3",
+        "p": "P"
+      },
+      "default_value": "h3",
+      "ui": 1,
+      "return_format": "value"
+    },
+    {
+      "key": "field_faqs_items",
+      "label": "FAQs",
+      "name": "items",
+      "type": "repeater",
+      "layout": "row",
+      "button_label": "Add FAQ",
+      "sub_fields": [
+        {
+          "key": "field_faqs_question",
+          "label": "Pregunta",
+          "name": "question",
+          "type": "text",
+          "required": 1
+        },
+        {
+          "key": "field_faqs_answer",
+          "label": "Respuesta",
+          "name": "answer",
+          "type": "wysiwyg",
+          "tabs": "visual",
+          "toolbar": "basic",
+          "media_upload": 0
+        }
+      ],
+      "min": 0,
+      "max": 0
+    }
+  ],
+  "location": [
+    [
+      {
+        "param": "block",
+        "operator": "==",
+        "value": "acf/faqs"
+      }
+    ]
+  ],
+  "menu_order": 0,
+  "position": "acf_after_title",
+  "style": "default",
+  "label_placement": "top",
+  "instruction_placement": "label",
+  "hide_on_screen": "",
+  "active": true,
+  "description": "",
+  "show_in_rest": 0
+}
