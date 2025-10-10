@@ -97,7 +97,7 @@ $btn = function($link, $variant = 'primary') {
   $label = $link['title'] ?? '';
   $url   = $link['url'] ?? '';
   if (!$label || !$url) return '';
-  return sprintf('<a class="btn btn--lg btn-%1$s" href="%2$s">%3$s</a>',
+  return sprintf('<a class="btn btn--lg btn--%1$s" href="%2$s">%3$s</a>',
     esc_attr($variant), esc_url($url), esc_html($label)
   );
 };

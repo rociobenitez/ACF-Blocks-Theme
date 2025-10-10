@@ -77,7 +77,7 @@
       "name": "items",
       "type": "repeater",
       "layout": "row",
-      "button_label": "Add FAQ",
+      "button_label": "Añadir FAQ",
       "sub_fields": [
         {
           "key": "field_faqs_question",

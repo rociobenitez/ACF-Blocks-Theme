@@ -29,14 +29,14 @@
 	display: inline-flex;
 	align-items: center;
 	gap: 0.375rem;
-	color: var(--color-gray-800);
+	color: var(--color-neutral-800);
 	transition: color 0.3s ease;
 }
 .topbar a:hover,
 .topbar a:focus {
 	text-decoration: underline;
 	text-underline-offset: 0.25rem;
-	color: var(--color-gray-600);
+	color: var(--color-neutral-600);
 }
 
 .topbar__icon svg {

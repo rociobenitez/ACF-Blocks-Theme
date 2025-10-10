@@ -46,98 +46,113 @@ $wrapper_attributes = get_block_wrapper_attributes( [
 
 ?>
 <div <?php echo $wrapper_attributes; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>>
-
-    <?php
-    // Header section (reutiliza tu componente)
-    if ( function_exists('render_component') && ( $title ) ) {
-        echo render_component( 'header-section', [
-            'tagline'         => $tagline,
-            'title'           => $title,
-            'tag_title'       => $tag_title,
-            'description'     => $description,
-            'is_block_editor' => $is_editor,
-            'extra_cls'       => 'faq__header',
-        ] );
-    }
-    ?>
-    
-	<div class="faq__inner">
-
-		<?php if (  $has_media_variant && $media_html ) : ?>
-			<figure class="faq__media">
-				<?php echo $media_html; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
-			</figure>
-		<?php endif; ?>
-
+	<div class="container">
 		<?php
-		// Items
-		$has_items = ! empty( $items );
-		if ( ! $has_items && $is_editor ) :
+		// Header section (reutiliza tu componente)
+		if ( function_exists('render_component') && ( $title ) ) {
+			echo render_component( 'header-section', [
+				'tagline'         => $tagline,
+				'title'           => $title,
+				'tag_title'       => $tag_title,
+				'description'     => $description,
+				'is_block_editor' => $is_editor,
+				'extra_cls'       => 'faq__header',
+			] );
+		}
 		?>
-			<div class="faq__notice">
-				<?php echo esc_html__( 'Añade preguntas frecuentes en el panel de campos del bloque.', $td ); ?>
-			</div>
-		<?php endif; ?>
+		
+		<div class="faq__inner">
 
-		<?php if ( $has_items ) : ?>
-			<div class="faq__items" role="list">
-				<?php foreach ( $items as $i => $row ) :
-					$q = isset( $row['question'] ) ? (string) $row['question'] : '';
-					$a = isset( $row['answer'] ) ? (string) $row['answer'] : '';
+			<?php if (  $has_media_variant && $media_html ) : ?>
+				<figure class="faq__media">
+					<?php echo $media_html; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
+				</figure>
+			<?php endif; ?>
 
-					// NUEVO: tag por pregunta (por defecto h3)
-					// Acepta varias convenciones de nombre por si el campo se llama distinto.
-					$raw_tag = '';
-					if ( isset( $row['heading_tag'] ) )        $raw_tag = (string) $row['heading_tag'];
-					elseif ( isset( $row['faq_heading_tag'] ) ) $raw_tag = (string) $row['faq_heading_tag'];
-					elseif ( isset( $row['tag'] ) )            $raw_tag = (string) $row['tag'];
+			<?php
+			// Items
+			$has_items = ! empty( $items );
+			if ( ! $has_items && $is_editor ) :
+			?>
+				<div class="editor-notice">
+					<?php echo esc_html__( 'Añade preguntas frecuentes en el panel de campos del bloque.', $td ); ?>
+				</div>
+			<?php endif; ?>
 
-					$allowed_tags = [ 'h2', 'h3', 'h4', 'p' ];
-					$h_tag = in_array( strtolower( $raw_tag ), $allowed_tags, true ) ? strtolower( $raw_tag ) : 'h3';
+			<?php if ( $has_items ) : ?>
+				<div class="faq__items" role="list">
+					<?php foreach ( $items as $i => $row ) :
+						$q = isset( $row['question'] ) ? (string) $row['question'] : '';
+						$a = isset( $row['answer'] ) ? (string) $row['answer'] : '';
 
-					if ( $q === '' && $a === '' ) continue;
+						// NUEVO: tag por pregunta (por defecto h3)
+						// Acepta varias convenciones de nombre por si el campo se llama distinto.
+						$raw_tag = '';
+						if ( isset( $row['heading_tag'] ) )        $raw_tag = (string) $row['heading_tag'];
+						elseif ( isset( $row['faq_heading_tag'] ) ) $raw_tag = (string) $row['faq_heading_tag'];
+						elseif ( isset( $row['tag'] ) )            $raw_tag = (string) $row['tag'];
 
-					$item_id   = $block_id . '-' . ( $i + 1 );
-					$panel_id  = 'faq-panel-' . $item_id;
-					$button_id = 'faq-button-' . $item_id;
-				?>
-				<article class="faq__item" role="listitem">
-					<<?php echo esc_attr( $h_tag ); ?> class="faq__heading">
-						<button
-							id="<?php echo esc_attr( $button_id ); ?>"
-							class="faq__trigger"
-							type="button"
-							aria-expanded="false"
-							aria-controls="<?php echo esc_attr( $panel_id ); ?>"
+						$allowed_tags = [ 'h2', 'h3', 'h4', 'p' ];
+						$h_tag = in_array( strtolower( $raw_tag ), $allowed_tags, true ) ? strtolower( $raw_tag ) : 'h3';
+
+						if ( $q === '' && $a === '' ) continue;
+
+						$item_id   = $block_id . '-' . ( $i + 1 );
+						$panel_id  = 'faq-panel-' . $item_id;
+						$button_id = 'faq-button-' . $item_id;
+					?>
+					<article class="faq__item" role="listitem">
+						<<?php echo esc_attr( $h_tag ); ?> class="faq__heading">
+							<button
+								id="<?php echo esc_attr( $button_id ); ?>"
+								class="faq__trigger"
+								type="button"
+								aria-expanded="false"
+								aria-controls="<?php echo esc_attr( $panel_id ); ?>"
+							>
+								<span class="faq__question"><?php echo esc_html( $q ?: __( 'Pregunta', $td ) ); ?></span>
+								<span class="faq__icon" aria-hidden="true">
+									<svg
+									xmlns="http://www.w3.org/2000/svg"
+									width="32"
+									height="32"
+									viewBox="0 0 24 24"
+									fill="none"
+									stroke="#000000"
+									stroke-width="1"
+									stroke-linecap="round"
+									stroke-linejoin="round"
+									>
+										<path d="M6 9l6 6l6 -6" />
+									</svg>
+								</span>
+							</button>
+						</<?php echo esc_attr( $h_tag ); ?>>
+						<div
+							id="<?php echo esc_attr( $panel_id ); ?>"
+							class="faq__panel"
+							role="region"
+							aria-labelledby="<?php echo esc_attr( $button_id ); ?>"
+							hidden
 						>
-							<span class="faq__icon" aria-hidden="true"></span>
-							<span class="faq__question"><?php echo esc_html( $q ?: __( 'Pregunta', $td ) ); ?></span>
-						</button>
-					</<?php echo esc_attr( $h_tag ); ?>>
-					<div
-						id="<?php echo esc_attr( $panel_id ); ?>"
-						class="faq__panel"
-						role="region"
-						aria-labelledby="<?php echo esc_attr( $button_id ); ?>"
-						hidden
-					>
-						<div class="faq__answer">
-							<?php
-							// HTML básico permitido
-							$allowed = [
-								'p' => [], 'ul' => [], 'ol' => [], 'li' => [],
-								'strong' => [], 'em' => [], 'br' => [],
-								'a' => [ 'href' => [], 'target' => [], 'rel' => [] ],
-							];
-							echo wp_kses( $a ?: __( 'Respuesta…', $td ), $allowed );
-							?>
+							<div class="faq__answer">
+								<?php
+								// HTML básico permitido
+								$allowed = [
+									'p' => [], 'ul' => [], 'ol' => [], 'li' => [],
+									'strong' => [], 'em' => [], 'br' => [],
+									'a' => [ 'href' => [], 'target' => [], 'rel' => [] ],
+								];
+								echo wp_kses( $a ?: __( 'Respuesta…', $td ), $allowed );
+								?>
+							</div>
 						</div>
-					</div>
-				</article>
-				<?php endforeach; ?>
-			</div>
-		<?php endif; ?>
+					</article>
+					<?php endforeach; ?>
+				</div>
+			<?php endif; ?>
 
+		</div>
 	</div>
 </div>
 

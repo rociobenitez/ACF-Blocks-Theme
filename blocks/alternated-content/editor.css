@@ -9,7 +9,7 @@
 }
 
 /* Editor help message styling */
-.alternated-content__editor-help {
+.editor-help {
     background: #e3f2fd;
     border-left: 4px solid #2196f3;
     padding: 1rem;
@@ -19,8 +19,19 @@
     color: #1565c0;
 }
 
-.alternated-content__editor-help strong {
+.editor-help strong {
     color: #0d47a1;
+}
+
+.editor-notice {
+	background: #e3f2fd69;
+    border-left: 1px dashed #2196f3;
+    padding: 1rem;
+    margin-bottom: 1.5rem;
+    border-radius: 4px;
+    font-size: 0.875rem;
+	font-style: italic;
+    color: #1565c0;
 }
 
 /* Placeholder styling in editor */

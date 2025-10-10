@@ -90,7 +90,7 @@
 
 .hero--bg-default {
 	background-color: var(--color-bg-default);
-	color: var(--color-gray-900);
+	color: var(--color-neutral-900);
 }
 .hero--bg-primary {
 	background-color: var(--color-primary);
@@ -98,7 +98,7 @@
 }
 .hero--bg-secondary {
 	background-color: var(--color-secondary);
-	color: var(--color-gray-900);
+	color: var(--color-neutral-900);
 }
 
 .is-style-centered {
@@ -142,7 +142,7 @@
 }
 
 .btn--default {
-	background: var(--color-gray-900);
+	background: var(--color-neutral-900);
 	color: var(--color-white);
 	border-color: currentColor;
 }
@@ -152,7 +152,7 @@
 }
 .btn--secondary {
 	background: var(--color-secondary);
-	color: var(--color-gray-900);
+	color: var(--color-neutral-900);
 }
 .btn--transparent {
 	background: transparent;

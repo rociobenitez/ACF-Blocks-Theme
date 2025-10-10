@@ -59,7 +59,7 @@ $render_button = function($link, $style = 'primary') {
     $target = isset($link['target']) && $link['target'] === '_blank' ? ' target="_blank" rel="noopener"' : '';
     
     return sprintf(
-        '<a class="btn btn-%s" href="%s"%s>%s</a>',
+        '<a class="btn btn--md btn--%s" href="%s"%s>%s</a>',
         esc_attr($style),
         $url,
         $target,
