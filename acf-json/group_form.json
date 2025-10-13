@@ -1,0 +1,104 @@
+{
+  "key": "group_form",
+  "title": "Formulario",
+  "fields": [
+    { 
+        "key": "field_form_layout",
+        "label": "Layout",
+        "name": "layout_variant",
+        "type": "select",
+        "choices": {
+            "background": "Imagen de fondo",
+            "text-left": "Imagen derecha",
+            "text-right": "Imagen izquierda"
+        },
+        "default_value": "background",
+        "ui": 1
+    },
+    {
+        "key": "field_form_image",
+        "label": "Imagen",
+        "name": "image",
+        "type": "image",
+        "return_format": "id",
+        "placeholder": "Selecciona una imagen",
+        "preview_size": "medium"
+    },
+    {
+        "key": "field_form_heading",
+        "label": "Título",
+        "name": "heading",
+        "type": "text",
+        "default_value": "",
+        "placeholder": "Escribe un título llamativo"
+    },
+    {
+        "key": "field_form_heading_tag",
+        "label": "Etiqueta del título",
+        "name": "heading_tag",
+        "type": "select",
+        "instructions": "Selecciona la etiqueta HTML para el título.",
+        "required": 0,
+        "conditional_logic": 0,
+        "wrapper": {
+            "width": "50",
+            "class": "",
+            "id": ""
+        },
+        "choices": {
+            "h1": "H1",
+            "h2": "H2",
+            "h3": "H3",
+            "p": "P"
+        },
+        "default_value": "h2",
+        "allow_null": 0,
+        "multiple": 0,
+        "ui": 0,
+        "ajax": 0,
+        "placeholder": ""
+
+    },
+    {
+        "key": "field_form_subheading",
+        "label": "Subtítulo",
+        "name": "subheading",
+        "type": "text",
+        "default_value": "",
+        "placeholder": "Escribe un subtítulo llamativo"
+    },
+    {
+        "key": "field_form_body",
+        "label": "Texto",
+        "name": "body",
+        "type": "wysiwyg",
+        "placeholder": "Escribe el texto del CTA"
+    },
+    {
+        "key": "field_form_id",
+        "label": "Formulario",
+        "name": "form_id",
+        "type": "number",
+        "instructions": "Introduce el ID del formulario",
+        "default_value": "1"
+    }
+  ],
+  "location": [
+        [
+            {
+                "param": "block",
+                "operator": "==",
+                "value": "acf/form"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": true,
+    "show_in_rest": 0,
+    "description": "Banner del formulario de contacto"
+}

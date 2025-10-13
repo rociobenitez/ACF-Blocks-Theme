@@ -2,10 +2,47 @@
 
 <!-- wp:group {"tagName":"main","style":{"spacing":{"margin":{"top":"var:preset|spacing|60"}}},"layout":{"type":"constrained"}} -->
 <main
-	class="wp-block-group container"
+	class="wp-block-group container blog blog__main"
 	style="margin-top: var(--wp--preset--spacing--60)"
 >
-	<!-- wp:pattern {"slug":"twentytwentyfive/template-query-loop"} /-->
+	<!-- wp:heading {"level":1,"className":"blog__title"} -->Blog<!-- /wp:heading -->
+
+	<!-- Layout: Content + Sidebar -->
+	<!-- wp:columns {"className":"layout layout--content-sidebar"} -->
+	<div class="wp-block-columns layout layout--content-sidebar">
+		<!-- Columna principal -->
+		<!-- wp:column {"width":"70%","className":"layout__content"} -->
+		<div class="wp-block-column layout__content" style="flex-basis: 70%">
+			<!-- Loop de entradas -->
+			<!-- wp:query {"queryId":1,"query":{"perPage":10,"pages":0,"offset":0,"postType":"post","inherit":false},"className":"archive__query"} -->
+			<div class="wp-block-query archive__query">
+				<!-- wp:post-template {"className":"archive__list"} -->
+				<!-- Tarjeta de post -->
+				<!-- wp:group {"tagName":"article","className":"post-card post-card--blog"} -->
+				<article class="post-card post-card--blog">
+					<!-- wp:post-title {"isLink":true,"className":"post-card__title"} /-->
+					<!-- wp:post-excerpt {"className":"post-card__excerpt"} /-->
+					<!-- wp:post-date {"className":"post-card__meta"} /-->
+				</article>
+				<!-- /wp:group -->
+				<!-- /wp:post-template -->
+
+				<!-- Paginación -->
+				<!-- wp:query-pagination {"layout":{"type":"flex","justifyContent":"center"},"className":"archive__pagination"} /-->
+			</div>
+			<!-- /wp:query -->
+		</div>
+		<!-- /wp:column -->
+
+		<!-- Columna sidebar -->
+		<!-- wp:column {"width":"30%","className":"layout__sidebar"} -->
+		<div class="wp-block-column layout__sidebar" style="flex-basis: 30%">
+			<!-- Sidebar global (template part) -->
+			<!-- wp:template-part {"slug":"sidebar","area":"uncategorized"} /-->
+		</div>
+		<!-- /wp:column -->
+	</div>
+	<!-- /wp:columns -->
 </main>
 <!-- /wp:group -->
 

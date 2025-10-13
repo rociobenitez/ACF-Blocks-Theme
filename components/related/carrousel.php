@@ -12,6 +12,7 @@ $show_controls = (bool) ( $args['show_controls'] ?? false );
 $carousel = (array) ( $args['carousel'] ?? [] );
 $related_count = is_array($items) ? count($items) : 0;
 $is_carousel = ($related_count > $items_per_row);
+$aspect_ratio = $args['aspect_ratio'] ?? '4-3';
 
 $classes = [
     'related__list',
@@ -53,6 +54,7 @@ $attrs = [
                     echo render_component('card', [
                         'post_id'   => $post_id,
                         'cta_text'  => 'Ver más',
+                        'aspect_ratio' => $aspect_ratio,
                         // Allows optional BEM modifiers for variants
                         'extra_cls' => '',
                     ]);

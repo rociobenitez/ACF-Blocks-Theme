@@ -27,8 +27,8 @@ $image_position = get_field('image_position') ?: 'right';
 // Button fields
 $primary_button = get_field('primary_button');
 $secondary_button = get_field('secondary_button');
-$primary_button_style = get_field('primary_button_style') ?: 'primary';
-$secondary_button_style = get_field('secondary_button_style') ?: 'outline-primary';
+$primary_button_style = get_field('primary_button_style') ?: 'default';
+$secondary_button_style = get_field('secondary_button_style') ?: 'outline';
 
 // Layout options
 $padding_y = get_field('padding_y') ?: 'lg';

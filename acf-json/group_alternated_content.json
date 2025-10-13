@@ -198,12 +198,14 @@
                 "id": ""
             },
             "choices": {
-                "primary": "Primary",
-                "secondary": "Secondary",
-                "outline-primary": "Outline Primary",
-                "outline-secondary": "Outline Secondary"
+                "default": "Por defecto",
+                "primary": "Primario",
+                "secondary": "Secundario",
+                "outline": "Outline",
+                "outline-primary": "Outline Primario",
+                "outline-secondary": "Outline Secundario"
             },
-            "default_value": "primary",
+            "default_value": "default",
             "return_format": "value",
             "multiple": 0,
             "allow_null": 0,
@@ -242,12 +244,14 @@
                 "id": ""
             },
             "choices": {
-                "primary": "Primary",
-                "secondary": "Secondary",
-                "outline-primary": "Outline Primary",
-                "outline-secondary": "Outline Secondary"
+                "default": "Por defecto",
+                "primary": "Primario",
+                "secondary": "Secundario",
+                "outline": "Outline",
+                "outline-primary": "Outline Primario",
+                "outline-secondary": "Outline Secundario"
             },
-            "default_value": "outline-primary",
+            "default_value": "outline",
             "return_format": "value",
             "multiple": 0,
             "allow_null": 0,

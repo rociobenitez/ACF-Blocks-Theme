@@ -1,13 +1,13 @@
 {
   "$schema": "https://schemas.wp.org/trunk/block.json",
   "apiVersion": 3,
-  "name": "acf/cta",
+  "name": "acf/form",
   "version": "0.1.0",
-  "title": "CTA",
+  "title": "Formulario",
   "category": "theme",
-  "icon": "megaphone",
-  "description": "Bloque CTA con imagen, texto y botón",
-  "keywords": ["cta", "botón", "llamada", "acción"],
+  "icon": "email-alt",
+  "description": "Bloque de formulario con imagen, texto y formulario de contacto",
+  "keywords": ["formulario", "contacto", "form", "email"],
   "supports": {
     "align": ["wide", "full"],
     "anchor": true,
@@ -30,10 +30,11 @@
   },
   "example": {
     "attributes": {
-      "heading": "¡Comienza tu proyecto hoy!",
-      "subheading": "No esperes más",
-      "body": "Contáctanos y descubre cómo podemos ayudarte a alcanzar tus objetivos digitales.",
-      "layout_variant": "text-right"
+      "heading": "¿Necesitas ayuda?",
+      "subheading": "Contacto",
+      "body": "Completa el formulario y nos pondremos en contacto contigo lo antes posible.",
+      "layout_variant": "text-left",
+      "form_id": 1
     }
   },
   "editorStyle": "file:./editor.css",

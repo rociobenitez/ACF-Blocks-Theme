@@ -1,0 +1,126 @@
+{
+  "key": "group_cta",
+  "title": "CTA",
+  "fields": [
+    { 
+        "key": "field_cta_layout",
+        "label": "Layout",
+        "name": "layout_variant",
+        "type": "select",
+        "choices": {
+            "background": "Imagen de fondo",
+            "text-left": "Imagen derecha",
+            "text-right": "Imagen izquierda"
+        },
+        "default_value": "background",
+        "ui": 1
+    },
+    {
+        "key": "field_cta_image",
+        "label": "Imagen",
+        "name": "image",
+        "type": "image",
+        "return_format": "id",
+        "placeholder": "Selecciona una imagen",
+        "preview_size": "medium"
+    },
+    {
+        "key": "field_cta_heading",
+        "label": "Título",
+        "name": "heading",
+        "type": "text",
+        "default_value": "",
+        "placeholder": "Escribe un título llamativo"
+    },
+    {
+        "key": "field_cta_heading_tag",
+        "label": "Etiqueta del título",
+        "name": "heading_tag",
+        "type": "select",
+        "instructions": "Selecciona la etiqueta HTML para el título.",
+        "required": 0,
+        "conditional_logic": 0,
+        "wrapper": {
+            "width": "50",
+            "class": "",
+            "id": ""
+        },
+        "choices": {
+            "h1": "H1",
+            "h2": "H2",
+            "h3": "H3",
+            "p": "P"
+        },
+        "default_value": "h2",
+        "allow_null": 0,
+        "multiple": 0,
+        "ui": 0,
+        "ajax": 0,
+        "placeholder": ""
+
+    },
+    {
+        "key": "field_cta_subheading",
+        "label": "Subtítulo",
+        "name": "subheading",
+        "type": "text",
+        "default_value": "",
+        "placeholder": "Escribe un subtítulo llamativo"
+    },
+    {
+        "key": "field_cta_body",
+        "label": "Texto",
+        "name": "body",
+        "type": "wysiwyg",
+        "placeholder": "Escribe el texto del CTA"
+    },
+    {
+        "key": "field_cta_link",
+        "label": "Botón",
+        "name": "link",
+        "type": "link",
+        "placeholder": "Añade un enlace"
+    },
+    {
+        "key": "field_cta_link_style",
+        "label": "Estilo del botón",
+        "name": "link_style",
+        "type": "select",
+        "instructions": "Estilo visual del botón.",
+        "required": 0,
+        "conditional_logic": 0,
+        "wrapper": {
+            "width": "50",
+            "class": "",
+            "id": ""
+        },
+        "choices": {
+            "default": "Por defecto",
+            "primary": "Primario",
+            "secondary": "Secundario",
+            "outline": "Outline"
+        },
+        "default_value": "primary",
+        "return_format": "value",
+        "multiple": 0,
+        "allow_null": 0,
+        "ui": 0,
+        "ajax": 0,
+        "placeholder": ""
+    }
+  ],
+  "location": [
+    [
+        {
+            "param": "block",
+            "operator": "==",
+            "value": "acf/cta"
+        }
+    ]
+  ],
+  "position": "normal",
+  "style": "default",
+  "label_placement": "top",
+  "active": true,
+  "description": "Bloque CTA con imagen, texto y botón"
+}

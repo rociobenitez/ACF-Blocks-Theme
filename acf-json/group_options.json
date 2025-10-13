@@ -2025,7 +2025,8 @@
     "instruction_placement": "label",
     "hide_on_screen": "",
     "active": true,
-    "description": "Opciones generales del sitio.",
+    "description": "Opciones generales del sitio",
     "show_in_rest": 0,
+    "display_title": "Opciones del Tema",
     "modified": 1757329127
 }

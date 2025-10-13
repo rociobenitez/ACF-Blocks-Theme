@@ -1,9 +1,9 @@
 {
-    "key": "group_related_content",
+    "key": "group_related",
     "title": "Contenido Relacionado",
     "fields": [
         {
-            "key": "field_related_content_tagline",
+            "key": "field_related_tagline",
             "label": "Tagline",
             "name": "tagline",
             "aria-label": "",
@@ -23,7 +23,7 @@
             "append": ""
         },
         {
-            "key": "field_related_content_title",
+            "key": "field_related_title",
             "label": "Título",
             "name": "title",
             "aria-label": "",
@@ -43,7 +43,7 @@
             "append": ""
         },
         {
-            "key": "field_related_content_tag_title",
+            "key": "field_related_tag_title",
             "label": "Etiqueta del título",
             "name": "tag_title",
             "aria-label": "",
@@ -68,7 +68,7 @@
             "return_format": "value"
         },
         {
-            "key": "field_related_content_description",
+            "key": "field_related_description",
             "label": "Texto",
             "name": "text",
             "aria-label": "",
@@ -87,14 +87,22 @@
             "placeholder": "Descripción de los servicios..."
         },
         {
-            "key": "field_related_content_posts",
+            "key": "field_related_posts",
             "label": "Contenido Relacionado",
             "name": "related",
             "aria-label": "",
             "type": "relationship",
             "instructions": "Selecciona el contenido que quieres mostrar en esta sección.",
             "required": 1,
-            "conditional_logic": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_related_source_mode",
+                        "operator": "==",
+                        "value": "manual"
+                    }
+                ]
+            ],
             "wrapper": {
                 "width": "100",
                 "class": "",
@@ -117,7 +125,7 @@
             "return_format": "object"
         },
         {
-            "key": "field_related_content_source_mode",
+            "key": "field_related_source_mode",
             "label": "Modo de fuente",
             "name": "source_mode",
             "aria-label": "",
@@ -143,7 +151,37 @@
             "placeholder": ""
         },
         {
-            "key": "field_related_content_see_all",
+            "key": "field_related_image_aspect_ratio",
+            "label": "Relación de aspecto de la imagen",
+            "name": "image_aspect_ratio",
+            "aria-label": "",
+            "type": "select",
+            "instructions": "Selecciona la relación de aspecto para las imágenes destacadas.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "100",
+                "class": "",
+                "id": ""
+            },
+            "choices": {
+                "original": "Original",
+                "1-1": "Cuadrada (1:1)",
+                "4-3": "Estándar (4:3)",
+                "16-9": "Panorámica (16:9)",
+                "3-4": "Retrato (3:4)",
+                "9-16": "Vertical (9:16)"           
+            },
+            "default_value": "4-3",
+            "return_format": "value",
+            "multiple": 0,
+            "allow_null": 0,
+            "ui": 0,
+            "ajax": 0,
+            "placeholder": ""
+        },
+        {
+            "key": "field_related_see_all",
             "label": "Enlace 'Ver todos'",
             "name": "see_all_cta",
             "aria-label": "",
@@ -153,7 +191,7 @@
             "conditional_logic": [
                 [
                     {
-                        "field": "field_related_content_source_mode",
+                        "field": "field_related_source_mode",
                         "operator": "==",
                         "value": "manual"
                     }
@@ -169,7 +207,7 @@
             "placeholder": ""
         },
         {
-            "key": "field_related_content_items_per_row",
+            "key": "field_related_items_per_row",
             "label": "Elementos por fila",
             "name": "items_per_row",
             "aria-label": "",
@@ -196,7 +234,7 @@
             "placeholder": ""
         },
               {
-            "key": "field_related_content_padding_y",
+            "key": "field_related_padding_y",
             "label": "Espaciado vertical",
             "name": "padding_y",
             "aria-label": "",
@@ -224,7 +262,7 @@
             "placeholder": ""
         },
         {
-            "key": "field_related_content_layout_mode",
+            "key": "field_related_layout_mode",
             "label": "Modo de diseño",
             "name": "layout_mode",
             "aria-label": "",
@@ -250,7 +288,7 @@
             "placeholder": ""
         },
         {
-            "key": "field_related_content_show_carousel_controls",
+            "key": "field_related_show_carousel_controls",
             "label": "Mostrar controles de carrousel",
             "name": "show_carousel_controls",
             "aria-label": "",
@@ -260,7 +298,7 @@
             "conditional_logic": [
                 [
                     {
-                        "field": "field_related_content_layout_mode",
+                        "field": "field_related_layout_mode",
                         "operator": "==",
                         "value": "carousel"
                     }
@@ -278,7 +316,7 @@
             "ui": 1
         },
         {
-            "key": "field_related_content_enable_autoplay",
+            "key": "field_related_enable_autoplay",
             "label": "Reproducción automática",
             "name": "enable_autoplay",
             "aria-label": "",
@@ -288,7 +326,7 @@
             "conditional_logic": [
                 [
                     {
-                        "field": "field_related_content_layout_mode",
+                        "field": "field_related_layout_mode",
                         "operator": "==",
                         "value": "carousel"
                     }
@@ -306,7 +344,7 @@
             "ui": 1
         },
         {
-            "key": "field_related_content_autoplay_delay",
+            "key": "field_related_autoplay_delay",
             "label": "Tiempo entre diapositivas (ms)",
             "name": "autoplay_delay",
             "aria-label": "",
@@ -316,7 +354,7 @@
             "conditional_logic": [
                 [
                     {
-                        "field": "field_related_content_enable_autoplay",
+                        "field": "field_related_enable_autoplay",
                         "operator": "==",
                         "value": "1"
                     }
@@ -352,7 +390,7 @@
     "instruction_placement": "label",
     "hide_on_screen": "",
     "active": true,
-    "description": "Bloque para mostrar una colección de contenido relacionado con encabezado centrado y diseño en cuadrícula o carrusel.",
+    "description": "Muestra una colección de contenido relacionado con encabezado centrado y diseño en cuadrícula o carrusel.",
     "show_in_rest": 0,
     "modified": 1727347800
 }

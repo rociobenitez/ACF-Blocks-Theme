@@ -34,7 +34,7 @@ class Starter_ACF_Blocks {
         $iterator = new \DirectoryIterator( $blocks_dir );
 
         foreach ( $iterator as $fileinfo ) {
-            if ( $fileinfo->isDot() && ! $fileinfo->isDir() ) {
+            if ( $fileinfo->isDot() || ! $fileinfo->isDir() ) {
                 continue;
             }
 

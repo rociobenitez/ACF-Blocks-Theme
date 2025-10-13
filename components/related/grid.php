@@ -9,6 +9,7 @@ $items = $args['items'] ?? [];
 $items_per_row = (int) ( $args['items_per_row'] ?? 3 );
 $see_all_cta = (array) ( $args['see_all_cta'] ?? [] );
 $is_block_editor = (bool) ( $args['is_block_editor'] ?? false );
+$aspect_ratio = $args['aspect_ratio'] ?? '4-3';
 
 $classes = [
     'related__list',
@@ -34,6 +35,7 @@ $attrs = [
                     echo render_component('card', [
                         'post_id'   => $post_id,
                         'cta_text'  => 'Ver más',
+                        'aspect_ratio' => $aspect_ratio,
                         // Allows optional BEM modifiers for variants
                         'extra_cls' => '',
                     ]);

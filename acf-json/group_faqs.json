@@ -1,6 +1,6 @@
 {
   "key": "group_faqs_block",
-  "title": "Preguntas Frecuentes (FAQs)",
+  "title": "Preguntas Frecuentes",
   "fields": [
     {
       "key": "field_faqs_media",
@@ -116,6 +116,6 @@
   "instruction_placement": "label",
   "hide_on_screen": "",
   "active": true,
-  "description": "",
+  "description": "FAQs con acordeón",
   "show_in_rest": 0
 }

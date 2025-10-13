@@ -28,6 +28,7 @@ $show_controls   = (bool) get_field('show_carousel_controls');
 $enable_autoplay = (bool) get_field('enable_autoplay');
 $autoplay_delay  = (int)  ( get_field('autoplay_delay') ?: 5000 );
 $padding_y       = (string) ( get_field('padding_y') ?: 'lg' );
+$aspect_ratio    = (string) ( get_field('image_aspect_ratio') ?: '4-3');
 
 // Layout logic
 $related_count = is_array($related) ? count($related) : 0;
@@ -84,13 +85,14 @@ $attrs = get_block_wrapper_attributes([
         <?php endif; ?>
 
         <?php
-        $partial = $mode === 'carousel' ? 'related/carousel' : 'related/grid';
+        $partial = $mode === 'carousel' ? 'related/carrousel' : 'related/grid';
         echo render_component($partial, [
             'items'           => $related,
             'items_per_row'   => $items_per_row,
             'see_all_cta'     => $see_all_cta,
             'is_block_editor' => $is_block_editor,
             'show_controls'   => $show_controls,
+            'aspect_ratio'    => $aspect_ratio,
             'carousel'     => [
                 'controls' => $show_controls,
                 'autoplay' => $enable_autoplay,

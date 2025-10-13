@@ -33,7 +33,6 @@
 	width: 100%;
 	height: auto;
 	display: block;
-	border-radius: var(--radius-8);
 }
 
 .is-style-faqs-media-left .faq__media,

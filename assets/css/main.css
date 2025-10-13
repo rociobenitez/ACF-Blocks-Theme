@@ -762,6 +762,25 @@ object {
 	height: auto;
 }
 
+.aspect-ratio--original {
+	aspect-ratio: auto;
+}
+.aspect-ratio--1-1 {
+	aspect-ratio: 1 / 1;
+}
+.aspect-ratio--4-3 {
+	aspect-ratio: 4 / 3;
+}
+.aspect-ratio--3-4 {
+	aspect-ratio: 3 / 4;
+}
+.aspect-ratio--16-9 {
+	aspect-ratio: 16 / 9;
+}
+.aspect-ratio--9-16 {
+	aspect-ratio: 9 / 16;
+}
+
 /* --- Header --- */
 .wp-block-site-logo.is-default-size img,
 header .wp-block-site-logo a,
@@ -850,7 +869,7 @@ footer .footer-copy a {
 	font-weight: 600;
 	text-transform: uppercase;
 	letter-spacing: 0.1em;
-	color: var(--wp--preset--color--primary, #007cba);
+	color: var(--color-neutral-500);
 	margin: 0 0 0.5rem 0;
 }
 .header-section__title {
