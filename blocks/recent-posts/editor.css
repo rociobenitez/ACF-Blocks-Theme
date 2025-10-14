@@ -1,0 +1,40 @@
+/* Recent Posts Block Editor Styles */
+.recent-posts-block {
+	border: 2px dashed #ddd;
+	padding: 2rem;
+	margin: 1rem 0;
+	background: #f9f9f9;
+}
+
+.recent-posts-block .recent-posts-grid {
+	margin-top: 1rem;
+}
+
+.recent-post-card {
+	background: white;
+	border: 1px solid #ddd;
+	border-radius: 8px;
+	overflow: hidden;
+}
+
+.recent-post-card:hover {
+	transform: none;
+	box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Maintain all other styles from style.css but with reduced animations for editor */
+.post-image img {
+	transition: none;
+}
+
+.recent-post-card:hover .post-image img {
+	transform: none;
+}
+
+.read-more::after {
+	transition: none;
+}
+
+.recent-post-card:hover .read-more::after {
+	transform: none;
+}

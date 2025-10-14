@@ -1,9 +1,52 @@
-@import url("./main.css");
+@import url("bootstrap.min.css");
+@import url("fonts.css");
+@import url("main.css");
 @import url("../../blocks/hero/style.css");
 @import url("../../blocks/alternated-content/style.css");
 @import url("../../blocks/services/style.css");
 @import url("../../blocks/related/style.css");
-@import url("../../blocks/cta/style.css");
-@import url("../../blocks/form/style.css");
 
+/* El editor aplica .editor-styles-wrapper al root del iframe */
+.editor-styles-wrapper {
+	/* pequeños ajustes de lectura en el editor (no necesarios en front) */
+	--editor-gap: 16px;
+	padding: var(--editor-gap);
+}
 
+.editor-styles-wrapper .is-root-container {
+	/* simula content width del theme.json para previsualización */
+	max-width: var(--wp--style--global--content-size, 620px);
+	margin: 0 auto;
+}
+
+/* Corrige outlines en foco dentro del editor para accesibilidad */
+.editor-styles-wrapper :focus-visible {
+	outline: 2px solid var(--wp--preset--color--primary);
+	outline-offset: 2px;
+}
+
+/* Vista de place-holders o bloques vacíos */
+.editor-styles-wrapper .block-editor-block-list__block.is-selected {
+	box-shadow: 0 0 0 1px var(--wp--preset--color--primary) inset;
+}
+
+/* Fija tipografía de código si la usas en bloques */
+.editor-styles-wrapper code,
+.editor-styles-wrapper pre {
+	font-family: var(
+		--wp--preset--font-family--monospace,
+		ui-monospace,
+		SFMono-Regular,
+		Menlo,
+		Consolas,
+		monospace
+	);
+}
+
+/* Reduce animaciones en el editor si el usuario lo prefiere */
+@media (prefers-reduced-motion: reduce) {
+	.editor-styles-wrapper * {
+		transition: none !important;
+		animation: none !important;
+	}
+}

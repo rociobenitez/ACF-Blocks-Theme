@@ -19,7 +19,7 @@ if ( ! function_exists( __NAMESPACE__ . '\\render_component' ) ) :
      */
     function render_component( string $slug, array $args = [] ) : string {
         ob_start();
-        get_template_part( 'components/' . $slug, null, $args );
+        get_template_part( 'template-parts/components/' . $slug, null, $args );
         return (string) ob_get_clean();
     }
 endif;

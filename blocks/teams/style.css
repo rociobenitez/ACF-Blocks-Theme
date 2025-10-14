@@ -1,0 +1,91 @@
+.teams {
+	padding: 4rem 2rem;
+	background-color: var(--color-neutral-50);
+	border-radius: 8px;
+	text-align: center;
+}
+
+.teams__grid {
+	display: grid;
+	gap: 2rem;
+	margin-top: 2rem;
+}
+
+.team-member {
+	text-align: center;
+}
+
+.team-member__image {
+	width: 150px;
+	height: 150px;
+	border-radius: 50%;
+	object-fit: cover;
+	margin: 0 auto 1rem;
+	border: 4px solid #f0f0f0;
+}
+
+.team-member__name {
+	font-size: var(--fs18);
+	font-weight: bold;
+	margin-bottom: var(--space-8);
+}
+
+.team-member__role {
+	font-size: var(--fs14);
+	color: var(--color-neutral-600);
+	margin-bottom: var(--space-8);
+}
+
+.team-member__contact {
+	font-size: var(--fs14);
+	color: var(--color-primary);
+	text-decoration: none;
+
+	&:hover {
+		text-decoration: underline;
+	}
+}
+
+.teams__cta {
+	margin-top: var(--space-24);
+}
+
+/* --- Responsive Media Queries --- */
+
+/* min-width: 640px (mobile) */
+@media (width >= 40rem) {
+}
+
+/* min-width: 768px (tablet) */
+@media (width >= 48rem) {
+	.teams__grid {
+		gap: 2.5rem;
+	}
+
+	.teams--col-2 .teams__grid {
+		grid-template-columns: repeat(2, 1fr);
+	}
+
+	.teams--col-3 .teams__grid {
+		grid-template-columns: repeat(3, 1fr);
+	}
+
+	.teams--col-4 .teams__grid {
+		grid-template-columns: repeat(4, 1fr);
+	}
+}
+/* min-width: 1024px (laptop) */
+@media (width >= 64rem) {
+	.teams__grid {
+		gap: 3rem;
+	}
+}
+/* min-width: 1280px (desktop) */
+@media (width >= 80rem) {
+	.teams {
+		padding: 6rem 4rem;
+	}
+	.teams__grid {
+		gap: 4rem;
+	}
+}

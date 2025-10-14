@@ -1,0 +1,175 @@
+/* Recent Posts Block Styles */
+.recent-posts-block {
+	padding: 4rem 0;
+}
+
+.recent-posts-grid {
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+	gap: 2rem;
+	margin-top: 2rem;
+}
+
+.recent-post-card {
+	background: var(--color-white);
+	border-radius: 12px;
+	overflow: hidden;
+	box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+	transition: transform 0.3s ease, box-shadow 0.3s ease;
+
+	&:hover {
+		transform: translateY(-4px);
+		box-shadow: 0 8px 32px rgba(0, 0, 0, 0.12);
+	}
+}
+
+.post-link {
+	display: block;
+	text-decoration: none;
+	color: inherit;
+
+	&:hover {
+		text-decoration: none;
+	}
+}
+
+.post-image {
+	position: relative;
+	aspect-ratio: 16 / 9;
+	overflow: hidden;
+}
+
+.post-image img {
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+	transition: transform 0.3s ease;
+}
+
+.recent-post-card:hover .post-image img {
+	transform: scale(1.05);
+}
+
+.post-content {
+	padding: 1.5rem;
+}
+
+.post-meta {
+	display: flex;
+	align-items: center;
+	gap: 1rem;
+	margin-bottom: 0.75rem;
+	font-size: 0.875rem;
+	color: var(--color-neutral-600);
+}
+
+.post-category {
+	background: var(--color-primary-100);
+	color: var(--color-primary-700);
+	padding: 0.25rem 0.75rem;
+	border-radius: 20px;
+	font-weight: 500;
+}
+
+.post-title {
+	font-size: 1.25rem;
+	font-weight: 600;
+	line-height: 1.4;
+	margin: 0 0 0.75rem 0;
+	color: var(--color-neutral-900);
+	display: -webkit-box;
+	-webkit-line-clamp: 2;
+	line-clamp: 2;
+	-webkit-box-orient: vertical;
+	overflow: hidden;
+}
+
+.post-excerpt {
+	color: var(--color-neutral-600);
+	line-height: 1.6;
+	margin: 0 0 1rem 0;
+	display: -webkit-box;
+	-webkit-line-clamp: 3;
+	line-clamp: 3;
+	-webkit-box-orient: vertical;
+	overflow: hidden;
+}
+
+.read-more {
+	display: inline-flex;
+	align-items: center;
+	font-weight: 500;
+	color: var(--color-primary-600);
+	font-size: 0.875rem;
+	position: relative;
+}
+
+.read-more::after {
+	content: "→";
+	margin-left: 0.5rem;
+	transition: transform 0.3s ease;
+}
+
+.recent-post-card:hover .read-more::after {
+	transform: translateX(4px);
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+	.recent-posts-block {
+		padding: 3rem 0;
+	}
+
+	.recent-posts-grid {
+		grid-template-columns: 1fr;
+		gap: 1.5rem;
+	}
+
+	.post-content {
+		padding: 1.25rem;
+	}
+
+	.post-title {
+		font-size: 1.125rem;
+	}
+}
+
+/* Three posts layout */
+.recent-posts-grid[data-posts="3"] {
+	grid-template-columns: repeat(3, 1fr);
+}
+
+@media (max-width: 1024px) {
+	.recent-posts-grid[data-posts="3"] {
+		grid-template-columns: repeat(2, 1fr);
+	}
+}
+
+@media (max-width: 640px) {
+	.recent-posts-grid[data-posts="3"] {
+		grid-template-columns: 1fr;
+	}
+}
+
+/* Four posts layout */
+.recent-posts-grid[data-posts="4"] {
+	grid-template-columns: repeat(4, 1fr);
+}
+
+@media (max-width: 1200px) {
+	.recent-posts-grid[data-posts="4"] {
+		grid-template-columns: repeat(3, 1fr);
+	}
+}
+
+@media (max-width: 900px) {
+	.recent-posts-grid[data-posts="4"] {
+		grid-template-columns: repeat(2, 1fr);
+	}
+}
+
+@media (max-width: 640px) {
+	.recent-posts-grid[data-posts="4"] {
+		grid-template-columns: 1fr;
+	}
+}

@@ -1,0 +1,198 @@
+{
+    "key": "group_teams",
+    "title": "Equipo",
+    "fields": [
+        {
+            "key": "field_teams_tagline",
+            "label": "Tagline",
+            "name": "tagline",
+            "aria-label": "",
+            "type": "text",
+            "instructions": "Texto breve que aparece encima del título (opcional).",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "100",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "maxlength": "",
+            "placeholder": "Ej: Conoce al equipo",
+            "prepend": "",
+            "append": ""
+        },
+        {
+            "key": "field_teams_title",
+            "label": "Título",
+            "name": "title",
+            "aria-label": "",
+            "type": "text",
+            "instructions": "Título principal de la sección.",
+            "required": 1,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "100",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "maxlength": "",
+            "placeholder": "Ej: Nuestro equipo de expertos",
+            "prepend": "",
+            "append": ""
+        },
+        {
+            "key": "field_teams_tag_title",
+            "label": "Etiqueta del título",
+            "name": "tag_title",
+            "aria-label": "",
+            "type": "select",
+            "instructions": "Selecciona la etiqueta HTML para el título.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "100",
+                "class": "",
+                "id": ""
+            },
+            "choices": {
+                "h2": "H2",
+                "h3": "H3",
+                "p": "P"
+            },
+            "default_value": "h2",
+            "layout": "horizontal",
+            "allow_multiple": 0,
+            "allow_null": 0,
+            "return_format": "value"
+        },
+        {
+            "key": "field_teams_description",
+            "label": "Texto",
+            "name": "text",
+            "aria-label": "",
+            "type": "textarea",
+            "instructions": "Descripción breve del equipo (opcional).",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "100",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "maxlength": "",
+            "rows": 3,
+            "placeholder": "Descripción del equipo..."
+        },
+        {
+            "key": "field_teams_tag_title_card",
+            "label": "Etiqueta del título de la tarjeta",
+            "name": "tag_title_card",
+            "aria-label": "",
+            "type": "select",
+            "instructions": "Selecciona la etiqueta HTML para el título de cada miembro del equipo.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "100",
+                "class": "",
+                "id": ""
+            },
+            "choices": {
+                "h2": "H2",
+                "h3": "H3",
+                "p": "P"
+            },
+            "default_value": "h2",
+            "layout": "horizontal",
+            "allow_multiple": 0,
+            "allow_null": 0,
+            "return_format": "value"
+        },
+        {
+            "key": "field_teams_members",
+            "label": "Miembros del equipo",
+            "name": "members",
+            "aria-label": "",
+            "type": "relationship",
+            "instructions": "Selecciona los miembros del equipo que deseas mostrar en este bloque.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "100",
+                "class": "",
+                "id": ""
+            },
+            "post_type": ["team_member"],
+            "taxonomy": [],
+            "filters": ["search", "post_type", "taxonomy"],
+            "elements": "",
+            "min": 0,
+            "max": 0,
+            "return_format": "object"
+        },
+        {
+            "key": "field_teams_items_per_row",
+            "label": "Elementos por fila",
+            "name": "items_per_row",
+            "aria-label": "",
+            "type": "select",
+            "instructions": "Selecciona cuántos miembros del equipo se mostrarán por fila en pantallas grandes.",
+            "required": 1,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "50",
+                "class": "",
+                "id": ""
+            },
+            "choices": {
+                "2": "2",
+                "3": "3",
+                "4": "4"
+            },
+            "default_value": "3",
+            "layout": "horizontal",
+            "allow_multiple": 0,
+            "allow_null": 0,
+            "return_format": "value"
+        },
+        {
+            "key": "field_teams_button",
+            "label": "Botón de acción",
+            "name": "button",
+            "aria-label": "",
+            "type": "link",
+            "instructions": "Botón de acción para dirigir a los usuarios a una página específica (opcional).",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "50",
+                "class": "",
+                "id": ""
+            },
+            "return_format": "array"
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "block",
+                "operator": "==",
+                "value": "acf/teams"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": true,
+    "description": "Campos para el bloque Equipo",
+    "show_in_rest": 0,
+    "modified": 1712878781
+}
+          

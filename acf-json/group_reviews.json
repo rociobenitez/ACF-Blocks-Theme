@@ -1,0 +1,164 @@
+{
+    "key": "group_reviews",
+    "title": "Reseñas",
+    "fields": [
+        {
+            "key": "field_reviews_tagline",
+            "label": "Tagline",
+            "name": "tagline",
+            "aria-label": "",
+            "type": "text",
+            "instructions": "Texto breve que aparece encima del título (opcional).",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "100",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "maxlength": "",
+            "placeholder": "Ej: Lo que dicen nuestros clientes",
+            "prepend": "",
+            "append": ""
+        },
+        {
+            "key": "field_reviews_title",
+            "label": "Título",
+            "name": "title",
+            "aria-label": "",
+            "type": "text",
+            "instructions": "Título principal de la sección.",
+            "required": 1,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "100",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "maxlength": "",
+            "placeholder": "Ej: Reseñas de nuestros clientes",
+            "prepend": "",
+            "append": ""
+        },
+        {
+            "key": "field_reviews_tag_title",
+            "label": "Etiqueta del título",
+            "name": "tag_title",
+            "aria-label": "",
+            "type": "select",
+            "instructions": "Selecciona la etiqueta HTML para el título.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "100",
+                "class": "",
+                "id": ""
+            },
+            "choices": {
+                "h2": "H2",
+                "h3": "H3",
+                "h4": "H4",
+                "p": "P"
+            },
+            "default_value": "h2",
+            "allow_null": 0,
+            "multiple": 0,
+            "ui": 0,
+            "ajax": 0,
+            "placeholder": ""
+        },
+        {
+            "key": "field_reviews_description",
+            "label": "Descripción",
+            "name": "description",
+            "aria-label": "",
+            "type": "textarea",
+            "instructions": "Descripción breve que aparece debajo del título (opcional).",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "100",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "maxlength": "",
+            "placeholder": "Ej: Estas son algunas de las opiniones de nuestros clientes satisfechos.",
+            "rows": 3,
+            "new_lines": ""
+        },
+        {
+            "key": "field_reviews_shortcode",
+            "label": "Shortcode Reseñas",
+            "name": "shortcode",
+            "aria-label": "",
+            "type": "text",
+            "instructions": "Introduce el shortcode para mostrar las reseñas.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "100",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "[trustindex no-registration=google]",
+            "maxlength": "",
+            "placeholder": ""
+        },
+        {
+            "key": "field_reviews_background_color",
+            "label": "Color de fondo",
+            "name": "background_color",
+            "aria-label": "",
+            "type": "select",
+            "instructions": "Selecciona un color de fondo para la sección.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "50",
+                "class": "",
+                "id": ""
+            },
+            "choices": {
+                "white": "Blanco",
+                "light": "Gris claro"
+            },
+            "default_value": "white",
+            "layout": "vertical",
+            "allow_null": 0,
+            "multiple": 0,
+            "ui": 0,
+            "ajax": 0,
+            "placeholder": ""
+        },
+        {
+            "key": "field_reviews_info",
+            "label": "Información",
+            "name": "info",
+            "type": "message",
+            "message": "El shortcode de reseñas se configura desde la página de opciones 'Reseñas' en el menú de administración.",
+            "new_lines": ""
+        }
+
+    ],
+    "location": [
+        [
+            {
+                "param": "options_page",
+                "operator": "==",
+                "value": "acf/reviews"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": true,
+    "description": "Configuración del bloque de reseñas",
+    "modified": 1700787201
+}

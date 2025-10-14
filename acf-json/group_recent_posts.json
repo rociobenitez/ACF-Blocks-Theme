@@ -1,0 +1,181 @@
+{
+  "key": "group_recent_posts",
+  "title": "Últimos Posts",
+  "fields": [
+    {
+      "key": "field_posts_tagline",
+      "label": "Tagline",
+      "name": "tagline",
+      "aria-label": "",
+      "type": "text",
+      "instructions": "Texto breve que aparece encima del título (opcional).",
+      "required": 0,
+      "conditional_logic": 0,
+      "wrapper": {
+        "width": "100",
+        "class": "",
+        "id": ""
+      },
+      "default_value": "",
+      "maxlength": "",
+      "placeholder": "Ej: Nuestro Blog",
+      "prepend": "",
+      "append": ""
+    },
+    {
+      "key": "field_posts_title",
+      "label": "Título",
+      "name": "title",
+      "aria-label": "",
+      "type": "text",
+      "instructions": "Título principal de la sección.",
+      "required": 1,
+      "conditional_logic": 0,
+      "wrapper": {
+        "width": "100",
+        "class": "",
+        "id": ""
+      },
+      "default_value": "",
+      "maxlength": "",
+      "placeholder": "Ej: Últimos Posts",
+      "prepend": "",
+      "append": ""
+    },
+    {
+      "key": "field_posts_tag_title",
+      "label": "Etiqueta del título",
+      "name": "tag_title",
+      "aria-label": "",
+      "type": "select",
+      "instructions": "Selecciona la etiqueta HTML para el título.",
+      "required": 0,
+      "conditional_logic": 0,
+      "wrapper": {
+        "width": "100",
+        "class": "",
+        "id": ""
+      },
+      "choices": {
+        "h2": "H2",
+        "h3": "H3",
+        "p": "P"
+      },
+      "default_value": "h2",
+      "return_format": "value",
+      "multiple": 0,
+      "allow_null": 0,
+      "ui": 1,
+      "ajax": 0,
+      "placeholder": ""
+    },
+    {
+      "key": "field_posts_description",
+      "label": "Descripción",
+      "name": "description",
+      "aria-label": "",
+      "type": "textarea",
+      "instructions": "Descripción breve que aparece debajo del título (opcional).",
+      "required": 0,
+      "conditional_logic": 0,
+      "wrapper": {
+        "width": "100",
+        "class": "",
+        "id": ""
+      },
+      "default_value": "",
+      "maxlength": "",
+      "placeholder": "Ej: Mantente al día con las últimas noticias y artículos.",
+      "rows": 3,
+      "new_lines": "",
+      "prepend": "",
+      "append": ""
+    },
+    {
+      "key": "field_posts_count",
+      "label": "Número de posts",
+      "name": "posts_count",
+      "aria-label": "",
+      "type": "select",
+      "instructions": "Selecciona cuántos posts recientes mostrar",
+      "required": 0,
+      "conditional_logic": 0,
+      "wrapper": {
+        "width": "",
+        "class": "",
+        "id": ""
+      },
+      "choices": {
+        "3": "3 posts",
+        "4": "4 posts"
+      },
+      "default_value": "3",
+      "return_format": "value",
+      "multiple": 0,
+      "allow_null": 0,
+      "ui": 1,
+      "ajax": 0,
+      "placeholder": ""
+    },
+    {
+      "key": "field_posts_tag_title",
+      "label": "Etiqueta del título de la tarjeta",
+      "name": "tag_title_card",
+      "aria-label": "",
+      "type": "select",
+      "instructions": "Selecciona la etiqueta HTML para el título de cada post.",
+      "required": 0,
+      "conditional_logic": 0,
+      "wrapper": {
+        "width": "100",
+        "class": "",
+        "id": ""
+      },
+      "choices": {
+        "h2": "H2",
+        "h3": "H3",
+        "p": "P"
+      },
+      "default_value": "h3",
+      "return_format": "value",
+      "multiple": 0,
+      "allow_null": 0,
+      "ui": 1,
+      "ajax": 0,
+      "placeholder": ""
+    },
+    {
+      "key": "field_posts_button",
+      "label": "Botón",
+      "name": "button",
+      "aria-label": "",
+      "type": "link",
+      "instructions": "Botón para ver más posts (opcional).",
+      "required": 0,
+      "conditional_logic": 0,
+      "wrapper": {
+        "width": "",
+        "class": "",
+        "id": ""
+      },
+      "return_format": "array"  
+    }
+  ],
+  "location": [
+    [
+      {
+        "param": "block",
+        "operator": "==",
+        "value": "acf/recent-posts"
+      }
+    ]
+  ],
+  "menu_order": 0,
+  "position": "normal",
+  "style": "default",
+  "label_placement": "top",
+  "instruction_placement": "label",
+  "hide_on_screen": "",
+  "active": true,
+  "description": "Configuración para el bloque de posts recientes"
+}

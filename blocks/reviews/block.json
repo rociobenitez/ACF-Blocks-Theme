@@ -1,13 +1,13 @@
 {
   "$schema": "https://schemas.wp.org/trunk/block.json",
   "apiVersion": 3,
-  "name": "acf/related",
+  "name": "acf/reviews",
   "version": "0.1.0",
-  "title": "Contenido Relacionado",
+  "title": "Reseñas",
   "category": "theme",
   "icon": "grid-view",
-  "description": "Muestra una colección de contenido relacionado con encabezado centrado y diseño en cuadrícula o carrusel.",
-  "keywords": ["contenido relacionado", "cards", "carrousel", "showcase", "grid"],
+  "description": "Muestra una colección de reseñas de clientes con encabezado centrado.",
+  "keywords": ["reseñas", "cards", "grid"],
   "supports": {
     "align": ["wide", "full"],
     "anchor": true,
@@ -23,21 +23,15 @@
     "validate": false,
     "blockVersion": 3
   },
-  "styles": [
-    { "name": "default", "label": "Por defecto", "isDefault": true },
-    { "name": "cards", "label": "Cards con sombra" },
-    { "name": "minimal", "label": "Minimalista" }
-  ],
   "example": {
     "attributes": {
-      "tagline": "Nuestros Servicios",
-      "title": "Servicios Destacados",
-      "description": "Explora algunos de los servicios que ofrecemos para ayudarte a alcanzar tus objetivos.",
+      "tagline": "Lo que dicen nuestros clientes",
+      "title": "Reseñas de nuestros clientes",
+      "description": "Nuestros clientes comparten su experiencia trabajando con nosotros.",
       "show_carousel_controls": true,
       "items_per_row": 3
     }
   },
-  "script": "file:./script.js",
   "editorStyle": "file:./editor-style.css",
   "style": "file:./style.css"
 }
