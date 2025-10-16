@@ -16,6 +16,7 @@ class Starter_Theme {
         
         add_action( 'after_setup_theme', [ __CLASS__, 'theme_setup' ] );
 		add_action( 'wp_enqueue_scripts', [ __CLASS__, 'enqueue_front_assets' ] );
+        add_action( 'enqueue_block_editor_assets', [ __CLASS__, 'enqueue_editor_assets' ] );
 
         // Initialize ACF JSON and ACF Blocks if ACF is active
         if ( class_exists( __NAMESPACE__ . '\\Starter_ACF_JSON' ) ) {
@@ -55,7 +56,8 @@ class Starter_Theme {
         $files = [
             'inc/class-acf-json.php',
             'inc/class-acf-blocks.php',
-            'inc/class-helpers.php',
+            'inc/helpers.php',
+            'inc/team-helpers.php',
         ];
         foreach ( $files as $file ) {
             $path = ST_THEME_DIR . '/' . $file;
@@ -83,10 +85,10 @@ class Starter_Theme {
 		add_theme_support( 'editor-styles' );     // editor styles
 
         // Add more styles if needed
-        add_editor_style([
-            'assets/css/main.css',
-            'assets/css/editor.css'
-        ]);
+        add_editor_style( [
+            get_theme_file_uri( 'assets/css/main.css?ver=' . filemtime( get_theme_file_path('assets/css/main.css') ) ),
+            get_theme_file_uri( 'assets/css/editor.css?ver=' . filemtime( get_theme_file_path('assets/css/editor.css') ) ),
+        ] );
 
         // WooCommerce support
         add_theme_support( 'woocommerce' );
@@ -117,5 +119,30 @@ class Starter_Theme {
 				true
 			);
 		}
+    }
+
+    /**
+     * Enqueue editor assets
+     */
+    public static function enqueue_editor_assets() {
+        $editor_css = ST_THEME_DIR . '/assets/css/editor.css';
+        if ( file_exists( $editor_css ) ) {
+            wp_enqueue_style(
+                'st-starter-editor',
+                ST_THEME_URI . '/assets/css/editor.css',
+                [],
+                ST_THEME_VERSION
+            );
+        }
+
+        $main_css = ST_THEME_DIR . '/assets/css/main.css';
+        if ( file_exists( $main_css ) ) {
+            wp_enqueue_style(
+                'st-starter-main',
+                ST_THEME_URI . '/assets/css/main.css',
+                [],
+                ST_THEME_VERSION
+            );
+        }
     }
 }

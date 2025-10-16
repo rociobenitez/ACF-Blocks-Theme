@@ -224,11 +224,11 @@
         },
         {
             "key": "field_hero_video_url",
-            "label": "URL de vídeo de fondo",
+            "label": "Vídeo de fondo",
             "name": "video_url",
             "aria-label": "",
-            "type": "url",
-            "instructions": "Pega una URL directa (YouTube, Vimeo...) o de tu biblioteca (Medios).\r\nEl vídeo se reproduce sin sonido y en bucle.",
+            "type": "file",
+            "instructions": "Selecciona un archivo de vídeo de la biblioteca de medios.\r\nEl vídeo se reproduce automáticamente, sin sonido y en bucle.",
             "required": 0,
             "conditional_logic": [
                 [
@@ -244,8 +244,11 @@
                 "class": "",
                 "id": ""
             },
-            "default_value": "",
-            "placeholder": ""
+            "return_format": "id",
+            "library": "all",
+            "min_size": "",
+            "max_size": "",
+            "mime_types": "mp4,webm,ogg,mov"
         },
         {
             "key": "field_hero_image",
@@ -454,7 +457,7 @@
                 "secondary": "Secondary",
                 "transparent": "Transparent"
             },
-            "default_value": "primary",
+            "default_value": "default",
             "return_format": "value",
             "allow_null": 0,
             "other_choice": 0,
@@ -497,7 +500,7 @@
                 "secondary": "Secondary",
                 "transparent": "Transparent"
             },
-            "default_value": "secondary",
+            "default_value": "transparent",
             "layout": "horizontal",
             "other_choice": 0,
             "save_other_choice": 0,

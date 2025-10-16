@@ -47,3 +47,53 @@ if ( ! function_exists( __NAMESPACE__ . '\\tag_title' ) ) :
         );
     }
 endif;
+
+/**
+ * Generar TOC automáticamente a partir de los encabezados en el contenido en la single de post.
+ * 
+ * @return string HTML del TOC
+ */
+if ( ! function_exists( __NAMESPACE__ . '\\generate_toc' ) ) :
+    function generate_toc() {
+        global $post;
+
+        if ( ! $post ) {
+            return '';
+        }
+
+        $content = $post->post_content;
+
+        // Buscar todos los encabezados h2 y h3 en el contenido
+        preg_match_all( '/<h([23])>(.*?)<\/h[23]>/', $content, $matches, PREG_SET_ORDER );
+
+        if ( empty( $matches ) ) {
+            return '';
+        }
+
+        $toc = '<nav class="toc"><ul>';
+        foreach ( $matches as $match ) {
+            $level = $match[1];
+            $title = strip_tags( $match[2] );
+            $slug  = sanitize_title( $title );
+
+            // Añadir un ID al encabezado en el contenido para el enlace
+            $content = str_replace( $match[0], sprintf( '<h%1$s id="%2$s">%3$s</h%1$s>', $level, esc_attr( $slug ), $match[2] ), $content );
+
+            // Añadir al TOC
+            if ( $level == '2' ) {
+                $toc .= sprintf( '<li class="toc-item toc-item-level-2"><a href="#%1$s">%2$s</a></li>', esc_attr( $slug ), esc_html( $title ) );
+            } elseif ( $level == '3' ) {
+                $toc .= sprintf( '<li class="toc-item toc-item-level-3"><a href="#%1$s">%2$s</a></li>', esc_attr( $slug ), esc_html( $title ) );
+            }
+        }
+        $toc .= '</ul></nav>';
+
+        // Actualizar el contenido del post con los IDs añadidos
+        remove_filter( 'the_content', 'wpautop' ); // Evitar que wpautop interfiera
+        add_filter( 'the_content', function() use ( $content ) {
+            return $content;
+        }, 20 );
+
+        return $toc;
+    }
+endif;

@@ -211,28 +211,24 @@
 
 	/* Spacing scale (px-based rems) */
 	--space-0: 0;
-	--space-2: 0.125rem;
-	--space-4: 0.25rem;
-	--space-8: 0.5rem;
-	--space-10: 0.625rem;
-	--space-12: 0.75rem;
-	--space-16: 1rem;
-	--space-20: 1.25rem;
-	--space-24: 1.5rem;
-	--space-32: 2rem;
-	--space-40: 2.5rem;
-	--space-48: 3rem;
-	--space-64: 4rem;
-
-	/* Layout paddings */
-	--padding-top-body: 120px;
-	--padding-top-body-mobile: 64px;
+	--space-2: var(--wp--preset--spacing--2);
+	--space-4: var(--wp--preset--spacing--4);
+	--space-8: var(--wp--preset--spacing--8);
+	--space-10: var(--wp--preset--spacing--10);
+	--space-12: var(--wp--preset--spacing--12);
+	--space-16: var(--wp--preset--spacing--16);
+	--space-20: var(--wp--preset--spacing--20);
+	--space-24: var(--wp--preset--spacing--24);
+	--space-32: var(--wp--preset--spacing--32);
+	--space-40: var(--wp--preset--spacing--40);
+	--space-48: var(--wp--preset--spacing--48);
+	--space-64: var(--wp--preset--spacing--64);
 
 	/* Motion */
-	--duration-fast: 120ms;
-	--duration-base: 200ms;
-	--duration-slow: 320ms;
-	--easing-standard: cubic-bezier(0.2, 0, 0.2, 1);
+	--duration-fast: var(--wp--custom--motion-duration--fast);
+	--duration-base: var(--wp--custom--motion-duration--base);
+	--duration-slow: var(--wp--custom--motion-duration--slow);
+	--easing-standard: var(--wp--custom--motion-easing--standard);
 
 	/* Transitions */
 	--transition-btn: background-color var(--duration-base)
@@ -242,17 +238,17 @@
 		transform var(--duration-fast) var(--easing-standard);
 
 	/* Shadows */
-	--shadow-100: 0 1px 2px rgb(0 0 0 / 0.08);
-	--shadow-200: 0 2px 8px rgb(0 0 0 / 0.12);
-	--box-shadow-menu: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
-	--box-shadow-input: 0 0 0 2px rgba(0, 201, 183, 0.3);
-	--text-shadow: 0px 2px 4px rgba(0, 0, 0, 0.4);
+	--shadow-100: var(--wp--custom--shadows-100);
+	--shadow-200: var(--wp--custom--shadows-200);
+	--box-shadow-menu: var(--wp--custom--shadows-menu);
+	--box-shadow-input: var(--wp--custom--shadows-input);
+	--text-shadow: var(--wp--custom--shadows-text);
 
 	/* Radius */
-	--radius-2: 0.125rem;
-	--radius-4: 0.25rem;
-	--radius-8: 0.5rem;
-	--radius-pill: 999px;
+	--radius-2: var(--wp--custom--radius--2);
+	--radius-4: var(--wp--custom--radius--4);
+	--radius-8: var(--wp--custom--radius--8);
+	--radius-pill: var(--wp--custom--radius--pill);
 
 	/* Component radius aliases */
 	--border-radius-input-form: var(--radius-4);
@@ -511,24 +507,26 @@ a:focus-visible {
 	transition: var(--transition-btn);
 	white-space: nowrap;
 	user-select: none;
-}
 
-.btn:disabled {
-	opacity: 0.6;
-	cursor: not-allowed;
-}
-.btn:hover {
-	text-decoration: none;
-}
-.btn:active {
-	transform: translateY(1px);
-}
-.btn:focus {
-	outline: 2px solid transparent;
-}
-.btn:focus-visible {
-	outline: 2px solid var(--color-primary-500);
-	outline-offset: 2px;
+	&:disabled {
+		opacity: 0.6;
+		cursor: not-allowed;
+		pointer-events: none;
+	}
+	&:hover {
+		text-decoration: none;
+	}
+	&:active {
+		transform: translateY(1px);
+		pointer-events: none;
+	}
+	&:focus {
+		outline: 2px solid transparent;
+	}
+	&:focus-visible {
+		outline: 2px solid var(--color-primary-500);
+		outline-offset: 2px;
+	}
 }
 
 .btn--sm {
@@ -786,12 +784,12 @@ header .wp-block-site-logo img {
 	font-weight: 500;
 	line-height: 1.5;
 
-	:not(:last-child) {
+	&:not(:last-child) {
 		color: var(--color-gray-800);
 	}
 
-	:hover,
-	:focus {
+	&:hover,
+	&:focus {
 		color: var(--color-gray-900);
 		text-decoration: none;
 	}
@@ -805,8 +803,8 @@ footer {
 footer a {
 	color: var(--color-primary-400);
 
-	:hover,
-	:focus {
+	&:hover,
+	&:focus {
 		color: var(--color-primary-300);
 		text-decoration: underline;
 	}

@@ -22,16 +22,12 @@ $sty_overlay  = str_contains($cls, 'is-style-overlay');
 // Detectar si estamos en el editor de bloques
 $is_block_editor = is_admin() && function_exists('get_current_screen') && ( get_current_screen() && get_current_screen()->is_block_editor() );
 
-// Mensajes por estilo
-$help_centered = 'Estilo “Centrado”: texto centrado. Fondo opcional (Sin fondo, Imagen o Vídeo).';
-$help_split    = 'Estilo “Split”: dos columnas. Usa Imagen o Vídeo en la columna de media. Elige izquierda/derecha.';
-$help_overlay  = 'Estilo “Overlay”: fondo obligatorio (Imagen o Vídeo). Overlay activo con opacidad ajustable. Contenido centrado o a la izquierda.';
-
 // Content
-$tagline      = get_field( 'tagline' );   // string
-$title        = get_field( 'title' );     // string
-$subtitle     = get_field( 'subtitle' );  // string
-$text         = get_field( 'text' );      // WYSIWYG / text
+$tagline      = get_field( 'tagline' ) ?: '';
+$title        = get_field( 'title' ) ?: '';
+$tag_title    = get_field( 'tag_title' ) ?: 'h1';
+$subtitle     = get_field( 'subtitle' ) ?: '';
+$text         = get_field( 'text' ) ?: '';
 
 // Global
 $padding_y    = get_field( 'padding_y' ) ?: 'md';   // 'sm'|'md'|'lg'
@@ -92,6 +88,16 @@ if ( $bg_mode === 'image' && !$sty_split ) {
     }
 }
 
+// Prepare background video for centered/overlay styles
+$has_bg_video = false;
+$video_file_url = '';
+if ( $bg_mode === 'video' && !$sty_split && $video_url && ( $sty_centered || $sty_overlay ) ) {
+    $video_file_url = wp_get_attachment_url( $video_url );
+    if ( $video_file_url ) {
+        $has_bg_video = true;
+    }
+}
+
 // Botón helper
 $btn = function($link, $variant = 'primary') {
   $label = $link['title'] ?? '';
@@ -104,20 +110,37 @@ $btn = function($link, $variant = 'primary') {
 
 ?>
 <section <?php echo $wrapper_attrs; ?><?php echo $bg_style; ?>>
-    
-    <?php if ( $is_block_editor ): ?>
-        <div class="hero__editor-help">
-        <?php if ($sty_centered): ?>
-            <p>➤ <?php echo esc_html($help_centered); ?></p>
-        <?php elseif ($sty_split): ?>
-            <p>➤ <?php echo esc_html($help_split); ?></p>
-        <?php elseif ($sty_overlay): ?>
-            <p>➤ <?php echo esc_html($help_overlay); ?></p>
-        <?php endif; ?>
+
+    <?php if ( $has_bg_video ) : ?>
+        <div class="hero__bg-video">
+            <?php if ( $is_block_editor ) : ?>
+                <!-- Placeholder for editor -->
+                <div class="hero__bg-video-placeholder">
+                    <span>Vídeo de fondo: <?php echo esc_html( get_the_title( $video_url ) ); ?></span>
+                </div>
+            <?php else : ?>
+                <!-- Background video with native HTML5 video tag -->
+                <div class="hero__bg-video-embed">
+                    <video 
+                        class="hero__bg-video-element"
+                        autoplay 
+                        muted 
+                        loop 
+                        playsinline
+                        aria-hidden="true"
+                        preload="metadata"
+                        poster="<?php echo esc_url( wp_get_attachment_image_url( $video_url, 'large' ) ); ?>">
+                        <source src="<?php echo esc_url( $video_file_url ); ?>" type="<?php echo esc_attr( get_post_mime_type( $video_url ) ); ?>">
+                        Su navegador no soporta la reproducción de vídeo.
+                    </video>
+                    <!-- Screen reader text for accessibility -->
+                    <span class="screen-reader-text">Vídeo decorativo de fondo, sin audio</span>
+                </div>
+            <?php endif; ?>
         </div>
     <?php endif; ?>
 
-    <?php if ( $sty_overlay ) : ?>
+    <?php if ( ($sty_overlay && $ov_on ) ||  ( $sty_centered && $ov_on ) ) : ?>
         <div class="hero__overlay" style="opacity: <?php echo esc_attr( $ov_op ); ?>"></div>
     <?php endif; ?>
 
@@ -129,7 +152,7 @@ $btn = function($link, $variant = 'primary') {
                 <?php endif; ?>
 
                 <?php if ( $title ) : ?>
-                    <h1 class="hero__title"><?php echo esc_html( $title ); ?></h1>
+                    <?php echo tag_title( $tag_title, $title, 'hero__title' ); ?>
                 <?php endif; ?>
 
                 <?php if ( $subtitle ) : ?>

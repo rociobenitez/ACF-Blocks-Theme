@@ -1,21 +1,25 @@
-@import url("bootstrap.min.css");
-@import url("fonts.css");
-@import url("main.css");
-@import url("../../blocks/hero/style.css");
-@import url("../../blocks/alternated-content/style.css");
-@import url("../../blocks/services/style.css");
-@import url("../../blocks/related/style.css");
+@import url("./main.css");
+
+:where(.editor-styles-wrapper) .is-empty-block::after {
+	content: "Añade contenido…";
+	opacity: 0.5;
+	font-style: italic;
+}
+
+:where(.editor-styles-wrapper) .wp-site-blocks {
+	padding-left: var(--wp--preset--spacing--4);
+	padding-right: var(--wp--preset--spacing--4);
+}
 
 /* El editor aplica .editor-styles-wrapper al root del iframe */
 .editor-styles-wrapper {
-	/* pequeños ajustes de lectura en el editor (no necesarios en front) */
 	--editor-gap: 16px;
 	padding: var(--editor-gap);
 }
 
 .editor-styles-wrapper .is-root-container {
 	/* simula content width del theme.json para previsualización */
-	max-width: var(--wp--style--global--content-size, 620px);
+	max-width: var(--wp--style--global--content-size, 1200px);
 	margin: 0 auto;
 }
 

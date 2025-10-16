@@ -17,6 +17,9 @@ class Starter_ACF_Blocks {
 
         add_action( 'acf/init', [ __CLASS__, 'register_blocks' ] );
         add_action( 'init', [ __CLASS__, 'register_block_styles' ] );
+
+        // Ensure block assets are loaded separately
+        add_filter('should_load_separate_core_block_assets', '__return_true');
     }
 
     /**
