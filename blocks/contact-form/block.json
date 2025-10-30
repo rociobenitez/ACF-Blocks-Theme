@@ -1,0 +1,18 @@
+{
+  "apiVersion": 2,
+  "name": "acf/contact-form",
+  "title": "Contact Form",
+  "category": "widgets",
+  "icon": "id",
+  "description": "Formulario de contacto personalizado",
+  "acf": {
+    "mode": "preview",
+    "renderTemplate": "render.php",
+    "validate": false,
+    "blockVersion": 3
+  },
+  "supports": {
+    "anchor": true,
+    "align": ["wide","full"]
+  }
+}

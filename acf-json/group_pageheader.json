@@ -1,0 +1,228 @@
+{
+    "key": "group_pageheader",
+    "title": "Cabecera",
+    "fields": [
+        {
+            "key": "field_ph_enable",
+            "label": "Habilitar Cabecera",
+            "name": "ph_enable",
+            "aria-label": "",
+            "type": "true_false",
+            "instructions": "Marque para mostrar la cabecera en esta página.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "50",
+                "class": "",
+                "id": ""
+            },
+            "message": "Habilitar",
+            "default_value": 0,
+            "ui": 1,
+            "ui_on_text": "Sí",
+            "ui_off_text": "No"
+        },
+        {
+            "key": "field_ph_breadcrumbs",
+            "label": "Mostrar Migas de Pan",
+            "name": "ph_breadcrumbs",
+            "aria-label": "",
+            "type": "true_false",
+            "instructions": "Marque para mostrar las migas de pan en la cabecera.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "50",
+                "class": "",
+                "id": ""
+            },
+            "message": "Mostrar",
+            "default_value": 0,
+            "ui": 1,
+            "ui_on_text": "Sí",
+            "ui_off_text": "No"
+        },
+        {
+            "key": "field_ph_title",
+            "label": "Título",
+            "name": "ph_title",
+            "aria-label": "",
+            "type": "text",
+            "instructions": "Ingrese el título para la cabecera.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": "Título de ejemplo",
+            "prepend": "",
+            "append": "",
+            "maxlength": ""
+        },
+        {
+            "key": "field_ph_subtitle",
+            "label": "Subtítulo",
+            "name": "ph_subtitle",
+            "aria-label": "",
+            "type": "text",
+            "instructions": "Ingrese el subtítulo para la cabecera.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": "Subtítulo de ejemplo",
+            "prepend": "",
+            "append": "",
+            "maxlength": ""
+        },
+        {
+            "key": "field_ph_kicker",
+            "label": "Texto corto",
+            "name": "ph_kicker",
+            "aria-label": "",
+            "type": "text",
+            "instructions": "Ingrese el texto corto que va encima del título.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": "Texto de ejemplo",
+            "prepend": "",
+            "append": "",
+            "maxlength": ""
+        },
+        {
+            "key": "field_ph_bg_image",
+            "label": "Imagen de Fondo",
+            "name": "ph_bg_image",
+            "aria-label": "",
+            "type": "image",
+            "instructions": "Seleccione una imagen de fondo para la cabecera. Si no se selecciona ninguna, se usará la imagen destacada de la página o una imagen predeterminada.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "return_format": "url",
+            "preview_size": "medium",
+            "library": "all",
+            "min_width": "",
+            "min_height": "",
+            "min_size": "",
+            "max_width": "",
+            "max_height": "",
+            "max_size": "",
+            "mime_types": ""
+        },
+        {
+            "key": "field_ph_overlay_opacity",
+            "label": "Opacidad de la Superposición",
+            "name": "ph_overlay_opacity",
+            "aria-label": "",
+            "type": "number",
+            "instructions": "Establezca la opacidad de la superposición de color sobre la imagen de fondo (0 a 1).",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": 0.5,
+            "placeholder": "",
+            "prepend": "",
+            "append": "",
+            "min": 0,
+            "max": 1,
+            "step": 0.10000000000000001
+        },
+        {
+            "key": "field_ph_show_form",
+            "label": "Mostrar Formulario",
+            "name": "ph_show_form",
+            "aria-label": "",
+            "type": "true_false",
+            "instructions": "Marque para mostrar un formulario en la cabecera.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "message": "Mostrar formulario",
+            "default_value": 0,
+            "ui": 1,
+            "ui_on_text": "Sí",
+            "ui_off_text": "No"
+        },
+        {
+            "key": "field_ph_id_form",
+            "label": "ID del Formulario",
+            "name": "ph_id_form",
+            "aria-label": "",
+            "type": "text",
+            "instructions": "Ingrese el ID del formulario a mostrar en la cabecera.",
+            "required": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_ph_show_form",
+                        "operator": "==",
+                        "value": "1"
+                    }
+                ]
+            ],
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": 1,
+            "prepend": "",
+            "append": "",
+            "maxlength": ""
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "post_type",
+                "operator": "==",
+                "value": "page"
+            }
+        ],
+        [
+            {
+                "param": "block",
+                "operator": "==",
+                "value": "acf\/pageheader"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": true,
+    "description": "",
+    "show_in_rest": 0,
+    "display_title": "",
+    "modified": 1761572058
+}

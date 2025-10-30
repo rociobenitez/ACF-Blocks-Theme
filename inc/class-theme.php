@@ -57,7 +57,8 @@ class Starter_Theme {
             'inc/class-acf-json.php',
             'inc/class-acf-blocks.php',
             'inc/helpers.php',
-            'inc/team-helpers.php',
+            'inc/helpers-team.php',
+            'inc/helpers-pageheader.php',
         ];
         foreach ( $files as $file ) {
             $path = ST_THEME_DIR . '/' . $file;
@@ -109,6 +110,16 @@ class Starter_Theme {
             );
         }
 
+        $blog_css = ST_THEME_DIR . '/assets/css/blog.css';
+        if ( file_exists( $blog_css ) && is_home() && ! is_front_page() ) {
+            wp_enqueue_style(
+                'st-starter-blog',
+                ST_THEME_URI . '/assets/css/blog.css',
+                [],
+                ST_THEME_VERSION
+            );
+        }
+
         $front_js = ST_THEME_DIR . '/assets/js/main.js';
 		if ( file_exists( $front_js ) ) {
 			wp_enqueue_script(
@@ -140,6 +151,16 @@ class Starter_Theme {
             wp_enqueue_style(
                 'st-starter-main',
                 ST_THEME_URI . '/assets/css/main.css',
+                [],
+                ST_THEME_VERSION
+            );
+        }
+
+        $blog_css = ST_THEME_DIR . '/assets/css/blog.css';
+        if ( file_exists( $blog_css ) && is_home() && ! is_front_page() ) {
+            wp_enqueue_style(
+                'st-starter-blog',
+                ST_THEME_URI . '/assets/css/blog.css',
                 [],
                 ST_THEME_VERSION
             );

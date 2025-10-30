@@ -1,0 +1,107 @@
+.post-card__title {
+	font-size: 1.5rem;
+	margin-bottom: var(--wp--preset--spacing--10);
+	color: var(--wp--preset--color--heading);
+}
+
+.post-card__title a {
+	color: var(--wp--preset--color--heading);
+}
+
+.post-card__excerpt {
+	font-size: var(--wp--preset--font-size--16);
+	margin-block-start: var(--wp--preset--spacing--16);
+	display: block;
+}
+
+.post-card__meta {
+	font-size: var(--wp--preset--font-size--14);
+	color: var(--wp--preset--color--muted);
+	margin-block-start: var(--wp--preset--spacing--16);
+	display: block;
+}
+
+/* --- Sidebar --- */
+.sidebar {
+	background: transparent;
+	padding-left: 24px !important;
+	border-left-color: #e5e7eb;
+	border-left-width: 3px;
+	margin-top: 0;
+	margin-bottom: 0;
+	padding-top: var(--wp--preset--spacing--30);
+	padding-right: var(--wp--preset--spacing--20);
+	padding-bottom: var(--wp--preset--spacing--30);
+	padding-left: var(--wp--preset--spacing--20);
+}
+
+/* Título minimalista */
+.sidebar .wp-block-heading {
+	color: #6b7280;
+	font-weight: 500;
+	margin-bottom: var(--wp--preset--spacing--20);
+	font-size: 0.9rem;
+	letter-spacing: 0.05em;
+	text-transform: uppercase;
+}
+
+/* Lista de categorías ultra-limpia */
+.categories ul {
+	list-style: none !important;
+	padding: 0 !important;
+	margin: 0 !important;
+}
+
+.categories li {
+	margin: 0 0 12px 0 !important;
+	padding: 0 !important;
+}
+
+.categories a {
+	color: #374151;
+	text-decoration: none;
+	font-size: 0.95rem;
+	line-height: 1.6;
+	transition: all 0.15s ease;
+	display: block;
+	padding: 4px 0;
+	position: relative;
+}
+
+.categories a::before {
+	content: "";
+	position: absolute;
+	left: -20px;
+	top: 50%;
+	transform: translateY(-50%);
+	width: 4px;
+	height: 4px;
+	background-color: #d1d5db;
+	border-radius: 50%;
+	transition: all 0.15s ease;
+}
+
+.categories a:hover {
+	color: #111827;
+	padding-left: 8px;
+}
+
+.categories a:hover::before {
+	background-color: #3b82f6;
+	width: 6px;
+	height: 6px;
+}
+
+/* Responsive ultra-minimalista */
+@media (max-width: 768px) {
+	.sidebar {
+		border-left: none !important;
+		border-top: 2px solid #e5e7eb !important;
+		padding: 20px 0 0 0 !important;
+		margin-top: 30px;
+	}
+
+	.categories a::before {
+		left: -12px;
+	}
+}

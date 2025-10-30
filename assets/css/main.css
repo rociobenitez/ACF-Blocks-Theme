@@ -419,6 +419,7 @@ body {
 	margin-inline: auto;
 	padding-left: var(--space-16);
 	padding-right: var(--space-16);
+	width: 100%;
 }
 
 /* --- Typography --- */
@@ -801,13 +802,15 @@ footer {
 	padding: var(--space-48) 0 var(--space-32);
 }
 footer a {
-	color: var(--color-primary-400);
-
 	&:hover,
 	&:focus {
-		color: var(--color-primary-300);
+		color: var(--color-primary-400);
 		text-decoration: underline;
 	}
+}
+
+footer .wp-block-site-logo.wp-block-site-logo img {
+	max-height: 90px;
 }
 
 footer .footer-top {
@@ -908,27 +911,38 @@ footer .footer-copy a {
 		a {
 		display: flex;
 		align-items: center;
-		padding: var(--space-10) var(--space-20);
+		padding: var(--space-8) var(--space-16);
 		background-color: var(--color-gray-900);
 		color: var(--color-white);
 		font-weight: var(--fw-medium);
 		font-size: var(--fs-14);
 		line-height: 1.5;
 		border-radius: var(--radius-2);
-	}
 
-	.navbar__container
-		.wp-block-navigation
-		.wp-block-navigation-link:last-child
-		a:hover,
-	.navbar__container
-		.wp-block-navigation
-		.wp-block-navigation-link:last-child
-		a:focus {
-		background-color: var(--color-gray-800);
-		color: var(--color-white);
-		text-decoration: none;
-		transition: background-color 0.3s ease;
+		&:hover,
+		&:focus {
+			background-color: var(--color-gray-700);
+			color: var(--color-white);
+			text-decoration: none;
+			transition: background-color 0.3s ease;
+			cursor: pointer;
+
+			.wp-block-navigation-item__label {
+				color: var(--color-white);
+			}
+		}
+		&:focus-visible {
+			outline: 2px solid var(--color-primary-500);
+			outline-offset: 2px;
+			background-color: var(--color-gray-700);
+			color: var(--color-white);
+			transform: scale(0.95);
+		}
+		&:checked {
+			background-color: var(--color-gray-800);
+			color: var(--color-white);
+			transform: scale(0.95);
+		}
 	}
 }
 @media (min-width: 782px) {

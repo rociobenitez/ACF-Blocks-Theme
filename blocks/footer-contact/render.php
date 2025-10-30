@@ -68,6 +68,6 @@ $wrapper = get_block_wrapper_attributes([ 'class' => 'footer-contact' ]);
   <?php endif; ?>
 
   <?php if ($is_preview && !$has_any): ?>
-    <em class="footer-contact__placeholder"><?php esc_html_e('Configura tus datos de contacto en Opciones.', 'st-starter'); ?></em>
+    <em class="footer-contact__placeholder"><?php esc_html_e('Configura tus datos de contacto en Opciones.', ST_TEXT_DOMAIN); ?></em>
   <?php endif; ?>
 </div>

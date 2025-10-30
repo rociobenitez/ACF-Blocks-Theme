@@ -700,6 +700,16 @@
 			"area": "footer",
 			"name": "footer",
 			"title": "Footer"
+		},
+		{
+			"area": "sidebar",
+			"name": "sidebar",
+			"title": "Sidebar"
+		},
+		{
+			"area": "pageheader",
+			"name": "page-header",
+			"title": "Page Header"
 		}
 	],
 	"patterns": []

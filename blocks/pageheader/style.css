@@ -1,0 +1,54 @@
+.pageheader {
+	background-size: cover;
+	background-position: center;
+	padding-block: var(--wp--preset--spacing--60);
+}
+
+.pageheader__title {
+	color: var(--wp--preset--color--white);
+	margin-bottom: var(--wp--preset--spacing--10);
+}
+
+.pageheader__subtitle {
+	color: var(--wp--preset--color--white);
+	margin-top: var(--wp--preset--spacing--10);
+	font-size: 1.25rem;
+}
+
+.pageheader__breadcrumbs {
+	margin-top: var(--wp--preset--spacing--20);
+
+	.breadcrumbs ol {
+		list-style: none;
+		padding: 0;
+		margin: 0;
+		display: flex;
+		gap: var(--wp--preset--spacing--10);
+		font-size: var(--wp--preset--font-size--14);
+		font-weight: 500;
+		color: var(--wp--preset--color--white);
+
+		li::after {
+			content: "/";
+			margin-left: var(--wp--preset--spacing--10);
+		}
+
+		li:last-child::after {
+			content: "";
+			margin: 0;
+		}
+
+		a {
+			color: var(--wp--preset--color--white);
+			text-decoration: underline;
+
+			&:hover {
+				text-decoration: none;
+			}
+		}
+	}
+}
+
+.pageheader__form {
+	margin-top: var(--wp--preset--spacing--30);
+}

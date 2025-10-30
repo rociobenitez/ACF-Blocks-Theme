@@ -18,8 +18,6 @@
 }
 
 .editor-styles-wrapper .is-root-container {
-	/* simula content width del theme.json para previsualización */
-	max-width: var(--wp--style--global--content-size, 1200px);
 	margin: 0 auto;
 }
 

@@ -1,0 +1,18 @@
+{
+  "apiVersion": 3,
+  "name": "acf/contact-info",
+  "title": "Contact Info",
+  "category": "widgets",
+  "icon": "id",
+  "description": "Datos de contacto globales",
+  "acf": {
+    "mode": "preview",
+    "renderTemplate": "render.php",
+    "validate": false,
+    "blockVersion": 3
+  },
+  "supports": {
+    "anchor": true,
+    "align": ["wide","full"]
+  }
+}
