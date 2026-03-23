@@ -1,43 +1,42 @@
 {
-  "$schema": "https://schemas.wp.org/trunk/block.json",
+	"$schema": "https://schemas.wp.org/trunk/block.json",
 	"apiVersion": 3,
-  "name": "acf/hero",
-	"version": "0.1.0",
-  "title": "Hero",
-  "category": "theme",
-  "icon": "cover-image",
-  "description": "Sección hero flexible con varios estilos",
-  "keywords": ["hero", "banner", "jumbotron"],
-  "supports": {
-    "align": ["wide", "full"],
-    "anchor": true,
-    "className": true,
-    "spacing": { "margin": false, "padding": false },
-    "color": { "background": false, "text": false, "gradients": false },
-    "typography": { "fontSize": false, "lineHeight": false },
-    "shadow": false
-  },
-  "styles": [
-    { "name": "centered", "label": "Centrado", "isDefault": true },
-    { "name": "split",    "label": "Texto + Imagen" },
-    { "name": "overlay",  "label": "Cover + Overlay" }
-  ],
-  "acf": {
-    "mode": "preview",
-    "renderTemplate": "render.php",
-    "validate": false,
-    "blockVersion": 3
-  },
-  "example": {
-    "attributes": {
-      "heading": "Creamos soluciones digitales a medida",
-      "subheading": "Empresa de desarrollo web y marketing digital",
-      "background_image": 123,
-      "button_text": "Saber más",
-      "button_url": "#",
-      "style_variant": "centered"
-    }
-  },
-  "style": "file:./style.css",
-  "editorStyle": "file:./editor.css"
+	"name": "acf/hero",
+	"version": "1.0.0",
+	"title": "Hero",
+	"category": "theme",
+	"icon": "cover-image",
+	"description": "Sección hero con fondo de color, imagen o vídeo. Tres estilos: centrado, texto + imagen y cover.",
+	"keywords": ["hero", "banner", "cabecera"],
+	"supports": {
+		"align": ["full"],
+		"anchor": true,
+		"className": true,
+		"spacing": { "margin": false, "padding": false },
+		"color": false,
+		"typography": false
+	},
+	"styles": [
+		{ "name": "centered", "label": "Centrado", "isDefault": true },
+		{ "name": "split", "label": "Texto + Imagen" },
+		{ "name": "overlay", "label": "Cover + Overlay" }
+	],
+	"acf": {
+		"mode": "preview",
+		"renderTemplate": "render.php"
+	},
+	"example": {
+		"attributes": {
+			"mode": "preview",
+			"data": {
+				"title": "Creamos soluciones digitales",
+				"subtitle": "Diseño web y marketing digital",
+				"bg_color": "primary",
+				"padding_y": "md"
+			}
+		}
+	},
+	"style": "file:./style.css",
+	"editorStyle": "file:./editor.css",
+	"viewScript": "file:./script.js"
 }

@@ -3,232 +3,212 @@
     "title": "Hero",
     "fields": [
         {
+            "key": "field_hero_tab_content",
+            "label": "Contenido",
+            "type": "tab",
+            "placement": "top",
+            "endpoint": 0
+        },
+        {
             "key": "field_hero_tagline",
             "label": "Tagline",
             "name": "tagline",
-            "aria-label": "",
             "type": "text",
-            "instructions": "Texto breve que aparece encima del título (opcional).",
+            "instructions": "Texto corto encima del título (ej: \"Bienvenido\", \"Desde 2010\"). Opcional.",
             "required": 0,
             "conditional_logic": 0,
-            "wrapper": {
-                "width": "100",
-                "class": "",
-                "id": ""
-            },
-            "default_value": "",
-            "maxlength": "",
-            "placeholder": "",
-            "prepend": "",
-            "append": ""
+            "wrapper": { "width": "100", "class": "", "id": "" },
+            "maxlength": 80,
+            "placeholder": "Tu tagline aquí"
         },
         {
             "key": "field_hero_title",
             "label": "Título",
             "name": "title",
-            "aria-label": "",
             "type": "text",
-            "instructions": "Título principal del hero. Debe ser claro y corto (una sola frase).",
+            "instructions": "Título principal. Claro, directo y en una frase.",
             "required": 0,
             "conditional_logic": 0,
-            "wrapper": {
-                "width": "100",
-                "class": "",
-                "id": ""
-            },
-            "default_value": "",
+            "wrapper": { "width": "100", "class": "", "id": "" },
             "maxlength": "",
-            "placeholder": "",
-            "prepend": "",
-            "append": ""
+            "placeholder": "Tu título principal"
         },
         {
             "key": "field_hero_title_tag",
-            "label": "Etiqueta del título",
+            "label": "Etiqueta HTML",
             "name": "title_tag",
-            "aria-label": "",
             "type": "radio",
-            "instructions": "Selecciona el nivel de encabezado para el título",
-            "required": false,
-            "conditional_logic": false,
-            "wrapper": {
-                "width": "100",
-                "class": "",
-                "id": ""
-            },
+            "instructions": "H1 para página principal, H2 o P si ya hay otro H1 en la página.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": { "width": "100", "class": "", "id": "" },
             "choices": {
                 "h1": "H1",
                 "h2": "H2",
-                "h3": "H3",
-                "p": "P"
+                "p": "Párrafo"
             },
             "default_value": "h1",
             "layout": "horizontal",
-            "other_choice": 0,
-            "save_other_choice": 0,
-            "allow_null": 0,
             "return_format": "value"
         },
         {
             "key": "field_hero_subtitle",
             "label": "Subtítulo",
             "name": "subtitle",
-            "aria-label": "",
             "type": "text",
-            "instructions": "Frase de apoyo al título. Úsala para explicar o ampliar la idea principal (opcional).",
+            "instructions": "Frase de apoyo al título. Opcional.",
             "required": 0,
             "conditional_logic": 0,
-            "wrapper": {
-                "width": "100",
-                "class": "",
-                "id": ""
-            },
-            "default_value": "",
+            "wrapper": { "width": "100", "class": "", "id": "" },
             "maxlength": "",
-            "placeholder": "",
-            "prepend": "",
-            "append": ""
-        },
-        {
-            "key": "field_hero_subtitle_tag",
-            "label": "Etiqueta del subtítulo",
-            "name": "subtitle_tag",
-            "aria-label": "",
-            "type": "radio",
-            "instructions": "Selecciona el nivel de encabezado para el subtítulo",
-            "required": false,
-            "conditional_logic": false,
-            "wrapper": {
-                "width": "100",
-                "class": "",
-                "id": ""
-            },
-            "choices": {
-                "h2": "H2",
-                "h3": "H3",
-                "p": "P"
-            },
-            "default_value": "p",
-            "layout": "horizontal",
-            "other_choice": 0,
-            "save_other_choice": 0,
-            "allow_null": 0,
-            "return_format": "value"
+            "placeholder": "Frase de apoyo"
         },
         {
             "key": "field_hero_text",
             "label": "Texto",
             "name": "text",
-            "aria-label": "",
             "type": "wysiwyg",
-            "instructions": "Párrafo breve bajo el subtítulo. Evita bloques largos (2–3 frases máximo).",
+            "instructions": "Descripción breve (2–3 frases máximo). Opcional.",
             "required": 0,
             "conditional_logic": 0,
-            "wrapper": {
-                "width": "100",
-                "class": "",
-                "id": ""
-            },
-            "default_value": "",
+            "wrapper": { "width": "100", "class": "", "id": "" },
             "tabs": "all",
-            "toolbar": "full",
-            "media_upload": 1,
+            "toolbar": "basic",
+            "media_upload": 0,
             "delay": 0
         },
         {
-            "key": "field_hero_vertical_alignment",
-            "label": "Alineación vertical",
-            "name": "valign",
-            "aria-label": "",
-            "type": "select",
-            "instructions": "Posición del contenido dentro del hero.",
+            "key": "field_hero_cta_1_btn",
+            "label": "Botón principal",
+            "name": "cta",
+            "type": "link",
+            "instructions": "Acción principal (ej: \"Solicitar presupuesto\"). Se muestra solo si tiene texto y URL.",
             "required": 0,
             "conditional_logic": 0,
-            "wrapper": {
-                "width": "100",
-                "class": "",
-                "id": ""
-            },
-            "choices": {
-                "top": "Arriba",
-                "center": "Centro",
-                "bottom": "Abajo"
-            },
-            "default_value": "center",
-            "return_format": "value",
-            "multiple": 0,
-            "allow_null": 0,
-            "ui": 0,
-            "ajax": 0,
-            "placeholder": "",
-            "create_options": 0,
-            "save_options": 0
+            "wrapper": { "width": "100", "class": "", "id": "" },
+            "return_format": "array"
         },
         {
-            "key": "field_hero_padding_y",
-            "label": "Padding vertical",
-            "name": "padding_y",
-            "aria-label": "",
-            "type": "select",
-            "instructions": "Altura del hero (espacio arriba y abajo del contenido).\r\n- Pequeño: cabecera compacta.\r\n- Mediano (recomendado): equilibrio.\r\n- Grande: cabecera muy protagonista.",
+            "key": "field_hero_cta_1_style",
+            "label": "Estilo",
+            "name": "cta_style",
+            "type": "radio",
+            "instructions": "",
             "required": 0,
             "conditional_logic": 0,
-            "wrapper": {
-                "width": "100",
-                "class": "",
-                "id": ""
-            },
+            "wrapper": { "width": "100", "class": "", "id": "" },
             "choices": {
-                "sm": "Pequeño",
-                "md": "Mediano",
-                "lg": "Grande"
+                "default": "Default",
+                "primary": "Primary",
+                "secondary": "Secondary",
+                "transparent": "Transparent"
             },
-            "default_value": "md",
+            "default_value": "default",
+            "layout": "horizontal",
+            "return_format": "value"
+        },
+        {
+            "key": "field_hero_cta_2_btn",
+            "label": "Botón secundario",
+            "name": "cta_2",
+            "type": "link",
+            "instructions": "Acción alternativa, menos destacada. Opcional.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": { "width": "100", "class": "", "id": "" },
+            "return_format": "array"
+        },
+        {
+            "key": "field_hero_cta_2_style",
+            "label": "Estilo",
+            "name": "cta_2_style",
+            "type": "radio",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": { "width": "100", "class": "", "id": "" },
+            "choices": {
+                "default": "Default",
+                "primary": "Primary",
+                "secondary": "Secondary",
+                "transparent": "Transparent"
+            },
+            "default_value": "transparent",
+            "layout": "horizontal",
+            "return_format": "value"
+        },
+        {
+            "key": "field_hero_tab_design",
+            "label": "Diseño",
+            "type": "tab",
+            "placement": "top",
+            "endpoint": 0
+        },
+        {
+            "key": "field_hero_bg_color",
+            "label": "Color de fondo",
+            "name": "bg_color",
+            "type": "select",
+            "instructions": "Color de fondo de la sección. Con imagen o vídeo, se usa como fallback.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": { "width": "100", "class": "", "id": "" },
+            "choices": {
+                "default": "Blanco",
+                "light": "Claro",
+                "dark": "Oscuro",
+                "primary": "Primary",
+                "accent": "Accent"
+            },
+            "default_value": "default",
             "return_format": "value",
-            "multiple": 0,
-            "allow_null": 0,
-            "ui": 0,
-            "ajax": 0,
-            "placeholder": "",
-            "create_options": 0,
-            "save_options": 0
+            "ui": 1
         },
         {
             "key": "field_hero_background_preset",
-            "label": "Fondo",
+            "label": "Fondo multimedia",
             "name": "bg_mode",
-            "aria-label": "",
             "type": "select",
-            "instructions": "Elige si el hero tiene fondo y de qué tipo.\r\n- Sin fondo: fondo liso del sitio (solo para estilos \"Centrado\" o \"Texto + Imagen\").\r\n- Imagen: usa una imagen de fondo.\r\n- Video: usa un vídeo de fondo (se reproduce en silencio).",
+            "instructions": "Imagen o vídeo de fondo. El vídeo se reproduce en silencio y en bucle.",
             "required": 0,
             "conditional_logic": 0,
-            "wrapper": {
-                "width": "100",
-                "class": "",
-                "id": ""
-            },
+            "wrapper": { "width": "100", "class": "", "id": "" },
             "choices": {
-                "none": "Sin fondo",
+                "none": "Sin multimedia",
                 "image": "Imagen",
-                "video": "Video"
+                "video": "Vídeo"
             },
             "default_value": "none",
             "return_format": "value",
-            "multiple": 0,
-            "allow_null": 0,
-            "ui": 0,
-            "ajax": 0,
-            "placeholder": "",
-            "create_options": 0,
-            "save_options": 0
+            "ui": 1
+        },
+        {
+            "key": "field_hero_image",
+            "label": "Imagen",
+            "name": "image",
+            "type": "image",
+            "instructions": "Imagen de fondo o imagen junto al texto (según el estilo). Horizontal y buena calidad.",
+            "required": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_hero_background_preset",
+                        "operator": "==",
+                        "value": "image"
+                    }
+                ]
+            ],
+            "wrapper": { "width": "100", "class": "", "id": "" },
+            "return_format": "id",
+            "library": "all",
+            "preview_size": "medium"
         },
         {
             "key": "field_hero_video_url",
             "label": "Vídeo de fondo",
             "name": "video_url",
-            "aria-label": "",
             "type": "file",
-            "instructions": "Selecciona un archivo de vídeo de la biblioteca de medios.\r\nEl vídeo se reproduce automáticamente, sin sonido y en bucle.",
+            "instructions": "Archivo de vídeo de la biblioteca. Se reproduce automáticamente, sin sonido y en bucle.",
             "required": 0,
             "conditional_logic": [
                 [
@@ -239,57 +219,17 @@
                     }
                 ]
             ],
-            "wrapper": {
-                "width": "100",
-                "class": "",
-                "id": ""
-            },
+            "wrapper": { "width": "100", "class": "", "id": "" },
             "return_format": "id",
             "library": "all",
-            "min_size": "",
-            "max_size": "",
-            "mime_types": "mp4,webm,ogg,mov"
-        },
-        {
-            "key": "field_hero_image",
-            "label": "Imagen",
-            "name": "image",
-            "aria-label": "",
-            "type": "image",
-            "instructions": "Selecciona la imagen de fondo o la imagen junto al texto. Debe ser horizontal y de buena calidad.",
-            "required": 0,
-            "conditional_logic": [
-                [
-                    {
-                        "field": "field_hero_background_preset",
-                        "operator": "==",
-                        "value": "image"
-                    }
-                ]
-            ],
-            "wrapper": {
-                "width": "100",
-                "class": "",
-                "id": ""
-            },
-            "return_format": "id",
-            "library": "all",
-            "min_width": "",
-            "min_height": "",
-            "min_size": "",
-            "max_width": "",
-            "max_height": "",
-            "max_size": "",
-            "mime_types": "",
-            "preview_size": "medium"
+            "mime_types": "mp4,webm"
         },
         {
             "key": "field_hero_image_position",
-            "label": "Posición de la imagen",
+            "label": "Posición de imagen",
             "name": "image_position",
-            "aria-label": "",
             "type": "radio",
-            "instructions": "Elige en qué lado aparece la imagen o vídeo respecto al texto.\r\n- Derecha (recomendado): texto primero, imagen después.\r\n- Izquierda: útil si tu imagen “mira” hacia la derecha.",
+            "instructions": "Solo aplica al estilo \"Texto + Imagen\". Define en qué lado aparece la imagen.",
             "required": 0,
             "conditional_logic": [
                 [
@@ -297,36 +237,24 @@
                         "field": "field_hero_background_preset",
                         "operator": "==",
                         "value": "image"
-                    },
-                    {
-                        "field": "field_hero_image",
-                        "operator": "==empty"
                     }
                 ]
             ],
-            "wrapper": {
-                "width": "100",
-                "class": "",
-                "id": ""
-            },
+            "wrapper": { "width": "100", "class": "", "id": "" },
             "choices": {
                 "left": "Izquierda",
                 "right": "Derecha"
             },
             "default_value": "right",
-            "return_format": "value",
-            "allow_null": 0,
-            "other_choice": 0,
             "layout": "horizontal",
-            "save_other_choice": 0
+            "return_format": "value"
         },
         {
             "key": "field_hero_overlay_enabled",
-            "label": "Overlay",
+            "label": "Overlay oscuro",
             "name": "overlay_enabled",
-            "aria-label": "",
             "type": "true_false",
-            "instructions": "Añade una capa por encima del fondo para mejorar la legibilidad del texto.",
+            "instructions": "Capa oscura sobre el fondo para mejorar la legibilidad del texto.",
             "required": 0,
             "conditional_logic": [
                 [
@@ -344,24 +272,16 @@
                     }
                 ]
             ],
-            "wrapper": {
-                "width": "100",
-                "class": "",
-                "id": ""
-            },
-            "message": "",
-            "default_value": 0,
-            "ui_on_text": "",
-            "ui_off_text": "",
+            "wrapper": { "width": "100", "class": "", "id": "" },
+            "default_value": 1,
             "ui": 1
         },
         {
             "key": "field_hero_overlay_opacity",
-            "label": "Opacidad del overlay (0–1)",
+            "label": "Opacidad del overlay",
             "name": "overlay_opacity",
-            "aria-label": "",
             "type": "number",
-            "instructions": "Controla la intensidad de la capa (0 = transparente, 1 = muy oscuro).\r\n- 0.30–0.45 recomendado para la mayoría de imágenes.\r\n- Sube la opacidad si el texto no se lee bien con el fondo.",
+            "instructions": "0 = transparente, 1 = negro sólido. Recomendado: 0.30–0.45.",
             "required": 0,
             "conditional_logic": [
                 [
@@ -372,139 +292,63 @@
                     }
                 ]
             ],
-            "wrapper": {
-                "width": "100",
-                "class": "",
-                "id": ""
-            },
+            "wrapper": { "width": "100", "class": "", "id": "" },
             "default_value": "0.35",
             "min": 0,
             "max": 1,
-            "placeholder": "",
-            "step": "0.05",
-            "prepend": "",
-            "append": ""
+            "step": "0.05"
         },
         {
-            "key": "field_68c14da58fb0c",
-            "label": "Alineación del texto",
-            "name": "overlay_content_align",
-            "aria-label": "",
-            "type": "select",
-            "instructions": "Posición horizontal del contenido:\r\n- Centrado: ideal para mensajes cortos.\r\n- Izquierda: mejor para textos más largos o con CTA doble.",
+            "key": "field_hero_padding_y",
+            "label": "Altura",
+            "name": "padding_y",
+            "type": "radio",
+            "instructions": "Espacio vertical del hero.",
             "required": 0,
-            "conditional_logic": [
-                [
-                    {
-                        "field": "field_hero_overlay_enabled",
-                        "operator": "==",
-                        "value": "1"
-                    }
-                ]
-            ],
-            "wrapper": {
-                "width": "100",
-                "class": "",
-                "id": ""
-            },
+            "conditional_logic": 0,
+            "wrapper": { "width": "100", "class": "", "id": "" },
             "choices": {
-                "left": "Justificado a la izquierda",
-                "center": "Centrado"
+                "sm": "Compacto",
+                "md": "Normal",
+                "lg": "Grande"
+            },
+            "default_value": "md",
+            "layout": "horizontal",
+            "return_format": "value"
+        },
+        {
+            "key": "field_hero_valign",
+            "label": "Alineación vertical",
+            "name": "valign",
+            "type": "radio",
+            "instructions": "Posición vertical del contenido.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": { "width": "100", "class": "", "id": "" },
+            "choices": {
+                "top": "Arriba",
+                "center": "Centro",
+                "bottom": "Abajo"
+            },
+            "default_value": "center",
+            "layout": "horizontal",
+            "return_format": "value"
+        },
+        {
+            "key": "field_hero_content_align",
+            "label": "Alineación de texto",
+            "name": "content_align",
+            "type": "radio",
+            "instructions": "El estilo \"Centrado\" siempre centra el contenido.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": { "width": "100", "class": "", "id": "" },
+            "choices": {
+                "left": "Izquierda",
+                "center": "Centro"
             },
             "default_value": "left",
-            "return_format": "value",
-            "multiple": 0,
-            "allow_null": 0,
-            "ui": 1,
-            "ajax": 0,
-            "placeholder": "",
-            "create_options": 0,
-            "save_options": 0
-        },
-        {
-            "key": "field_hero_cta_1_btn",
-            "label": "Botón CTA principal",
-            "name": "cta",
-            "aria-label": "",
-            "type": "link",
-            "instructions": "Enlace destacado. Pon un verbo de acción (p. ej., “Solicitar presupuesto”, “Contactar”).\r\nSe mostrará solo si completas texto y URL.",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "100",
-                "class": "",
-                "id": ""
-            },
-            "return_format": "array"
-        },
-        {
-            "key": "field_hero_cta_1_style",
-            "label": "Estilo del botón principal CTA",
-            "name": "cta_style",
-            "aria-label": "",
-            "type": "radio",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "100",
-                "class": "",
-                "id": ""
-            },
-            "choices": {
-                "default": "Default",
-                "primary": "Primary",
-                "secondary": "Secondary",
-                "transparent": "Transparent"
-            },
-            "default_value": "default",
-            "return_format": "value",
-            "allow_null": 0,
-            "other_choice": 0,
             "layout": "horizontal",
-            "save_other_choice": 0
-        },
-        {
-            "key": "field_hero_cta_2_btn",
-            "label": "Botón CTA secundario",
-            "name": "cta_2",
-            "aria-label": "",
-            "type": "link",
-            "instructions": "Enlace alternativo (menos importante). Úsalo si necesitas una segunda acción.\r\nSe mostrará solo si completas texto y URL.",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "100",
-                "class": "",
-                "id": ""
-            },
-            "return_format": "array"
-        },
-        {
-            "key": "field_hero_cta_2_style",
-            "label": "Estilo del botón CTA secundario",
-            "name": "cta_2_style",
-            "aria-label": "",
-            "type": "radio",
-            "instructions": "",
-            "required": false,
-            "conditional_logic": false,
-            "wrapper": {
-                "width": "100",
-                "class": "",
-                "id": ""
-            },
-            "choices": {
-                "default": "Default",
-                "primary": "Primary",
-                "secondary": "Secondary",
-                "transparent": "Transparent"
-            },
-            "default_value": "transparent",
-            "layout": "horizontal",
-            "other_choice": 0,
-            "save_other_choice": 0,
-            "allow_null": 0,
             "return_format": "value"
         }
     ],
@@ -524,8 +368,7 @@
     "instruction_placement": "label",
     "hide_on_screen": "",
     "active": true,
-    "description": "Hero block",
+    "description": "Campos del bloque Hero",
     "show_in_rest": 0,
-    "display_title": "Hero",
-    "modified": 1759998785
+    "modified": 1742900000
 }
