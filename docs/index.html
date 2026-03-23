@@ -1,0 +1,363 @@
+<!doctype html>
+<html lang="es">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>ACF Starter Theme — Docs</title>
+		<meta
+			name="description"
+			content="Documentación del sistema de design tokens y arquitectura CSS del ACF Starter Theme para WordPress."
+		/>
+		<!-- Docsify theme -->
+		<link
+			rel="stylesheet"
+			href="https://cdn.jsdelivr.net/npm/docsify-themeable@0/dist/css/theme-simple.css"
+		/>
+		<style>
+			/* ============================================
+		   Custom styles for the docs site
+		   ============================================ */
+
+			:root {
+				/* Brand colors */
+				--theme-color: #1e293b;
+				--theme-color-dark: #0f172a;
+				--theme-color-accent: #6366f1;
+
+				/* Docsify overrides */
+				--base-font-family:
+					"Inter", -apple-system, BlinkMacSystemFont, "Segoe UI",
+					Roboto, sans-serif;
+				--base-font-size: 15px;
+				--base-line-height: 1.7;
+				--heading-font-family:
+					"Inter", -apple-system, BlinkMacSystemFont, "Segoe UI",
+					Roboto, sans-serif;
+
+				/* Sidebar */
+				--sidebar-width: 260px;
+				--sidebar-background: #f8fafc;
+				--sidebar-nav-link-color--active: #1e293b;
+				--sidebar-nav-link-border-color--active: #6366f1;
+				--sidebar-nav-link-font-weight--active: 600;
+
+				/* Links */
+				--link-color: #1e293b;
+				--link-color--hover: #6366f1;
+
+				/* Code */
+				--code-font-family: "Fira Code", "JetBrains Mono", monospace;
+				--code-font-size: 0.85em;
+				--code-inline-background: #f8fafc;
+				--code-inline-color: #1e293b;
+			}
+
+			/* --- Color swatch component --- */
+			.color-swatch {
+				display: inline-block;
+				width: 28px;
+				height: 28px;
+				border-radius: 6px;
+				vertical-align: middle;
+				margin-right: 8px;
+				border: 1px solid rgba(0, 0, 0, 0.1);
+				box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+			}
+
+			.color-swatch--sm {
+				width: 18px;
+				height: 18px;
+				border-radius: 4px;
+				margin-right: 4px;
+			}
+
+			/* --- Color grid for palette display --- */
+			.color-grid {
+				display: grid;
+				grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+				gap: 16px;
+				margin: 24px 0;
+			}
+
+			.color-card {
+				border-radius: 12px;
+				overflow: hidden;
+				border: 1px solid #e2e8f0;
+				background: #fff;
+				transition:
+					transform 0.2s ease,
+					box-shadow 0.2s ease;
+			}
+
+			.color-card:hover {
+				transform: translateY(-2px);
+				box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+			}
+
+			.color-card__preview {
+				height: 80px;
+				display: flex;
+				align-items: flex-end;
+				padding: 8px 12px;
+			}
+
+			.color-card__info {
+				padding: 10px 12px;
+				font-size: 13px;
+				line-height: 1.5;
+			}
+
+			.color-card__name {
+				font-weight: 600;
+				color: #1a1a1a;
+				display: block;
+			}
+
+			.color-card__hex {
+				color: #94a3b8;
+				font-family: var(--code-font-family);
+				font-size: 12px;
+			}
+
+			.color-card__var {
+				color: #94a3b8;
+				font-family: var(--code-font-family);
+				font-size: 10px;
+				display: block;
+				margin-top: 2px;
+				word-break: break-all;
+			}
+
+			/* --- Semantic color rows --- */
+			.semantic-row {
+				display: flex;
+				gap: 4px;
+				align-items: center;
+				margin: 4px 0;
+			}
+
+			.semantic-chip {
+				display: inline-block;
+				width: 32px;
+				height: 20px;
+				border-radius: 4px;
+				border: 1px solid rgba(0, 0, 0, 0.06);
+			}
+
+			/* --- Typography preview --- */
+			.type-preview {
+				padding: 20px 24px;
+				border: 1px solid #e2e8f0;
+				border-radius: 8px;
+				margin: 12px 0;
+				background: #f8fafc;
+			}
+
+			.type-preview__label {
+				font-size: 11px;
+				text-transform: uppercase;
+				letter-spacing: 0.08em;
+				color: #94a3b8;
+				margin-bottom: 8px;
+			}
+
+			/* --- Spacing scale visual --- */
+			.spacing-bar {
+				display: inline-block;
+				height: 16px;
+				background: #6366f1;
+				border-radius: 3px;
+				vertical-align: middle;
+				margin-right: 8px;
+				min-width: 2px;
+			}
+
+			/* --- Button preview --- */
+			.btn-preview {
+				display: inline-flex;
+				align-items: center;
+				justify-content: center;
+				padding: 10px 20px;
+				font-weight: 500;
+				font-size: 14px;
+				border: 2px solid transparent;
+				border-radius: 2px;
+				cursor: default;
+				margin: 4px;
+				text-decoration: none;
+				line-height: 1.5;
+			}
+
+			/* --- Shadow preview boxes --- */
+			.shadow-preview {
+				display: inline-block;
+				width: 80px;
+				height: 50px;
+				border-radius: 0.5rem;
+				background: #fff;
+				margin: 0.5rem 0.75rem 0.5rem 0;
+				vertical-align: middle;
+			}
+
+			/* --- Radius preview --- */
+			.radius-preview {
+				display: inline-block;
+				width: 50px;
+				height: 50px;
+				background: #6366f1;
+				margin: 0.25rem 0.5rem 0.25rem 0;
+				vertical-align: middle;
+			}
+
+			/* --- Callout boxes --- */
+			.callout {
+				padding: 0.25rem 1.25rem;
+				margin: 1rem 0;
+				border-left: 4px solid;
+			}
+
+			.callout--tip {
+				background: #f0fdf4;
+				border-color: #22c55e;
+			}
+
+			.callout--warning {
+				background: #fffbeb;
+				border-color: #f59e0b;
+			}
+
+			.callout--danger {
+				background: #fff1f2;
+				border-color: #f43f5e;
+			}
+
+			/* --- Variation comparison --- */
+			.variation-grid {
+				display: grid;
+				grid-template-columns: repeat(3, 1fr);
+				gap: 1rem;
+				margin: 1.5rem 0;
+			}
+
+			.variation-card {
+				border-radius: 0.5rem;
+				overflow: hidden;
+				border: 1px solid #e2e8f0;
+			}
+
+			.variation-card__header {
+				padding: 0.75rem 1rem;
+				font-weight: 600;
+				font-size: 0.875rem;
+			}
+
+			.variation-card__colors {
+				display: flex;
+				height: 40px;
+			}
+
+			.variation-card__colors > div {
+				flex: 1;
+			}
+
+			/* --- Responsive --- */
+			@media (max-width: 768px) {
+				.color-grid {
+					grid-template-columns: repeat(2, 1fr);
+				}
+				.variation-grid {
+					grid-template-columns: 1fr;
+				}
+			}
+
+			/* --- Copy button on code blocks --- */
+			.docsify-copy-code-button {
+				font-size: 12px !important;
+			}
+
+			/* --- Cover page --- */
+			section.cover {
+				background: linear-gradient(
+					135deg,
+					#1e293b 0%,
+					#0f172a 100%
+				) !important;
+			}
+
+			section.cover .cover-main > p:last-child a:first-child {
+				background: #6366f1 !important;
+				border-color: #6366f1 !important;
+				color: #ffffff !important;
+			}
+
+			section.cover .cover-main > p:last-child a:first-child:hover {
+				background: #818cf8 !important;
+				border-color: #818cf8 !important;
+			}
+
+			section.cover .cover-main > p:last-child a:last-child {
+				border-color: #6366f1 !important;
+				color: #6366f1 !important;
+			}
+
+			section.cover .cover-main > p:last-child a:last-child:hover {
+				background: #6366f1 !important;
+				color: #ffffff !important;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="app"></div>
+
+		<script>
+			window.$docsify = {
+				name: "ACF Starter Theme",
+				nameLink: "#/",
+				repo: false,
+				loadSidebar: true,
+				subMaxLevel: 3,
+				auto2top: true,
+				coverpage: true,
+				search: {
+					placeholder: "Buscar...",
+					noData: "No se encontraron resultados",
+					paths: "auto",
+					depth: 3,
+				},
+				pagination: {
+					previousText: "← Anterior",
+					nextText: "Siguiente →",
+					crossChapter: true,
+					crossChapterText: true,
+				},
+				copyCode: {
+					buttonText: "Copiar",
+					errorText: "Error",
+					successText: "Copiado",
+				},
+				tabs: {
+					persist: true,
+					sync: true,
+					theme: "classic",
+					tabComments: true,
+					tabHeadings: true,
+				},
+			};
+		</script>
+
+		<!-- Docsify core -->
+		<script src="https://cdn.jsdelivr.net/npm/docsify@4/lib/docsify.min.js"></script>
+
+		<!-- Plugins -->
+		<script src="https://cdn.jsdelivr.net/npm/docsify@4/lib/plugins/search.min.js"></script>
+		<script src="https://cdn.jsdelivr.net/npm/docsify-copy-code@2/dist/docsify-copy-code.min.js"></script>
+		<script src="https://cdn.jsdelivr.net/npm/docsify-pagination@2/dist/docsify-pagination.min.js"></script>
+		<script src="https://cdn.jsdelivr.net/npm/docsify-tabs@1/dist/docsify-tabs.min.js"></script>
+
+		<!-- Syntax highlighting -->
+		<script src="https://cdn.jsdelivr.net/npm/prismjs@1/components/prism-css.min.js"></script>
+		<script src="https://cdn.jsdelivr.net/npm/prismjs@1/components/prism-json.min.js"></script>
+		<script src="https://cdn.jsdelivr.net/npm/prismjs@1/components/prism-php.min.js"></script>
+		<script src="https://cdn.jsdelivr.net/npm/prismjs@1/components/prism-bash.min.js"></script>
+	</body>
+</html>
