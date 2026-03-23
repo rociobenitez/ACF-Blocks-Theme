@@ -3,23 +3,25 @@
 
 /* Base */
 .topbar {
-	font-size: var(--fs15, 0.9375rem);
+	font-size: 0.9375rem;
 	line-height: 1.4;
 }
 
 .topbar__container {
-	gap: var(--space-16);
-	padding-block: var(--space-8);
+	display: flex;
+	align-items: center;
+	gap: var(--wp--preset--spacing--16);
+	padding-block: var(--wp--preset--spacing--8);
 }
 
 .topbar__contact {
 	display: inline-flex;
-	gap: var(--space-16);
+	gap: var(--wp--preset--spacing--16);
 }
 
 .topbar__social {
 	display: inline-flex;
-	gap: var(--space-8);
+	gap: var(--wp--preset--spacing--8);
 	margin-left: auto;
 }
 
@@ -29,14 +31,14 @@
 	display: inline-flex;
 	align-items: center;
 	gap: 0.375rem;
-	color: var(--color-neutral-800);
-	transition: color 0.3s ease;
+	color: var(--wp--preset--color--text-body);
+	transition: color var(--wp--custom--motion--duration--base) var(--wp--custom--motion--easing--standard);
 }
 .topbar a:hover,
 .topbar a:focus {
 	text-decoration: underline;
 	text-underline-offset: 0.25rem;
-	color: var(--color-neutral-600);
+	color: var(--wp--preset--color--text-muted);
 }
 
 .topbar__icon svg {
@@ -62,11 +64,11 @@
 
 /* Variations (match block.json "styles") */
 .wp-block-acf-topbar.is-style-topbar-light {
-	background: var(--wp--preset--color--light);
-	color: var(--wp--preset--color--dark);
+	background: var(--wp--preset--color--bg-secondary);
+	color: var(--wp--preset--color--bg-dark);
 }
 .wp-block-acf-topbar.is-style-topbar-dark {
-	background: var(--wp--preset--color--dark);
+	background: var(--wp--preset--color--bg-dark);
 	color: var(--wp--preset--color--white);
 }
 .wp-block-acf-topbar.is-style-topbar-primary {
@@ -96,7 +98,7 @@
 /* Editor placeholder */
 .topbar__notice {
 	padding: 0.25rem 0.5rem;
-	background: var(--wp--preset--color--light);
+	background: var(--wp--preset--color--bg-secondary);
 	border: 1px dashed rgba(0, 0, 0, 0.25);
 	border-radius: 0.25rem;
 	color: rgba(0, 0, 0, 0.7);

@@ -1,57 +1,80 @@
-<!-- wp:group {"layout":{"inherit":true,"type":"constrained","contentSize":"100%"}} -->
-<div class="wp-block-group">
-	<!-- wp:columns {"className":"footer-top container mx-auto"} -->
-	<div class="wp-block-columns footer-top container mx-auto">
-		<!-- wp:column -->
-		<div class="wp-block-column"><!-- wp:site-logo /--></div>
-		<!-- /wp:column -->
+<!-- wp:group {"tagName":"footer","className":"site-footer","layout":{"type":"default"}} -->
+<footer class="wp-block-group site-footer">
 
-		<!-- wp:column -->
-		<div class="wp-block-column">
-			<!-- wp:paragraph {"className":"footer-title"} -->
-			<p class="footer-title">Acceso rápido</p>
-			<!-- /wp:paragraph -->
+	<!-- wp:group {"className":"site-footer__top container","layout":{"type":"default"}} -->
+	<div class="wp-block-group site-footer__top container">
 
-			<!-- wp:navigation {"ref":274,"overlayMenu":"never","layout":{"type":"flex","orientation":"vertical"}} /-->
+		<!-- wp:columns {"className":"site-footer__columns"} -->
+		<div class="wp-block-columns site-footer__columns">
+
+			<!-- wp:column {"className":"site-footer__col site-footer__col--brand"} -->
+			<div class="wp-block-column site-footer__col site-footer__col--brand">
+				<!-- wp:site-logo {"width":80,"shouldSyncIcon":true} /-->
+
+				<!-- wp:paragraph {"className":"site-footer__tagline","fontSize":"14"} -->
+				<p class="site-footer__tagline has-14-font-size">Tu eslogan o descripción breve aquí. Editable desde el Site Editor.</p>
+				<!-- /wp:paragraph -->
+			</div>
+			<!-- /wp:column -->
+
+			<!-- wp:column {"className":"site-footer__col"} -->
+			<div class="wp-block-column site-footer__col">
+				<!-- wp:heading {"level":4,"className":"site-footer__title","fontSize":"14"} -->
+				<h4 class="wp-block-heading site-footer__title has-14-font-size">Acceso rápido</h4>
+				<!-- /wp:heading -->
+
+				<!-- wp:navigation {"overlayMenu":"never","className":"site-footer__nav","layout":{"type":"flex","orientation":"vertical"},"style":{"spacing":{"blockGap":"var:preset|spacing|8"}}} -->
+					<!-- wp:navigation-link {"label":"Inicio","url":"/","kind":"custom","isTopLevelLink":true} /-->
+					<!-- wp:navigation-link {"label":"Nosotros","url":"/nosotros","kind":"custom","isTopLevelLink":true} /-->
+					<!-- wp:navigation-link {"label":"Blog","url":"/blog","kind":"custom","isTopLevelLink":true} /-->
+					<!-- wp:navigation-link {"label":"Contacto","url":"/contacto","kind":"custom","isTopLevelLink":true} /-->
+				<!-- /wp:navigation -->
+			</div>
+			<!-- /wp:column -->
+
+			<!-- wp:column {"className":"site-footer__col"} -->
+			<div class="wp-block-column site-footer__col">
+				<!-- wp:heading {"level":4,"className":"site-footer__title","fontSize":"14"} -->
+				<h4 class="wp-block-heading site-footer__title has-14-font-size">Servicios</h4>
+				<!-- /wp:heading -->
+
+				<!-- wp:navigation {"overlayMenu":"never","className":"site-footer__nav","layout":{"type":"flex","orientation":"vertical"},"style":{"spacing":{"blockGap":"var:preset|spacing|8"}}} -->
+					<!-- wp:navigation-link {"label":"Servicio 1","url":"/servicios","kind":"custom","isTopLevelLink":true} /-->
+					<!-- wp:navigation-link {"label":"Servicio 2","url":"/servicios","kind":"custom","isTopLevelLink":true} /-->
+					<!-- wp:navigation-link {"label":"Servicio 3","url":"/servicios","kind":"custom","isTopLevelLink":true} /-->
+				<!-- /wp:navigation -->
+			</div>
+			<!-- /wp:column -->
+
+			<!-- wp:column {"className":"site-footer__col site-footer__col--contact"} -->
+			<div class="wp-block-column site-footer__col site-footer__col--contact">
+				<!-- wp:heading {"level":4,"className":"site-footer__title","fontSize":"14"} -->
+				<h4 class="wp-block-heading site-footer__title has-14-font-size">Contacto</h4>
+				<!-- /wp:heading -->
+
+				<!-- wp:acf/footer-contact {"name":"acf/footer-contact","data":{},"mode":"preview"} /-->
+			</div>
+			<!-- /wp:column -->
+
 		</div>
-		<!-- /wp:column -->
+		<!-- /wp:columns -->
 
-		<!-- wp:column -->
-		<div class="wp-block-column">
-			<!-- wp:paragraph {"className":"footer-title"} -->
-			<p class="footer-title">Servicios</p>
-			<!-- /wp:paragraph -->
-
-			<!-- wp:navigation {"ref":251,"layout":{"type":"flex","orientation":"vertical"}} /-->
-		</div>
-		<!-- /wp:column -->
-
-		<!-- wp:column -->
-		<div class="wp-block-column">
-			<!-- wp:paragraph {"className":"footer-title"} -->
-			<p class="footer-title">Contacto</p>
-			<!-- /wp:paragraph -->
-
-			<!-- wp:acf/footer-contact /-->
-		</div>
-		<!-- /wp:column -->
 	</div>
-	<!-- /wp:columns -->
+	<!-- /wp:group -->
 
-	<!-- wp:columns {"className":"footer-bottom container mx-auto"} -->
-	<div class="wp-block-columns footer-bottom container mx-auto">
-		<!-- wp:column -->
-		<div class="wp-block-column">
-			<!-- wp:acf/footer-credits /-->
-		</div>
-		<!-- /wp:column -->
+	<!-- wp:group {"className":"site-footer__bottom container","layout":{"type":"flex","justifyContent":"space-between","verticalAlignment":"center"}} -->
+	<div class="wp-block-group site-footer__bottom container">
 
-		<!-- wp:column {"className":"d-flex justify-content-end"} -->
-		<div class="wp-block-column d-flex justify-content-end">
-			<!-- wp:navigation {"ref":251} /-->
-		</div>
-		<!-- /wp:column -->
+		<!-- wp:acf/footer-credits {"name":"acf/footer-credits","data":{},"mode":"preview"} /-->
+
+		<!-- wp:navigation {"overlayMenu":"never","className":"site-footer__legal","layout":{"type":"flex","orientation":"horizontal"},"style":{"spacing":{"blockGap":"var:preset|spacing|16"}}} -->
+			<!-- wp:navigation-link {"label":"Aviso legal","url":"/aviso-legal","kind":"custom","isTopLevelLink":true} /-->
+			<!-- wp:navigation-link {"label":"Política de privacidad","url":"/politica-de-privacidad","kind":"custom","isTopLevelLink":true} /-->
+			<!-- wp:navigation-link {"label":"Cookies","url":"/politica-de-cookies","kind":"custom","isTopLevelLink":true} /-->
+		<!-- /wp:navigation -->
+
 	</div>
-	<!-- /wp:columns -->
-</div>
+	<!-- /wp:group -->
+
+</footer>
 <!-- /wp:group -->

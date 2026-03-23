@@ -1,12 +1,27 @@
-<!-- wp:acf/topbar {"name":"acf/topbar","data":{},"mode":"preview","className":"is-style-topbar-divider"} /-->
-<!-- wp:group {"className":"site-header__bar navbar__container container","layout":{"type":"flex","justifyContent":"space-between","verticalAlignment":"center"}} -->
-<div class="wp-block-group site-header__bar navbar__container container">
-	<!-- wp:group {"className":"site-header__brand","layout":{"type":"flex","flexWrap":"nowrap","verticalAlignment":"center"}} -->
-	<div class="wp-block-group site-header__brand">
-		<!-- wp:site-logo {"width":64,"shouldSyncIcon":true} /-->
+<!-- wp:group {"tagName":"header","className":"site-header","layout":{"type":"default"}} -->
+<header class="wp-block-group site-header">
+
+	<!-- wp:acf/topbar {"name":"acf/topbar","data":{},"mode":"preview","className":"is-style-topbar-divider"} /-->
+
+	<!-- wp:group {"className":"site-header__bar container","layout":{"type":"flex","justifyContent":"space-between","verticalAlignment":"center"}} -->
+	<div class="wp-block-group site-header__bar container">
+
+		<!-- wp:group {"className":"site-header__brand","layout":{"type":"flex","flexWrap":"nowrap","verticalAlignment":"center"}} -->
+		<div class="wp-block-group site-header__brand">
+			<!-- wp:site-logo {"width":64,"shouldSyncIcon":true} /-->
+		</div>
+		<!-- /wp:group -->
+
+		<!-- wp:navigation {"overlayMenu":"mobile","className":"site-header__nav","layout":{"type":"flex","setCascadingProperties":true,"justifyContent":"right","orientation":"horizontal"},"style":{"spacing":{"blockGap":"var:preset|spacing|24"}}} -->
+			<!-- wp:navigation-link {"label":"Inicio","url":"/","kind":"custom","isTopLevelLink":true} /-->
+			<!-- wp:navigation-link {"label":"Servicios","url":"/servicios","kind":"custom","isTopLevelLink":true} /-->
+			<!-- wp:navigation-link {"label":"Nosotros","url":"/nosotros","kind":"custom","isTopLevelLink":true} /-->
+			<!-- wp:navigation-link {"label":"Blog","url":"/blog","kind":"custom","isTopLevelLink":true} /-->
+			<!-- wp:navigation-link {"label":"Contacto","url":"/contacto","kind":"custom","isTopLevelLink":true} /-->
+		<!-- /wp:navigation -->
+
 	</div>
 	<!-- /wp:group -->
 
-	<!-- wp:navigation {"ref":7,"className":"site-header__nav","style":{"spacing":{"margin":{"top":"0"}}},"layout":{"type":"flex","setCascadingProperties":true,"justifyContent":"right","orientation":"horizontal"}} /-->
-</div>
+</header>
 <!-- /wp:group -->
