@@ -1,143 +1,174 @@
 <?php
 /**
- * Alternated Content block template.
- * 
- * @param array $block The block settings and attributes.
- * @see https://developer.wordpress.org/reference/functions/get_block_wrapper_attributes/
+ * Alternated Content Block
+ *
+ * Layouts: contained (inside container) | edge (image to viewport edge)
+ * Image widths: narrow (33%) | medium (42%) | half (50%)
  */
 
-if ( ! defined( 'ABSPATH' ) ) {
-    exit;
+defined( 'ABSPATH' ) || exit;
+
+// Content
+$tagline          = get_field( 'tagline' ) ?: '';
+$tagline_position = get_field( 'tagline_position' ) ?: 'above';
+$title            = get_field( 'title' ) ?: '';
+$content          = get_field( 'content' ) ?: '';
+
+// CTA
+$btn_1       = get_field( 'primary_button' ) ?: null;
+$btn_2       = get_field( 'secondary_button' ) ?: null;
+$btn_1_style = get_field( 'primary_button_style' ) ?: 'primary';
+$btn_2_style = get_field( 'secondary_button_style' ) ?: 'link';
+
+// Image
+$image          = (int) get_field( 'image' );
+$image_position = get_field( 'image_position' ) ?: 'right';
+$image_width    = get_field( 'image_width' ) ?: 'medium';
+$image_layout   = get_field( 'image_layout' ) ?: 'contained';
+$image_fit      = get_field( 'image_fit' ) ?: 'cover';
+
+// Design
+$bg_color       = get_field( 'bg_color' ) ?: 'default';
+$padding_y      = get_field( 'padding_y' ) ?: 'md';
+$vertical_align = get_field( 'vertical_align' ) ?: 'center';
+
+// Text color logic
+$is_dark_bg = $bg_color === 'dark';
+
+// Build classes
+$classes   = [ 'alternated-content' ];
+$classes[] = 'alternated-content--py-' . sanitize_html_class( $padding_y );
+$classes[] = 'alternated-content--bg-' . sanitize_html_class( $bg_color );
+$classes[] = 'alternated-content--valign-' . sanitize_html_class( $vertical_align );
+$classes[] = 'alternated-content--img-' . sanitize_html_class( $image_position );
+$classes[] = 'alternated-content--imgw-' . sanitize_html_class( $image_width );
+$classes[] = 'alternated-content--layout-' . sanitize_html_class( $image_layout );
+$classes[] = 'alternated-content--fit-' . sanitize_html_class( $image_fit );
+
+if ( $is_dark_bg ) {
+	$classes[] = 'alternated-content--text-light';
 }
 
-// Block ID and classes
-$id  = $block['anchor'] ?? ('alternated-content-' . $block['id']);
-$cls = 'alternated-content' . (!empty($block['className']) ? ' ' . $block['className'] : '');
+$wrapper_attrs = get_block_wrapper_attributes( [
+	'class' => implode( ' ', $classes ),
+] );
 
-// Detectar si estamos en el editor de bloques
-$is_block_editor = is_admin() && function_exists('get_current_screen') && ( get_current_screen() && get_current_screen()->is_block_editor() );
+// Button helper
+$render_btn = static function ( $link, $style = 'primary' ) {
+	if ( ! is_array( $link ) ) {
+		return '';
+	}
+	$label = $link['title'] ?? '';
+	$url   = $link['url'] ?? '';
+	if ( ! $label || ! $url ) {
+		return '';
+	}
+	$target = ! empty( $link['target'] ) ? ' target="' . esc_attr( $link['target'] ) . '" rel="noopener noreferrer"' : '';
 
-// Content fields
-$tagline = get_field('tagline');
-$title = get_field('title');
-$content = get_field('content');
-$image = get_field('image');
-$image_position = get_field('image_position') ?: 'right';
+	if ( $style === 'link' ) {
+		return sprintf(
+			'<a class="alternated-content__link" href="%1$s"%2$s>%3$s</a>',
+			esc_url( $url ),
+			$target,
+			esc_html( $label )
+		);
+	}
 
-// Button fields
-$primary_button = get_field('primary_button');
-$secondary_button = get_field('secondary_button');
-$primary_button_style = get_field('primary_button_style') ?: 'default';
-$secondary_button_style = get_field('secondary_button_style') ?: 'outline';
-
-// Layout options
-$padding_y = get_field('padding_y') ?: 'lg';
-$vertical_align = get_field('vertical_align') ?: 'center';
-
-// Build BEM classes based on options
-$classes = [
-    'alternated-content',
-    'alternated-content--py-' . sanitize_html_class($padding_y),
-    'alternated-content--valign-' . sanitize_html_class($vertical_align),
-    'alternated-content--img-' . sanitize_html_class($image_position),
-];
-
-// Build wrapper attributes
-$wrapper_attrs = get_block_wrapper_attributes([
-    'class' => implode(' ', $classes),
-    'id' => $id,
-]);
-
-// Helper function for buttons
-$render_button = function($link, $style = 'primary') {
-    if (!$link || !isset($link['url']) || !isset($link['title'])) {
-        return '';
-    }
-    
-    $url = esc_url($link['url']);
-    $title = esc_html($link['title']);
-    $target = isset($link['target']) && $link['target'] === '_blank' ? ' target="_blank" rel="noopener"' : '';
-    
-    return sprintf(
-        '<a class="btn btn--md btn--%s" href="%s"%s>%s</a>',
-        esc_attr($style),
-        $url,
-        $target,
-        $title
-    );
+	return sprintf(
+		'<a class="btn btn--md btn--%1$s" href="%2$s"%3$s>%4$s</a>',
+		esc_attr( $style ),
+		esc_url( $url ),
+		$target,
+		esc_html( $label )
+	);
 };
 
+$is_preview = ! empty( $is_preview );
+$is_edge    = $image_layout === 'edge';
+
+// Image size: use 'large' (1024px) for narrow, '1536x1536' for medium/half/edge
+$img_size = $image_width === 'narrow' && ! $is_edge ? 'large' : '1536x1536';
+
+// Responsive sizes attribute — tells the browser the actual rendered width
+$sizes_map = [
+	'narrow' => '(max-width: 48rem) 100vw, 33vw',
+	'medium' => '(max-width: 48rem) 100vw, 42vw',
+	'half'   => '(max-width: 48rem) 100vw, 50vw',
+];
+$img_sizes = $sizes_map[ $image_width ] ?? $sizes_map['medium'];
+
+// --- Render content (reused in both layouts) ---
+$render_content = static function () use ( $tagline, $tagline_position, $title, $content, $btn_1, $btn_2, $btn_1_style, $btn_2_style, $render_btn ) {
+	if ( $tagline && $tagline_position === 'above' ) : ?>
+		<p class="alternated-content__tagline"><?php echo esc_html( $tagline ); ?></p>
+	<?php endif;
+
+	if ( $title ) : ?>
+		<h2 class="alternated-content__title"><?php echo esc_html( $title ); ?></h2>
+	<?php endif;
+
+	if ( $tagline && $tagline_position === 'below' ) : ?>
+		<p class="alternated-content__tagline"><?php echo esc_html( $tagline ); ?></p>
+	<?php endif;
+
+	if ( $content ) : ?>
+		<div class="alternated-content__text"><?php echo wp_kses_post( $content ); ?></div>
+	<?php endif;
+
+	if ( $btn_1 || $btn_2 ) : ?>
+		<div class="alternated-content__actions">
+			<?php if ( $btn_1 ) : ?>
+				<?php echo $render_btn( $btn_1, $btn_1_style ); // phpcs:ignore ?>
+			<?php endif; ?>
+			<?php if ( $btn_2 ) : ?>
+				<?php echo $render_btn( $btn_2, $btn_2_style ); // phpcs:ignore ?>
+			<?php endif; ?>
+		</div>
+	<?php endif;
+};
+
+// --- Render media ---
+$render_media = static function () use ( $image, $img_size, $img_sizes, $is_preview ) {
+	if ( $image ) : ?>
+		<div class="alternated-content__media">
+			<?php
+			// Don't force loading="lazy" — let WordPress handle LCP detection (6.3+).
+			// Provide accurate 'sizes' so the browser picks the right srcset candidate.
+			echo wp_get_attachment_image( $image, $img_size, false, [
+				'class'   => 'alternated-content__image',
+				'sizes'   => $img_sizes,
+				'decoding' => 'async',
+			] );
+			?>
+		</div>
+	<?php elseif ( $is_preview ) : ?>
+		<div class="alternated-content__media alternated-content__media--placeholder">
+			<p>Selecciona una imagen</p>
+		</div>
+	<?php endif;
+};
 ?>
-<section <?php echo $wrapper_attrs; ?>>
-    
-    <?php if ($is_block_editor): ?>
-        <div class="alternated-content__editor-help">
-            <p><strong>Contenido Alternado:</strong> Sección con imagen y texto. La imagen puede posicionarse a la izquierda o derecha del contenido.</p>
-        </div>
-    <?php endif; ?>
+<section <?php echo $wrapper_attrs; // phpcs:ignore ?>>
 
-    <div class="container">
-        <div class="alternated-content__grid">
-            
-            <!-- Content Column -->
-            <div class="alternated-content__content">
-                <div class="alternated-content__heading">
-                    <?php if ($tagline): ?>
-                        <p class="alternated-content__tagline"><?php echo esc_html($tagline); ?></p>
-                    <?php endif; ?>
+	<?php if ( $is_edge ) : ?>
+		<div class="alternated-content__grid">
+			<div class="alternated-content__content">
+				<div class="alternated-content__inner">
+					<?php $render_content(); ?>
+				</div>
+			</div>
+			<?php $render_media(); ?>
+		</div>
 
-                    <?php if ($title): ?>
-                        <h2 class="alternated-content__title"><?php echo esc_html($title); ?></h2>
-                    <?php endif; ?>
-                </div>
-
-                <?php if ($content): ?>
-                    <div class="alternated-content__text">
-                        <?php echo wp_kses_post($content); ?>
-                    </div>
-                <?php endif; ?>
-
-                <?php if ($primary_button || $secondary_button): ?>
-                    <div class="alternated-content__actions">
-                        <?php if ($primary_button): ?>
-                            <?php echo $render_button($primary_button, $primary_button_style); ?>
-                        <?php endif; ?>
-                        
-                        <?php if ($secondary_button): ?>
-                            <?php echo $render_button($secondary_button, $secondary_button_style); ?>
-                        <?php endif; ?>
-                    </div>
-                <?php endif; ?>
-            </div>
-
-            <!-- Image Column -->
-            <?php if ($image): ?>
-                <div class="alternated-content__media">
-                    <?php 
-                    echo wp_get_attachment_image(
-                        $image, 
-                        'large', 
-                        false, 
-                        [
-                            'class' => 'alternated-content__image',
-                            'loading' => 'lazy'
-                        ]
-                    ); 
-                    ?>
-                </div>
-            <?php elseif ($is_block_editor): ?>
-                <div class="alternated-content__media alternated-content__media--placeholder">
-                    <div class="alternated-content__placeholder">
-                        <svg width="100" height="100" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <rect width="100" height="100" fill="#f0f0f0"/>
-                            <path d="M30 40L50 20L70 40M30 60L50 40L70 60" stroke="#ccc" stroke-width="2" fill="none"/>
-                        </svg>
-                        <p>Selecciona una imagen</p>
-                    </div>
-                </div>
-            <?php endif; ?>
-
-        </div>
-    </div>
+	<?php else : ?>
+		<div class="container">
+			<div class="alternated-content__grid">
+				<div class="alternated-content__content">
+					<?php $render_content(); ?>
+				</div>
+				<?php $render_media(); ?>
+			</div>
+		</div>
+	<?php endif; ?>
 
 </section>
