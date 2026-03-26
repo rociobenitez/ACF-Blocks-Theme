@@ -2,20 +2,31 @@
   "$schema": "https://schemas.wp.org/trunk/block.json",
   "apiVersion": 3,
   "name": "acf/reviews",
-  "version": "0.1.0",
+  "version": "1.0.0",
   "title": "Reseñas",
   "category": "theme",
-  "icon": "grid-view",
-  "description": "Muestra una colección de reseñas de clientes con encabezado centrado.",
-  "keywords": ["reseñas", "cards", "grid"],
+  "icon": "star-filled",
+  "description": "Muestra reseñas de clientes: Google (shortcode) o manuales (testimonios / cards).",
+  "keywords": ["reseñas", "reviews", "testimonios", "opiniones"],
   "supports": {
-    "align": ["wide", "full"],
+    "align": ["full"],
     "anchor": true,
     "className": true,
     "spacing": { "margin": false, "padding": false },
     "color": { "background": false, "text": false, "gradients": false },
     "typography": { "fontSize": false, "lineHeight": false },
     "shadow": false
+  },
+  "styles": [
+    { "name": "google", "label": "Google", "isDefault": true },
+    { "name": "testimonials", "label": "Testimonios" },
+    { "name": "cards", "label": "Cards" }
+  ],
+  "attributes": {
+    "align": {
+      "type": "string",
+      "default": "full"
+    }
   },
   "acf": {
     "mode": "preview",
@@ -25,13 +36,9 @@
   },
   "example": {
     "attributes": {
-      "tagline": "Lo que dicen nuestros clientes",
-      "title": "Reseñas de nuestros clientes",
-      "description": "Nuestros clientes comparten su experiencia trabajando con nosotros.",
-      "show_carousel_controls": true,
-      "items_per_row": 3
+      "className": "is-style-testimonials"
     }
   },
-  "editorStyle": "file:./editor-style.css",
+  "editorStyle": "file:./editor.css",
   "style": "file:./style.css"
 }

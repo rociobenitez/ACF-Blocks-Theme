@@ -1,0 +1,335 @@
+{
+    "key": "group_content_cards",
+    "title": "Content Cards",
+    "fields": [
+        {
+            "key": "field_cc_tab_header",
+            "label": "Encabezado",
+            "type": "tab",
+            "placement": "top",
+            "endpoint": 0
+        },
+        {
+            "key": "field_cc_tagline",
+            "label": "Tagline",
+            "name": "tagline",
+            "type": "text",
+            "instructions": "Texto corto junto al título. Opcional.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": { "width": "100", "class": "", "id": "" },
+            "placeholder": "Ej: Nuestros servicios",
+            "maxlength": 80
+        },
+        {
+            "key": "field_cc_tagline_position",
+            "label": "Posición del tagline",
+            "name": "tagline_position",
+            "type": "radio",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": { "width": "100", "class": "", "id": "" },
+            "choices": {
+                "above": "Encima del título",
+                "below": "Debajo del título"
+            },
+            "default_value": "above",
+            "layout": "horizontal",
+            "return_format": "value"
+        },
+        {
+            "key": "field_cc_tagline_tag",
+            "label": "Etiqueta del tagline",
+            "name": "tagline_tag",
+            "type": "radio",
+            "instructions": "Etiqueta HTML del tagline. Permite enmascarar un H2/H3 con estilo de tagline para SEO.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": { "width": "100", "class": "", "id": "" },
+            "choices": {
+                "p": "P",
+                "h2": "H2",
+                "h3": "H3"
+            },
+            "default_value": "p",
+            "layout": "horizontal",
+            "return_format": "value"
+        },
+        {
+            "key": "field_cc_title",
+            "label": "Título",
+            "name": "title",
+            "type": "text",
+            "instructions": "Título principal de la sección.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": { "width": "100", "class": "", "id": "" },
+            "placeholder": "Ej: Tratamientos de medicina estética"
+        },
+        {
+            "key": "field_cc_title_tag",
+            "label": "Etiqueta del título",
+            "name": "title_tag",
+            "type": "radio",
+            "instructions": "Etiqueta HTML del título. Afecta al SEO, no al estilo visual.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": { "width": "100", "class": "", "id": "" },
+            "choices": {
+                "h1": "H1",
+                "h2": "H2",
+                "h3": "H3",
+                "p": "P"
+            },
+            "default_value": "h2",
+            "layout": "horizontal",
+            "return_format": "value"
+        },
+        {
+            "key": "field_cc_description",
+            "label": "Descripción",
+            "name": "description",
+            "type": "textarea",
+            "instructions": "Texto breve de apoyo. 1-2 frases. Opcional.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": { "width": "100", "class": "", "id": "" },
+            "rows": 3,
+            "new_lines": "br"
+        },
+        {
+            "key": "field_cc_header_align",
+            "label": "Alineación del encabezado",
+            "name": "header_align",
+            "type": "radio",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": { "width": "100", "class": "", "id": "" },
+            "choices": {
+                "center": "Centrado",
+                "left": "Izquierda"
+            },
+            "default_value": "center",
+            "layout": "horizontal",
+            "return_format": "value"
+        },
+        {
+            "key": "field_cc_header_width",
+            "label": "Ancho del encabezado",
+            "name": "header_width",
+            "type": "radio",
+            "instructions": "\"Contenido\" limita el ancho para mejor legibilidad.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": { "width": "100", "class": "", "id": "" },
+            "choices": {
+                "narrow": "Contenido (66%)",
+                "full": "Completo (100%)"
+            },
+            "default_value": "narrow",
+            "layout": "horizontal",
+            "return_format": "value"
+        },
+        {
+            "key": "field_cc_tab_cards",
+            "label": "Cards",
+            "type": "tab",
+            "placement": "top",
+            "endpoint": 0
+        },
+        {
+            "key": "field_cc_cards",
+            "label": "Cards",
+            "name": "cards",
+            "type": "repeater",
+            "instructions": "Mínimo 2, máximo 12. Cada card necesita al menos un título.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": { "width": "100", "class": "", "id": "" },
+            "min": 2,
+            "max": 12,
+            "layout": "block",
+            "button_label": "Añadir card",
+            "sub_fields": [
+                {
+                    "key": "field_cc_card_image",
+                    "label": "Imagen",
+                    "name": "image",
+                    "type": "image",
+                    "instructions": "Foto o icono. En el estilo 'Solo texto' no se muestra. Mín. 400×400px, máx. 2MB.",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": { "width": "100", "class": "", "id": "" },
+                    "return_format": "id",
+                    "library": "all",
+                    "preview_size": "medium",
+                    "min_width": 400,
+                    "min_height": 400,
+                    "max_size": 1,
+                    "mime_types": "jpg,jpeg,png,webp,svg"
+                },
+                {
+                    "key": "field_cc_card_title",
+                    "label": "Título",
+                    "name": "title",
+                    "type": "text",
+                    "instructions": "",
+                    "required": 1,
+                    "conditional_logic": 0,
+                    "wrapper": { "width": "100", "class": "", "id": "" },
+                    "placeholder": "Nombre del servicio o tratamiento"
+                },
+                {
+                    "key": "field_cc_card_description",
+                    "label": "Descripción",
+                    "name": "description",
+                    "type": "textarea",
+                    "instructions": "Breve (1-2 frases).",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": { "width": "100", "class": "", "id": "" },
+                    "rows": 2,
+                    "new_lines": "br"
+                },
+                {
+                    "key": "field_cc_card_link",
+                    "label": "Enlace",
+                    "name": "link",
+                    "type": "link",
+                    "instructions": "Si está vacío, la card no será clicable.",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": { "width": "100", "class": "", "id": "" },
+                    "return_format": "array"
+                }
+            ]
+        },
+        {
+            "key": "field_cc_tab_design",
+            "label": "Diseño",
+            "type": "tab",
+            "placement": "top",
+            "endpoint": 0
+        },
+        {
+            "key": "field_cc_columns",
+            "label": "Columnas",
+            "name": "columns",
+            "type": "radio",
+            "instructions": "Número de columnas en desktop. No aplica al estilo 'Alternado' (siempre 2).",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": { "width": "100", "class": "", "id": "" },
+            "choices": {
+                "2": "2",
+                "3": "3",
+                "4": "4"
+            },
+            "default_value": "3",
+            "layout": "horizontal",
+            "return_format": "value"
+        },
+        {
+            "key": "field_cc_link_style",
+            "label": "Comportamiento del enlace",
+            "name": "link_style",
+            "type": "radio",
+            "instructions": "\"Card completa\" hace toda la card clicable. \"Enlace visible\" muestra un link de texto.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": { "width": "100", "class": "", "id": "" },
+            "choices": {
+                "card": "Card completa clicable",
+                "link": "Enlace visible"
+            },
+            "default_value": "card",
+            "layout": "horizontal",
+            "return_format": "value"
+        },
+        {
+            "key": "field_cc_bg_color",
+            "label": "Color de fondo",
+            "name": "bg_color",
+            "type": "radio",
+            "instructions": "Fondo de la sección. En el estilo 'Alternado', las cards usan colores propios.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": { "width": "100", "class": "", "id": "" },
+            "choices": {
+                "default": "Blanco",
+                "light": "Claro (beige)"
+            },
+            "default_value": "default",
+            "layout": "horizontal",
+            "return_format": "value"
+        },
+        {
+            "key": "field_cc_padding_y",
+            "label": "Altura",
+            "name": "padding_y",
+            "type": "radio",
+            "instructions": "Espacio vertical de la sección.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": { "width": "100", "class": "", "id": "" },
+            "choices": {
+                "sm": "Compacto",
+                "md": "Normal",
+                "lg": "Grande"
+            },
+            "default_value": "md",
+            "layout": "horizontal",
+            "return_format": "value"
+        },
+        {
+            "key": "field_cc_cta",
+            "label": "Botón inferior",
+            "name": "cta",
+            "type": "link",
+            "instructions": "Botón opcional debajo de todas las cards (ej: \"Ver todos los tratamientos\").",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": { "width": "100", "class": "", "id": "" },
+            "return_format": "array"
+        },
+        {
+            "key": "field_cc_cta_style",
+            "label": "Estilo del botón",
+            "name": "cta_style",
+            "type": "radio",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": { "width": "100", "class": "", "id": "" },
+            "choices": {
+                "primary": "Primary",
+                "secondary": "Secondary",
+                "outline": "Outline"
+            },
+            "default_value": "primary",
+            "layout": "horizontal",
+            "return_format": "value"
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "block",
+                "operator": "==",
+                "value": "acf\/content-cards"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": true,
+    "description": "Campos del bloque Content Cards",
+    "show_in_rest": 0,
+    "modified": 1742900000
+}

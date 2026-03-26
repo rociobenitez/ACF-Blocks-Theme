@@ -1,0 +1,422 @@
+/* =================================================================
+   Content Cards Block
+   Styles: alternated | grid | grid-icons | text-only
+   ================================================================= */
+
+/* --- Base --- */
+.content-cards {
+	position: relative;
+}
+
+/* --- Padding --- */
+.content-cards--py-sm {
+	padding-block: 2rem;
+}
+.content-cards--py-md {
+	padding-block: 3rem;
+}
+.content-cards--py-lg {
+	padding-block: 4rem;
+}
+
+/* --- Background --- */
+.content-cards--bg-default {
+	background-color: var(--wp--preset--color--bg);
+}
+.content-cards--bg-light {
+	background-color: var(--wp--preset--color--bg-secondary);
+}
+
+/* --- Grid list (mobile: single column) --- */
+.content-cards__list {
+	display: grid;
+	grid-template-columns: 1fr;
+	gap: 1rem;
+	margin-top: 4rem;
+}
+
+/* --- Card base --- */
+.content-cards__card {
+	display: grid;
+	overflow: hidden;
+}
+
+/* --- Card linked (whole card clickable) --- */
+.content-cards__card--linked {
+	text-decoration: none;
+	color: inherit;
+	cursor: pointer;
+	transition:
+		transform 0.2s ease,
+		box-shadow 0.2s ease;
+}
+
+.content-cards__card--linked:hover {
+	text-decoration: none;
+}
+
+/* --- Card body --- */
+.content-cards__card-body {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	padding: 1.5rem;
+}
+
+.content-cards__card-title {
+	font-family: var(--wp--preset--font-family--primary);
+	font-size: 0.875rem;
+	font-weight: 600;
+	text-transform: uppercase;
+	letter-spacing: 0.08em;
+	line-height: 1.3;
+	margin: 0 0 0.5rem;
+	color: inherit;
+}
+
+.content-cards__card-desc {
+	font-size: 0.875rem;
+	line-height: 1.6;
+	margin-bottom: 0;
+	color: inherit;
+	opacity: 0.85;
+}
+
+/* --- Card link (visible link style) --- */
+.content-cards__card-link {
+	display: inline-block;
+	margin-top: 0.75rem;
+	font-size: 0.8125rem;
+	font-weight: 500;
+	color: inherit;
+	text-decoration: underline;
+	text-underline-offset: 0.2rem;
+	opacity: 0.7;
+	transition: opacity 0.2s ease;
+}
+
+.content-cards__card:hover .content-cards__card-link {
+	opacity: 1;
+}
+
+/* --- Card media --- */
+.content-cards__card-media {
+	overflow: hidden;
+}
+
+.content-cards__card-img {
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+	display: block;
+}
+
+/* --- Section CTA button --- */
+.content-cards__cta {
+	text-align: center;
+	margin-top: 2.5rem;
+}
+
+/* --- Placeholder --- */
+.content-cards__card--placeholder {
+	min-height: 10rem;
+	border: 2px dashed var(--wp--preset--color--border);
+	background: var(--wp--preset--color--bg-secondary);
+}
+
+.content-cards__card--placeholder .content-cards__card-body {
+	align-items: center;
+	justify-content: center;
+	color: var(--wp--preset--color--text-muted);
+	font-size: 0.875rem;
+}
+
+/* =================================================================
+   Style: Alternated
+   2 columns, each card = image + text side by side
+   Checkerboard: dark/light bg, alternating image position
+
+   Layout pattern (desktop):
+   Row 1: [body | media] [body | media]   ← default order
+   Row 2: [media | body] [media | body]   ← reversed
+
+   Color pattern:
+   dark, light, light, dark (repeats)
+   ================================================================= */
+
+.is-style-alternated .content-cards__card {
+	grid-template-columns: 1fr 1fr;
+	grid-template-rows: 1fr;
+}
+
+.is-style-alternated .content-cards__card-body {
+	text-align: center;
+	padding: 2rem 1.5rem;
+}
+
+/* Media: positioned relative so the image can be absolute inside.
+   Height comes from the grid row (set by the body text).
+   min-height only kicks in when text is very short. */
+.is-style-alternated .content-cards__card-media {
+	position: relative;
+	min-height: 14rem;
+}
+
+/* Image: absolute so it NEVER pushes the card taller.
+   It fills whatever height the body dictates. */
+.is-style-alternated .content-cards__card-img {
+	position: absolute;
+	inset: 0;
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+}
+
+/* Mobile: simple alternate — odd: image right, even: image left */
+@media (max-width: 47.9375rem) {
+	/* Reset any desktop order */
+	.is-style-alternated .content-cards__card-body {
+		order: 0;
+	}
+
+	/* Even cards: body moves right, image stays left */
+	.is-style-alternated
+		.content-cards__card:nth-child(even)
+		.content-cards__card-body {
+		order: 2;
+	}
+}
+
+/* Desktop (48rem+): row-based alternation
+ * Row 1 (cards 1,2,5,6): body left, media right (default)
+ * Row 2 (cards 3,4,7,8): media left, body right
+ */
+@media (min-width: 48rem) {
+	.is-style-alternated
+		.content-cards__card:nth-child(4n + 3)
+		.content-cards__card-body,
+	.is-style-alternated
+		.content-cards__card:nth-child(4n + 4)
+		.content-cards__card-body {
+		order: 2;
+	}
+}
+
+/* Dark bg cards: 1,4,5,8,9,12... */
+.is-style-alternated
+	.content-cards__card:nth-child(4n + 1)
+	.content-cards__card-body,
+.is-style-alternated
+	.content-cards__card:nth-child(4n)
+	.content-cards__card-body {
+	background-color: var(--wp--preset--color--primary);
+	color: var(--wp--preset--color--bg-secondary);
+}
+
+/* Light bg cards: 2,3,6,7,10,11... */
+.is-style-alternated
+	.content-cards__card:nth-child(4n + 2)
+	.content-cards__card-body,
+.is-style-alternated
+	.content-cards__card:nth-child(4n + 3)
+	.content-cards__card-body {
+	background-color: var(--wp--preset--color--bg-secondary);
+	color: var(--wp--preset--color--text);
+}
+
+/* Dark card title color */
+.is-style-alternated
+	.content-cards__card:nth-child(4n + 1)
+	.content-cards__card-title,
+.is-style-alternated
+	.content-cards__card:nth-child(4n)
+	.content-cards__card-title {
+	color: var(--wp--preset--color--bg-secondary);
+}
+
+/* Light card title color */
+.is-style-alternated
+	.content-cards__card:nth-child(4n + 2)
+	.content-cards__card-title,
+.is-style-alternated
+	.content-cards__card:nth-child(4n + 3)
+	.content-cards__card-title {
+	color: var(--wp--preset--color--text-heading);
+}
+
+/* =================================================================
+   Style: Grid (image on top)
+   ================================================================= */
+
+.is-style-grid .content-cards__card {
+	grid-template-rows: auto 1fr;
+	border: 1px solid var(--wp--preset--color--border);
+	border-radius: var(--wp--custom--radius--8);
+}
+
+/* HTML order is body→media, but grid needs media on top */
+.is-style-grid .content-cards__card-media {
+	order: -1;
+	aspect-ratio: 4/3;
+}
+
+.is-style-grid .content-cards__card-img {
+	border-radius: var(--wp--custom--radius--8) var(--wp--custom--radius--8) 0 0;
+}
+
+.is-style-grid .content-cards__card-title {
+	color: var(--wp--preset--color--text-heading);
+}
+
+.is-style-grid .content-cards__card--linked:hover {
+	transform: translateY(-0.125rem);
+	box-shadow: var(--wp--preset--shadow--200);
+}
+
+/* =================================================================
+   Style: Grid Icons (small centered image/icon)
+   ================================================================= */
+
+.is-style-grid-icons .content-cards__card {
+	text-align: center;
+	border: 1px solid var(--wp--preset--color--border);
+	border-radius: var(--wp--custom--radius--8);
+	padding: 2rem 1.5rem;
+}
+
+/* HTML order is body→media, icon goes on top */
+.is-style-grid-icons .content-cards__card-media {
+	order: -1;
+}
+
+.is-style-grid-icons .content-cards__card-media {
+	width: 3.5rem;
+	height: 3.5rem;
+	margin: 0 auto 1rem;
+}
+
+.is-style-grid-icons .content-cards__card-img {
+	object-fit: contain;
+}
+
+.is-style-grid-icons .content-cards__card-body {
+	padding: 0;
+}
+
+.is-style-grid-icons .content-cards__card-title {
+	color: var(--wp--preset--color--text-heading);
+}
+
+.is-style-grid-icons .content-cards__card--linked:hover {
+	transform: translateY(-0.125rem);
+	box-shadow: var(--wp--preset--shadow--200);
+}
+
+/* =================================================================
+   Style: Text Only (no images, colored cards)
+   ================================================================= */
+
+.is-style-text-only .content-cards__card {
+	border-radius: var(--wp--custom--radius--8);
+	text-align: center;
+}
+
+.is-style-text-only .content-cards__card-body {
+	padding: 2rem 1.5rem;
+}
+
+/* Alternate card colors (odd: primary, even: light) */
+.is-style-text-only
+	.content-cards__card:nth-child(odd)
+	.content-cards__card-body {
+	background-color: var(--wp--preset--color--primary);
+	color: var(--wp--preset--color--bg-secondary);
+}
+
+.is-style-text-only
+	.content-cards__card:nth-child(odd)
+	.content-cards__card-title {
+	color: var(--wp--preset--color--bg-secondary);
+}
+
+.is-style-text-only
+	.content-cards__card:nth-child(even)
+	.content-cards__card-body {
+	background-color: var(--wp--preset--color--bg-secondary);
+	color: var(--wp--preset--color--text);
+}
+
+.is-style-text-only
+	.content-cards__card:nth-child(even)
+	.content-cards__card-title {
+	color: var(--wp--preset--color--text-heading);
+}
+
+.is-style-text-only .content-cards__card--linked:hover {
+	transform: translateY(-0.125rem);
+	box-shadow: var(--wp--preset--shadow--200);
+}
+
+/* =================================================================
+   Column classes (grid, grid-icons, text-only)
+   ================================================================= */
+
+.content-cards--cols-2 .content-cards__list {
+	--cc-cols: 2;
+}
+.content-cards--cols-3 .content-cards__list {
+	--cc-cols: 3;
+}
+.content-cards--cols-4 .content-cards__list {
+	--cc-cols: 4;
+}
+
+/* =================================================================
+   Responsive
+   ================================================================= */
+
+/* Tablet (48rem / 768px) */
+@media (min-width: 48rem) {
+	.content-cards--py-sm {
+		padding-block: 3rem;
+	}
+	.content-cards--py-md {
+		padding-block: 4.5rem;
+	}
+	.content-cards--py-lg {
+		padding-block: 6rem;
+	}
+
+	/* Alternated: 2 columns, rows auto-equal via grid */
+	.is-style-alternated .content-cards__list {
+		grid-template-columns: 1fr 1fr;
+		grid-auto-rows: 1fr;
+		gap: 0;
+	}
+
+	/* Grid/icons/text: use column variable */
+	.is-style-grid .content-cards__list,
+	.is-style-grid-icons .content-cards__list,
+	.is-style-text-only .content-cards__list {
+		grid-template-columns: repeat(min(var(--cc-cols, 3), 2), 1fr);
+		gap: 1.5rem;
+	}
+}
+
+/* Desktop (64rem / 1024px) */
+@media (min-width: 64rem) {
+	.is-style-alternated .content-cards__card-body {
+		padding: 2.5rem 2rem;
+	}
+
+	.is-style-alternated .content-cards__card-media {
+		min-height: 18rem;
+	}
+
+	/* Grid/icons/text: full columns */
+	.is-style-grid .content-cards__list,
+	.is-style-grid-icons .content-cards__list,
+	.is-style-text-only .content-cards__list {
+		grid-template-columns: repeat(var(--cc-cols, 3), 1fr);
+	}
+}

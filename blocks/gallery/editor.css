@@ -1,0 +1,84 @@
+/* Gallery — Editor styles */
+
+/* Force full-width in editor iframe (mimics alignfull) */
+.wp-block-acf-gallery {
+	display: flex !important;
+}
+
+/* Container full-width in editor */
+.wp-block-acf-gallery .container {
+	padding-left: var(--wp--preset--spacing--16, 1rem);
+	padding-right: var(--wp--preset--spacing--16, 1rem);
+}
+
+/* Prevent link clicks in editor preview */
+.wp-block-acf-gallery .gallery__link {
+	pointer-events: none;
+	cursor: default;
+}
+
+/* =================================================================
+   Header Section
+   ================================================================= */
+
+.wp-block-acf-gallery .header-section {
+	margin-bottom: 2rem;
+}
+
+.wp-block-acf-gallery .header-section--align-center {
+	text-align: center;
+}
+
+.wp-block-acf-gallery .header-section--align-left {
+	text-align: left;
+}
+
+.wp-block-acf-gallery .header-section--width-narrow {
+	max-width: 66.666%;
+}
+
+.wp-block-acf-gallery
+	.header-section--align-center.header-section--width-narrow {
+	margin-inline: auto;
+}
+
+.wp-block-acf-gallery .header-section--width-full {
+	max-width: 100%;
+}
+
+/* Title */
+.wp-block-acf-gallery .header-section__title {
+	font-family: var(--wp--preset--font-family--primary);
+	font-size: 1.5rem;
+	font-weight: 500;
+	line-height: 1.2;
+	letter-spacing: 0.03rem;
+	text-transform: uppercase;
+	text-wrap: balance;
+	color: var(--wp--preset--color--text-heading);
+	margin: 0 0 1rem;
+}
+
+/* Description */
+.wp-block-acf-gallery .header-section__description {
+	font-size: 1rem;
+	line-height: 1.6;
+	color: var(--wp--preset--color--text-body);
+	margin: 0;
+}
+
+.wp-block-acf-gallery
+	.header-section--align-center
+	.header-section__description {
+	max-width: 90%;
+	margin-inline: auto;
+}
+
+/* Dark bg overrides in editor */
+.wp-block-acf-gallery .gallery--bg-dark .header-section__title {
+	color: var(--wp--preset--color--white, #fff);
+}
+.wp-block-acf-gallery .gallery--bg-dark .header-section__description {
+	color: var(--wp--preset--color--white, #fff);
+	opacity: 0.85;
+}

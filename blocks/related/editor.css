@@ -48,7 +48,7 @@
 
 /* Empty state */
 .wp-block-acf-related .related__empty {
-	background: #f8f9fa;
+	background: var(--wp--preset--color--bg-secondary);
 	border: 2px dashed #dee2e6;
 	border-radius: 1rem;
 	min-height: 200px;

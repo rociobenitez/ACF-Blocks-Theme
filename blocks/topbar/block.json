@@ -1,38 +1,39 @@
 {
-  "apiVersion": 2,
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
   "name": "acf/topbar",
+  "version": "1.0.0",
   "title": "Topbar",
-  "description": "Barra superior del sitio basada en Opciones ACF.",
+  "description": "Barra superior configurable: promoción, contacto, dirección o redes sociales.",
   "category": "theme",
   "icon": "menu",
-  "keywords": ["header", "topbar", "logo", "contacto", "redes"],
-  "textdomain": "acf-starter",
-  "style": [ "file:./style.css" ],
-
+  "keywords": ["header", "topbar", "contacto", "redes", "promo"],
   "supports": {
+    "align": ["full"],
     "anchor": true,
-    "align": [ "full" ],
-    "spacing": {
-      "padding": true,
-      "margin": [ "top", "bottom" ]
-    },
-    "color": {
-        "background": false,
-        "text": false
-    },
-    "typography": false,
-    "border": false
+    "className": true,
+    "spacing": { "margin": false, "padding": false },
+    "color": { "background": false, "text": false, "gradients": false },
+    "typography": { "fontSize": false, "lineHeight": false }
+  },
+  "attributes": {
+    "align": {
+      "type": "string",
+      "default": "full"
+    }
   },
   "styles": [
-    { "name": "topbar-light", "label": "Light", "isDefault": true },
-    { "name": "topbar-dark", "label": "Dark" },
-    { "name": "topbar-primary", "label": "Primary" },
-    { "name": "topbar-transparent", "label": "Transparent" },
-    { "name": "topbar-divider", "label": "Divider" },
-    { "name": "topbar-deactivated", "label": "Deactivated" }
+    { "name": "light",       "label": "Claro",       "isDefault": true },
+    { "name": "dark",        "label": "Oscuro" },
+    { "name": "primary",     "label": "Color principal" },
+    { "name": "transparent", "label": "Transparente" },
+    { "name": "divider",     "label": "Con línea inferior" }
   ],
   "acf": {
     "mode": "preview",
-    "renderTemplate": "render.php"
-  }
+    "renderTemplate": "render.php",
+    "validate": false,
+    "blockVersion": 3
+  },
+  "style": "file:./style.css"
 }

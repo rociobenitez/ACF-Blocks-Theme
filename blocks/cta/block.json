@@ -2,25 +2,30 @@
   "$schema": "https://schemas.wp.org/trunk/block.json",
   "apiVersion": 3,
   "name": "acf/cta",
-  "version": "0.1.0",
+  "version": "1.0.0",
   "title": "CTA",
   "category": "theme",
   "icon": "megaphone",
-  "description": "Bloque CTA con imagen, texto y botón",
-  "keywords": ["cta", "botón", "llamada", "acción"],
+  "description": "Llamada a la acción con 3 variantes: banner (imagen de fondo), franja (color sólido) y split (imagen + contenido).",
+  "keywords": ["cta", "banner", "llamada", "acción", "botón"],
   "supports": {
     "align": ["wide", "full"],
     "anchor": true,
     "className": true,
     "spacing": { "margin": false, "padding": false },
     "color": { "background": false, "text": false, "gradients": false },
-    "typography": { "fontSize": false, "lineHeight": false },
-    "shadow": false
+    "typography": { "fontSize": false, "lineHeight": false }
+  },
+  "attributes": {
+    "align": {
+      "type": "string",
+      "default": "full"
+    }
   },
   "styles": [
-    { "name": "default", "label": "Por defecto", "isDefault": true },
-    { "name": "rounded", "label": "Imagen redondeada" },
-    { "name": "shadow", "label": "Con sombra" }
+    { "name": "banner", "label": "Banner (imagen de fondo)", "isDefault": true },
+    { "name": "strip",  "label": "Franja (fondo de color)" },
+    { "name": "split",  "label": "Split (imagen + contenido)" }
   ],
   "acf": {
     "mode": "preview",
@@ -28,14 +33,7 @@
     "validate": false,
     "blockVersion": 3
   },
-  "example": {
-    "attributes": {
-      "heading": "¡Comienza tu proyecto hoy!",
-      "subheading": "No esperes más",
-      "body": "Contáctanos y descubre cómo podemos ayudarte a alcanzar tus objetivos digitales.",
-      "layout_variant": "text-right"
-    }
-  },
+  "style": "file:./style.css",
   "editorStyle": "file:./editor.css",
-  "style": "file:./style.css"
+  "script": "file:./script.js"
 }

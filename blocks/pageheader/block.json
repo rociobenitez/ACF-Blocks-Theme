@@ -1,14 +1,42 @@
 {
+  "$schema": "https://schemas.wp.org/trunk/block.json",
   "apiVersion": 3,
   "name": "acf/pageheader",
-  "title": "Page Header",
-  "description": "Cabecera de página con título, imagen, breadcrumbs y formulario",
+  "version": "1.0.0",
+  "title": "Cabecera de Página",
+  "description": "Cabecera de páginas interiores con 3 variantes: cover (imagen de fondo), split (imagen lateral) y minimal (sin imagen).",
   "category": "theme",
   "icon": "cover-image",
-  "keywords": ["header", "cabecera", "pageheader"],
+  "keywords": ["header", "cabecera", "pageheader", "page header"],
   "supports": {
-    "align": ["full", "wide"]
+    "align": ["full", "wide"],
+    "anchor": true,
+    "className": true,
+    "spacing": { "margin": false, "padding": false },
+    "color": { "background": false, "text": false, "gradients": false },
+    "typography": { "fontSize": false }
   },
+  "attributes": {
+    "align": {
+      "type": "string",
+      "default": "full"
+    }
+  },
+  "styles": [
+    {
+      "name": "cover",
+      "label": "Cover (imagen de fondo)",
+      "isDefault": true
+    },
+    {
+      "name": "split",
+      "label": "Split (imagen lateral)"
+    },
+    {
+      "name": "minimal",
+      "label": "Minimal (sin imagen)"
+    }
+  ],
   "acf": {
     "mode": "preview",
     "renderTemplate": "render.php",

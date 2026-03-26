@@ -1,0 +1,34 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "acf/gallery",
+  "version": "1.0.0",
+  "title": "Gallery",
+  "category": "theme",
+  "icon": "format-gallery",
+  "description": "Galería de imágenes con cuadrícula responsive, opciones de aspect ratio y lightbox accesible.",
+  "keywords": ["gallery", "galería", "imágenes", "fotos", "grid"],
+  "supports": {
+    "align": ["full"],
+    "anchor": true,
+    "className": true,
+    "spacing": { "margin": false, "padding": false },
+    "color": { "background": false, "text": false, "gradients": false },
+    "typography": { "fontSize": false, "lineHeight": false }
+  },
+  "attributes": {
+    "align": {
+      "type": "string",
+      "default": "full"
+    }
+  },
+  "acf": {
+    "mode": "preview",
+    "renderTemplate": "render.php",
+    "validate": false,
+    "blockVersion": 3
+  },
+  "style": "file:./style.css",
+  "editorStyle": "file:./editor.css",
+  "viewScript": "file:./script.js"
+}

@@ -1,40 +1,136 @@
-/* Recent Posts Block Editor Styles */
-.recent-posts-block {
-	border: 2px dashed #ddd;
-	padding: 2rem;
-	margin: 1rem 0;
-	background: #f9f9f9;
+/* Recent Posts — Editor styles */
+
+/* Force full-width in editor iframe (mimics alignfull) */
+.wp-block-acf-recent-posts {
+	display: flex !important;
 }
 
-.recent-posts-block .recent-posts-grid {
-	margin-top: 1rem;
+.wp-block-acf-recent-posts section {
+	width: 100%;
 }
 
-.recent-post-card {
-	background: white;
-	border: 1px solid #ddd;
-	border-radius: 8px;
-	overflow: hidden;
+/* Container full-width in editor */
+.wp-block-acf-recent-posts .container {
+	padding-left: var(--wp--preset--spacing--16, 1rem);
+	padding-right: var(--wp--preset--spacing--16, 1rem);
 }
 
-.recent-post-card:hover {
-	transform: none;
-	box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+/* Prevent link clicks in editor preview */
+.wp-block-acf-recent-posts .recent-posts__link {
+	pointer-events: none;
 }
 
-/* Maintain all other styles from style.css but with reduced animations for editor */
-.post-image img {
+/* Disable hover animations in editor */
+.wp-block-acf-recent-posts .recent-posts__img {
 	transition: none;
 }
 
-.recent-post-card:hover .post-image img {
+.wp-block-acf-recent-posts .recent-posts__card:hover {
 	transform: none;
 }
 
-.read-more::after {
-	transition: none;
+/* =================================================================
+   Header Section
+   ================================================================= */
+
+.wp-block-acf-recent-posts .header-section {
+	margin-bottom: 2rem;
 }
 
-.recent-post-card:hover .read-more::after {
-	transform: none;
+.wp-block-acf-recent-posts .header-section--align-center {
+	text-align: center;
+}
+
+.wp-block-acf-recent-posts .header-section--align-left {
+	text-align: left;
+}
+
+.wp-block-acf-recent-posts .header-section--width-narrow {
+	max-width: 66.666%;
+}
+
+.wp-block-acf-recent-posts
+	.header-section--align-center.header-section--width-narrow {
+	margin-inline: auto;
+}
+
+.wp-block-acf-recent-posts .header-section--width-full {
+	max-width: 100%;
+}
+
+/* Title */
+.wp-block-acf-recent-posts .header-section__title {
+	font-family: var(--wp--preset--font-family--primary);
+	font-size: 1.5rem;
+	font-weight: 500;
+	line-height: 1.2;
+	letter-spacing: 0.03rem;
+	text-transform: uppercase;
+	text-wrap: balance;
+	color: var(--wp--preset--color--text-heading);
+	margin: 0 0 1rem;
+}
+
+/* Description */
+.wp-block-acf-recent-posts .header-section__description {
+	font-size: 1rem;
+	line-height: 1.6;
+	color: var(--wp--preset--color--text-body);
+	margin: 0;
+}
+
+.wp-block-acf-recent-posts
+	.header-section--align-center
+	.header-section__description {
+	max-width: 90%;
+	margin-inline: auto;
+}
+
+/* =================================================================
+   Post Card
+   ================================================================= */
+.recent-posts__media img {
+	height: 100%;
+}
+
+/* =================================================================
+   Buttons
+   ================================================================= */
+
+.wp-block-acf-recent-posts .btn {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	padding: 0.75rem 1.5rem;
+	font-weight: 500;
+	font-size: 1rem;
+	line-height: 1.5;
+	text-decoration: none;
+	border: 2px solid transparent;
+	border-radius: var(--wp--custom--radius--2);
+	cursor: default;
+	white-space: nowrap;
+	pointer-events: none;
+}
+
+.wp-block-acf-recent-posts .btn--primary {
+	background-color: var(--wp--preset--color--primary);
+	color: var(--wp--preset--color--white);
+	border-color: var(--wp--preset--color--primary);
+}
+
+.wp-block-acf-recent-posts .btn--secondary {
+	background-color: var(--wp--preset--color--accent);
+	color: var(--wp--preset--color--white);
+	border-color: var(--wp--preset--color--accent);
+}
+
+.wp-block-acf-recent-posts .btn--outline {
+	background-color: transparent;
+	color: var(--wp--preset--color--text);
+	border-color: var(--wp--preset--color--text);
+}
+
+.wp-block-acf-recent-posts .recent-posts__cta-link {
+	pointer-events: none;
 }

@@ -33,13 +33,13 @@
 
 	/* Card */
 	.card {
-		background: var(--wp--preset--color--background, #fff);
+		background: var(--wp--preset--color--white);
 		overflow: hidden;
-		border: 1px solid var(--wp--preset--color--border, #e2e8f0);
+		border: 1px solid var(--wp--preset--color--border);
 		transition: transform 0.2s ease, box-shadow 0.2s ease;
 
 		:hover .card-link {
-			color: var(--color-neutral-800);
+			color: var(--wp--preset--color--text-body);
 			text-decoration: none;
 		}
 	}
@@ -69,8 +69,8 @@
 	.card-image--placeholder {
 		display: grid;
 		place-items: center;
-		background: #f8f9fa;
-		color: #6c757d;
+		background: var(--wp--preset--color--bg-secondary);
+		color: var(--wp--preset--color--text-muted);
 	}
 
 	/* Efecto hover imagen cuando se hoverea la card completa */
@@ -92,7 +92,7 @@
 	.card-excerpt {
 		font-size: 0.875rem;
 		line-height: 1.5;
-		color: var(--wp--preset--color--foreground, #4a4a4a);
+		color: var(--wp--preset--color--text-body);
 		margin: 0 0 1rem;
 		display: -webkit-box;
 		-webkit-line-clamp: 3;
@@ -106,8 +106,8 @@
 		display: inline-flex;
 		align-items: center;
 		gap: 0.5rem;
-		font-size: var(--fs-15);
-		margin-top: var(--space-8);
+		font-size: 0.9375rem;
+		margin-top: var(--wp--preset--spacing--8);
 	}
 	.card-btn svg {
 		transition: transform 0.2s ease;
@@ -146,23 +146,23 @@
 	position: absolute;
 	top: 50%;
 	transform: translateY(-50%);
-	background: var(--wp--preset--color--background, #fff);
-	border: 1px solid var(--wp--preset--color--border, #e2e8f0);
+	background: var(--wp--preset--color--white);
+	border: 1px solid var(--wp--preset--color--border);
 	border-radius: 50%;
 	width: 40px;
 	height: 40px;
 	display: grid;
 	place-items: center;
-	color: var(--wp--preset--color--foreground, #1a1a1a);
+	color: var(--wp--preset--color--text);
 	cursor: pointer;
 	transition: all 0.2s ease;
 	z-index: 2;
 	box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
 
 	&:hover {
-		background: var(--wp--preset--color--primary, #007cba);
-		color: #fff;
-		border-color: var(--wp--preset--color--primary, #007cba);
+		background: var(--wp--preset--color--primary);
+		color: var(--wp--preset--color--white);
+		border-color: var(--wp--preset--color--primary);
 	}
 }
 .related__control--prev {
@@ -184,13 +184,13 @@
 	height: 8px;
 	border-radius: 50%;
 	border: 0;
-	background: var(--wp--preset--color--border, #e2e8f0);
+	background: var(--wp--preset--color--border);
 	cursor: pointer;
 	transition: background-color 0.2s ease, transform 0.2s ease;
 }
 .related__indicator--active,
 .related__indicator:hover {
-	background: var(--wp--preset--color--primary, #007cba);
+	background: var(--wp--preset--color--primary);
 	transform: scale(1.2);
 }
 

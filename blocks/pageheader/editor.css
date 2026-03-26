@@ -1,0 +1,227 @@
+/* Page Header — editor styles
+   Mirrors frontend style.css so the editor preview matches. */
+
+/* Force full-width in editor iframe */
+.wp-block-acf-pageheader {
+	display: flex !important;
+}
+
+.wp-block-acf-pageheader > section {
+	width: 100%;
+}
+
+/* Container padding in editor */
+.wp-block-acf-pageheader .container {
+	padding-left: var(--wp--preset--spacing--16, 1rem);
+	padding-right: var(--wp--preset--spacing--16, 1rem);
+}
+
+/* Prevent link clicks in editor preview */
+.wp-block-acf-pageheader .pageheader__cta-link {
+	pointer-events: none;
+	cursor: default;
+}
+
+/* ---------------------------------------------------------
+   Base (replicate frontend)
+   --------------------------------------------------------- */
+.wp-block-acf-pageheader .pageheader {
+	position: relative;
+	overflow: hidden;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+}
+
+.wp-block-acf-pageheader .pageheader__inner {
+	position: relative;
+	z-index: 1;
+	width: 100%;
+}
+
+/* Kicker */
+.wp-block-acf-pageheader .pageheader__kicker {
+	font-size: 0.75rem;
+	font-weight: 600;
+	letter-spacing: 0.12em;
+	text-transform: uppercase;
+}
+
+/* Title */
+.wp-block-acf-pageheader .pageheader__title {
+	font-family: var(
+		--wp--preset--font-family--secondary,
+		var(--wp--preset--font-family--primary)
+	);
+	font-size: clamp(1.75rem, 4vw, 2.75rem);
+	font-weight: 400;
+	line-height: 1.15;
+}
+
+/* Body */
+.wp-block-acf-pageheader .pageheader__body {
+	font-size: 0.9375rem;
+	line-height: 1.7;
+}
+
+/* ---------------------------------------------------------
+   Size modifiers
+   --------------------------------------------------------- */
+.wp-block-acf-pageheader .pageheader--sm {
+	padding-block: 2rem;
+}
+
+.wp-block-acf-pageheader .pageheader--md {
+	padding-block: 3rem;
+}
+
+.wp-block-acf-pageheader .pageheader--lg {
+	padding-block: 4rem;
+}
+
+/* ---------------------------------------------------------
+   Background colors
+   --------------------------------------------------------- */
+.wp-block-acf-pageheader .pageheader--bg-default {
+	background-color: var(--wp--preset--color--bg);
+}
+
+.wp-block-acf-pageheader .pageheader--bg-light {
+	background-color: var(--wp--preset--color--bg-secondary);
+}
+
+.wp-block-acf-pageheader .pageheader--bg-primary {
+	background-color: var(--wp--preset--color--primary);
+}
+
+.wp-block-acf-pageheader .pageheader--bg-dark {
+	background-color: var(--wp--preset--color--primary-dark, #1a1a2e);
+}
+
+/* ---------------------------------------------------------
+   Cover (default)
+   --------------------------------------------------------- */
+.wp-block-acf-pageheader .pageheader:not([class*="is-style"]),
+.wp-block-acf-pageheader .pageheader.is-style-cover {
+	min-height: 14rem;
+}
+
+.wp-block-acf-pageheader .pageheader__bg {
+	position: absolute;
+	inset: 0;
+}
+
+.wp-block-acf-pageheader .pageheader__bg-img {
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+}
+
+.wp-block-acf-pageheader .pageheader__overlay {
+	position: absolute;
+	inset: 0;
+	background: var(--wp--preset--color--black);
+}
+
+/* ---------------------------------------------------------
+   Split
+   --------------------------------------------------------- */
+.wp-block-acf-pageheader .pageheader.is-style-split {
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	padding-block: 0;
+}
+
+.wp-block-acf-pageheader .pageheader.is-style-split .pageheader__media {
+	position: relative;
+	overflow: hidden;
+	min-height: 14rem;
+}
+
+.wp-block-acf-pageheader .pageheader.is-style-split .pageheader__media-img {
+	position: absolute;
+	inset: 0;
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+	display: block;
+}
+
+.wp-block-acf-pageheader .pageheader.is-style-split .pageheader__inner {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	padding: 2.5rem 2rem;
+	text-align: left;
+}
+
+.wp-block-acf-pageheader .pageheader.is-style-split .pageheader__title {
+	font-size: clamp(1.5rem, 3.5vw, 2.5rem);
+}
+
+/* Split: placeholder when no image */
+.wp-block-acf-pageheader .is-style-split .pageheader__media:empty {
+	background-color: var(--wp--preset--color--border, #ddd);
+}
+
+/* Split: image left */
+.wp-block-acf-pageheader .pageheader.is-style-split.pageheader--image-left .pageheader__media {
+	order: -1;
+}
+
+.wp-block-acf-pageheader .pageheader.is-style-split.pageheader--image-left .pageheader__inner {
+	order: 1;
+}
+
+/* ---------------------------------------------------------
+   Minimal
+   --------------------------------------------------------- */
+.wp-block-acf-pageheader .pageheader.is-style-minimal {
+	text-align: left;
+}
+
+.wp-block-acf-pageheader .pageheader.is-style-minimal .pageheader__title {
+	font-size: clamp(1.375rem, 3vw, 2rem);
+}
+
+/* ---------------------------------------------------------
+   Dark-text (replicate frontend)
+   --------------------------------------------------------- */
+.wp-block-acf-pageheader .pageheader--dark-text .pageheader__title {
+	color: var(--wp--preset--color--text-heading, #111);
+}
+
+.wp-block-acf-pageheader .pageheader--dark-text .pageheader__subtitle,
+.wp-block-acf-pageheader .pageheader--dark-text .pageheader__body {
+	color: var(--wp--preset--color--text-body, #555);
+}
+
+.wp-block-acf-pageheader .pageheader--dark-text .pageheader__kicker {
+	color: var(--wp--preset--color--primary);
+}
+
+/* Separator */
+.wp-block-acf-pageheader .pageheader__separator {
+	width: 3rem;
+	height: 2px;
+	margin-block: 1.25rem;
+	background-color: var(--wp--preset--color--primary);
+}
+
+/* Buttons */
+.wp-block-acf-pageheader .pageheader__cta-link {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	padding: 0.8125rem 1.75rem;
+	font-weight: 500;
+	font-size: 0.875rem;
+	letter-spacing: 0.05em;
+	text-transform: uppercase;
+	text-decoration: none;
+	border: 2px solid transparent;
+	border-radius: var(--wp--custom--radius--2, 0.25rem);
+	background-color: var(--wp--preset--color--primary);
+	color: var(--wp--preset--color--white);
+	border-color: var(--wp--preset--color--primary);
+}

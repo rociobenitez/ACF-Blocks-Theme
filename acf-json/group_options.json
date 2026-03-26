@@ -871,199 +871,614 @@
             ]
         },
         {
-            "key": "field_67f65aafeedda",
-            "label": "Header",
-            "name": "",
+            "key": "field_contact_form_id",
+            "label": "ID Formulario de Contacto (Gravity Forms)",
+            "name": "contact_form_id",
             "aria-label": "",
-            "type": "tab",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": false,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "placement": "top",
-            "endpoint": 0,
-            "selected": 0
-        },
-        {
-            "key": "field_link_btn_movil",
-            "label": "Enlace de contacto botón móvil",
-            "name": "link_btn_movil",
-            "aria-label": "",
-            "type": "link",
-            "instructions": "",
+            "type": "number",
+            "instructions": "Introduce el ID del formulario de Gravity Forms que se mostrará en la página de contacto.",
             "required": 0,
             "conditional_logic": 0,
             "wrapper": {
-                "width": "40",
+                "width": "50",
                 "class": "",
                 "id": ""
             },
+            "default_value": 1,
+            "placeholder": "1",
+            "prepend": "",
+            "append": "",
+            "min": 1,
+            "max": "",
+            "step": 1
+        },
+        {
+            "key": "field_contact_map_embed_url",
+            "label": "URL embed mapa (Google Maps iframe src)",
+            "name": "contact_map_embed_url",
+            "aria-label": "",
+            "type": "url",
+            "instructions": "Copia la URL del atributo src del iframe de Google Maps. Ve a maps.google.com → busca tu dirección → Compartir → Insertar un mapa → copia solo la URL del src.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "50",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": "https://www.google.com/maps/embed?pb=..."
+        },
+        {
+            "key": "field_67f65aafeedda",
+            "label": "Header",
+            "name": "",
+            "type": "tab",
+            "placement": "top",
+            "endpoint": 0
+        },
+        {
+            "key": "field_header_message",
+            "label": "Configuración del header",
+            "name": "",
+            "type": "message",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": { "width": "100", "class": "", "id": "" },
+            "message": "Estos ajustes controlan el aspecto del header en toda la web. El <strong>layout</strong> define la disposición de logo, menú y botones. El <strong>esquema de color</strong> se puede configurar por separado para la página de inicio y el resto de páginas.\n\n<strong>Importante:</strong> Si eliges un esquema «Transparente» u «Oscuro», asegúrate de tener el <em>Logotipo Negativo</em> (versión blanca) subido en la pestaña «Marca».",
+            "new_lines": "wpautop",
+            "esc_html": 0
+        },
+        {
+            "key": "field_header_layout",
+            "label": "Disposición del header",
+            "name": "header_layout",
+            "type": "radio",
+            "instructions": "<strong>Clásico:</strong> Logo a la izquierda y menú a la derecha. Ideal para la mayoría de webs.\n<strong>Centrado:</strong> Logo a la izquierda, menú en el centro y botones a la derecha. Más visual y equilibrado.\n<strong>Apilado:</strong> Logo centrado arriba y menú centrado debajo. Elegante para marcas que quieren dar protagonismo al logo.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": { "width": "100", "class": "", "id": "" },
+            "choices": {
+                "classic": "Clásico (logo izquierda + menú derecha)",
+                "centered": "Centrado (logo + menú centro + botones derecha)",
+                "stacked": "Apilado (logo arriba centro + menú abajo centro)"
+            },
+            "default_value": "classic",
+            "layout": "vertical",
+            "return_format": "value"
+        },
+        {
+            "key": "field_header_color_home",
+            "label": "Color del header en Inicio",
+            "name": "header_color_home",
+            "type": "radio",
+            "instructions": "Esquema de color del header en la página de inicio. «Transparente» se superpone sobre el contenido (ideal si la home tiene un hero con imagen).",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": { "width": "25", "class": "", "id": "" },
+            "choices": {
+                "light": "Claro (fondo blanco, texto oscuro)",
+                "dark": "Oscuro (fondo oscuro, texto claro)",
+                "transparent": "Transparente (sin fondo, texto claro)"
+            },
+            "default_value": "light",
+            "layout": "vertical",
+            "return_format": "value"
+        },
+        {
+            "key": "field_header_logo_home",
+            "label": "Logo en Inicio",
+            "name": "header_logo_home",
+            "type": "radio",
+            "instructions": "Elige qué logotipo se muestra en la página de inicio. El negativo (blanco) es ideal para fondos oscuros o transparentes.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": { "width": "25", "class": "", "id": "" },
+            "choices": {
+                "default": "Logo principal",
+                "white": "Logo negativo (blanco)"
+            },
+            "default_value": "default",
+            "layout": "vertical",
+            "return_format": "value"
+        },
+        {
+            "key": "field_header_color_pages",
+            "label": "Color del header en el resto",
+            "name": "header_color_pages",
+            "type": "radio",
+            "instructions": "Esquema de color del header en todas las páginas excepto Inicio.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": { "width": "25", "class": "", "id": "" },
+            "choices": {
+                "light": "Claro (fondo blanco, texto oscuro)",
+                "dark": "Oscuro (fondo oscuro, texto claro)",
+                "transparent": "Transparente (sin fondo, texto claro)"
+            },
+            "default_value": "light",
+            "layout": "vertical",
+            "return_format": "value"
+        },
+        {
+            "key": "field_header_logo_pages",
+            "label": "Logo en el resto",
+            "name": "header_logo_pages",
+            "type": "radio",
+            "instructions": "Elige qué logotipo se muestra en el resto de páginas.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": { "width": "25", "class": "", "id": "" },
+            "choices": {
+                "default": "Logo principal",
+                "white": "Logo negativo (blanco)"
+            },
+            "default_value": "default",
+            "layout": "vertical",
+            "return_format": "value"
+        },
+        {
+            "key": "field_header_nav_cta",
+            "label": "Último enlace del menú como botón",
+            "name": "header_nav_cta",
+            "type": "true_false",
+            "instructions": "Si se activa, el último enlace del menú de navegación se mostrará con aspecto de botón (relleno de color). Útil para destacar «Contacto» o «Reservar».",
+            "required": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_header_layout",
+                        "operator": "!=",
+                        "value": "centered"
+                    }
+                ]
+            ],
+            "wrapper": { "width": "50", "class": "", "id": "" },
+            "default_value": 1,
+            "ui": 1,
+            "ui_on_text": "Sí",
+            "ui_off_text": "No"
+        },
+        {
+            "key": "field_header_link_btn_movil",
+            "label": "Enlace del botón en móvil",
+            "name": "link_btn_movil",
+            "type": "link",
+            "instructions": "Botón de contacto rápido que aparece junto al icono de menú en móvil. Si se deja vacío, no se muestra.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": { "width": "50", "class": "", "id": "" },
+            "return_format": "array"
+        },
+        {
+            "key": "field_header_cta_separator",
+            "label": "Botones del header (solo layout «Centrado»)",
+            "name": "",
+            "type": "message",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_header_layout",
+                        "operator": "==",
+                        "value": "centered"
+                    }
+                ]
+            ],
+            "wrapper": { "width": "100", "class": "", "id": "" },
+            "message": "Estos botones aparecen a la derecha del menú en la versión de escritorio. Son opcionales: si no se rellenan, no se muestran.",
+            "new_lines": "wpautop",
+            "esc_html": 0
+        },
+        {
+            "key": "field_header_cta_1",
+            "label": "Botón principal",
+            "name": "header_cta_1",
+            "type": "link",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_header_layout",
+                        "operator": "==",
+                        "value": "centered"
+                    }
+                ]
+            ],
+            "wrapper": { "width": "25", "class": "", "id": "" },
+            "return_format": "array"
+        },
+        {
+            "key": "field_header_cta_1_style",
+            "label": "Estilo botón principal",
+            "name": "header_cta_1_style",
+            "type": "radio",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_header_layout",
+                        "operator": "==",
+                        "value": "centered"
+                    }
+                ]
+            ],
+            "wrapper": { "width": "25", "class": "", "id": "" },
+            "choices": {
+                "primary": "Primario (relleno)",
+                "secondary": "Secundario (outline)",
+                "ghost": "Ghost (outline neutro)"
+            },
+            "default_value": "primary",
+            "layout": "vertical",
+            "return_format": "value"
+        },
+        {
+            "key": "field_header_cta_2",
+            "label": "Botón secundario",
+            "name": "header_cta_2",
+            "type": "link",
+            "instructions": "Opcional. Se muestra junto al botón principal.",
+            "required": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_header_layout",
+                        "operator": "==",
+                        "value": "centered"
+                    }
+                ]
+            ],
+            "wrapper": { "width": "25", "class": "", "id": "" },
+            "return_format": "array"
+        },
+        {
+            "key": "field_header_cta_2_style",
+            "label": "Estilo botón secundario",
+            "name": "header_cta_2_style",
+            "type": "radio",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_header_layout",
+                        "operator": "==",
+                        "value": "centered"
+                    }
+                ]
+            ],
+            "wrapper": { "width": "25", "class": "", "id": "" },
+            "choices": {
+                "primary": "Primario (relleno)",
+                "secondary": "Secundario (outline)",
+                "ghost": "Ghost (outline neutro)"
+            },
+            "default_value": "ghost",
+            "layout": "vertical",
+            "return_format": "value"
+        },
+        {
+            "key": "field_topbar_separator",
+            "label": "Topbar (barra superior)",
+            "name": "",
+            "type": "message",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": { "width": "100", "class": "", "id": "" },
+            "message": "El topbar es la barra fina que aparece encima del header. Su <strong>layout y color se configuran desde el propio bloque</strong> en el editor de plantillas. Aquí solo se definen los datos que muestra.",
+            "new_lines": "wpautop",
+            "esc_html": 0
+        },
+        {
+            "key": "field_topbar_promo_text",
+            "label": "Texto promocional (Topbar)",
+            "name": "promo_text",
+            "type": "text",
+            "instructions": "Texto de oferta o promoción que se muestra en el topbar cuando el layout es «Promoción».",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": { "width": "60", "class": "", "id": "" },
+            "placeholder": "Ej: Aprovecha nuestros packs y bonos especiales",
+            "maxlength": 120
+        },
+        {
+            "key": "field_topbar_promo_link",
+            "label": "Enlace promocional (Topbar)",
+            "name": "promo_link",
+            "type": "link",
+            "instructions": "Opcional. Si se añade, el texto promocional será clicable.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": { "width": "40", "class": "", "id": "" },
             "return_format": "array"
         },
         {
             "key": "field_666c22e7fbeaf",
             "label": "Footer",
-            "name": "",
-            "aria-label": "",
             "type": "tab",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
             "placement": "top",
-            "endpoint": 0,
-            "selected": 0
+            "endpoint": 0
         },
         {
-            "key": "field_footer_logo",
-            "label": "Logo en el Footer",
-            "name": "footer_logo",
-            "aria-label": "",
-            "type": "image",
-            "instructions": "Sube una imagen si deseas utilizar un logo diferente en el footer. Si no se selecciona, se usará el logo principal.",
+            "key": "field_footer_message",
+            "label": "",
+            "name": "",
+            "type": "message",
+            "wrapper": { "width": "100", "class": "", "id": "" },
+            "message": "Estos ajustes controlan el aspecto del footer en toda la web. La <strong>disposición</strong> define la estructura general. Los menús de navegación y enlaces legales se editan directamente en el <strong>Editor de Plantillas</strong> (Apariencia → Editor → Footer).",
+            "new_lines": "wpautop",
+            "esc_html": 0
+        },
+        {
+            "key": "field_footer_layout",
+            "label": "Disposición del footer",
+            "name": "footer_layout",
+            "type": "radio",
+            "instructions": "<strong>Columnas:</strong> Logo + tagline a la izquierda, dos columnas de menú y contacto a la derecha. El diseño clásico más completo.\n<strong>Centrado:</strong> Todo centrado: logo, texto, redes sociales y créditos. Más limpio y minimalista.\n<strong>Mínimo:</strong> Solo una línea con créditos y enlaces legales. Ideal para webs que no necesitan un footer grande.",
             "required": 0,
             "conditional_logic": 0,
-            "wrapper": {
-                "width": "33",
-                "class": "",
-                "id": ""
+            "wrapper": { "width": "100", "class": "", "id": "" },
+            "choices": {
+                "columns": "Columnas (logo + menús + contacto)",
+                "centered": "Centrado (logo + texto + redes)",
+                "minimal": "Mínimo (solo créditos + legal)"
             },
-            "return_format": "url",
-            "library": "all",
-            "min_width": "",
-            "min_height": "",
-            "min_size": "",
-            "max_width": "",
-            "max_height": "",
-            "max_size": "",
-            "mime_types": "jpg,jpeg,png,svg",
-            "allow_in_bindings": 1,
-            "preview_size": "thumbnail"
+            "default_value": "columns",
+            "layout": "vertical",
+            "return_format": "value"
+        },
+        {
+            "key": "field_footer_color",
+            "label": "Color de fondo",
+            "name": "footer_color",
+            "type": "radio",
+            "instructions": "Esquema de color del footer.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": { "width": "25", "class": "", "id": "" },
+            "choices": {
+                "light": "Claro (beige)",
+                "dark": "Oscuro",
+                "primary": "Color principal"
+            },
+            "default_value": "light",
+            "layout": "vertical",
+            "return_format": "value"
+        },
+        {
+            "key": "field_footer_logo_variant",
+            "label": "Logo en el footer",
+            "name": "footer_logo_variant",
+            "type": "radio",
+            "instructions": "Elige qué logotipo se muestra. El negativo (blanco) es ideal para fondos oscuros.",
+            "required": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_footer_layout",
+                        "operator": "!=",
+                        "value": "minimal"
+                    }
+                ]
+            ],
+            "wrapper": { "width": "25", "class": "", "id": "" },
+            "choices": {
+                "default": "Logo principal",
+                "white": "Logo negativo (blanco)"
+            },
+            "default_value": "default",
+            "layout": "vertical",
+            "return_format": "value"
+        },
+        {
+            "key": "field_footer_logo_size",
+            "label": "Tamaño del logo",
+            "name": "footer_logo_size",
+            "type": "radio",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_footer_layout",
+                        "operator": "!=",
+                        "value": "minimal"
+                    }
+                ]
+            ],
+            "wrapper": { "width": "25", "class": "", "id": "" },
+            "choices": {
+                "sm": "Pequeño (2.5rem)",
+                "md": "Mediano (4rem)",
+                "lg": "Grande (5.5rem)"
+            },
+            "default_value": "md",
+            "layout": "vertical",
+            "return_format": "value"
+        },
+        {
+            "key": "field_footer_show_social",
+            "label": "Mostrar redes sociales",
+            "name": "footer_show_social",
+            "type": "true_false",
+            "instructions": "Muestra los iconos de redes sociales configurados en la pestaña «Redes». Visible en los layouts Columnas y Centrado.",
+            "required": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_footer_layout",
+                        "operator": "!=",
+                        "value": "minimal"
+                    }
+                ]
+            ],
+            "wrapper": { "width": "25", "class": "", "id": "" },
+            "default_value": 1,
+            "ui": 1,
+            "ui_on_text": "Sí",
+            "ui_off_text": "No"
+        },
+        {
+            "key": "field_footer_content_separator",
+            "label": "Contenido del footer",
+            "name": "",
+            "type": "message",
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_footer_layout",
+                        "operator": "!=",
+                        "value": "minimal"
+                    }
+                ]
+            ],
+            "wrapper": { "width": "100", "class": "", "id": "" },
+            "message": "Texto y botón que se muestran debajo del logotipo en el footer.",
+            "new_lines": "wpautop",
+            "esc_html": 0
         },
         {
             "key": "field_footer_text_below_logo",
             "label": "Texto debajo del logo",
-            "name": "footer_text_below_logo",
-            "aria-label": "",
-            "type": "wysiwyg",
-            "instructions": "Texto opcional que se mostrará debajo del logo en el footer, ideal para mensajes de marca.",
+            "name": "footer_tagline",
+            "type": "textarea",
+            "instructions": "Texto breve de marca. Opcional.",
             "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "33",
-                "class": "",
-                "id": ""
-            },
-            "default_value": "",
-            "tabs": "all",
-            "toolbar": "full",
-            "media_upload": 1,
-            "delay": 0
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_footer_layout",
+                        "operator": "!=",
+                        "value": "minimal"
+                    }
+                ]
+            ],
+            "wrapper": { "width": "50", "class": "", "id": "" },
+            "rows": 3,
+            "maxlength": 200,
+            "placeholder": "Ej: Tu refugio de lujo y discreción"
         },
         {
-            "key": "field_684adf1960e6d",
+            "key": "field_footer_cta",
             "label": "Botón CTA",
-            "name": "footer_cta_button",
-            "aria-label": "",
+            "name": "footer_cta",
             "type": "link",
-            "instructions": "Ubicado debajo del texto anterior (opcional).",
+            "instructions": "Opcional. Se muestra debajo del texto.",
             "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "33",
-                "class": "",
-                "id": ""
-            },
-            "return_format": "array",
-            "allow_in_bindings": 1
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_footer_layout",
+                        "operator": "!=",
+                        "value": "minimal"
+                    }
+                ]
+            ],
+            "wrapper": { "width": "50", "class": "", "id": "" },
+            "return_format": "array"
+        },
+        {
+            "key": "field_footer_columns_separator",
+            "label": "Títulos de columnas (solo layout «Columnas»)",
+            "name": "",
+            "type": "message",
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_footer_layout",
+                        "operator": "==",
+                        "value": "columns"
+                    }
+                ]
+            ],
+            "wrapper": { "width": "100", "class": "", "id": "" },
+            "message": "Encabezados que se muestran sobre cada columna de menú en el footer. Los enlaces se editan en el Editor de Plantillas.",
+            "new_lines": "wpautop",
+            "esc_html": 0
         },
         {
             "key": "field_footer_column1_title",
-            "label": "Título del Menú de la Primera Columna",
+            "label": "Título columna 1",
             "name": "footer_column1_title",
-            "aria-label": "",
             "type": "text",
-            "instructions": "",
             "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "33",
-                "class": "",
-                "id": ""
-            },
-            "default_value": "",
-            "maxlength": "",
-            "placeholder": "Ejemplo: Acceso rápido",
-            "prepend": "",
-            "append": ""
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_footer_layout",
+                        "operator": "==",
+                        "value": "columns"
+                    }
+                ]
+            ],
+            "wrapper": { "width": "33", "class": "", "id": "" },
+            "placeholder": "Ej: Acceso rápido"
         },
         {
             "key": "field_footer_column2_title",
-            "label": "Título del Menú de la Segunda Columna",
+            "label": "Título columna 2",
             "name": "footer_column2_title",
-            "aria-label": "",
             "type": "text",
-            "instructions": "",
             "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "33",
-                "class": "",
-                "id": ""
-            },
-            "default_value": "",
-            "maxlength": "",
-            "placeholder": "Ejemplo: Servicios",
-            "prepend": "",
-            "append": ""
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_footer_layout",
+                        "operator": "==",
+                        "value": "columns"
+                    }
+                ]
+            ],
+            "wrapper": { "width": "33", "class": "", "id": "" },
+            "placeholder": "Ej: Servicios"
         },
         {
             "key": "field_footer_contact_column_title",
-            "label": "Título de la Columna de Contacto",
+            "label": "Título columna contacto",
             "name": "footer_contact_column_title",
-            "aria-label": "",
             "type": "text",
-            "instructions": "",
             "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "33",
-                "class": "",
-                "id": ""
-            },
-            "default_value": "",
-            "maxlength": "",
-            "placeholder": "Ejemplo: Contáctanos o Contacto",
-            "prepend": "",
-            "append": ""
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_footer_layout",
+                        "operator": "==",
+                        "value": "columns"
+                    }
+                ]
+            ],
+            "wrapper": { "width": "33", "class": "", "id": "" },
+            "placeholder": "Ej: Contacto"
+        },
+        {
+            "key": "field_footer_extra_separator",
+            "label": "Otros",
+            "name": "",
+            "type": "message",
+            "wrapper": { "width": "100", "class": "", "id": "" },
+            "message": "",
+            "new_lines": "",
+            "esc_html": 0
         },
         {
             "key": "field_kit_digital",
             "label": "Proyecto de Kit Digital",
             "name": "kit_digital",
-            "aria-label": "",
             "type": "true_false",
-            "instructions": "",
+            "instructions": "Si se activa, se muestra un pequeño banner de Kit Digital debajo del footer.",
             "required": 0,
             "conditional_logic": 0,
-            "wrapper": {
-                "width": "25",
-                "class": "",
-                "id": ""
-            },
-            "message": "",
+            "wrapper": { "width": "25", "class": "", "id": "" },
             "default_value": 0,
-            "ui_on_text": "",
-            "ui_off_text": "",
-            "ui": 1
+            "ui": 1,
+            "ui_on_text": "Sí",
+            "ui_off_text": "No"
         },
         {
             "key": "field_special_pages_tab",
@@ -2007,6 +2422,143 @@
                     "append": ""
                 }
             ]
+        },
+        {
+            "key": "field_opt_cta_tab",
+            "label": "CTA Global",
+            "type": "tab",
+            "placement": "top",
+            "endpoint": 0
+        },
+        {
+            "key": "field_opt_cta_message",
+            "label": "",
+            "name": "",
+            "type": "message",
+            "message": "Contenido por defecto del bloque CTA. Los bloques que activen «Usar contenido global» heredarán estos campos.",
+            "wrapper": { "width": "100", "class": "", "id": "" }
+        },
+        {
+            "key": "field_opt_cta_kicker",
+            "label": "Kicker",
+            "name": "cta_kicker",
+            "type": "text",
+            "instructions": "Texto corto encima del título. Opcional.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": { "width": "100", "class": "", "id": "" },
+            "placeholder": "Ej: Empieza hoy",
+            "maxlength": 80
+        },
+        {
+            "key": "field_opt_cta_heading",
+            "label": "Título",
+            "name": "cta_heading",
+            "type": "text",
+            "instructions": "Título principal del CTA global.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": { "width": "100", "class": "", "id": "" },
+            "placeholder": "Ej: ¿Listo para dar el siguiente paso?"
+        },
+        {
+            "key": "field_opt_cta_subtitle",
+            "label": "Subtítulo",
+            "name": "cta_subtitle",
+            "type": "text",
+            "instructions": "Texto debajo del título. Opcional.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": { "width": "100", "class": "", "id": "" },
+            "placeholder": "Ej: Agenda tu primera consulta"
+        },
+        {
+            "key": "field_opt_cta_body",
+            "label": "Texto",
+            "name": "cta_body",
+            "type": "wysiwyg",
+            "instructions": "Texto de apoyo. Opcional.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": { "width": "100", "class": "", "id": "" },
+            "tabs": "all",
+            "toolbar": "basic",
+            "media_upload": 0,
+            "delay": 0
+        },
+        {
+            "key": "field_opt_cta_link_1",
+            "label": "Botón principal",
+            "name": "cta_link_1",
+            "type": "link",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": { "width": "50", "class": "", "id": "" },
+            "return_format": "array"
+        },
+        {
+            "key": "field_opt_cta_link_1_style",
+            "label": "Estilo botón principal",
+            "name": "cta_link_1_style",
+            "type": "radio",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": { "width": "50", "class": "", "id": "" },
+            "choices": {
+                "primary": "Primario (relleno)",
+                "secondary": "Secundario (outline primario)",
+                "ghost": "Ghost (outline neutro)",
+                "white": "Blanco (relleno blanco)"
+            },
+            "default_value": "primary",
+            "layout": "vertical",
+            "return_format": "value"
+        },
+        {
+            "key": "field_opt_cta_link_2",
+            "label": "Botón secundario",
+            "name": "cta_link_2",
+            "type": "link",
+            "instructions": "Opcional. Se muestra junto al botón principal.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": { "width": "50", "class": "", "id": "" },
+            "return_format": "array"
+        },
+        {
+            "key": "field_opt_cta_link_2_style",
+            "label": "Estilo botón secundario",
+            "name": "cta_link_2_style",
+            "type": "radio",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": { "width": "50", "class": "", "id": "" },
+            "choices": {
+                "primary": "Primario (relleno)",
+                "secondary": "Secundario (outline primario)",
+                "ghost": "Ghost (outline neutro)",
+                "white": "Blanco (relleno blanco)"
+            },
+            "default_value": "ghost",
+            "layout": "vertical",
+            "return_format": "value"
+        },
+        {
+            "key": "field_opt_cta_image",
+            "label": "Imagen de fondo por defecto",
+            "name": "cta_image",
+            "type": "image",
+            "instructions": "Imagen de fondo por defecto para la variante Banner. Si el bloque tiene una imagen propia, prevalece la del bloque.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": { "width": "100", "class": "", "id": "" },
+            "return_format": "id",
+            "preview_size": "medium",
+            "library": "all",
+            "mime_types": "jpg, jpeg, png, webp"
         }
     ],
     "location": [

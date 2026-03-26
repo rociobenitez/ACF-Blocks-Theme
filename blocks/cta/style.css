@@ -1,335 +1,545 @@
-/* CTA Block Styles */
+/* ==========================================================
+   CTA Block — style.css
+   Variantes: banner (default) · strip · split
+   Tokens: --wp--preset--color--* y --wp--preset--spacing--*
+   ========================================================== */
 
+/* Base */
 .cta {
-  --cta-padding: 3rem;
-  --cta-gap: 2.5rem;
-  --cta-bg: #f8f9fa;
-  --cta-overlay: rgba(0, 0, 0, 0.6);
-  --cta-text-color: #333;
-  --cta-radius: 16px;
-  --cta-shadow: 0 8px 32px rgba(0, 0, 0, 0.12);
-  
-  position: relative;
-  overflow: hidden;
-  border-radius: var(--cta-radius);
-  box-shadow: var(--cta-shadow);
+	position: relative;
+	overflow: hidden;
+	margin-block-start: 0 !important;
 }
 
-.cta__image img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  border-radius: var(--cta-radius);
+/* Padding */
+.cta--py-sm {
+	padding-block: 2rem;
+}
+.cta--py-md {
+	padding-block: 3rem;
+}
+.cta--py-lg {
+	padding-block: 4rem;
 }
 
-.cta__content {
-  padding: var(--cta-padding);
-  display: flex;
-  flex-direction: column;
-  gap: 1.5rem;
-  color: var(--cta-text-color);
+/* Background colors */
+.cta--bg-default {
+	background-color: var(--wp--preset--color--bg);
+}
+.cta--bg-light {
+	background-color: var(--wp--preset--color--bg-secondary);
+}
+.cta--bg-primary {
+	background-color: var(--wp--preset--color--primary);
+}
+.cta--bg-dark {
+	background-color: var(--wp--preset--color--primary-dark, #1a1a2e);
 }
 
-.cta__subheading {
-  font-size: 0.875rem;
-  font-weight: 600;
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
-  color: var(--primary-color, #007cba);
-  margin: 0;
-  opacity: 0.9;
+/* Kicker */
+.cta__kicker {
+	margin: 0;
+	font-size: 0.75rem;
+	font-weight: 600;
+	letter-spacing: 0.12em;
+	text-transform: uppercase;
+	color: var(--wp--preset--color--primary);
 }
 
+/* Heading */
 .cta__heading {
-  font-size: 2.5rem;
-  font-weight: 700;
-  line-height: 1.2;
-  margin: 0;
-  color: inherit;
+	margin: 0;
+	font-family: var(
+		--wp--preset--font-family--secondary,
+		var(--wp--preset--font-family--primary)
+	);
+	font-size: clamp(1.5rem, 3vw, 2rem);
+	font-weight: 400;
+	line-height: 1.2;
+	color: var(--wp--preset--color--text-heading);
+	text-wrap: balance;
 }
 
+/* Subtitle */
+.cta__subtitle {
+	margin: 0;
+	font-size: 1.125rem;
+	line-height: 1.6;
+	color: var(--wp--preset--color--text-muted);
+	text-wrap: balance;
+}
+
+/* Body */
 .cta__body {
-  font-size: 1.125rem;
-  line-height: 1.6;
-  opacity: 0.85;
-  margin: 0;
+	margin: 0;
+	font-size: 0.9375rem;
+	line-height: 1.7;
+	color: var(--wp--preset--color--text-body);
 }
 
 .cta__body p {
-  margin: 0 0 1rem 0;
+	margin: 0 0 0.75em;
 }
-
 .cta__body p:last-child {
-  margin-bottom: 0;
+	margin-bottom: 0;
 }
 
-.cta__button {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.5rem;
-  padding: 1rem 2rem;
-  font-weight: 600;
-  font-size: 1rem;
-  text-decoration: none;
-  border-radius: 10px;
-  transition: all 0.3s ease;
-  cursor: pointer;
-  border: 2px solid transparent;
-  text-align: center;
-  justify-content: center;
-  min-width: 160px;
-  margin-top: 0.5rem;
+/* Buttons group */
+.cta__buttons {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 0.75rem;
 }
 
-/* Button Styles */
-.btn--primary {
-  background-color: var(--primary-color, #007cba);
-  color: white;
+/* Button base */
+.cta__btn {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	gap: 0.5rem;
+	padding: 0.8125rem 1.75rem;
+	border-radius: var(--wp--custom--radius--2, 0.25rem);
+	font-weight: 500;
+	font-size: 0.875rem;
+	letter-spacing: 0.05em;
+	text-transform: uppercase;
+	text-decoration: none;
+	border: 2px solid transparent;
+	transition:
+		opacity 0.2s ease,
+		background-color 0.2s ease,
+		box-shadow 0.2s ease;
+	cursor: pointer;
+	white-space: nowrap;
 }
 
-.btn--primary:hover {
-  background-color: var(--primary-color-dark, #005a87);
-  transform: translateY(-2px);
-  box-shadow: 0 6px 20px rgba(0, 124, 186, 0.3);
-  color: white;
+.cta__btn:hover {
+	opacity: 0.88;
+	text-decoration: none;
 }
 
-.btn--secondary {
-  background-color: var(--secondary-color, #6c757d);
-  color: white;
+/* Button: primary (filled) */
+.cta__btn--primary {
+	background: var(--wp--preset--color--primary);
+	color: var(--wp--preset--color--white);
+	border-color: var(--wp--preset--color--primary);
 }
 
-.btn--secondary:hover {
-  background-color: var(--secondary-color-dark, #545b62);
-  transform: translateY(-2px);
-  box-shadow: 0 6px 20px rgba(108, 117, 125, 0.3);
-  color: white;
+.cta__btn--primary:hover {
+	background: var(--wp--preset--color--primary-dark);
+	border-color: var(--wp--preset--color--primary-dark);
+	box-shadow: var(--wp--preset--shadow--100);
 }
 
-.btn--outline {
-  background-color: transparent;
-  color: var(--primary-color, #007cba);
-  border-color: var(--primary-color, #007cba);
+/* Button: secondary (outline primary) */
+.cta__btn--secondary {
+	background: transparent;
+	color: var(--wp--preset--color--primary);
+	border-color: var(--wp--preset--color--primary);
 }
 
-.btn--outline:hover {
-  background-color: var(--primary-color, #007cba);
-  color: white;
-  transform: translateY(-2px);
-  box-shadow: 0 6px 20px rgba(0, 124, 186, 0.3);
+.cta__btn--secondary:hover {
+	background: var(--wp--preset--color--primary);
+	color: var(--wp--preset--color--white);
+	border-color: var(--wp--preset--color--primary);
+	box-shadow: var(--wp--preset--shadow--100);
 }
 
-.btn--default {
-  background-color: #e9ecef;
-  color: #495057;
+/* Button: ghost (outline neutral) */
+.cta__btn--ghost {
+	background: transparent;
+	color: var(--wp--preset--color--border);
+	border-color: var(--wp--preset--color--border);
 }
 
-.btn--default:hover {
-  background-color: #dee2e6;
-  transform: translateY(-2px);
-  box-shadow: 0 6px 20px rgba(73, 80, 87, 0.15);
-  color: #495057;
+.cta__btn--ghost:hover {
+	background: var(--wp--preset--color--border);
+	color: var(--wp--preset--color--text-heading);
+	border-color: var(--wp--preset--color--border);
+	box-shadow: var(--wp--preset--shadow--100);
 }
 
-/* Layout Variants */
-
-/* Background variant - Image as background with overlay */
-.cta--background {
-  min-height: 500px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: white;
-  --cta-text-color: white;
-  text-align: center;
+/* Button: white (filled white) */
+.cta__btn--white {
+	background: var(--wp--preset--color--white);
+	color: var(--wp--preset--color--primary-dark);
+	border-color: var(--wp--preset--color--white);
 }
 
-.cta--background .cta__image {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  z-index: 1;
+.cta__btn--white:hover {
+	background: var(--wp--preset--color--white);
+	color: var(--wp--preset--color--primary);
+	border-color: var(--wp--preset--color--white);
+	box-shadow: var(--wp--preset--shadow--100);
 }
 
-.cta--background .cta__image::after {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: var(--cta-overlay);
-  z-index: 1;
+/* ==========================================================
+   VARIANT: banner (default)
+   Background image with overlay + centered content
+   ========================================================== */
+.cta:not([class*="is-style"]),
+.cta.is-style-banner {
+	min-height: 20rem;
+	display: flex;
+	align-items: center;
+	justify-content: center;
 }
 
-.cta--background .cta__content {
-  position: relative;
-  z-index: 2;
-  max-width: 700px;
-  margin: 0 auto;
-  text-align: center;
+.cta:not([class*="is-style"]) .cta__bg,
+.cta.is-style-banner .cta__bg {
+	position: absolute;
+	inset: 0;
 }
 
-.cta--background .cta__subheading {
-  color: rgba(255, 255, 255, 0.9);
+.cta:not([class*="is-style"]) .cta__bg-img,
+.cta.is-style-banner .cta__bg-img {
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
 }
 
-.cta--background .btn--outline {
-  color: white;
-  border-color: white;
+.cta:not([class*="is-style"]) .cta__overlay,
+.cta.is-style-banner .cta__overlay {
+	position: absolute;
+	inset: 0;
+	background: var(--wp--preset--color--black);
 }
 
-.cta--background .btn--outline:hover {
-  background-color: white;
-  color: var(--primary-color, #007cba);
+.cta:not([class*="is-style"]) .cta__inner,
+.cta.is-style-banner .cta__inner {
+	position: relative;
+	z-index: 1;
+	width: 100%;
 }
 
-/* Text left variant - Image on the right */
-.cta--text-left {
-  background-color: var(--cta-bg);
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: var(--cta-gap);
-  align-items: center;
-  min-height: 450px;
+.cta:not([class*="is-style"]) .cta__content,
+.cta.is-style-banner .cta__content {
+	display: flex;
+	flex-direction: column;
+	gap: 1rem;
+	max-width: 42rem;
+	padding-block: 3rem;
 }
 
-.cta--text-left .cta__image {
-  order: 2;
-  height: 100%;
-  min-height: 400px;
+/* Banner: centered alignment (default) */
+.cta:not([class*="is-style"]).cta--align-center .cta__content,
+.cta.is-style-banner.cta--align-center .cta__content {
+	align-items: center;
+	text-align: center;
+	margin-inline: auto;
 }
 
-.cta--text-left .cta__content {
-  order: 1;
+.cta:not([class*="is-style"]).cta--align-center .cta__buttons,
+.cta.is-style-banner.cta--align-center .cta__buttons {
+	justify-content: center;
 }
 
-/* Text right variant - Image on the left */
-.cta--text-right {
-  background-color: var(--cta-bg);
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: var(--cta-gap);
-  align-items: center;
-  min-height: 450px;
+/* Banner: left alignment */
+.cta:not([class*="is-style"]).cta--align-left .cta__content,
+.cta.is-style-banner.cta--align-left .cta__content {
+	align-items: flex-start;
+	text-align: left;
 }
 
-.cta--text-right .cta__image {
-  order: 1;
-  height: 100%;
-  min-height: 400px;
+/* Banner with image: white text */
+.cta:not([class*="is-style"]) .cta__bg ~ .cta__inner .cta__kicker,
+.cta.is-style-banner .cta__bg ~ .cta__inner .cta__kicker {
+	color: rgba(255, 255, 255, 0.75);
 }
 
-.cta--text-right .cta__content {
-  order: 2;
+.cta:not([class*="is-style"]) .cta__bg ~ .cta__inner .cta__heading,
+.cta.is-style-banner .cta__bg ~ .cta__inner .cta__heading {
+	color: var(--wp--preset--color--white);
 }
 
-/* Enhanced visual effects for side layouts */
-.cta--text-left .cta__content,
-.cta--text-right .cta__content {
-  background: white;
-  border-radius: 12px;
-  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.08);
-  margin: 2rem 0;
+.cta:not([class*="is-style"]) .cta__bg ~ .cta__inner .cta__subtitle,
+.cta.is-style-banner .cta__bg ~ .cta__inner .cta__subtitle {
+	color: rgba(255, 255, 255, 0.8);
 }
 
-/* Responsive Design */
-@media (max-width: 968px) {
-  .cta__heading {
-    font-size: 2.25rem;
-  }
-  
-  .cta--text-left,
-  .cta--text-right {
-    gap: 2rem;
-  }
-  
-  .cta__content {
-    --cta-padding: 2.5rem;
-  }
+.cta:not([class*="is-style"]) .cta__bg ~ .cta__inner .cta__body,
+.cta:not([class*="is-style"]) .cta__bg ~ .cta__inner .cta__body p,
+.cta.is-style-banner .cta__bg ~ .cta__inner .cta__body,
+.cta.is-style-banner .cta__bg ~ .cta__inner .cta__body p {
+	color: rgba(255, 255, 255, 0.85);
 }
 
-@media (max-width: 768px) {
-  .cta--text-left,
-  .cta--text-right {
-    grid-template-columns: 1fr;
-    gap: 1.5rem;
-    min-height: auto;
-  }
-  
-  .cta--text-left .cta__image,
-  .cta--text-right .cta__image {
-    order: 1;
-    min-height: 250px;
-    max-height: 300px;
-  }
-  
-  .cta--text-left .cta__content,
-  .cta--text-right .cta__content {
-    order: 2;
-    margin: 0;
-  }
-  
-  .cta__heading {
-    font-size: 2rem;
-  }
-  
-  .cta__content {
-    --cta-padding: 2rem;
-  }
-  
-  .cta--background {
-    min-height: 400px;
-  }
+/* Banner dark bg (no image): white text */
+.cta:not([class*="is-style"]).cta--bg-dark .cta__kicker,
+.cta:not([class*="is-style"]).cta--bg-primary .cta__kicker,
+.cta.is-style-banner.cta--bg-dark .cta__kicker,
+.cta.is-style-banner.cta--bg-primary .cta__kicker {
+	color: rgba(255, 255, 255, 0.75);
 }
 
-@media (max-width: 480px) {
-  .cta__heading {
-    font-size: 1.75rem;
-  }
-  
-  .cta__content {
-    --cta-padding: 1.5rem;
-    gap: 1.25rem;
-  }
-  
-  .cta__button {
-    padding: 0.875rem 1.5rem;
-    font-size: 0.95rem;
-  }
-  
-  .cta--background {
-    min-height: 350px;
-  }
-  
-  .cta--text-left .cta__image,
-  .cta--text-right .cta__image {
-    min-height: 200px;
-  }
+.cta:not([class*="is-style"]).cta--bg-dark .cta__heading,
+.cta:not([class*="is-style"]).cta--bg-primary .cta__heading,
+.cta.is-style-banner.cta--bg-dark .cta__heading,
+.cta.is-style-banner.cta--bg-primary .cta__heading {
+	color: var(--wp--preset--color--white);
 }
 
-/* Focus states for accessibility */
-.cta__button:focus {
-  outline: 3px solid rgba(0, 124, 186, 0.3);
-  outline-offset: 2px;
+.cta:not([class*="is-style"]).cta--bg-dark .cta__subtitle,
+.cta:not([class*="is-style"]).cta--bg-primary .cta__subtitle,
+.cta.is-style-banner.cta--bg-dark .cta__subtitle,
+.cta.is-style-banner.cta--bg-primary .cta__subtitle {
+	color: rgba(255, 255, 255, 0.8);
 }
 
-/* Animation for better UX */
-@media (prefers-reduced-motion: no-preference) {
-  .cta {
-    animation: fadeInUp 0.6s ease-out;
-  }
-  
-  @keyframes fadeInUp {
-    from {
-      opacity: 0;
-      transform: translateY(30px);
-    }
-    to {
-      opacity: 1;
-      transform: translateY(0);
-    }
-  }
+.cta:not([class*="is-style"]).cta--bg-dark .cta__body,
+.cta:not([class*="is-style"]).cta--bg-primary .cta__body,
+.cta.is-style-banner.cta--bg-dark .cta__body,
+.cta.is-style-banner.cta--bg-primary .cta__body {
+	color: rgba(255, 255, 255, 0.85);
+}
+
+/* ==========================================================
+   VARIANT: strip
+   Solid color band, horizontal or centered, no image
+   ========================================================== */
+.cta.is-style-strip .cta__inner {
+	max-width: var(--wp--style--global--wide-size, 75rem);
+	margin-inline: auto;
+}
+
+.cta.is-style-strip .cta__content {
+	display: flex;
+	flex-direction: column;
+	gap: 1rem;
+}
+
+/* Strip: centered alignment */
+.cta.is-style-strip.cta--align-center .cta__content {
+	align-items: center;
+	text-align: center;
+	max-width: 42rem;
+	margin-inline: auto;
+}
+
+.cta.is-style-strip.cta--align-center .cta__buttons {
+	justify-content: center;
+}
+
+/* Strip: left alignment */
+.cta.is-style-strip.cta--align-left .cta__content {
+	align-items: flex-start;
+	text-align: left;
+}
+
+/* Strip with primary/dark bg: white text */
+.cta.is-style-strip.cta--bg-primary .cta__kicker,
+.cta.is-style-strip.cta--bg-dark .cta__kicker {
+	color: rgba(255, 255, 255, 0.75);
+}
+
+.cta.is-style-strip.cta--bg-primary .cta__heading,
+.cta.is-style-strip.cta--bg-dark .cta__heading {
+	color: var(--wp--preset--color--white);
+}
+
+.cta.is-style-strip.cta--bg-primary .cta__subtitle,
+.cta.is-style-strip.cta--bg-dark .cta__subtitle {
+	color: rgba(255, 255, 255, 0.8);
+}
+
+.cta.is-style-strip.cta--bg-primary .cta__body,
+.cta.is-style-strip.cta--bg-dark .cta__body {
+	color: rgba(255, 255, 255, 0.85);
+}
+
+.cta.is-style-strip.cta--bg-primary .cta__btn--primary,
+.cta.is-style-strip.cta--bg-dark .cta__btn--primary {
+	background: var(--wp--preset--color--white);
+	color: var(--wp--preset--color--primary-dark);
+	border-color: var(--wp--preset--color--white);
+}
+
+.cta.is-style-strip.cta--bg-primary .cta__btn--ghost,
+.cta.is-style-strip.cta--bg-dark .cta__btn--ghost {
+	color: var(--wp--preset--color--white);
+	border-color: rgba(255, 255, 255, 0.5);
+}
+
+.cta.is-style-strip.cta--bg-primary .cta__btn--secondary,
+.cta.is-style-strip.cta--bg-dark .cta__btn--secondary {
+	color: var(--wp--preset--color--white);
+	border-color: var(--wp--preset--color--white);
+}
+
+/* ==========================================================
+   VARIANT: split
+   Image on one side, content on the other
+   ========================================================== */
+.cta.is-style-split {
+	display: grid;
+	grid-template-columns: 1fr;
+}
+
+.cta.is-style-split .cta__media {
+	overflow: hidden;
+	min-height: 15rem;
+	max-height: 20rem;
+}
+
+.cta.is-style-split .cta__media-img {
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+	display: block;
+}
+
+.cta.is-style-split .cta__content {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	gap: 1rem;
+	padding: 2.5rem 1.5rem;
+}
+
+.cta.is-style-split .cta__heading {
+	font-size: clamp(1.375rem, 2.5vw, 2rem);
+}
+
+/* Split: bg-light on content side */
+.cta.is-style-split.cta--bg-light .cta__content {
+	background-color: var(--wp--preset--color--bg-secondary);
+}
+
+/* Split: bg-primary on content side */
+.cta.is-style-split.cta--bg-primary .cta__content {
+	background-color: var(--wp--preset--color--primary);
+}
+
+.cta.is-style-split.cta--bg-primary .cta__kicker {
+	color: rgba(255, 255, 255, 0.75);
+}
+.cta.is-style-split.cta--bg-primary .cta__heading {
+	color: var(--wp--preset--color--white);
+}
+.cta.is-style-split.cta--bg-primary .cta__subtitle {
+	color: rgba(255, 255, 255, 0.8);
+}
+.cta.is-style-split.cta--bg-primary .cta__body {
+	color: rgba(255, 255, 255, 0.85);
+}
+
+/* Split: bg-dark on content side */
+.cta.is-style-split.cta--bg-dark .cta__content {
+	background-color: var(--wp--preset--color--primary-dark, #1a1a2e);
+}
+
+.cta.is-style-split.cta--bg-dark .cta__kicker {
+	color: rgba(255, 255, 255, 0.75);
+}
+.cta.is-style-split.cta--bg-dark .cta__heading {
+	color: var(--wp--preset--color--white);
+}
+.cta.is-style-split.cta--bg-dark .cta__subtitle {
+	color: rgba(255, 255, 255, 0.8);
+}
+.cta.is-style-split.cta--bg-dark .cta__body {
+	color: rgba(255, 255, 255, 0.85);
+}
+
+/* Split: image left */
+.cta.is-style-split.cta--image-left .cta__media {
+	order: -1;
+}
+
+/* ==========================================================
+   Responsive
+   ========================================================== */
+
+/* Tablet (48rem / 768px) */
+@media (min-width: 48rem) {
+	.cta--py-sm {
+		padding-block: 1rem;
+	}
+	.cta--py-md {
+		padding-block: 3rem;
+	}
+	.cta--py-lg {
+		padding-block: 5rem;
+	}
+
+	/* Split: 2 columns */
+	.cta.is-style-split {
+		grid-template-columns: 1fr 1fr;
+		min-height: 24rem;
+	}
+
+	.cta.is-style-split .cta__media {
+		min-height: auto;
+		max-height: none;
+	}
+
+	.cta.is-style-split .cta__content {
+		padding: 3rem 2.5rem;
+	}
+}
+
+/* Desktop (64rem / 1024px) */
+@media (min-width: 64rem) {
+	.cta:not([class*="is-style"]) .cta__content,
+	.cta.is-style-banner .cta__content {
+		padding-block: 5rem;
+	}
+
+	.cta.is-style-split .cta__content {
+		padding: 4rem 3.5rem;
+	}
+}
+
+/* ==========================================================
+   PARALLAX — fixed background effect (banner only)
+   Uses background-image + background-attachment: fixed.
+   Pure CSS, no JS. Disabled on mobile (iOS ignores
+   background-attachment: fixed and causes repaint issues).
+   ========================================================== */
+.cta__bg--parallax {
+	background-size: cover;
+	background-position: center;
+	background-repeat: no-repeat;
+	background-attachment: scroll;
+}
+
+@media (min-width: 48rem) {
+	.cta__bg--parallax {
+		background-attachment: fixed;
+	}
+}
+
+/* ==========================================================
+   VIDEO — background video (banner only)
+   ========================================================== */
+.cta__bg-video {
+	position: absolute;
+	inset: 0;
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+}
+
+/* Poster image sits on top until video plays */
+.cta__bg-img--poster {
+	position: absolute;
+	inset: 0;
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+	z-index: 1;
+	transition: opacity 0.6s ease;
+}
+
+/* Once video is playing, hide the poster */
+.cta--video-playing .cta__bg-img--poster {
+	opacity: 0;
+	pointer-events: none;
+}
+
+/* On mobile, hide video and show poster only */
+@media (max-width: 47.999rem) {
+	.cta__bg-video {
+		display: none;
+	}
 }

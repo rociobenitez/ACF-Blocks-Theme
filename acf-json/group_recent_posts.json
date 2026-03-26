@@ -1,181 +1,325 @@
 {
-  "key": "group_recent_posts",
-  "title": "Últimos Posts",
-  "fields": [
-    {
-      "key": "field_posts_tagline",
-      "label": "Tagline",
-      "name": "tagline",
-      "aria-label": "",
-      "type": "text",
-      "instructions": "Texto breve que aparece encima del título (opcional).",
-      "required": 0,
-      "conditional_logic": 0,
-      "wrapper": {
-        "width": "100",
-        "class": "",
-        "id": ""
-      },
-      "default_value": "",
-      "maxlength": "",
-      "placeholder": "Ej: Nuestro Blog",
-      "prepend": "",
-      "append": ""
-    },
-    {
-      "key": "field_posts_title",
-      "label": "Título",
-      "name": "title",
-      "aria-label": "",
-      "type": "text",
-      "instructions": "Título principal de la sección.",
-      "required": 1,
-      "conditional_logic": 0,
-      "wrapper": {
-        "width": "100",
-        "class": "",
-        "id": ""
-      },
-      "default_value": "",
-      "maxlength": "",
-      "placeholder": "Ej: Últimos Posts",
-      "prepend": "",
-      "append": ""
-    },
-    {
-      "key": "field_posts_tag_title",
-      "label": "Etiqueta del título",
-      "name": "tag_title",
-      "aria-label": "",
-      "type": "select",
-      "instructions": "Selecciona la etiqueta HTML para el título.",
-      "required": 0,
-      "conditional_logic": 0,
-      "wrapper": {
-        "width": "100",
-        "class": "",
-        "id": ""
-      },
-      "choices": {
-        "h2": "H2",
-        "h3": "H3",
-        "p": "P"
-      },
-      "default_value": "h2",
-      "return_format": "value",
-      "multiple": 0,
-      "allow_null": 0,
-      "ui": 1,
-      "ajax": 0,
-      "placeholder": ""
-    },
-    {
-      "key": "field_posts_description",
-      "label": "Descripción",
-      "name": "description",
-      "aria-label": "",
-      "type": "textarea",
-      "instructions": "Descripción breve que aparece debajo del título (opcional).",
-      "required": 0,
-      "conditional_logic": 0,
-      "wrapper": {
-        "width": "100",
-        "class": "",
-        "id": ""
-      },
-      "default_value": "",
-      "maxlength": "",
-      "placeholder": "Ej: Mantente al día con las últimas noticias y artículos.",
-      "rows": 3,
-      "new_lines": "",
-      "prepend": "",
-      "append": ""
-    },
-    {
-      "key": "field_posts_count",
-      "label": "Número de posts",
-      "name": "posts_count",
-      "aria-label": "",
-      "type": "select",
-      "instructions": "Selecciona cuántos posts recientes mostrar",
-      "required": 0,
-      "conditional_logic": 0,
-      "wrapper": {
-        "width": "",
-        "class": "",
-        "id": ""
-      },
-      "choices": {
-        "3": "3 posts",
-        "4": "4 posts"
-      },
-      "default_value": "3",
-      "return_format": "value",
-      "multiple": 0,
-      "allow_null": 0,
-      "ui": 1,
-      "ajax": 0,
-      "placeholder": ""
-    },
-    {
-      "key": "field_posts_tag_title",
-      "label": "Etiqueta del título de la tarjeta",
-      "name": "tag_title_card",
-      "aria-label": "",
-      "type": "select",
-      "instructions": "Selecciona la etiqueta HTML para el título de cada post.",
-      "required": 0,
-      "conditional_logic": 0,
-      "wrapper": {
-        "width": "100",
-        "class": "",
-        "id": ""
-      },
-      "choices": {
-        "h2": "H2",
-        "h3": "H3",
-        "p": "P"
-      },
-      "default_value": "h3",
-      "return_format": "value",
-      "multiple": 0,
-      "allow_null": 0,
-      "ui": 1,
-      "ajax": 0,
-      "placeholder": ""
-    },
-    {
-      "key": "field_posts_button",
-      "label": "Botón",
-      "name": "button",
-      "aria-label": "",
-      "type": "link",
-      "instructions": "Botón para ver más posts (opcional).",
-      "required": 0,
-      "conditional_logic": 0,
-      "wrapper": {
-        "width": "",
-        "class": "",
-        "id": ""
-      },
-      "return_format": "array"  
-    }
-  ],
-  "location": [
-    [
-      {
-        "param": "block",
-        "operator": "==",
-        "value": "acf/recent-posts"
-      }
-    ]
-  ],
-  "menu_order": 0,
-  "position": "normal",
-  "style": "default",
-  "label_placement": "top",
-  "instruction_placement": "label",
-  "hide_on_screen": "",
-  "active": true,
-  "description": "Configuración para el bloque de posts recientes"
+    "key": "group_recent_posts",
+    "title": "Últimos Posts",
+    "fields": [
+        {
+            "key": "field_rp_tab_header",
+            "label": "Encabezado",
+            "type": "tab",
+            "placement": "top",
+            "endpoint": 0
+        },
+        {
+            "key": "field_rp_tagline",
+            "label": "Tagline",
+            "name": "tagline",
+            "type": "text",
+            "instructions": "Texto corto junto al título. Opcional.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": { "width": "100", "class": "", "id": "" },
+            "placeholder": "Ej: Últimas publicaciones",
+            "maxlength": 80
+        },
+        {
+            "key": "field_rp_tagline_position",
+            "label": "Posición del tagline",
+            "name": "tagline_position",
+            "type": "radio",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": { "width": "100", "class": "", "id": "" },
+            "choices": {
+                "above": "Encima del título",
+                "below": "Debajo del título"
+            },
+            "default_value": "below",
+            "layout": "horizontal",
+            "return_format": "value"
+        },
+        {
+            "key": "field_rp_tagline_tag",
+            "label": "Etiqueta del tagline",
+            "name": "tagline_tag",
+            "type": "radio",
+            "instructions": "Etiqueta HTML del tagline.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": { "width": "100", "class": "", "id": "" },
+            "choices": {
+                "p": "P",
+                "h2": "H2",
+                "h3": "H3"
+            },
+            "default_value": "p",
+            "layout": "horizontal",
+            "return_format": "value"
+        },
+        {
+            "key": "field_rp_title",
+            "label": "Título",
+            "name": "title",
+            "type": "text",
+            "instructions": "Título principal de la sección.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": { "width": "100", "class": "", "id": "" },
+            "placeholder": "Ej: Tendencias y consejos"
+        },
+        {
+            "key": "field_rp_title_tag",
+            "label": "Etiqueta del título",
+            "name": "title_tag",
+            "type": "radio",
+            "instructions": "Etiqueta HTML del título. Afecta al SEO, no al estilo visual.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": { "width": "100", "class": "", "id": "" },
+            "choices": {
+                "h1": "H1",
+                "h2": "H2",
+                "h3": "H3",
+                "p": "P"
+            },
+            "default_value": "h2",
+            "layout": "horizontal",
+            "return_format": "value"
+        },
+        {
+            "key": "field_rp_description",
+            "label": "Descripción",
+            "name": "description",
+            "type": "wysiwyg",
+            "instructions": "Texto de apoyo. Opcional.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": { "width": "100", "class": "", "id": "" },
+            "tabs": "all",
+            "toolbar": "basic",
+            "media_upload": 0,
+            "delay": 0
+        },
+        {
+            "key": "field_rp_header_align",
+            "label": "Alineación del encabezado",
+            "name": "header_align",
+            "type": "radio",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": { "width": "100", "class": "", "id": "" },
+            "choices": {
+                "center": "Centrado",
+                "left": "Izquierda"
+            },
+            "default_value": "center",
+            "layout": "horizontal",
+            "return_format": "value"
+        },
+        {
+            "key": "field_rp_header_width",
+            "label": "Ancho del encabezado",
+            "name": "header_width",
+            "type": "radio",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": { "width": "100", "class": "", "id": "" },
+            "choices": {
+                "narrow": "Contenido (66%)",
+                "full": "Completo (100%)"
+            },
+            "default_value": "narrow",
+            "layout": "horizontal",
+            "return_format": "value"
+        },
+        {
+            "key": "field_rp_tab_posts",
+            "label": "Posts",
+            "type": "tab",
+            "placement": "top",
+            "endpoint": 0
+        },
+        {
+            "key": "field_rp_posts_count",
+            "label": "Número de posts",
+            "name": "posts_count",
+            "type": "radio",
+            "instructions": "Cuántos posts recientes mostrar.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": { "width": "50", "class": "", "id": "" },
+            "choices": {
+                "3": "3",
+                "4": "4"
+            },
+            "default_value": "3",
+            "layout": "horizontal",
+            "return_format": "value"
+        },
+        {
+            "key": "field_rp_card_title_tag",
+            "label": "Etiqueta del título del post",
+            "name": "card_title_tag",
+            "type": "radio",
+            "instructions": "Etiqueta HTML del título de cada post.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": { "width": "50", "class": "", "id": "" },
+            "choices": {
+                "h3": "H3",
+                "h4": "H4",
+                "p": "P"
+            },
+            "default_value": "h3",
+            "layout": "horizontal",
+            "return_format": "value"
+        },
+        {
+            "key": "field_rp_cta",
+            "label": "Botón inferior",
+            "name": "cta",
+            "type": "link",
+            "instructions": "Botón para ver más posts. Opcional.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": { "width": "50", "class": "", "id": "" },
+            "return_format": "array"
+        },
+        {
+            "key": "field_rp_cta_style",
+            "label": "Estilo del botón",
+            "name": "cta_style",
+            "type": "radio",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": { "width": "50", "class": "", "id": "" },
+            "choices": {
+                "link": "Enlace con subrayado",
+                "primary": "Primario",
+                "secondary": "Secundario",
+                "outline": "Outline"
+            },
+            "default_value": "link",
+            "layout": "horizontal",
+            "return_format": "value"
+        },
+        {
+            "key": "field_rp_tab_design",
+            "label": "Diseño",
+            "type": "tab",
+            "placement": "top",
+            "endpoint": 0
+        },
+        {
+            "key": "field_rp_aspect_ratio",
+            "label": "Proporción de imagen",
+            "name": "aspect_ratio",
+            "type": "radio",
+            "instructions": "Controla la forma de la imagen en cada tarjeta. Cards usa 16:9 por defecto; Minimal y Overlay usan 3:4.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": { "width": "50", "class": "", "id": "" },
+            "choices": {
+                "auto": "Por defecto del estilo",
+                "1/1": "Cuadrada (1:1)",
+                "4/3": "Horizontal (4:3)",
+                "3/4": "Vertical (3:4)",
+                "16/9": "Panorámica (16:9)"
+            },
+            "default_value": "auto",
+            "layout": "vertical",
+            "return_format": "value"
+        },
+        {
+            "key": "field_rp_border_radius",
+            "label": "Bordes redondeados",
+            "name": "border_radius",
+            "type": "radio",
+            "instructions": "Radio de los bordes de cada tarjeta.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": { "width": "50", "class": "", "id": "" },
+            "choices": {
+                "none": "Sin redondeo",
+                "sm": "Suave (0.25rem)",
+                "md": "Normal (0.5rem)",
+                "lg": "Grande (1rem)",
+                "xl": "Muy grande (1.5rem)"
+            },
+            "default_value": "md",
+            "layout": "vertical",
+            "return_format": "value"
+        },
+        {
+            "key": "field_rp_shadow",
+            "label": "Sombra",
+            "name": "shadow",
+            "type": "true_false",
+            "instructions": "Añade una sombra sutil a cada tarjeta.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": { "width": "50", "class": "", "id": "" },
+            "default_value": 1,
+            "ui": 1,
+            "ui_on_text": "Sí",
+            "ui_off_text": "No"
+        },
+        {
+            "key": "field_rp_bg_color",
+            "label": "Color de fondo",
+            "name": "bg_color",
+            "type": "radio",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": { "width": "50", "class": "", "id": "" },
+            "choices": {
+                "default": "Blanco",
+                "light": "Claro (beige)"
+            },
+            "default_value": "light",
+            "layout": "horizontal",
+            "return_format": "value"
+        },
+        {
+            "key": "field_rp_padding_y",
+            "label": "Altura",
+            "name": "padding_y",
+            "type": "radio",
+            "instructions": "Espacio vertical de la sección.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": { "width": "50", "class": "", "id": "" },
+            "choices": {
+                "sm": "Compacto",
+                "md": "Normal",
+                "lg": "Grande"
+            },
+            "default_value": "md",
+            "layout": "horizontal",
+            "return_format": "value"
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "block",
+                "operator": "==",
+                "value": "acf/recent-posts"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": true,
+    "description": "Campos del bloque Últimos Posts",
+    "show_in_rest": 0,
+    "modified": 1742900000
 }

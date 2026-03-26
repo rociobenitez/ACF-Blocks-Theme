@@ -1,0 +1,166 @@
+/* Content Cards — Editor styles
+   Duplicates key rules from main.css for the editor iframe. */
+
+/* Placeholder */
+.content-cards__card--placeholder {
+	border: 2px dashed var(--wp--preset--color--border);
+	background: var(--wp--preset--color--bg-secondary);
+}
+
+/* Prevent link clicks in editor preview */
+.wp-block-acf-content-cards .content-cards__card--linked {
+	pointer-events: none;
+}
+
+/* Force full-width in editor iframe */
+.wp-block-acf-content-cards {
+	max-width: 100% !important;
+	width: 100%;
+}
+
+/* =================================================================
+   Header Section
+   ================================================================= */
+
+.wp-block-acf-content-cards .header-section {
+	margin-bottom: 2rem;
+}
+
+.wp-block-acf-content-cards .header-section--align-center {
+	text-align: center;
+}
+
+.wp-block-acf-content-cards .header-section--align-left {
+	text-align: left;
+}
+
+.wp-block-acf-content-cards .header-section--width-narrow {
+	max-width: 66.666%;
+}
+
+.wp-block-acf-content-cards .header-section--align-center.header-section--width-narrow {
+	margin-inline: auto;
+}
+
+.wp-block-acf-content-cards .header-section--width-full {
+	max-width: 100%;
+}
+
+/* Tagline (above title) */
+.wp-block-acf-content-cards .header-section__tagline {
+	font-size: 0.875rem;
+	font-weight: 600;
+	text-transform: uppercase;
+	letter-spacing: 0.1em;
+	color: var(--wp--preset--color--primary);
+	margin: 0 0 0.5rem;
+}
+
+/* Tagline below title: subtitle style */
+.wp-block-acf-content-cards .header-section__title + .header-section__tagline {
+	font-size: 1rem;
+	font-weight: 400;
+	text-transform: none;
+	letter-spacing: normal;
+	color: var(--wp--preset--color--text-muted);
+	margin: -0.5rem 0 1rem;
+}
+
+/* Title */
+.wp-block-acf-content-cards .header-section__title {
+	font-family: var(--wp--preset--font-family--primary);
+	font-size: 1.5rem;
+	font-weight: 500;
+	line-height: 1.2;
+	letter-spacing: 0.03rem;
+	text-transform: uppercase;
+	text-wrap: balance;
+	color: var(--wp--preset--color--text-heading);
+	margin: 0 0 1rem;
+}
+
+/* Description */
+.wp-block-acf-content-cards .header-section__description {
+	font-size: 1rem;
+	line-height: 1.6;
+	color: var(--wp--preset--color--text-body);
+	margin: 0;
+}
+
+.wp-block-acf-content-cards .header-section--align-center .header-section__description {
+	max-width: 90%;
+	margin-inline: auto;
+}
+
+/* =================================================================
+   Buttons
+   ================================================================= */
+
+.wp-block-acf-content-cards .btn {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	padding: 0.75rem 1.5rem;
+	font-weight: 500;
+	font-size: 1rem;
+	line-height: 1.5;
+	text-decoration: none;
+	border: 2px solid transparent;
+	border-radius: var(--wp--custom--radius--2);
+	cursor: default;
+	white-space: nowrap;
+	pointer-events: none;
+}
+
+.wp-block-acf-content-cards .btn--sm {
+	padding: 0.5rem 1rem;
+	font-size: 0.875rem;
+}
+
+.wp-block-acf-content-cards .btn--md {
+	padding: 0.75rem 1.5rem;
+	font-size: 1rem;
+}
+
+.wp-block-acf-content-cards .btn--lg {
+	padding: 1rem 2rem;
+	font-size: 1.125rem;
+}
+
+.wp-block-acf-content-cards .btn--primary {
+	background-color: var(--wp--preset--color--primary);
+	color: var(--wp--preset--color--white);
+	border-color: var(--wp--preset--color--primary);
+}
+
+.wp-block-acf-content-cards .btn--secondary {
+	background-color: var(--wp--preset--color--accent);
+	color: var(--wp--preset--color--white);
+	border-color: var(--wp--preset--color--accent);
+}
+
+.wp-block-acf-content-cards .btn--outline {
+	background-color: transparent;
+	color: var(--wp--preset--color--text);
+	border-color: var(--wp--preset--color--text);
+}
+
+/* =================================================================
+   Grid images & alternated
+   ================================================================= */
+
+.wp-block-acf-content-cards .content-cards__card-img {
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+}
+
+.wp-block-acf-content-cards .is-style-alternated .content-cards__card-media {
+	position: relative;
+	min-height: 18rem;
+}
+
+.wp-block-acf-content-cards .is-style-alternated .content-cards__card-img {
+	position: absolute;
+	inset: 0;
+}

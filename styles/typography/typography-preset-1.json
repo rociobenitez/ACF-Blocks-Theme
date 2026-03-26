@@ -1,7 +1,7 @@
 {
 	"version": 3,
 	"$schema": "https://schemas.wp.org/wp/6.7/theme.json",
-	"title": "Beiruti & Literata",
+	"title": "Serif & Display",
 	"slug": "typography-preset-1",
 	"settings": {
 		"typography": {
@@ -155,50 +155,6 @@
 							"fontFamily": "Literata"
 						}
 					]
-				}
-			],
-			"fontSizes": [
-				{
-					"fluid": false,
-					"name": "Small",
-					"size": "0.9rem",
-					"slug": "small"
-				},
-				{
-					"fluid": {
-						"max": "1.2rem",
-						"min": "1rem"
-					},
-					"name": "Medium",
-					"size": "1rem",
-					"slug": "medium"
-				},
-				{
-					"fluid": {
-						"max": "1.8rem",
-						"min": "1.6rem"
-					},
-					"name": "Large",
-					"size": "1.6rem",
-					"slug": "large"
-				},
-				{
-					"fluid": {
-						"max": "2.2rem",
-						"min": "1.8em"
-					},
-					"name": "Extra Large",
-					"size": "1.8rem",
-					"slug": "x-large"
-				},
-				{
-					"fluid": {
-						"max": "2.8rem",
-						"min": "2rem"
-					},
-					"name": "Extra Extra Large",
-					"size": "2rem",
-					"slug": "xx-large"
 				}
 			]
 		}

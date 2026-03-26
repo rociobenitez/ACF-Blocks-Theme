@@ -1,0 +1,21 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "acf/contact-map",
+  "version": "1.0.0",
+  "title": "Mapa de Contacto",
+  "category": "theme",
+  "icon": "location-alt",
+  "description": "Iframe de Google Maps. Prioridad: campo de la página → Opciones globales.",
+  "acf": {
+    "mode": "preview",
+    "renderTemplate": "render.php",
+    "validate": false,
+    "blockVersion": 3
+  },
+  "supports": {
+    "anchor": true,
+    "align": ["wide", "full"],
+    "spacing": { "margin": true, "padding": false }
+  }
+}

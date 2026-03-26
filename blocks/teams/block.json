@@ -2,20 +2,25 @@
   "$schema": "https://schemas.wp.org/trunk/block.json",
   "apiVersion": 3,
   "name": "acf/teams",
-  "version": "0.1.0",
+  "version": "1.0.0",
   "title": "Equipo",
   "category": "theme",
-  "icon": "grid-view",
-  "description": "Muestra una colección de miembros del equipo con encabezado centrado y diseño en cuadrícula o carrusel.",
-  "keywords": ["equipo", "cards", "grid"],
+  "icon": "groups",
+  "description": "Muestra miembros del equipo en distintos estilos: cards, circular o minimalista.",
+  "keywords": ["equipo", "team", "cards", "grid"],
   "supports": {
-    "align": ["wide", "full"],
+    "align": ["full"],
     "anchor": true,
     "className": true,
     "spacing": { "margin": false, "padding": false },
     "color": { "background": false, "text": false, "gradients": false },
-    "typography": { "fontSize": false, "lineHeight": false },
-    "shadow": false
+    "typography": { "fontSize": false, "lineHeight": false }
+  },
+  "attributes": {
+    "align": {
+      "type": "string",
+      "default": "full"
+    }
   },
   "acf": {
     "mode": "preview",
@@ -24,20 +29,10 @@
     "blockVersion": 3
   },
   "styles": [
-    { "name": "default", "label": "Por defecto", "isDefault": true },
-    { "name": "cards", "label": "Cards con sombra" },
+    { "name": "cards", "label": "Cards", "isDefault": true },
+    { "name": "round", "label": "Circular" },
     { "name": "minimal", "label": "Minimalista" }
   ],
-  "example": {
-    "attributes": {
-      "tagline": "Nuestro Equipo",
-      "title": "Nuestro Equipo",
-      "description": "Conoce a los profesionales que hacen posible nuestro éxito.",
-      "show_carousel_controls": true,
-      "items_per_row": 3
-    }
-  },
-  "script": "file:./script.js",
-  "editorStyle": "file:./editor-style.css",
-  "style": "file:./style.css"
+  "style": "file:./style.css",
+  "editorStyle": "file:./editor.css"
 }

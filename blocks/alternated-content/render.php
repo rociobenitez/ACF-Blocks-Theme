@@ -11,7 +11,9 @@ defined( 'ABSPATH' ) || exit;
 // Content
 $tagline          = get_field( 'tagline' ) ?: '';
 $tagline_position = get_field( 'tagline_position' ) ?: 'above';
+$tagline_tag      = get_field( 'tagline_tag' ) ?: 'p';
 $title            = get_field( 'title' ) ?: '';
+$title_tag        = get_field( 'title_tag' ) ?: 'h2';
 $content          = get_field( 'content' ) ?: '';
 
 // CTA
@@ -31,6 +33,7 @@ $image_fit      = get_field( 'image_fit' ) ?: 'cover';
 $bg_color       = get_field( 'bg_color' ) ?: 'default';
 $padding_y      = get_field( 'padding_y' ) ?: 'md';
 $vertical_align = get_field( 'vertical_align' ) ?: 'center';
+$content_margin = get_field( 'content_margin' ) ?: 'none';
 
 // Text color logic
 $is_dark_bg = $bg_color === 'dark';
@@ -44,6 +47,9 @@ $classes[] = 'alternated-content--img-' . sanitize_html_class( $image_position )
 $classes[] = 'alternated-content--imgw-' . sanitize_html_class( $image_width );
 $classes[] = 'alternated-content--layout-' . sanitize_html_class( $image_layout );
 $classes[] = 'alternated-content--fit-' . sanitize_html_class( $image_fit );
+if ( $content_margin !== 'none' ) {
+	$classes[] = 'alternated-content--cmargin-' . sanitize_html_class( $content_margin );
+}
 
 if ( $is_dark_bg ) {
 	$classes[] = 'alternated-content--text-light';
@@ -98,17 +104,27 @@ $sizes_map = [
 $img_sizes = $sizes_map[ $image_width ] ?? $sizes_map['medium'];
 
 // --- Render content (reused in both layouts) ---
-$render_content = static function () use ( $tagline, $tagline_position, $title, $content, $btn_1, $btn_2, $btn_1_style, $btn_2_style, $render_btn ) {
+// Validate allowed tags
+$allowed_title   = [ 'h1', 'h2', 'h3', 'p' ];
+$allowed_tagline = [ 'h2', 'h3', 'p' ];
+if ( ! in_array( $title_tag, $allowed_title, true ) ) {
+	$title_tag = 'h2';
+}
+if ( ! in_array( $tagline_tag, $allowed_tagline, true ) ) {
+	$tagline_tag = 'p';
+}
+
+$render_content = static function () use ( $tagline, $tagline_position, $tagline_tag, $title, $title_tag, $content, $btn_1, $btn_2, $btn_1_style, $btn_2_style, $render_btn ) {
 	if ( $tagline && $tagline_position === 'above' ) : ?>
-		<p class="alternated-content__tagline"><?php echo esc_html( $tagline ); ?></p>
+		<<?php echo $tagline_tag; ?> class="alternated-content__tagline"><?php echo esc_html( $tagline ); ?></<?php echo $tagline_tag; ?>>
 	<?php endif;
 
 	if ( $title ) : ?>
-		<h2 class="alternated-content__title"><?php echo esc_html( $title ); ?></h2>
+		<<?php echo $title_tag; ?> class="alternated-content__title"><?php echo esc_html( $title ); ?></<?php echo $title_tag; ?>>
 	<?php endif;
 
 	if ( $tagline && $tagline_position === 'below' ) : ?>
-		<p class="alternated-content__tagline"><?php echo esc_html( $tagline ); ?></p>
+		<<?php echo $tagline_tag; ?> class="alternated-content__tagline"><?php echo esc_html( $tagline ); ?></<?php echo $tagline_tag; ?>>
 	<?php endif;
 
 	if ( $content ) : ?>

@@ -1,126 +1,529 @@
 {
-  "key": "group_cta",
-  "title": "CTA",
-  "fields": [
-    { 
-        "key": "field_cta_layout",
-        "label": "Layout",
-        "name": "layout_variant",
-        "type": "select",
-        "choices": {
-            "background": "Imagen de fondo",
-            "text-left": "Imagen derecha",
-            "text-right": "Imagen izquierda"
-        },
-        "default_value": "background",
-        "ui": 1
-    },
-    {
-        "key": "field_cta_image",
-        "label": "Imagen",
-        "name": "image",
-        "type": "image",
-        "return_format": "id",
-        "placeholder": "Selecciona una imagen",
-        "preview_size": "medium"
-    },
-    {
-        "key": "field_cta_heading",
-        "label": "Título",
-        "name": "heading",
-        "type": "text",
-        "default_value": "",
-        "placeholder": "Escribe un título llamativo"
-    },
-    {
-        "key": "field_cta_heading_tag",
-        "label": "Etiqueta del título",
-        "name": "heading_tag",
-        "type": "select",
-        "instructions": "Selecciona la etiqueta HTML para el título.",
-        "required": 0,
-        "conditional_logic": 0,
-        "wrapper": {
-            "width": "50",
-            "class": "",
-            "id": ""
-        },
-        "choices": {
-            "h1": "H1",
-            "h2": "H2",
-            "h3": "H3",
-            "p": "P"
-        },
-        "default_value": "h2",
-        "allow_null": 0,
-        "multiple": 0,
-        "ui": 0,
-        "ajax": 0,
-        "placeholder": ""
-
-    },
-    {
-        "key": "field_cta_subheading",
-        "label": "Subtítulo",
-        "name": "subheading",
-        "type": "text",
-        "default_value": "",
-        "placeholder": "Escribe un subtítulo llamativo"
-    },
-    {
-        "key": "field_cta_body",
-        "label": "Texto",
-        "name": "body",
-        "type": "wysiwyg",
-        "placeholder": "Escribe el texto del CTA"
-    },
-    {
-        "key": "field_cta_link",
-        "label": "Botón",
-        "name": "link",
-        "type": "link",
-        "placeholder": "Añade un enlace"
-    },
-    {
-        "key": "field_cta_link_style",
-        "label": "Estilo del botón",
-        "name": "link_style",
-        "type": "select",
-        "instructions": "Estilo visual del botón.",
-        "required": 0,
-        "conditional_logic": 0,
-        "wrapper": {
-            "width": "50",
-            "class": "",
-            "id": ""
-        },
-        "choices": {
-            "default": "Por defecto",
-            "primary": "Primario",
-            "secondary": "Secundario",
-            "outline": "Outline"
-        },
-        "default_value": "primary",
-        "return_format": "value",
-        "multiple": 0,
-        "allow_null": 0,
-        "ui": 0,
-        "ajax": 0,
-        "placeholder": ""
-    }
-  ],
-  "location": [
-    [
+    "key": "group_cta",
+    "title": "CTA",
+    "fields": [
         {
-            "param": "block",
-            "operator": "==",
-            "value": "acf/cta"
+            "key": "field_cta_use_global",
+            "label": "Usar contenido global",
+            "name": "use_global",
+            "type": "true_false",
+            "instructions": "Activa para heredar el contenido (textos y botones) desde Opciones > CTA Global. Los campos de diseño e imagen se configuran siempre desde el bloque.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": { "width": "100", "class": "", "id": "" },
+            "default_value": 0,
+            "ui": 1,
+            "ui_on_text": "Global",
+            "ui_off_text": "Propio"
+        },
+        {
+            "key": "field_cta_tab_content",
+            "label": "Contenido",
+            "type": "tab",
+            "placement": "top",
+            "endpoint": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_cta_use_global",
+                        "operator": "!=",
+                        "value": "1"
+                    }
+                ]
+            ]
+        },
+        {
+            "key": "field_cta_kicker",
+            "label": "Kicker",
+            "name": "kicker",
+            "type": "text",
+            "instructions": "Texto corto encima del título. Opcional.",
+            "required": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_cta_use_global",
+                        "operator": "!=",
+                        "value": "1"
+                    }
+                ]
+            ],
+            "wrapper": { "width": "100", "class": "", "id": "" },
+            "placeholder": "Ej: Empieza hoy",
+            "maxlength": 80
+        },
+        {
+            "key": "field_cta_kicker_tag",
+            "label": "Etiqueta del kicker",
+            "name": "kicker_tag",
+            "type": "radio",
+            "instructions": "Etiqueta HTML del kicker. Permite enmascarar un H2/H3 con estilo de kicker para SEO.",
+            "required": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_cta_use_global",
+                        "operator": "!=",
+                        "value": "1"
+                    }
+                ]
+            ],
+            "wrapper": { "width": "100", "class": "", "id": "" },
+            "choices": {
+                "p": "P",
+                "h2": "H2",
+                "h3": "H3"
+            },
+            "default_value": "p",
+            "layout": "horizontal",
+            "return_format": "value"
+        },
+        {
+            "key": "field_cta_heading",
+            "label": "Título",
+            "name": "heading",
+            "type": "text",
+            "instructions": "Título principal del CTA.",
+            "required": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_cta_use_global",
+                        "operator": "!=",
+                        "value": "1"
+                    }
+                ]
+            ],
+            "wrapper": { "width": "100", "class": "", "id": "" },
+            "placeholder": "Ej: Tu mejor versión empieza con una valoración personalizada"
+        },
+        {
+            "key": "field_cta_heading_tag",
+            "label": "Etiqueta del título",
+            "name": "heading_tag",
+            "type": "radio",
+            "instructions": "Etiqueta HTML del título. Afecta al SEO, no al estilo visual.",
+            "required": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_cta_use_global",
+                        "operator": "!=",
+                        "value": "1"
+                    }
+                ]
+            ],
+            "wrapper": { "width": "100", "class": "", "id": "" },
+            "choices": {
+                "h1": "H1",
+                "h2": "H2",
+                "h3": "H3",
+                "p": "P"
+            },
+            "default_value": "h2",
+            "layout": "horizontal",
+            "return_format": "value"
+        },
+        {
+            "key": "field_cta_subtitle",
+            "label": "Subtítulo",
+            "name": "subtitle",
+            "type": "text",
+            "instructions": "Texto debajo del título. Opcional.",
+            "required": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_cta_use_global",
+                        "operator": "!=",
+                        "value": "1"
+                    }
+                ]
+            ],
+            "wrapper": { "width": "100", "class": "", "id": "" },
+            "placeholder": "Ej: Agenda tu primera consulta médica"
+        },
+        {
+            "key": "field_cta_subtitle_tag",
+            "label": "Etiqueta del subtítulo",
+            "name": "subtitle_tag",
+            "type": "radio",
+            "instructions": "Etiqueta HTML del subtítulo.",
+            "required": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_cta_use_global",
+                        "operator": "!=",
+                        "value": "1"
+                    }
+                ]
+            ],
+            "wrapper": { "width": "100", "class": "", "id": "" },
+            "choices": {
+                "p": "P",
+                "h2": "H2",
+                "h3": "H3"
+            },
+            "default_value": "p",
+            "layout": "horizontal",
+            "return_format": "value"
+        },
+        {
+            "key": "field_cta_body",
+            "label": "Texto",
+            "name": "body",
+            "type": "wysiwyg",
+            "instructions": "Texto de apoyo. Opcional.",
+            "required": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_cta_use_global",
+                        "operator": "!=",
+                        "value": "1"
+                    }
+                ]
+            ],
+            "wrapper": { "width": "100", "class": "", "id": "" },
+            "tabs": "all",
+            "toolbar": "basic",
+            "media_upload": 0,
+            "delay": 0
+        },
+        {
+            "key": "field_cta_tab_buttons",
+            "label": "Botones",
+            "type": "tab",
+            "placement": "top",
+            "endpoint": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_cta_use_global",
+                        "operator": "!=",
+                        "value": "1"
+                    }
+                ]
+            ]
+        },
+        {
+            "key": "field_cta_link_1",
+            "label": "Botón principal",
+            "name": "link_1",
+            "type": "link",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_cta_use_global",
+                        "operator": "!=",
+                        "value": "1"
+                    }
+                ]
+            ],
+            "wrapper": { "width": "50", "class": "", "id": "" },
+            "return_format": "array"
+        },
+        {
+            "key": "field_cta_link_1_style",
+            "label": "Estilo botón principal",
+            "name": "link_1_style",
+            "type": "radio",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_cta_use_global",
+                        "operator": "!=",
+                        "value": "1"
+                    }
+                ]
+            ],
+            "wrapper": { "width": "50", "class": "", "id": "" },
+            "choices": {
+                "primary": "Primario (relleno)",
+                "secondary": "Secundario (outline primario)",
+                "ghost": "Ghost (outline neutro)",
+                "white": "Blanco (relleno blanco)"
+            },
+            "default_value": "primary",
+            "layout": "vertical",
+            "return_format": "value"
+        },
+        {
+            "key": "field_cta_link_2",
+            "label": "Botón secundario",
+            "name": "link_2",
+            "type": "link",
+            "instructions": "Opcional. Se muestra junto al botón principal.",
+            "required": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_cta_use_global",
+                        "operator": "!=",
+                        "value": "1"
+                    }
+                ]
+            ],
+            "wrapper": { "width": "50", "class": "", "id": "" },
+            "return_format": "array"
+        },
+        {
+            "key": "field_cta_link_2_style",
+            "label": "Estilo botón secundario",
+            "name": "link_2_style",
+            "type": "radio",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_cta_use_global",
+                        "operator": "!=",
+                        "value": "1"
+                    }
+                ]
+            ],
+            "wrapper": { "width": "50", "class": "", "id": "" },
+            "choices": {
+                "primary": "Primario (relleno)",
+                "secondary": "Secundario (outline primario)",
+                "ghost": "Ghost (outline neutro)",
+                "white": "Blanco (relleno blanco)"
+            },
+            "default_value": "ghost",
+            "layout": "vertical",
+            "return_format": "value"
+        },
+        {
+            "key": "field_cta_tab_image",
+            "label": "Imagen / Vídeo",
+            "type": "tab",
+            "placement": "top",
+            "endpoint": 0
+        },
+        {
+            "key": "field_cta_bg_type",
+            "label": "Tipo de fondo",
+            "name": "bg_type",
+            "type": "radio",
+            "instructions": "Solo aplica a Banner. Elige entre imagen estática o vídeo de fondo.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": { "width": "50", "class": "", "id": "" },
+            "choices": {
+                "image": "Imagen",
+                "video": "Vídeo"
+            },
+            "default_value": "image",
+            "layout": "horizontal",
+            "return_format": "value"
+        },
+        {
+            "key": "field_cta_bg_effect",
+            "label": "Efecto de fondo (Banner)",
+            "name": "bg_effect",
+            "type": "radio",
+            "instructions": "Estática: la imagen acompaña al scroll. Parallax: la imagen queda fija creando efecto de profundidad.",
+            "required": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_cta_bg_type",
+                        "operator": "==",
+                        "value": "image"
+                    }
+                ]
+            ],
+            "wrapper": { "width": "50", "class": "", "id": "" },
+            "choices": {
+                "static": "Estática",
+                "parallax": "Parallax (fija al scroll)"
+            },
+            "default_value": "static",
+            "layout": "horizontal",
+            "return_format": "value"
+        },
+        {
+            "key": "field_cta_image",
+            "label": "Imagen",
+            "name": "image",
+            "type": "image",
+            "instructions": "Banner: se usa como fondo (si no se sube, se usa la de Opciones o la por defecto). Split: se muestra a un lado. Strip: no se usa.",
+            "required": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_cta_bg_type",
+                        "operator": "==",
+                        "value": "image"
+                    }
+                ]
+            ],
+            "wrapper": { "width": "100", "class": "", "id": "" },
+            "return_format": "id",
+            "preview_size": "medium",
+            "library": "all",
+            "mime_types": "jpg, jpeg, png, webp"
+        },
+        {
+            "key": "field_cta_video",
+            "label": "Vídeo de fondo",
+            "name": "video",
+            "type": "file",
+            "instructions": "Solo Banner. Máximo 5 MB. Se reproduce en bucle, sin sonido. En móvil se muestra la imagen como fallback.",
+            "required": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_cta_bg_type",
+                        "operator": "==",
+                        "value": "video"
+                    }
+                ]
+            ],
+            "wrapper": { "width": "100", "class": "", "id": "" },
+            "return_format": "id",
+            "library": "all",
+            "mime_types": "mp4, webm",
+            "max_size": 5
+        },
+        {
+            "key": "field_cta_video_poster",
+            "label": "Imagen de portada del vídeo",
+            "name": "video_poster",
+            "type": "image",
+            "instructions": "Se muestra mientras carga el vídeo y como fallback en móvil. Si no se sube, se usa la imagen de Opciones o la por defecto.",
+            "required": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_cta_bg_type",
+                        "operator": "==",
+                        "value": "video"
+                    }
+                ]
+            ],
+            "wrapper": { "width": "100", "class": "", "id": "" },
+            "return_format": "id",
+            "preview_size": "medium",
+            "library": "all",
+            "mime_types": "jpg, jpeg, png, webp"
+        },
+        {
+            "key": "field_cta_image_side",
+            "label": "Posición de la imagen (Split)",
+            "name": "image_side",
+            "type": "radio",
+            "instructions": "Solo aplica al estilo Split.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": { "width": "50", "class": "", "id": "" },
+            "choices": {
+                "right": "Derecha",
+                "left": "Izquierda"
+            },
+            "default_value": "right",
+            "layout": "horizontal",
+            "return_format": "value"
+        },
+        {
+            "key": "field_cta_overlay",
+            "label": "Opacidad del overlay (Banner)",
+            "name": "overlay_opacity",
+            "type": "number",
+            "instructions": "Solo aplica al estilo Banner. 0 = transparente, 1 = opaco.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": { "width": "50", "class": "", "id": "" },
+            "default_value": 0.55,
+            "min": 0,
+            "max": 1,
+            "step": 0.05
+        },
+        {
+            "key": "field_cta_tab_design",
+            "label": "Diseño",
+            "type": "tab",
+            "placement": "top",
+            "endpoint": 0
+        },
+        {
+            "key": "field_cta_content_align",
+            "label": "Alineación del contenido",
+            "name": "content_align",
+            "type": "radio",
+            "instructions": "Solo aplica a Banner y Strip.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": { "width": "50", "class": "", "id": "" },
+            "choices": {
+                "center": "Centrado",
+                "left": "Izquierda"
+            },
+            "default_value": "center",
+            "layout": "horizontal",
+            "return_format": "value"
+        },
+        {
+            "key": "field_cta_bg_color",
+            "label": "Color de fondo",
+            "name": "bg_color",
+            "type": "radio",
+            "instructions": "Banner: se aplica si no hay imagen. Strip: color de la franja. Split: fondo del contenido.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": { "width": "50", "class": "", "id": "" },
+            "choices": {
+                "default": "Blanco",
+                "light": "Claro (beige)",
+                "primary": "Primario",
+                "dark": "Oscuro"
+            },
+            "default_value": "default",
+            "layout": "horizontal",
+            "return_format": "value"
+        },
+        {
+            "key": "field_cta_padding_y",
+            "label": "Altura",
+            "name": "padding_y",
+            "type": "radio",
+            "instructions": "Espacio vertical de la sección.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": { "width": "50", "class": "", "id": "" },
+            "choices": {
+                "sm": "Compacto",
+                "md": "Normal",
+                "lg": "Grande"
+            },
+            "default_value": "md",
+            "layout": "horizontal",
+            "return_format": "value"
         }
-    ]
-  ],
-  "position": "normal",
-  "style": "default",
-  "label_placement": "top",
-  "active": true,
-  "description": "Bloque CTA con imagen, texto y botón"
+    ],
+    "location": [
+        [
+            {
+                "param": "block",
+                "operator": "==",
+                "value": "acf/cta"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": true,
+    "description": "Campos del bloque CTA",
+    "show_in_rest": 0,
+    "modified": 1743004800
 }

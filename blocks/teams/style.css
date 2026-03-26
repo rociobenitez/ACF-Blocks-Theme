@@ -1,91 +1,330 @@
+/* =================================================================
+   Teams Block
+   Styles: cards | round | minimal
+   ================================================================= */
+
+/* --- Base --- */
 .teams {
-	padding: 4rem 2rem;
-	background-color: var(--color-neutral-50);
-	border-radius: 8px;
-	text-align: center;
+	position: relative;
 }
 
+/* --- Padding --- */
+.teams--py-sm {
+	padding-block: 2rem;
+}
+.teams--py-md {
+	padding-block: 3rem;
+}
+.teams--py-lg {
+	padding-block: 4rem;
+}
+
+/* --- Background --- */
+.teams--bg-default {
+	background-color: var(--wp--preset--color--bg);
+}
+.teams--bg-light {
+	background-color: var(--wp--preset--color--bg-secondary);
+}
+
+/* --- Grid (default: CSS Grid, left-aligned) --- */
 .teams__grid {
 	display: grid;
-	gap: 2rem;
-	margin-top: 2rem;
+	grid-template-columns: 1fr;
+	gap: var(--teams-gap, 1.5rem);
+	margin-top: 3rem;
 }
 
-.team-member {
+/* --- Gap variants --- */
+.teams--gap-sm { --teams-gap: 0.75rem; }
+.teams--gap-md { --teams-gap: 1.5rem; }
+.teams--gap-lg { --teams-gap: 2.5rem; }
+
+/* --- Column classes --- */
+.teams--cols-2 .teams__grid {
+	--teams-cols: 2;
+}
+.teams--cols-3 .teams__grid {
+	--teams-cols: 3;
+}
+.teams--cols-4 .teams__grid {
+	--teams-cols: 4;
+}
+
+/* --- Grid centering (flexbox override) ---
+   When grid-align is "center", fewer items than columns
+   are centered instead of left-aligned. */
+.teams--grid-center .teams__grid {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+	gap: var(--teams-gap, 1.5rem);
+}
+
+.teams--grid-center .team-member {
+	width: 100%;
+}
+
+/* --- Card content alignment --- */
+.teams--card-center .team-member__body {
+	text-align: center;
+}
+.teams--card-left .team-member__body {
+	text-align: left;
+}
+.teams--card-center .team-member__contact {
+	justify-content: center;
+}
+.teams--card-left .team-member__contact {
+	justify-content: flex-start;
+}
+
+/* --- Card border-radius --- */
+.teams--radius-square .team-member,
+.teams--radius-square .team-member__photo {
+	border-radius: 0;
+}
+
+.teams--radius-rounded .team-member,
+.teams--radius-rounded .team-member__photo {
+	border-radius: var(--wp--custom--radius--8);
+}
+
+/* Round style always keeps 50% regardless of radius setting */
+.teams--radius-square.is-style-round .team-member__photo {
+	border-radius: 50%;
+}
+
+/* Round style: force center (photo is circular and centered) */
+.is-style-round .team-member__body {
+	text-align: center;
+}
+.is-style-round .team-member__contact {
+	justify-content: center;
+}
+
+/* --- CTA button --- */
+.teams__cta {
+	text-align: center;
+	margin-top: 2.5rem;
+}
+
+/* --- Placeholder --- */
+.teams__placeholder {
+	min-height: 10rem;
+	border: 2px dashed var(--wp--preset--color--border);
+	background: var(--wp--preset--color--bg-secondary);
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	border-radius: var(--wp--custom--radius--8);
+	color: var(--wp--preset--color--text-muted);
+	font-size: 0.875rem;
+	width: 100%;
+}
+
+/* =================================================================
+   Style: Cards (default)
+   Rectangular photos, white card bg, subtle shadow
+   ================================================================= */
+
+.is-style-cards .team-member {
+	background: var(--wp--preset--color--white);
+	overflow: hidden;
+}
+
+.is-style-cards .team-member__photo {
+	aspect-ratio: var(--teams-photo-ratio, 3/4);
+	overflow: hidden;
+}
+
+.is-style-cards .team-member__image {
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+	display: block;
+}
+
+.is-style-cards .team-member__body {
+	padding: 1.25rem 1.5rem;
+}
+
+.is-style-cards .team-member__name {
+	color: var(--wp--preset--color--text-body);
+	font-size: 0.9375rem;
+	font-weight: 500;
+	letter-spacing: 0.01875rem;
+	text-transform: uppercase;
+	margin-bottom: 0.5rem;
+}
+
+.is-style-cards .team-member__role {
+	color: var(--wp--preset--color--text-muted);
+	font-size: 0.875rem;
+	font-weight: 500;
+	margin: 0;
+}
+
+.is-style-cards .team-member--linked:hover {
+	transform: translateY(-0.125rem);
+	box-shadow: var(--wp--preset--shadow--200);
+}
+
+/* =================================================================
+   Style: Round (circular photos — ignores photo_ratio)
+   ================================================================= */
+
+.is-style-round .team-member {
 	text-align: center;
 }
 
-.team-member__image {
-	width: 150px;
-	height: 150px;
-	border-radius: 50%;
-	object-fit: cover;
+.is-style-round .team-member__photo {
+	width: 8rem;
+	height: 8rem;
 	margin: 0 auto 1rem;
-	border: 4px solid #f0f0f0;
+	border-radius: 50%;
+	overflow: hidden;
+	border: 0.25rem solid var(--wp--preset--color--white);
+	box-shadow: 0 0.25rem 0.75rem rgba(0, 0, 0, 0.08);
 }
 
-.team-member__name {
-	font-size: var(--fs18);
-	font-weight: bold;
-	margin-bottom: var(--space-8);
+.is-style-round .team-member__image {
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+	display: block;
 }
 
-.team-member__role {
-	font-size: var(--fs14);
-	color: var(--color-neutral-600);
-	margin-bottom: var(--space-8);
+.is-style-round .team-member__name {
+	color: var(--wp--preset--color--text-heading);
+	font-size: 0.9375rem;
+	font-weight: 500;
+	letter-spacing: 0.01875rem;
+	text-transform: uppercase;
+	margin-bottom: 0.5rem;
 }
 
-.team-member__contact {
-	font-size: var(--fs14);
-	color: var(--color-primary);
-	text-decoration: none;
+.is-style-round .team-member__role {
+	color: var(--wp--preset--color--text-muted);
+	font-size: 0.875rem;
+	font-weight: 500;
+	margin: 0;
+}
 
-	&:hover {
-		text-decoration: underline;
+.is-style-round .team-member--linked:hover .team-member__photo {
+	box-shadow: 0 0.375rem 1.25rem rgba(0, 0, 0, 0.12);
+	transform: scale(1.03);
+}
+
+/* =================================================================
+   Style: Minimal (clean, no card bg)
+   ================================================================= */
+
+.is-style-minimal .team-member__photo {
+	aspect-ratio: var(--teams-photo-ratio, 1/1);
+	overflow: hidden;
+	border-radius: var(--wp--custom--radius--8);
+	margin-bottom: 1rem;
+}
+
+.is-style-minimal .team-member__image {
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+	display: block;
+}
+
+.is-style-minimal .team-member__name {
+	color: var(--wp--preset--color--text-heading);
+	font-size: 0.9375rem;
+	font-weight: 500;
+	letter-spacing: 0.01875rem;
+	text-transform: uppercase;
+	margin-bottom: 0.5rem;
+}
+
+.is-style-minimal .team-member__role {
+	color: var(--wp--preset--color--text-muted);
+	font-size: 0.875rem;
+	font-weight: 500;
+	margin: 0;
+}
+
+.is-style-minimal .team-member--linked:hover .team-member__image {
+	opacity: 0.9;
+}
+
+/* =================================================================
+   Responsive
+   ================================================================= */
+
+/* Small mobile: cap card width so it doesn't fill full viewport */
+@media (max-width: 29.9375rem) {
+	.is-style-cards .team-member,
+	.is-style-minimal .team-member {
+		max-width: 20rem;
+		margin-inline: auto;
 	}
 }
 
-.teams__cta {
-	margin-top: var(--space-24);
-}
-
-/* --- Responsive Media Queries --- */
-
-/* min-width: 640px (mobile) */
-@media (width >= 40rem) {
-}
-
-/* min-width: 768px (tablet) */
-@media (width >= 48rem) {
-	.teams__grid {
-		gap: 2.5rem;
-	}
-
-	.teams--col-2 .teams__grid {
+/* Large mobile (30rem / 480px): 2 columns */
+@media (min-width: 30rem) and (max-width: 47.9375rem) {
+	.teams--grid-left .teams__grid {
 		grid-template-columns: repeat(2, 1fr);
 	}
 
-	.teams--col-3 .teams__grid {
-		grid-template-columns: repeat(3, 1fr);
+	.teams--grid-center .team-member {
+		width: calc((100% - 1.5rem) / 2);
+	}
+}
+
+/* Tablet (48rem / 768px) */
+@media (min-width: 48rem) {
+	.teams--py-sm {
+		padding-block: 3rem;
+	}
+	.teams--py-md {
+		padding-block: 4.5rem;
+	}
+	.teams--py-lg {
+		padding-block: 6rem;
 	}
 
-	.teams--col-4 .teams__grid {
-		grid-template-columns: repeat(4, 1fr);
+	/* Grid: left-aligned (CSS Grid) */
+	.teams--grid-left .teams__grid {
+		grid-template-columns: repeat(min(var(--teams-cols, 3), 2), 1fr);
+	}
+
+	/* Grid: centered (Flexbox) — tablet shows max 2 cols */
+	.teams--grid-center .team-member {
+		width: calc((100% - 1.5rem) / 2);
+	}
+
+	.is-style-round .team-member__photo {
+		width: 9rem;
+		height: 9rem;
 	}
 }
-/* min-width: 1024px (laptop) */
-@media (width >= 64rem) {
-	.teams__grid {
-		gap: 3rem;
+
+/* Desktop (64rem / 1024px) */
+@media (min-width: 64rem) {
+	/* Grid: left-aligned (CSS Grid) */
+	.teams--grid-left .teams__grid {
+		grid-template-columns: repeat(var(--teams-cols, 3), 1fr);
 	}
-}
-/* min-width: 1280px (desktop) */
-@media (width >= 80rem) {
-	.teams {
-		padding: 6rem 4rem;
+
+	.teams--cols-2.teams--grid-center .team-member {
+		width: calc((100% - var(--teams-gap, 1.5rem)) / 2);
 	}
-	.teams__grid {
-		gap: 4rem;
+	.teams--cols-3.teams--grid-center .team-member {
+		width: calc((100% - 2 * var(--teams-gap, 1.5rem)) / 3);
+	}
+	.teams--cols-4.teams--grid-center .team-member {
+		width: calc((100% - 3 * var(--teams-gap, 1.5rem)) / 4);
+	}
+
+	.is-style-round .team-member__photo {
+		width: 10rem;
+		height: 10rem;
 	}
 }

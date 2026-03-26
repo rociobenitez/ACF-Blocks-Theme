@@ -1,0 +1,348 @@
+/* =================================================================
+   Reviews Block
+   Styles: google (default) | testimonials | cards
+   ================================================================= */
+
+/* --- Base --- */
+.reviews {
+	position: relative;
+}
+
+/* --- Padding --- */
+.reviews--py-sm {
+	padding-block: 2rem;
+}
+.reviews--py-md {
+	padding-block: 3rem;
+}
+.reviews--py-lg {
+	padding-block: 4rem;
+}
+
+/* --- Background --- */
+.reviews--bg-default {
+	background-color: var(--wp--preset--color--bg);
+}
+.reviews--bg-light {
+	background-color: var(--wp--preset--color--bg-secondary);
+}
+
+/* --- CTA button --- */
+.reviews__cta {
+	text-align: center;
+	margin-top: 2.5rem;
+}
+
+/* --- Placeholder --- */
+.reviews__placeholder {
+	min-height: 8rem;
+	border: 2px dashed var(--wp--preset--color--border);
+	background: var(--wp--preset--color--bg-secondary);
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	border-radius: var(--wp--custom--radius--8);
+	color: var(--wp--preset--color--text-muted);
+	font-size: 0.875rem;
+}
+
+/* --- Content alignment --- */
+.reviews--card-center .reviews__testimonial-body,
+.reviews--card-center .reviews__card {
+	text-align: center;
+}
+.reviews--card-center .reviews__card-footer {
+	justify-content: center;
+}
+.reviews--card-left .reviews__testimonial-body,
+.reviews--card-left .reviews__card {
+	text-align: left;
+}
+.reviews--card-left .reviews__card-footer {
+	justify-content: flex-start;
+}
+
+/* --- Card border-radius --- */
+.reviews--radius-rounded .reviews__testimonial,
+.reviews--radius-rounded .reviews__card {
+	border-radius: var(--wp--custom--radius--8);
+}
+.reviews--radius-square .reviews__testimonial,
+.reviews--radius-square .reviews__card {
+	border-radius: 0;
+}
+
+/* =================================================================
+   Style: Google (default)
+   Shortcode output + small outline button
+   ================================================================= */
+
+.is-style-google .reviews__shortcode {
+	margin-top: 2rem;
+}
+
+/* =================================================================
+   Style: Testimonials
+   Photo + quote panel side by side, alternating direction
+   ================================================================= */
+
+.is-style-testimonials .reviews__testimonials {
+	display: grid;
+	grid-template-columns: 1fr;
+	gap: 1.5rem;
+	margin-top: 3rem;
+}
+
+/* Single testimonial: 2-col layout */
+.is-style-testimonials .reviews__testimonial {
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	min-height: 20rem;
+	overflow: hidden;
+}
+
+/* Reversed (even items): swap column order */
+/*.is-style-testimonials .reviews__testimonial--reversed {
+	direction: rtl;
+}*/
+.is-style-testimonials .reviews__testimonial--reversed > * {
+	direction: ltr;
+}
+
+/* Photo column */
+.is-style-testimonials .reviews__testimonial-photo {
+	overflow: hidden;
+}
+
+.is-style-testimonials .reviews__testimonial-image {
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+	display: block;
+}
+
+/* Quote body panel */
+.is-style-testimonials .reviews__testimonial-body {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	padding: 2rem 2.5rem;
+}
+
+/* Accent colors for the quote panel */
+.reviews--accent-primary .reviews__testimonial-body {
+	background-color: var(--wp--preset--color--primary);
+	color: var(--wp--preset--color--white);
+}
+.reviews--accent-accent .reviews__testimonial-body {
+	background-color: var(--wp--preset--color--accent);
+	color: var(--wp--preset--color--white);
+}
+.reviews--accent-light .reviews__testimonial-body {
+	background-color: var(--wp--preset--color--bg-secondary);
+	color: var(--wp--preset--color--text-body);
+}
+
+/* Alternate: odd = primary (dark), even = light (beige) */
+.reviews--accent-alternate
+	.reviews__testimonial:nth-child(odd)
+	.reviews__testimonial-body {
+	background-color: var(--wp--preset--color--primary);
+	color: var(--wp--preset--color--white);
+}
+.reviews--accent-alternate
+	.reviews__testimonial:nth-child(even)
+	.reviews__testimonial-body {
+	background-color: var(--wp--preset--color--bg-secondary);
+	color: var(--wp--preset--color--primary);
+}
+
+/* Quote text */
+.is-style-testimonials .reviews__testimonial-quote {
+	margin: 0;
+}
+
+.is-style-testimonials .reviews__testimonial-quote p {
+	font-size: 0.9375rem;
+	line-height: 1.7;
+	margin: 0;
+	text-wrap: pretty;
+}
+
+/* Footer: author + role */
+.is-style-testimonials .reviews__testimonial-footer {
+	margin-top: 1.5rem;
+}
+
+.is-style-testimonials .reviews__testimonial-author {
+	display: block;
+	font-family: var(--wp--preset--font-family--primary);
+	font-size: 0.875rem;
+	font-weight: 500;
+	font-style: normal;
+	text-transform: uppercase;
+	letter-spacing: 0.03rem;
+}
+
+.is-style-testimonials .reviews__testimonial-role {
+	display: block;
+	font-size: 0.8125rem;
+	opacity: 0.7;
+	margin-top: 0.25rem;
+}
+
+/* Column layout for testimonials grid */
+.reviews--cols-1 .reviews__testimonials {
+	max-width: 48rem;
+	margin-inline: auto;
+}
+
+/* =================================================================
+   Style: Cards
+   Simple quote cards in a grid
+   ================================================================= */
+
+.is-style-cards .reviews__cards {
+	display: grid;
+	grid-template-columns: 1fr;
+	gap: 1.5rem;
+	margin-top: 3rem;
+}
+
+/* Column classes */
+.is-style-cards.reviews--cols-2 .reviews__cards {
+	--rv-cols: 2;
+}
+.is-style-cards.reviews--cols-3 .reviews__cards {
+	--rv-cols: 3;
+}
+
+/* Single card */
+.is-style-cards .reviews__card {
+	padding: 1.5rem;
+	border: 1px solid var(--wp--preset--color--border);
+	display: flex;
+	flex-direction: column;
+	transition:
+		transform 0.2s ease,
+		box-shadow 0.2s ease;
+}
+
+.is-style-cards .reviews__card:hover {
+	transform: translateY(-0.125rem);
+	box-shadow: var(--wp--preset--shadow--200);
+}
+
+/* Card quote */
+.is-style-cards .reviews__card-quote {
+	margin: 0 0 1.25rem;
+	flex: 1;
+}
+
+.is-style-cards .reviews__card-quote p {
+	font-size: 0.9375rem;
+	line-height: 1.7;
+	color: var(--wp--preset--color--text-body);
+	text-wrap: pretty;
+	margin: 0;
+}
+
+/* Card footer: avatar + meta */
+.is-style-cards .reviews__card-footer {
+	display: flex;
+	align-items: center;
+	gap: 0.75rem;
+}
+
+.is-style-cards .reviews__card-avatar {
+	width: 2.5rem;
+	height: 2.5rem;
+	border-radius: 50%;
+	object-fit: cover;
+	flex-shrink: 0;
+}
+
+.is-style-cards .reviews__card-meta {
+	display: flex;
+	flex-direction: column;
+}
+
+.is-style-cards .reviews__card-author {
+	font-family: var(--wp--preset--font-family--primary);
+	font-size: 0.875rem;
+	font-weight: 500;
+	font-style: normal;
+	text-transform: uppercase;
+	letter-spacing: 0.03rem;
+	color: var(--wp--preset--color--text-heading);
+}
+
+.is-style-cards .reviews__card-role {
+	font-size: 0.8125rem;
+	color: var(--wp--preset--color--text-muted);
+	margin-top: 0.125rem;
+}
+
+/* =================================================================
+   Responsive
+   ================================================================= */
+
+/* Small mobile: testimonials stack vertically */
+@media (max-width: 47.9375rem) {
+	.is-style-testimonials .reviews__testimonial {
+		grid-template-columns: 1fr;
+		min-height: auto;
+	}
+
+	.is-style-testimonials .reviews__testimonial-photo {
+		aspect-ratio: 16/9;
+	}
+
+	.is-style-testimonials .reviews__testimonial--reversed {
+		direction: ltr;
+	}
+
+	/* Cards: 1 column on mobile, cap width */
+	.is-style-cards .reviews__card {
+		max-width: 28rem;
+		margin-inline: auto;
+		width: 100%;
+	}
+}
+
+/* Tablet (48rem / 768px) */
+@media (min-width: 48rem) {
+	.reviews--py-sm {
+		padding-block: 3rem;
+	}
+	.reviews--py-md {
+		padding-block: 4.5rem;
+	}
+	.reviews--py-lg {
+		padding-block: 6rem;
+	}
+
+	/* Testimonials: 2 per row when cols-2 */
+	.reviews--cols-2 .reviews__testimonials {
+		grid-template-columns: repeat(2, 1fr);
+	}
+
+	/* Cards: use column variable, max 2 on tablet */
+	.is-style-cards .reviews__cards {
+		grid-template-columns: repeat(min(var(--rv-cols, 2), 2), 1fr);
+	}
+}
+
+/* Desktop (64rem / 1024px) */
+@media (min-width: 64rem) {
+	/* Testimonials: larger padding */
+	.is-style-testimonials .reviews__testimonial-body {
+		padding: 1.5rem 2rem;
+	}
+
+	/* Cards: full columns */
+	.is-style-cards .reviews__cards {
+		grid-template-columns: repeat(var(--rv-cols, 2), 1fr);
+		gap: 2rem;
+	}
+}

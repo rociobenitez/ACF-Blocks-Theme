@@ -1,0 +1,340 @@
+{
+    "key": "group_feature_list",
+    "title": "Feature List",
+    "fields": [
+        {
+            "key": "field_fl_tab_header",
+            "label": "Encabezado",
+            "type": "tab",
+            "placement": "top",
+            "endpoint": 0
+        },
+        {
+            "key": "field_fl_tagline",
+            "label": "Tagline",
+            "name": "tagline",
+            "type": "text",
+            "instructions": "Texto corto junto al título. Opcional.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": { "width": "100", "class": "", "id": "" },
+            "placeholder": "Ej: ¿Por qué elegirnos?",
+            "maxlength": 80
+        },
+        {
+            "key": "field_fl_tagline_position",
+            "label": "Posición del tagline",
+            "name": "tagline_position",
+            "type": "radio",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": { "width": "100", "class": "", "id": "" },
+            "choices": {
+                "above": "Encima del título",
+                "below": "Debajo del título"
+            },
+            "default_value": "above",
+            "layout": "horizontal",
+            "return_format": "value"
+        },
+        {
+            "key": "field_fl_tagline_tag",
+            "label": "Etiqueta del tagline",
+            "name": "tagline_tag",
+            "type": "radio",
+            "instructions": "Etiqueta HTML del tagline. Permite enmascarar un H2/H3 con estilo de tagline para SEO.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": { "width": "100", "class": "", "id": "" },
+            "choices": {
+                "p": "P",
+                "h2": "H2",
+                "h3": "H3"
+            },
+            "default_value": "p",
+            "layout": "horizontal",
+            "return_format": "value"
+        },
+        {
+            "key": "field_fl_title",
+            "label": "Título",
+            "name": "title",
+            "type": "text",
+            "instructions": "Título principal de la sección.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": { "width": "100", "class": "", "id": "" },
+            "placeholder": "Ej: Experiencia médica, resultados naturales"
+        },
+        {
+            "key": "field_fl_title_tag",
+            "label": "Etiqueta del título",
+            "name": "title_tag",
+            "type": "radio",
+            "instructions": "Etiqueta HTML del título. Afecta al SEO, no al estilo visual.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": { "width": "100", "class": "", "id": "" },
+            "choices": {
+                "h1": "H1",
+                "h2": "H2",
+                "h3": "H3",
+                "p": "P"
+            },
+            "default_value": "h2",
+            "layout": "horizontal",
+            "return_format": "value"
+        },
+        {
+            "key": "field_fl_description",
+            "label": "Descripción",
+            "name": "description",
+            "type": "wysiwyg",
+            "instructions": "Texto de apoyo. Opcional.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": { "width": "100", "class": "", "id": "" },
+            "tabs": "all",
+            "toolbar": "basic",
+            "media_upload": 0,
+            "delay": 0
+        },
+        {
+            "key": "field_fl_header_align",
+            "label": "Alineación del encabezado",
+            "name": "header_align",
+            "type": "radio",
+            "instructions": "En el estilo Split, el encabezado siempre va a la izquierda.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": { "width": "100", "class": "", "id": "" },
+            "choices": {
+                "center": "Centrado",
+                "left": "Izquierda"
+            },
+            "default_value": "left",
+            "layout": "horizontal",
+            "return_format": "value"
+        },
+        {
+            "key": "field_fl_header_width",
+            "label": "Ancho del encabezado",
+            "name": "header_width",
+            "type": "radio",
+            "instructions": "Solo aplica al estilo Cards. En Split, el encabezado ocupa su columna.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": { "width": "100", "class": "", "id": "" },
+            "choices": {
+                "narrow": "Contenido (66%)",
+                "full": "Completo (100%)"
+            },
+            "default_value": "full",
+            "layout": "horizontal",
+            "return_format": "value"
+        },
+        {
+            "key": "field_fl_tab_items",
+            "label": "Items",
+            "type": "tab",
+            "placement": "top",
+            "endpoint": 0
+        },
+        {
+            "key": "field_fl_items",
+            "label": "Items",
+            "name": "items",
+            "type": "repeater",
+            "instructions": "Cada item necesita al menos un título.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": { "width": "100", "class": "", "id": "" },
+            "min": 2,
+            "max": 12,
+            "layout": "block",
+            "button_label": "Añadir item",
+            "sub_fields": [
+                {
+                    "key": "field_fl_item_title",
+                    "label": "Título",
+                    "name": "title",
+                    "type": "text",
+                    "instructions": "",
+                    "required": 1,
+                    "conditional_logic": 0,
+                    "wrapper": { "width": "100", "class": "", "id": "" },
+                    "placeholder": "Ej: Equipo médico especializado"
+                },
+                {
+                    "key": "field_fl_item_title_tag",
+                    "label": "Etiqueta del título",
+                    "name": "title_tag",
+                    "type": "radio",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": { "width": "100", "class": "", "id": "" },
+                    "choices": {
+                        "p": "P",
+                        "h3": "H3"
+                    },
+                    "default_value": "p",
+                    "layout": "horizontal",
+                    "return_format": "value"
+                },
+                {
+                    "key": "field_fl_item_content",
+                    "label": "Contenido",
+                    "name": "content",
+                    "type": "wysiwyg",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": { "width": "100", "class": "", "id": "" },
+                    "tabs": "all",
+                    "toolbar": "basic",
+                    "media_upload": 0,
+                    "delay": 0
+                },
+                {
+                    "key": "field_fl_item_link",
+                    "label": "Enlace",
+                    "name": "link",
+                    "type": "link",
+                    "instructions": "Opcional. Se muestra como enlace de texto.",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": { "width": "100", "class": "", "id": "" },
+                    "return_format": "array"
+                }
+            ]
+        },
+        {
+            "key": "field_fl_tab_design",
+            "label": "Diseño",
+            "type": "tab",
+            "placement": "top",
+            "endpoint": 0
+        },
+        {
+            "key": "field_fl_columns",
+            "label": "Columnas (estilo Cards)",
+            "name": "columns",
+            "type": "radio",
+            "instructions": "Solo aplica al estilo Cards. En Split siempre son 2 columnas (encabezado + lista).",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": { "width": "100", "class": "", "id": "" },
+            "choices": {
+                "2": "2",
+                "3": "3",
+                "4": "4"
+            },
+            "default_value": "3",
+            "layout": "horizontal",
+            "return_format": "value"
+        },
+        {
+            "key": "field_fl_bg_color",
+            "label": "Color de fondo",
+            "name": "bg_color",
+            "type": "radio",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": { "width": "100", "class": "", "id": "" },
+            "choices": {
+                "default": "Blanco",
+                "light": "Claro (beige)"
+            },
+            "default_value": "light",
+            "layout": "horizontal",
+            "return_format": "value"
+        },
+        {
+            "key": "field_fl_padding_y",
+            "label": "Altura",
+            "name": "padding_y",
+            "type": "radio",
+            "instructions": "Espacio vertical de la sección.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": { "width": "100", "class": "", "id": "" },
+            "choices": {
+                "sm": "Compacto",
+                "md": "Normal",
+                "lg": "Grande"
+            },
+            "default_value": "md",
+            "layout": "horizontal",
+            "return_format": "value"
+        },
+        {
+            "key": "field_fl_cta",
+            "label": "Botón inferior",
+            "name": "cta",
+            "type": "link",
+            "instructions": "Botón opcional debajo de todos los items.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": { "width": "100", "class": "", "id": "" },
+            "return_format": "array"
+        },
+        {
+            "key": "field_fl_cta_size",
+            "label": "Tamaño del botón",
+            "name": "cta_size",
+            "type": "radio",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": { "width": "100", "class": "", "id": "" },
+            "choices": {
+                "sm": "Pequeño",
+                "md": "Mediano",
+                "lg": "Grande"
+            },
+            "default_value": "md",
+            "layout": "horizontal",
+            "return_format": "value"
+        },
+        {
+            "key": "field_fl_cta_style",
+            "label": "Estilo del botón",
+            "name": "cta_style",
+            "type": "radio",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": { "width": "100", "class": "", "id": "" },
+            "choices": {
+                "primary": "Primary",
+                "secondary": "Secondary",
+                "outline": "Outline"
+            },
+            "default_value": "primary",
+            "layout": "horizontal",
+            "return_format": "value"
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "block",
+                "operator": "==",
+                "value": "acf/feature-list"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": true,
+    "description": "Campos del bloque Feature List",
+    "show_in_rest": 0,
+    "modified": 1742900000
+}

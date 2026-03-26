@@ -1,7 +1,7 @@
 {
 	"version": 3,
 	"$schema": "https://schemas.wp.org/wp/6.7/theme.json",
-	"title": "Vollkorn & Fira Code",
+	"title": "Mono & Serif",
 	"slug": "typography-preset-2",
 	"settings": {
 		"typography": {

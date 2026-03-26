@@ -1,0 +1,4 @@
+/* Editor: asegura que el bloque tenga altura mínima visible */
+.text-section {
+	min-height: 80px;
+}

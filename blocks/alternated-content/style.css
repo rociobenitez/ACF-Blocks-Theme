@@ -386,3 +386,14 @@
 		gap: 5rem;
 	}
 }
+
+/* --- Content margin (only desktop, when side-by-side) --- */
+@media (min-width: 48rem) {
+	.alternated-content--cmargin-sm .alternated-content__content {
+		padding-block: 1.5rem;
+	}
+
+	.alternated-content--cmargin-md .alternated-content__content {
+		padding-block: 3rem;
+	}
+}

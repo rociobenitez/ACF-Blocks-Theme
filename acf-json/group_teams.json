@@ -3,150 +3,258 @@
     "title": "Equipo",
     "fields": [
         {
+            "key": "field_teams_tab_header",
+            "label": "Encabezado",
+            "type": "tab",
+            "placement": "top",
+            "endpoint": 0
+        },
+        {
             "key": "field_teams_tagline",
             "label": "Tagline",
             "name": "tagline",
-            "aria-label": "",
             "type": "text",
-            "instructions": "Texto breve que aparece encima del título (opcional).",
+            "instructions": "Texto corto junto al título. Opcional.",
             "required": 0,
             "conditional_logic": 0,
-            "wrapper": {
-                "width": "100",
-                "class": "",
-                "id": ""
-            },
-            "default_value": "",
-            "maxlength": "",
+            "wrapper": { "width": "100", "class": "", "id": "" },
             "placeholder": "Ej: Conoce al equipo",
-            "prepend": "",
-            "append": ""
+            "maxlength": 80
+        },
+        {
+            "key": "field_teams_tagline_position",
+            "label": "Posición del tagline",
+            "name": "tagline_position",
+            "type": "radio",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": { "width": "100", "class": "", "id": "" },
+            "choices": {
+                "above": "Encima del título",
+                "below": "Debajo del título"
+            },
+            "default_value": "above",
+            "layout": "horizontal",
+            "return_format": "value"
+        },
+        {
+            "key": "field_teams_tagline_tag",
+            "label": "Etiqueta del tagline",
+            "name": "tagline_tag",
+            "type": "radio",
+            "instructions": "Etiqueta HTML del tagline. Permite enmascarar un H2/H3 con estilo de tagline para SEO.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": { "width": "100", "class": "", "id": "" },
+            "choices": {
+                "p": "P",
+                "h2": "H2",
+                "h3": "H3"
+            },
+            "default_value": "p",
+            "layout": "horizontal",
+            "return_format": "value"
         },
         {
             "key": "field_teams_title",
             "label": "Título",
             "name": "title",
-            "aria-label": "",
             "type": "text",
             "instructions": "Título principal de la sección.",
-            "required": 1,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "100",
-                "class": "",
-                "id": ""
-            },
-            "default_value": "",
-            "maxlength": "",
-            "placeholder": "Ej: Nuestro equipo de expertos",
-            "prepend": "",
-            "append": ""
-        },
-        {
-            "key": "field_teams_tag_title",
-            "label": "Etiqueta del título",
-            "name": "tag_title",
-            "aria-label": "",
-            "type": "select",
-            "instructions": "Selecciona la etiqueta HTML para el título.",
             "required": 0,
             "conditional_logic": 0,
-            "wrapper": {
-                "width": "100",
-                "class": "",
-                "id": ""
-            },
+            "wrapper": { "width": "100", "class": "", "id": "" },
+            "placeholder": "Ej: Nuestro equipo de expertos"
+        },
+        {
+            "key": "field_teams_title_tag",
+            "label": "Etiqueta del título",
+            "name": "title_tag",
+            "type": "radio",
+            "instructions": "Etiqueta HTML del título. Afecta al SEO, no al estilo visual.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": { "width": "100", "class": "", "id": "" },
             "choices": {
+                "h1": "H1",
                 "h2": "H2",
                 "h3": "H3",
                 "p": "P"
             },
             "default_value": "h2",
             "layout": "horizontal",
-            "allow_multiple": 0,
-            "allow_null": 0,
             "return_format": "value"
         },
         {
             "key": "field_teams_description",
-            "label": "Texto",
-            "name": "text",
-            "aria-label": "",
-            "type": "textarea",
-            "instructions": "Descripción breve del equipo (opcional).",
+            "label": "Descripción",
+            "name": "description",
+            "type": "wysiwyg",
+            "instructions": "Texto de apoyo. 1-2 frases. Opcional.",
             "required": 0,
             "conditional_logic": 0,
-            "wrapper": {
-                "width": "100",
-                "class": "",
-                "id": ""
-            },
-            "default_value": "",
-            "maxlength": "",
-            "rows": 3,
-            "placeholder": "Descripción del equipo..."
+            "wrapper": { "width": "100", "class": "", "id": "" },
+            "tabs": "all",
+            "toolbar": "basic",
+            "media_upload": 0,
+            "delay": 0
         },
         {
-            "key": "field_teams_tag_title_card",
-            "label": "Etiqueta del título de la tarjeta",
-            "name": "tag_title_card",
-            "aria-label": "",
-            "type": "select",
-            "instructions": "Selecciona la etiqueta HTML para el título de cada miembro del equipo.",
+            "key": "field_teams_header_align",
+            "label": "Alineación del encabezado",
+            "name": "header_align",
+            "type": "radio",
+            "instructions": "",
             "required": 0,
             "conditional_logic": 0,
-            "wrapper": {
-                "width": "100",
-                "class": "",
-                "id": ""
-            },
+            "wrapper": { "width": "100", "class": "", "id": "" },
             "choices": {
-                "h2": "H2",
-                "h3": "H3",
-                "p": "P"
+                "center": "Centrado",
+                "left": "Izquierda"
             },
-            "default_value": "h2",
+            "default_value": "center",
             "layout": "horizontal",
-            "allow_multiple": 0,
-            "allow_null": 0,
             "return_format": "value"
+        },
+        {
+            "key": "field_teams_header_width",
+            "label": "Ancho del encabezado",
+            "name": "header_width",
+            "type": "radio",
+            "instructions": "\"Contenido\" limita el ancho para mejor legibilidad.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": { "width": "100", "class": "", "id": "" },
+            "choices": {
+                "narrow": "Contenido (66%)",
+                "full": "Completo (100%)"
+            },
+            "default_value": "narrow",
+            "layout": "horizontal",
+            "return_format": "value"
+        },
+        {
+            "key": "field_teams_tab_members",
+            "label": "Miembros",
+            "type": "tab",
+            "placement": "top",
+            "endpoint": 0
         },
         {
             "key": "field_teams_members",
             "label": "Miembros del equipo",
             "name": "members",
-            "aria-label": "",
             "type": "relationship",
-            "instructions": "Selecciona los miembros del equipo que deseas mostrar en este bloque.",
+            "instructions": "Selecciona los miembros del equipo que deseas mostrar.",
             "required": 0,
             "conditional_logic": 0,
-            "wrapper": {
-                "width": "100",
-                "class": "",
-                "id": ""
-            },
+            "wrapper": { "width": "100", "class": "", "id": "" },
             "post_type": ["team_member"],
             "taxonomy": [],
-            "filters": ["search", "post_type", "taxonomy"],
+            "filters": ["search"],
             "elements": "",
             "min": 0,
-            "max": 0,
+            "max": 12,
             "return_format": "object"
         },
         {
-            "key": "field_teams_items_per_row",
-            "label": "Elementos por fila",
-            "name": "items_per_row",
-            "aria-label": "",
-            "type": "select",
-            "instructions": "Selecciona cuántos miembros del equipo se mostrarán por fila en pantallas grandes.",
-            "required": 1,
+            "key": "field_teams_show_description",
+            "label": "Mostrar descripción",
+            "name": "show_description",
+            "type": "true_false",
+            "instructions": "Mostrar la descripción breve de cada miembro.",
+            "required": 0,
             "conditional_logic": 0,
-            "wrapper": {
-                "width": "50",
-                "class": "",
-                "id": ""
+            "wrapper": { "width": "100", "class": "", "id": "" },
+            "default_value": 0,
+            "ui": 1,
+            "ui_on_text": "Sí",
+            "ui_off_text": "No"
+        },
+        {
+            "key": "field_teams_show_contact",
+            "label": "Mostrar contacto",
+            "name": "show_contact",
+            "type": "true_false",
+            "instructions": "Mostrar email, LinkedIn y enlaces de contacto.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": { "width": "100", "class": "", "id": "" },
+            "default_value": 0,
+            "ui": 1,
+            "ui_on_text": "Sí",
+            "ui_off_text": "No"
+        },
+        {
+            "key": "field_teams_tab_design",
+            "label": "Diseño",
+            "type": "tab",
+            "placement": "top",
+            "endpoint": 0
+        },
+        {
+            "key": "field_teams_card_align",
+            "label": "Alineación de las cards",
+            "name": "card_align",
+            "type": "radio",
+            "instructions": "Alineación del contenido dentro de cada card.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": { "width": "100", "class": "", "id": "" },
+            "choices": {
+                "center": "Centrado",
+                "left": "Izquierda"
             },
+            "default_value": "center",
+            "layout": "horizontal",
+            "return_format": "value"
+        },
+        {
+            "key": "field_teams_card_radius",
+            "label": "Esquinas de la card",
+            "name": "card_radius",
+            "type": "radio",
+            "instructions": "Bordes de las cards y las fotos.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": { "width": "100", "class": "", "id": "" },
+            "choices": {
+                "rounded": "Redondeadas",
+                "square": "Cuadradas"
+            },
+            "default_value": "rounded",
+            "layout": "horizontal",
+            "return_format": "value"
+        },
+        {
+            "key": "field_teams_photo_ratio",
+            "label": "Proporción de la foto",
+            "name": "photo_ratio",
+            "type": "radio",
+            "instructions": "Forma de las fotos. No aplica al estilo Circular.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": { "width": "100", "class": "", "id": "" },
+            "choices": {
+                "3/4": "Retrato (3:4)",
+                "1/1": "Cuadrado (1:1)",
+                "4/3": "Apaisado (4:3)",
+                "16/9": "Panorámico (16:9)"
+            },
+            "default_value": "3/4",
+            "layout": "horizontal",
+            "return_format": "value"
+        },
+        {
+            "key": "field_teams_columns",
+            "label": "Columnas",
+            "name": "columns",
+            "type": "radio",
+            "instructions": "Número de columnas en desktop.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": { "width": "100", "class": "", "id": "" },
             "choices": {
                 "2": "2",
                 "3": "3",
@@ -154,25 +262,124 @@
             },
             "default_value": "3",
             "layout": "horizontal",
-            "allow_multiple": 0,
-            "allow_null": 0,
             "return_format": "value"
         },
         {
-            "key": "field_teams_button",
-            "label": "Botón de acción",
-            "name": "button",
-            "aria-label": "",
-            "type": "link",
-            "instructions": "Botón de acción para dirigir a los usuarios a una página específica (opcional).",
+            "key": "field_teams_grid_align",
+            "label": "Posición de las cards",
+            "name": "grid_align",
+            "type": "radio",
+            "instructions": "Cuando hay menos miembros que columnas: centrar o alinear a la izquierda.",
             "required": 0,
             "conditional_logic": 0,
-            "wrapper": {
-                "width": "50",
-                "class": "",
-                "id": ""
+            "wrapper": { "width": "100", "class": "", "id": "" },
+            "choices": {
+                "center": "Centradas",
+                "left": "A la izquierda"
             },
+            "default_value": "center",
+            "layout": "horizontal",
+            "return_format": "value"
+        },
+        {
+            "key": "field_teams_bg_color",
+            "label": "Color de fondo",
+            "name": "bg_color",
+            "type": "radio",
+            "instructions": "Fondo de la sección.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": { "width": "100", "class": "", "id": "" },
+            "choices": {
+                "default": "Blanco",
+                "light": "Claro (beige)"
+            },
+            "default_value": "light",
+            "layout": "horizontal",
+            "return_format": "value"
+        },
+        {
+            "key": "field_teams_grid_gap",
+            "label": "Separación entre cards",
+            "name": "grid_gap",
+            "type": "radio",
+            "instructions": "Espacio entre las tarjetas del equipo.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": { "width": "100", "class": "", "id": "" },
+            "choices": {
+                "sm": "Pequeño",
+                "md": "Normal",
+                "lg": "Grande"
+            },
+            "default_value": "md",
+            "layout": "horizontal",
+            "return_format": "value"
+        },
+        {
+            "key": "field_teams_padding_y",
+            "label": "Altura",
+            "name": "padding_y",
+            "type": "radio",
+            "instructions": "Espacio vertical de la sección.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": { "width": "100", "class": "", "id": "" },
+            "choices": {
+                "sm": "Compacto",
+                "md": "Normal",
+                "lg": "Grande"
+            },
+            "default_value": "md",
+            "layout": "horizontal",
+            "return_format": "value"
+        },
+        {
+            "key": "field_teams_cta",
+            "label": "Botón inferior",
+            "name": "cta",
+            "type": "link",
+            "instructions": "Botón opcional debajo del equipo (ej: \"Ver todo el equipo\").",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": { "width": "100", "class": "", "id": "" },
             "return_format": "array"
+        },
+        {
+            "key": "field_teams_cta_size",
+            "label": "Tamaño del botón",
+            "name": "cta_size",
+            "type": "radio",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": { "width": "100", "class": "", "id": "" },
+            "choices": {
+                "sm": "Pequeño",
+                "md": "Mediano",
+                "lg": "Grande"
+            },
+            "default_value": "md",
+            "layout": "horizontal",
+            "return_format": "value"
+        },
+        {
+            "key": "field_teams_cta_style",
+            "label": "Estilo del botón",
+            "name": "cta_style",
+            "type": "radio",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": { "width": "100", "class": "", "id": "" },
+            "choices": {
+                "primary": "Primary",
+                "secondary": "Secondary",
+                "outline": "Outline"
+            },
+            "default_value": "primary",
+            "layout": "horizontal",
+            "return_format": "value"
         }
     ],
     "location": [
@@ -191,8 +398,7 @@
     "instruction_placement": "label",
     "hide_on_screen": "",
     "active": true,
-    "description": "Campos para el bloque Equipo",
+    "description": "Campos del bloque Equipo",
     "show_in_rest": 0,
-    "modified": 1712878781
+    "modified": 1742900000
 }
-          

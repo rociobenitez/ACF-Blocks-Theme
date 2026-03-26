@@ -39,6 +39,24 @@
             "return_format": "value"
         },
         {
+            "key": "field_ac_tagline_tag",
+            "label": "Etiqueta del tagline",
+            "name": "tagline_tag",
+            "type": "radio",
+            "instructions": "Etiqueta HTML del tagline. Permite enmascarar un H2/H3 con estilo de tagline para SEO.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": { "width": "100", "class": "", "id": "" },
+            "choices": {
+                "p": "P",
+                "h2": "H2",
+                "h3": "H3"
+            },
+            "default_value": "p",
+            "layout": "horizontal",
+            "return_format": "value"
+        },
+        {
             "key": "field_ac_title",
             "label": "Título",
             "name": "title",
@@ -48,6 +66,25 @@
             "conditional_logic": 0,
             "wrapper": { "width": "100", "class": "", "id": "" },
             "placeholder": "Ej: Medicina estética personalizada"
+        },
+        {
+            "key": "field_ac_title_tag",
+            "label": "Etiqueta del título",
+            "name": "title_tag",
+            "type": "radio",
+            "instructions": "Etiqueta HTML del título. Afecta al SEO, no al estilo visual.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": { "width": "100", "class": "", "id": "" },
+            "choices": {
+                "h1": "H1",
+                "h2": "H2",
+                "h3": "H3",
+                "p": "P"
+            },
+            "default_value": "h2",
+            "layout": "horizontal",
+            "return_format": "value"
         },
         {
             "key": "field_ac_content",
@@ -270,6 +307,24 @@
                 "bottom": "Abajo"
             },
             "default_value": "center",
+            "layout": "horizontal",
+            "return_format": "value"
+        },
+        {
+            "key": "field_ac_content_margin",
+            "label": "Margen vertical del contenido",
+            "name": "content_margin",
+            "type": "radio",
+            "instructions": "Añade margen superior e inferior al bloque de texto cuando está al lado de la imagen (solo desktop).",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": { "width": "100", "class": "", "id": "" },
+            "choices": {
+                "none": "Sin margen",
+                "sm": "Pequeño",
+                "md": "Mediano"
+            },
+            "default_value": "none",
             "layout": "horizontal",
             "return_format": "value"
         }

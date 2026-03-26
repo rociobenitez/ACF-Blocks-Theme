@@ -1,5 +1,5 @@
 .footer-contact__item {
-	margin: var(--space-8) 0;
+	margin: var(--wp--preset--spacing--8) 0;
 	font-size: var(--wp--preset--font-size--14);
 }
 .footer-contact__address a {
@@ -9,10 +9,10 @@
 	text-decoration: underline;
 }
 .footer-contact__hours {
-	padding-top: var(--space-8);
+	padding-top: var(--wp--preset--spacing--8);
 	font-size: var(--wp--preset--font-size--14);
 	line-height: 1.4;
 }
 .footer-contact__placeholder {
-	color: var(--color-neutral-500);
+	color: var(--wp--preset--color--text-muted);
 }

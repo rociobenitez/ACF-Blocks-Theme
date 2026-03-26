@@ -1,0 +1,309 @@
+{
+    "key": "group_gallery",
+    "title": "Gallery",
+    "fields": [
+        {
+            "key": "field_gal_tab_header",
+            "label": "Encabezado",
+            "type": "tab",
+            "placement": "top",
+            "endpoint": 0
+        },
+        {
+            "key": "field_gal_tagline",
+            "label": "Tagline",
+            "name": "tagline",
+            "type": "text",
+            "instructions": "Texto corto junto al título. Opcional.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": { "width": "100", "class": "", "id": "" },
+            "placeholder": "Ej: Nuestras instalaciones",
+            "maxlength": 80
+        },
+        {
+            "key": "field_gal_tagline_position",
+            "label": "Posición del tagline",
+            "name": "tagline_position",
+            "type": "radio",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": { "width": "100", "class": "", "id": "" },
+            "choices": {
+                "above": "Encima del título",
+                "below": "Debajo del título"
+            },
+            "default_value": "above",
+            "layout": "horizontal",
+            "return_format": "value"
+        },
+        {
+            "key": "field_gal_tagline_tag",
+            "label": "Etiqueta del tagline",
+            "name": "tagline_tag",
+            "type": "radio",
+            "instructions": "Etiqueta HTML del tagline. Permite enmascarar un H2/H3 con estilo de tagline para SEO.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": { "width": "100", "class": "", "id": "" },
+            "choices": {
+                "p": "P",
+                "h2": "H2",
+                "h3": "H3"
+            },
+            "default_value": "p",
+            "layout": "horizontal",
+            "return_format": "value"
+        },
+        {
+            "key": "field_gal_title",
+            "label": "Título",
+            "name": "title",
+            "type": "text",
+            "instructions": "Título principal de la sección.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": { "width": "100", "class": "", "id": "" },
+            "placeholder": "Ej: Nuestra clínica de estética en Madrid"
+        },
+        {
+            "key": "field_gal_title_tag",
+            "label": "Etiqueta del título",
+            "name": "title_tag",
+            "type": "radio",
+            "instructions": "Etiqueta HTML del título. Afecta al SEO, no al estilo visual.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": { "width": "100", "class": "", "id": "" },
+            "choices": {
+                "h1": "H1",
+                "h2": "H2",
+                "h3": "H3",
+                "p": "P"
+            },
+            "default_value": "h2",
+            "layout": "horizontal",
+            "return_format": "value"
+        },
+        {
+            "key": "field_gal_description",
+            "label": "Descripción",
+            "name": "description",
+            "type": "wysiwyg",
+            "instructions": "Texto de apoyo. Opcional.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": { "width": "100", "class": "", "id": "" },
+            "tabs": "all",
+            "toolbar": "basic",
+            "media_upload": 0,
+            "delay": 0
+        },
+        {
+            "key": "field_gal_header_align",
+            "label": "Alineación del encabezado",
+            "name": "header_align",
+            "type": "radio",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": { "width": "100", "class": "", "id": "" },
+            "choices": {
+                "center": "Centrado",
+                "left": "Izquierda"
+            },
+            "default_value": "center",
+            "layout": "horizontal",
+            "return_format": "value"
+        },
+        {
+            "key": "field_gal_header_width",
+            "label": "Ancho del encabezado",
+            "name": "header_width",
+            "type": "radio",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": { "width": "100", "class": "", "id": "" },
+            "choices": {
+                "narrow": "Contenido (66%)",
+                "full": "Completo (100%)"
+            },
+            "default_value": "narrow",
+            "layout": "horizontal",
+            "return_format": "value"
+        },
+        {
+            "key": "field_gal_tab_gallery",
+            "label": "Galería",
+            "type": "tab",
+            "placement": "top",
+            "endpoint": 0
+        },
+        {
+            "key": "field_gal_images",
+            "label": "Imágenes",
+            "name": "images",
+            "type": "gallery",
+            "instructions": "Arrastra para reordenar. Se recomienda usar imágenes con dimensiones similares para una cuadrícula uniforme.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": { "width": "100", "class": "", "id": "" },
+            "return_format": "id",
+            "library": "all",
+            "min": 0,
+            "max": 30,
+            "min_width": 400,
+            "min_height": 300,
+            "mime_types": "jpg, jpeg, png, webp"
+        },
+        {
+            "key": "field_gal_tab_design",
+            "label": "Diseño",
+            "type": "tab",
+            "placement": "top",
+            "endpoint": 0
+        },
+        {
+            "key": "field_gal_columns",
+            "label": "Columnas",
+            "name": "columns",
+            "type": "radio",
+            "instructions": "Número de columnas en desktop. En tablet se reduce a 2, en móvil a 1.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": { "width": "50", "class": "", "id": "" },
+            "choices": {
+                "2": "2",
+                "3": "3",
+                "4": "4"
+            },
+            "default_value": "3",
+            "layout": "horizontal",
+            "return_format": "value"
+        },
+        {
+            "key": "field_gal_aspect_ratio",
+            "label": "Proporción de imagen",
+            "name": "aspect_ratio",
+            "type": "radio",
+            "instructions": "Define la proporción de las imágenes en la cuadrícula. \"Original\" mantiene las proporciones reales de cada imagen.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": { "width": "50", "class": "", "id": "" },
+            "choices": {
+                "original": "Original",
+                "1/1": "Cuadrada (1:1)",
+                "4/3": "Horizontal (4:3)",
+                "3/4": "Vertical (3:4)",
+                "16/9": "Panorámica (16:9)"
+            },
+            "default_value": "4/3",
+            "layout": "horizontal",
+            "return_format": "value"
+        },
+        {
+            "key": "field_gal_gap",
+            "label": "Espacio entre imágenes",
+            "name": "gap",
+            "type": "radio",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": { "width": "50", "class": "", "id": "" },
+            "choices": {
+                "none": "Sin espacio",
+                "sm": "Pequeño",
+                "md": "Normal",
+                "lg": "Grande"
+            },
+            "default_value": "sm",
+            "layout": "horizontal",
+            "return_format": "value"
+        },
+        {
+            "key": "field_gal_border_radius",
+            "label": "Bordes redondeados",
+            "name": "border_radius",
+            "type": "true_false",
+            "instructions": "Aplicar bordes redondeados a las imágenes.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": { "width": "50", "class": "", "id": "" },
+            "default_value": 1,
+            "ui": 1,
+            "ui_on_text": "Sí",
+            "ui_off_text": "No"
+        },
+        {
+            "key": "field_gal_lightbox",
+            "label": "Lightbox",
+            "name": "lightbox",
+            "type": "true_false",
+            "instructions": "Permitir ampliar imágenes al hacer clic.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": { "width": "50", "class": "", "id": "" },
+            "default_value": 1,
+            "ui": 1,
+            "ui_on_text": "Activado",
+            "ui_off_text": "Desactivado"
+        },
+        {
+            "key": "field_gal_bg_color",
+            "label": "Color de fondo",
+            "name": "bg_color",
+            "type": "radio",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": { "width": "50", "class": "", "id": "" },
+            "choices": {
+                "default": "Blanco",
+                "light": "Claro (beige)",
+                "dark": "Oscuro"
+            },
+            "default_value": "dark",
+            "layout": "horizontal",
+            "return_format": "value"
+        },
+        {
+            "key": "field_gal_padding_y",
+            "label": "Altura",
+            "name": "padding_y",
+            "type": "radio",
+            "instructions": "Espacio vertical de la sección.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": { "width": "50", "class": "", "id": "" },
+            "choices": {
+                "sm": "Compacto",
+                "md": "Normal",
+                "lg": "Grande"
+            },
+            "default_value": "md",
+            "layout": "horizontal",
+            "return_format": "value"
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "block",
+                "operator": "==",
+                "value": "acf/gallery"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": true,
+    "description": "Campos del bloque Gallery",
+    "show_in_rest": 0,
+    "modified": 1742900000
+}

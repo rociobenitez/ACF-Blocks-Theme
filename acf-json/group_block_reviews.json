@@ -1,0 +1,405 @@
+{
+    "key": "group_block_reviews",
+    "title": "Bloque Reseñas",
+    "fields": [
+        {
+            "key": "field_rv_tab_header",
+            "label": "Encabezado",
+            "type": "tab",
+            "placement": "top",
+            "endpoint": 0
+        },
+        {
+            "key": "field_rv_tagline",
+            "label": "Tagline",
+            "name": "tagline",
+            "type": "text",
+            "instructions": "Texto corto junto al titulo. Opcional.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": { "width": "100", "class": "", "id": "" },
+            "placeholder": "Ej: Lo que dicen nuestros pacientes",
+            "maxlength": 80
+        },
+        {
+            "key": "field_rv_tagline_position",
+            "label": "Posicion del tagline",
+            "name": "tagline_position",
+            "type": "radio",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": { "width": "100", "class": "", "id": "" },
+            "choices": {
+                "above": "Encima del titulo",
+                "below": "Debajo del titulo"
+            },
+            "default_value": "above",
+            "layout": "horizontal",
+            "return_format": "value"
+        },
+        {
+            "key": "field_rv_tagline_tag",
+            "label": "Etiqueta del tagline",
+            "name": "tagline_tag",
+            "type": "radio",
+            "instructions": "Etiqueta HTML del tagline. Permite enmascarar un H2/H3 con estilo de tagline para SEO.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": { "width": "100", "class": "", "id": "" },
+            "choices": {
+                "p": "P",
+                "h2": "H2",
+                "h3": "H3"
+            },
+            "default_value": "p",
+            "layout": "horizontal",
+            "return_format": "value"
+        },
+        {
+            "key": "field_rv_title",
+            "label": "Titulo",
+            "name": "title",
+            "type": "text",
+            "instructions": "Titulo principal de la seccion.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": { "width": "100", "class": "", "id": "" },
+            "placeholder": "Ej: Experiencias reales"
+        },
+        {
+            "key": "field_rv_title_tag",
+            "label": "Etiqueta del titulo",
+            "name": "title_tag",
+            "type": "radio",
+            "instructions": "Etiqueta HTML del titulo. Afecta al SEO, no al estilo visual.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": { "width": "100", "class": "", "id": "" },
+            "choices": {
+                "h1": "H1",
+                "h2": "H2",
+                "h3": "H3",
+                "p": "P"
+            },
+            "default_value": "h2",
+            "layout": "horizontal",
+            "return_format": "value"
+        },
+        {
+            "key": "field_rv_description",
+            "label": "Descripcion",
+            "name": "description",
+            "type": "wysiwyg",
+            "instructions": "Texto de apoyo. Opcional.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": { "width": "100", "class": "", "id": "" },
+            "tabs": "all",
+            "toolbar": "basic",
+            "media_upload": 0,
+            "delay": 0
+        },
+        {
+            "key": "field_rv_header_align",
+            "label": "Alineacion del encabezado",
+            "name": "header_align",
+            "type": "radio",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": { "width": "100", "class": "", "id": "" },
+            "choices": {
+                "center": "Centrado",
+                "left": "Izquierda"
+            },
+            "default_value": "center",
+            "layout": "horizontal",
+            "return_format": "value"
+        },
+        {
+            "key": "field_rv_header_width",
+            "label": "Ancho del encabezado",
+            "name": "header_width",
+            "type": "radio",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": { "width": "100", "class": "", "id": "" },
+            "choices": {
+                "narrow": "Contenido (66%)",
+                "full": "Completo (100%)"
+            },
+            "default_value": "narrow",
+            "layout": "horizontal",
+            "return_format": "value"
+        },
+        {
+            "key": "field_rv_tab_content",
+            "label": "Contenido",
+            "type": "tab",
+            "placement": "top",
+            "endpoint": 0
+        },
+        {
+            "key": "field_rv_source_info",
+            "label": "Fuente de resenas",
+            "name": "",
+            "type": "message",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": { "width": "100", "class": "", "id": "" },
+            "message": "El estilo <strong>Google</strong> usa el shortcode y enlace configurados en la <a href=\"/wp-admin/admin.php?page=theme-options\">pagina de opciones</a>. Los estilos <strong>Testimonios</strong> y <strong>Cards</strong> usan las resenas manuales de abajo.",
+            "new_lines": "wpautop"
+        },
+        {
+            "key": "field_rv_items",
+            "label": "Resenas manuales",
+            "name": "items",
+            "type": "repeater",
+            "instructions": "Solo se usan en los estilos Testimonios y Cards.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": { "width": "100", "class": "", "id": "" },
+            "min": 1,
+            "max": 12,
+            "layout": "block",
+            "button_label": "Anadir resena",
+            "sub_fields": [
+                {
+                    "key": "field_rv_item_photo",
+                    "label": "Foto",
+                    "name": "photo",
+                    "type": "image",
+                    "instructions": "Opcional. Recomendado para el estilo Testimonios.",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": { "width": "100", "class": "", "id": "" },
+                    "return_format": "id",
+                    "library": "all",
+                    "min_width": "",
+                    "min_height": "",
+                    "max_width": "",
+                    "max_height": "",
+                    "mime_types": "jpg,jpeg,png,webp",
+                    "preview_size": "medium"
+                },
+                {
+                    "key": "field_rv_item_quote",
+                    "label": "Cita",
+                    "name": "quote",
+                    "type": "textarea",
+                    "instructions": "El texto de la resena.",
+                    "required": 1,
+                    "conditional_logic": 0,
+                    "wrapper": { "width": "100", "class": "", "id": "" },
+                    "rows": 3,
+                    "maxlength": 500,
+                    "new_lines": ""
+                },
+                {
+                    "key": "field_rv_item_author",
+                    "label": "Nombre",
+                    "name": "author",
+                    "type": "text",
+                    "instructions": "",
+                    "required": 1,
+                    "conditional_logic": 0,
+                    "wrapper": { "width": "100", "class": "", "id": "" },
+                    "placeholder": "Ej: María García"
+                },
+                {
+                    "key": "field_rv_item_role",
+                    "label": "Rol / Detalle",
+                    "name": "role",
+                    "type": "text",
+                    "instructions": "Opcional. Ej: Paciente, Cliente desde 2023.",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": { "width": "100", "class": "", "id": "" },
+                    "placeholder": "Ej: Paciente"
+                }
+            ]
+        },
+        {
+            "key": "field_rv_tab_design",
+            "label": "Diseño",
+            "type": "tab",
+            "placement": "top",
+            "endpoint": 0
+        },
+        {
+            "key": "field_rv_columns",
+            "label": "Columnas",
+            "name": "columns",
+            "type": "radio",
+            "instructions": "Testimonios: resenas por fila en desktop. Cards: columnas del grid.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": { "width": "100", "class": "", "id": "" },
+            "choices": {
+                "1": "1",
+                "2": "2",
+                "3": "3"
+            },
+            "default_value": "2",
+            "layout": "horizontal",
+            "return_format": "value"
+        },
+        {
+            "key": "field_rv_testimonial_accent",
+            "label": "Color del panel de cita (Testimonios)",
+            "name": "testimonial_accent",
+            "type": "radio",
+            "instructions": "Color de fondo del panel de texto en el estilo Testimonios.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": { "width": "100", "class": "", "id": "" },
+            "choices": {
+                "primary": "Primary (oscuro)",
+                "accent": "Accent (color marca)",
+                "light": "Claro (beige)",
+                "alternate": "Alternos (oscuro / claro)"
+            },
+            "default_value": "alternate",
+            "layout": "horizontal",
+            "return_format": "value"
+        },
+        {
+            "key": "field_rv_card_align",
+            "label": "Alineación del contenido",
+            "name": "card_align",
+            "type": "radio",
+            "instructions": "Alineación del texto, nombre y rol dentro de la card.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": { "width": "100", "class": "", "id": "" },
+            "choices": {
+                "left": "Izquierda",
+                "center": "Centrado"
+            },
+            "default_value": "left",
+            "layout": "horizontal",
+            "return_format": "value"
+        },
+        {
+            "key": "field_rv_card_radius",
+            "label": "Bordes de la card",
+            "name": "card_radius",
+            "type": "radio",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": { "width": "100", "class": "", "id": "" },
+            "choices": {
+                "rounded": "Redondeado",
+                "square": "Cuadrado"
+            },
+            "default_value": "rounded",
+            "layout": "horizontal",
+            "return_format": "value"
+        },
+        {
+            "key": "field_rv_bg_color",
+            "label": "Color de fondo",
+            "name": "bg_color",
+            "type": "radio",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": { "width": "100", "class": "", "id": "" },
+            "choices": {
+                "default": "Blanco",
+                "light": "Claro (beige)"
+            },
+            "default_value": "default",
+            "layout": "horizontal",
+            "return_format": "value"
+        },
+        {
+            "key": "field_rv_padding_y",
+            "label": "Altura",
+            "name": "padding_y",
+            "type": "radio",
+            "instructions": "Espacio vertical de la seccion.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": { "width": "100", "class": "", "id": "" },
+            "choices": {
+                "sm": "Compacto",
+                "md": "Normal",
+                "lg": "Grande"
+            },
+            "default_value": "md",
+            "layout": "horizontal",
+            "return_format": "value"
+        },
+        {
+            "key": "field_rv_cta",
+            "label": "Boton inferior (manual)",
+            "name": "cta",
+            "type": "link",
+            "instructions": "Boton opcional debajo de las resenas manuales. En el estilo Google el boton se genera automaticamente desde opciones.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": { "width": "100", "class": "", "id": "" },
+            "return_format": "array"
+        },
+        {
+            "key": "field_rv_cta_size",
+            "label": "Tamano del boton",
+            "name": "cta_size",
+            "type": "radio",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": { "width": "100", "class": "", "id": "" },
+            "choices": {
+                "sm": "Pequeno",
+                "md": "Mediano",
+                "lg": "Grande"
+            },
+            "default_value": "md",
+            "layout": "horizontal",
+            "return_format": "value"
+        },
+        {
+            "key": "field_rv_cta_style",
+            "label": "Estilo del boton",
+            "name": "cta_style",
+            "type": "radio",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": { "width": "100", "class": "", "id": "" },
+            "choices": {
+                "primary": "Primary",
+                "secondary": "Secondary",
+                "outline": "Outline"
+            },
+            "default_value": "primary",
+            "layout": "horizontal",
+            "return_format": "value"
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "block",
+                "operator": "==",
+                "value": "acf/reviews"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": true,
+    "description": "Campos del bloque Resenas",
+    "show_in_rest": 0,
+    "modified": 1742900000
+}

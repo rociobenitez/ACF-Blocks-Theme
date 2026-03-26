@@ -1,33 +1,38 @@
 {
-	"$schema": "https://schemas.wp.org/trunk/block.json",
-	"apiVersion": 3,
-	"name": "acf/recent-posts",
-    "version": "0.1.0",
-	"title": "Últimas Entradas del Blog",
-	"category": "theme",
-	"icon": "admin-post",
-	"description": "Muestra automáticamente las entradas más recientes del blog",
-	"keywords": ["blog", "posts", "entradas", "recientes", "últimas"],
-	"supports": {
-		"align": ["wide", "full"],
-		"anchor": true,
-		"customClassName": true,
-		"jsx": true
-	},
-    "acf": {
-        "mode": "preview",
-        "renderTemplate": "render.php",
-        "validate": false,
-        "blockVersion": 3
-    },
-	"example": {
-		"attributes": {
-			"mode": "preview",
-			"data": {
-				"posts_count": "3"
-			}
-		}
-	},
-	"style": "file:./style.css",
-	"editorStyle": "file:./editor.css"
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "acf/recent-posts",
+  "version": "1.0.0",
+  "title": "Últimas Entradas del Blog",
+  "category": "theme",
+  "icon": "admin-post",
+  "description": "Muestra automáticamente las entradas más recientes del blog. Estilos: cards, minimal u overlay.",
+  "keywords": ["blog", "posts", "entradas", "recientes", "últimas"],
+  "supports": {
+    "align": ["full"],
+    "anchor": true,
+    "className": true,
+    "spacing": { "margin": false, "padding": false },
+    "color": { "background": false, "text": false, "gradients": false },
+    "typography": { "fontSize": false, "lineHeight": false }
+  },
+  "attributes": {
+    "align": {
+      "type": "string",
+      "default": "full"
+    }
+  },
+  "styles": [
+    { "name": "cards",   "label": "Cards (tarjeta con sombra)", "isDefault": true },
+    { "name": "minimal", "label": "Minimal (imagen + título)" },
+    { "name": "overlay", "label": "Overlay (título sobre imagen)" }
+  ],
+  "acf": {
+    "mode": "preview",
+    "renderTemplate": "render.php",
+    "validate": false,
+    "blockVersion": 3
+  },
+  "style": "file:./style.css",
+  "editorStyle": "file:./editor.css"
 }

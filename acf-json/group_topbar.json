@@ -1,0 +1,42 @@
+{
+    "key": "group_topbar",
+    "title": "Topbar",
+    "fields": [
+        {
+            "key": "field_tb_layout",
+            "label": "Layout del topbar",
+            "name": "topbar_layout",
+            "type": "radio",
+            "instructions": "Elige qué información mostrar. Los datos se leen de Opciones Generales; si un campo está vacío, no se muestra.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": { "width": "100", "class": "", "id": "" },
+            "choices": {
+                "off": "Desactivado (no mostrar topbar)",
+                "promo": "Promoción (texto centrado)",
+                "contact": "Contacto izquierda + Redes derecha",
+                "address-contact": "Dirección izquierda + Contacto derecha",
+                "social-contact": "Redes izquierda + Contacto derecha"
+            },
+            "default_value": "contact",
+            "layout": "vertical",
+            "return_format": "value"
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "block",
+                "operator": "==",
+                "value": "acf/topbar"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "active": true,
+    "description": "Campos del bloque Topbar"
+}

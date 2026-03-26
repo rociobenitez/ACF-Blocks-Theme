@@ -3,9 +3,9 @@
 .contact-cta {
   --contact-form-padding: 3rem;
   --contact-form-gap: 2rem;
-  --contact-form-bg: #f8f9fa;
+  --contact-form-bg: var(--wp--preset--color--bg-secondary);
   --contact-form-overlay: rgba(0, 0, 0, 0.6);
-  --contact-form-text-color: #333;
+  --contact-form-text-color: var(--wp--preset--color--text);
   --contact-form-radius: 0;
   
   position: relative;
@@ -39,7 +39,7 @@
   font-weight: 600;
   text-transform: uppercase;
   letter-spacing: 0.05em;
-  color: var(--color-neutral-500);
+  color: var(--wp--preset--color--text-muted);
   margin: 0;
 }
 
@@ -47,7 +47,7 @@
   font-size: 2.5rem;
   font-weight: 700;
   line-height: 1.2;
-  margin-top: var(--space-8);
+  margin-top: var(--wp--preset--spacing--8);
   margin-bottom: 0;
 }
 
@@ -172,12 +172,12 @@
 .contact-cta input[type="tel"],
 .contact-cta textarea {
   width: 100%;
-  padding: var(--space-16);
+  padding: var(--wp--preset--spacing--16);
   border: 2px solid transparent;
-  border-radius: var(--radius-4);
+  border-radius: var(--wp--custom--radius--4);
   background-color: rgba(255, 255, 255, 0.9);
-  font-size: var(--fs16);
-  transition: all 0.3s ease;
+  font-size: var(--wp--preset--font-size--16);
+  transition: all var(--wp--custom--motion--duration--base) var(--wp--custom--motion--easing--standard);
 }
 
 .contact-cta input[type="text"]:focus,
@@ -185,27 +185,27 @@
 .contact-cta input[type="tel"]:focus,
 .contact-cta textarea:focus {
   outline: none;
-  border-color: var(--color-primary-500);
-  background-color: white;
+  border-color: var(--wp--preset--color--primary);
+  background-color: var(--wp--preset--color--white);
   box-shadow: 0 0 0 3px rgba(0, 124, 186, 0.1);
 }
 
 .contact-cta .gform_button,
 .contact-cta input[type="submit"] {
-  background-color: var(--color-dark)!important;
-  color: var(--color-white);
+  background-color: var(--wp--preset--color--bg-dark)!important;
+  color: var(--wp--preset--color--white);
   border: none;
-  padding: var(--space-16) var(--space-32);
+  padding: var(--wp--preset--spacing--16) var(--wp--preset--spacing--32);
   border-radius: 0!important;
   font-weight: 600;
-  font-size: var(--fs16);
+  font-size: var(--wp--preset--font-size--16);
   cursor: pointer;
-  transition: all 0.3s ease;
+  transition: all var(--wp--custom--motion--duration--base) var(--wp--custom--motion--easing--standard);
   width: 100%;
-  margin-top: var(--space-16);
+  margin-top: var(--wp--preset--spacing--16);
 
   &:hover {
-    background-color: var(--color-neutral-800);
+    background-color: var(--wp--preset--color--text-body);
     transform: translateY(-2px);
     box-shadow: 0 4px 12px rgba(0, 124, 186, 0.3);
   }
@@ -213,7 +213,7 @@
 
 .gfield_required {
   color: var(--color-error-500);
-  margin-left: var(--space-2);
+  margin-left: var(--wp--preset--spacing--2);
 }
 
 /* Placeholder styling for when no form is selected */
@@ -273,7 +273,7 @@
   }
   
   .contact-cta__title {
-    font-size: var(--fs32);
+    font-size: var(--wp--preset--font-size--32);
   }
   
   .contact-cta .gform_wrapper .gform_button,

@@ -1,0 +1,26 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "acf/header-cta",
+  "version": "1.0.0",
+  "title": "Header — Botones CTA",
+  "description": "Botones de acción del header. Lee los datos de Opciones Generales → Header. Solo visible en layout «Centrado».",
+  "category": "theme",
+  "icon": "button",
+  "keywords": ["header", "cta", "botón"],
+  "supports": {
+    "align": false,
+    "anchor": false,
+    "className": true,
+    "spacing": { "margin": false, "padding": false },
+    "color": { "background": false, "text": false },
+    "typography": false,
+    "inserter": false
+  },
+  "acf": {
+    "mode": "preview",
+    "renderTemplate": "render.php",
+    "validate": false,
+    "blockVersion": 3
+  }
+}

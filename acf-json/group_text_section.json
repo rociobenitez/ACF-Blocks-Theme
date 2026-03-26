@@ -1,0 +1,123 @@
+{
+	"key": "group_text_section",
+	"title": "Sección de Texto",
+	"fields": [
+		{
+			"key": "field_ts_tagline",
+			"label": "Tagline (texto pequeño encima del título)",
+			"name": "ts_tagline",
+			"type": "text",
+			"instructions": "Ej: 'Por qué elegirnos' | 'Nuestros servicios' | 'Acerca de nosotros'",
+			"required": 0,
+			"placeholder": "Tagline opcional"
+		},
+		{
+			"key": "field_ts_heading",
+			"label": "Título",
+			"name": "ts_heading",
+			"type": "text",
+			"required": 0,
+			"placeholder": "Título de la sección"
+		},
+		{
+			"key": "field_ts_heading_tag",
+			"label": "Etiqueta HTML del título",
+			"name": "ts_heading_tag",
+			"type": "select",
+			"required": 0,
+			"choices": {
+				"h1": "H1",
+				"h2": "H2",
+				"h3": "H3",
+				"p": "P"
+			},
+			"default_value": "h2",
+			"instructions": "Usa H1 solo si es el único heading principal de la página."
+		},
+		{
+			"key": "field_ts_body",
+			"label": "Cuerpo de texto",
+			"name": "ts_body",
+			"type": "wysiwyg",
+			"required": 0,
+			"media_upload": 0,
+			"toolbar": "basic",
+			"instructions": "No disponible en la variante 'Heading grande'."
+		},
+		{
+			"key": "field_ts_cta_label",
+			"label": "Texto del botón CTA",
+			"name": "ts_cta_label",
+			"type": "text",
+			"required": 0,
+			"placeholder": "Ej: Saber más, Contactar"
+		},
+		{
+			"key": "field_ts_cta_url",
+			"label": "URL del botón CTA",
+			"name": "ts_cta_url",
+			"type": "url",
+			"required": 0
+		},
+		{
+			"key": "field_ts_cta_style",
+			"label": "Estilo del botón",
+			"name": "ts_cta_style",
+			"type": "select",
+			"required": 0,
+			"choices": {
+				"primary": "Primario (fondo color)",
+				"secondary": "Secundario (borde color)",
+				"ghost": "Ghost (borde neutro)"
+			},
+			"default_value": "primary"
+		},
+		{
+			"key": "field_ts_items",
+			"label": "Items de la lista",
+			"name": "ts_items",
+			"type": "repeater",
+			"instructions": "Solo para la variante 'Lista de features'.",
+			"required": 0,
+			"layout": "block",
+			"button_label": "Añadir item",
+			"sub_fields": [
+				{
+					"key": "field_ts_item_icon",
+					"label": "Icono / símbolo",
+					"name": "ts_item_icon",
+					"type": "text",
+					"instructions": "Un emoji, símbolo o letra. Ej: ✦ ✓ → 01",
+					"required": 0,
+					"placeholder": "✦"
+				},
+				{
+					"key": "field_ts_item_title",
+					"label": "Título del item",
+					"name": "ts_item_title",
+					"type": "text",
+					"required": 1
+				},
+				{
+					"key": "field_ts_item_body",
+					"label": "Descripción del item",
+					"name": "ts_item_body",
+					"type": "textarea",
+					"required": 0,
+					"rows": 2
+				}
+			]
+		}
+	],
+	"location": [
+		[
+			{
+				"param": "block",
+				"operator": "==",
+				"value": "acf/text-section"
+			}
+		]
+	],
+	"style": "seamless",
+	"active": true
+}

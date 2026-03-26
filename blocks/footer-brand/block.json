@@ -1,0 +1,23 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "acf/footer-brand",
+  "version": "1.0.0",
+  "title": "Footer · Marca",
+  "description": "Tagline, botón CTA y redes sociales del footer. Lee los datos de Opciones Generales.",
+  "category": "theme",
+  "icon": "info-outline",
+  "keywords": ["footer", "marca", "tagline", "social"],
+  "supports": {
+    "align": false,
+    "anchor": false,
+    "className": true,
+    "inserter": false
+  },
+  "acf": {
+    "mode": "preview",
+    "renderTemplate": "render.php",
+    "validate": false,
+    "blockVersion": 3
+  }
+}

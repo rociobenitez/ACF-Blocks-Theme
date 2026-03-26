@@ -1,0 +1,37 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "acf/feature-list",
+  "version": "1.0.0",
+  "title": "Feature List",
+  "category": "theme",
+  "icon": "list-view",
+  "description": "Lista de características o motivos con encabezado. Estilos: split (2 columnas) o cards (grid).",
+  "keywords": ["features", "lista", "motivos", "beneficios", "cards"],
+  "supports": {
+    "align": ["full"],
+    "anchor": true,
+    "className": true,
+    "spacing": { "margin": false, "padding": false },
+    "color": { "background": false, "text": false, "gradients": false },
+    "typography": { "fontSize": false, "lineHeight": false }
+  },
+  "attributes": {
+    "align": {
+      "type": "string",
+      "default": "full"
+    }
+  },
+  "acf": {
+    "mode": "preview",
+    "renderTemplate": "render.php",
+    "validate": false,
+    "blockVersion": 3
+  },
+  "styles": [
+    { "name": "split", "label": "Split (2 columnas)", "isDefault": true },
+    { "name": "cards", "label": "Cards" }
+  ],
+  "style": "file:./style.css",
+  "editorStyle": "file:./editor.css"
+}

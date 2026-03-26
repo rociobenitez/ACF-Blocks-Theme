@@ -1,0 +1,23 @@
+{
+	"version": 3,
+	"title": "Neutral",
+	"settings": {
+		"color": {
+			"palette": [
+				{ "name": "White", "slug": "white", "color": "#FFFFFF" },
+				{ "name": "Black", "slug": "black", "color": "#000000" },
+				{ "name": "Background", "slug": "bg", "color": "#FAFAFA" },
+				{ "name": "Background Secondary", "slug": "bg-secondary", "color": "#F4F4F5" },
+				{ "name": "Background Dark", "slug": "bg-dark", "color": "#18181B" },
+				{ "name": "Primary", "slug": "primary", "color": "#3F3F46" },
+				{ "name": "Primary Dark", "slug": "primary-dark", "color": "#27272A" },
+				{ "name": "Accent", "slug": "accent", "color": "#71717A" },
+				{ "name": "Text", "slug": "text", "color": "#18181B" },
+				{ "name": "Text Body", "slug": "text-body", "color": "#3F3F46" },
+				{ "name": "Text Heading", "slug": "text-heading", "color": "#18181B" },
+				{ "name": "Text Muted", "slug": "text-muted", "color": "#A1A1AA" },
+				{ "name": "Border", "slug": "border", "color": "#E4E4E7" }
+			]
+		}
+	}
+}

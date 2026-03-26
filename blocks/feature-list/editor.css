@@ -1,0 +1,128 @@
+/* Feature List — Editor styles
+   Duplicates key rules from main.css for the editor iframe. */
+
+/* Force full-width in editor iframe (mimics alignfull) */
+.wp-block-acf-feature-list {
+	display: flex !important;
+}
+
+/* Container full-width in editor */
+.wp-block-acf-feature-list .container {
+	padding-left: var(--wp--preset--spacing--16, 1rem);
+	padding-right: var(--wp--preset--spacing--16, 1rem);
+}
+
+/* Prevent link clicks in editor preview */
+.wp-block-acf-feature-list .feature-list__item-link {
+	pointer-events: none;
+}
+
+/* =================================================================
+   Header Section
+   ================================================================= */
+
+.wp-block-acf-feature-list .header-section {
+	margin-bottom: 2rem;
+}
+
+.wp-block-acf-feature-list .header-section--align-center {
+	text-align: center;
+}
+
+.wp-block-acf-feature-list .header-section--align-left {
+	text-align: left;
+}
+
+.wp-block-acf-feature-list .header-section--width-narrow {
+	max-width: 66.666%;
+}
+
+.wp-block-acf-feature-list
+	.header-section--align-center.header-section--width-narrow {
+	margin-inline: auto;
+}
+
+.wp-block-acf-feature-list .header-section--width-full {
+	max-width: 100%;
+}
+
+/* Title */
+.wp-block-acf-feature-list .header-section__title {
+	font-family: var(--wp--preset--font-family--primary);
+	font-size: 1.5rem;
+	font-weight: 500;
+	line-height: 1.2;
+	letter-spacing: 0.03rem;
+	text-transform: uppercase;
+	text-wrap: balance;
+	color: var(--wp--preset--color--text-heading);
+	margin: 0 0 1rem;
+}
+
+/* Description */
+.wp-block-acf-feature-list .header-section__description {
+	font-size: 1rem;
+	line-height: 1.6;
+	color: var(--wp--preset--color--text-body);
+	margin: 0;
+}
+
+.wp-block-acf-feature-list
+	.header-section--align-center
+	.header-section__description {
+	max-width: 90%;
+	margin-inline: auto;
+}
+
+/* =================================================================
+   Buttons
+   ================================================================= */
+
+.wp-block-acf-feature-list .btn {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	padding: 0.75rem 1.5rem;
+	font-weight: 500;
+	font-size: 1rem;
+	line-height: 1.5;
+	text-decoration: none;
+	border: 2px solid transparent;
+	border-radius: var(--wp--custom--radius--2);
+	cursor: default;
+	white-space: nowrap;
+	pointer-events: none;
+}
+
+.wp-block-acf-feature-list .btn--sm {
+	padding: 0.5rem 1rem;
+	font-size: 0.875rem;
+}
+
+.wp-block-acf-feature-list .btn--md {
+	padding: 0.75rem 1.5rem;
+	font-size: 1rem;
+}
+
+.wp-block-acf-feature-list .btn--lg {
+	padding: 1rem 2rem;
+	font-size: 1.125rem;
+}
+
+.wp-block-acf-feature-list .btn--primary {
+	background-color: var(--wp--preset--color--primary);
+	color: var(--wp--preset--color--white);
+	border-color: var(--wp--preset--color--primary);
+}
+
+.wp-block-acf-feature-list .btn--secondary {
+	background-color: var(--wp--preset--color--accent);
+	color: var(--wp--preset--color--white);
+	border-color: var(--wp--preset--color--accent);
+}
+
+.wp-block-acf-feature-list .btn--outline {
+	background-color: transparent;
+	color: var(--wp--preset--color--text);
+	border-color: var(--wp--preset--color--text);
+}

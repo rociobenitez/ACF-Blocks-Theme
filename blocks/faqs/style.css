@@ -1,11 +1,11 @@
 /* Layout base */
 .faq {
-	padding-block: var(--space-16);
-	margin-block: var(--space-32);
+	padding-block: var(--wp--preset--spacing--16);
+	margin-block: var(--wp--preset--spacing--32);
 }
 .faq__inner {
 	display: grid;
-	gap: var(--space-16, 1rem);
+	gap: var(--wp--preset--spacing--16, 1rem);
 	padding: 1.35rem 1.55rem;
 }
 
@@ -68,12 +68,12 @@
 .faq__item {
 	border-bottom: 1px solid rgba(0, 0, 0, 0.08);
 	border-radius: 0;
-	background: var(--color-white);
+	background: var(--wp--preset--color--white);
 	overflow: clip;
 }
 
 .faq__heading {
-	font-size: var(--fs18);
+	font-size: var(--wp--preset--font-size--18);
 }
 
 /* Trigger */
@@ -86,17 +86,17 @@
 	border: 0;
 	width: 100%;
 	text-align: left;
-	padding: var(--space-10) var(--space-24);
+	padding: var(--wp--preset--spacing--10) var(--wp--preset--spacing--24);
 	display: grid;
 	grid-template-columns: auto 1.25rem;
 	gap: 0.5rem;
 	align-items: center;
 	font: inherit;
-	color: var(--color-neutral-900);
+	color: var(--wp--preset--color--text);
 	cursor: pointer;
 }
 .faq__trigger:hover {
-	background: var(--color-neutral-50);
+	background: var(--wp--preset--color--bg-secondary);
 }
 .faq__trigger:focus {
 	outline: none;
@@ -112,23 +112,23 @@
 	width: 1.5rem;
 	height: 1.55rem;
 	position: relative;
-	transition: transform 0.3s ease;
+	transition: transform var(--wp--custom--motion--duration--base) var(--wp--custom--motion--easing--standard);
 }
 
 /* Question text */
 .faq__question {
 	display: block;;
 	font-weight: 600;
-	margin-right: var(--space-8);
-	font-size: var(--fs15);
+	margin-right: var(--wp--preset--spacing--8);
+	font-size: 0.9375rem;
 }
 
 /* Panel */
 .faq__panel {
-	padding: var(--space-10) var(--space-24) var(--space-20);
+	padding: var(--wp--preset--spacing--10) var(--wp--preset--spacing--24) var(--wp--preset--spacing--20);
 }
 .faq__answer {
-	color: var(--color-text, inherit);
+	color: var(--wp--preset--color--text, inherit);
 	line-height: 1.6;
 }
 .faq__answer a {
@@ -138,6 +138,6 @@
 
 @media (prefers-reduced-motion: no-preference) {
   .faq__icon {
-    transition: transform .3s ease;
+    transition: transform var(--wp--custom--motion--duration--base) var(--wp--custom--motion--easing--standard);
   }
 }
